@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cierremexicano.netlify.app/sitemap.xml
