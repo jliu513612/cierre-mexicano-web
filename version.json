@@ -1,0 +1,9 @@
+{
+  "version": "1.0.18",
+  "fecha": "2026-07-10",
+  "notas_es": "Linaje del cálculo: doble clic en cualquier cifra del Cierre o la DIOT muestra las facturas exactas que la componen, con cuadre al centavo. El Excel entregable incluye las hojas 'Fundamentos del cálculo' y 'Soporte del cálculo'. Además: DIOT en el formato oficial de 54 campos, tarjeta de Salud del cliente, exención de salario mínimo en nómina y captura por sueldo diario.",
+  "notas_en": "Calculation lineage: double-click any figure in the monthly close or DIOT to see the exact invoices behind it, reconciled to the cent. Deliverable Excel now includes 'Fundamentos del calculo' and 'Soporte del calculo' sheets. Plus: DIOT in the official 54-field layout, Client health card, minimum-wage payroll exemption and daily-wage capture.",
+  "url_descarga": "https://github.com/jliu513612/cierre-mexicano-releases/releases/download/v1.0.18/CierreMexicano_dist.zip",
+  "sha256": "bb5ee43251cde6579ed782d6d93a875d9a315242ff04ece962daf74c513739dc",
+  "tamano_bytes": 135961437
+}
