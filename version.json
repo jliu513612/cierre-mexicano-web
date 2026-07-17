@@ -1,9 +1,9 @@
 {
-  "version": "1.0.29",
+  "version": "1.0.30",
   "fecha": "2026-07-17",
-  "notas_es": "Modo despacho más fácil: nuevo asistente para conectar cada equipo (diagnóstico guiado que dice qué falla y qué hacer), soporte de VPN para despachos con varias sedes, e instalación simplificada con desbloqueo en un clic. Incluye el anexo de fórmulas de cálculo con fundamento legal y mejoras de estabilidad del modo multi-puesto.",
-  "notas_en": "Easier office mode: new wizard to connect each workstation (guided diagnosis that tells you what fails and what to do), VPN support for multi-site firms, and simplified install with one-click unblocking. Includes the calculation-formulas annex with legal basis and multi-seat stability improvements.",
-  "url_descarga": "https://github.com/jliu513612/cierre-mexicano-releases/releases/download/v1.0.29/CierreMexicano_dist.zip",
-  "sha256": "e4e7794a385689828b51be4a83fe06825f001e2565c6daa27b57678b41971d4c",
-  "tamano_bytes": 133649580
+  "notas_es": "Consentimientos claros en el momento de la acción: la aplicación pide su autorización explícita antes de usar la e.firma, antes de consumir el cupo de descarga histórica del SAT (irreversible) y antes de respaldar a la nube. Nómina: factor de integración del SBC actualizado por año conforme a la reforma de vacaciones dignas (1.0493 desde 2023). REP: la fecha límite de emisión se valida al quinto día natural del mes siguiente, conforme a la regla vigente.",
+  "notas_en": "Clear in-context consents: the app asks for your explicit authorization before using the e.firma, before consuming the SAT historical download quota (irreversible), and before backing up to the cloud. Payroll: SBC integration factor now versioned by year per the 'vacaciones dignas' reform (1.0493 from 2023). REP: issuance deadline validated at the fifth calendar day of the following month, per the current rule.",
+  "url_descarga": "https://github.com/jliu513612/cierre-mexicano-releases/releases/download/v1.0.30/CierreMexicano_dist.zip",
+  "sha256": "6a59bfbcaec8b2c4968e1dbdc314e2cda8fec5f9309bf2d769efc7ac071022f0",
+  "tamano_bytes": 133655397
 }
