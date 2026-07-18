@@ -1,9 +1,9 @@
 {
-  "version": "1.0.30",
-  "fecha": "2026-07-17",
-  "notas_es": "Consentimientos claros en el momento de la acción: la aplicación pide su autorización explícita antes de usar la e.firma, antes de consumir el cupo de descarga histórica del SAT (irreversible) y antes de respaldar a la nube. Nómina: factor de integración del SBC actualizado por año conforme a la reforma de vacaciones dignas (1.0493 desde 2023). REP: la fecha límite de emisión se valida al quinto día natural del mes siguiente, conforme a la regla vigente.",
-  "notas_en": "Clear in-context consents: the app asks for your explicit authorization before using the e.firma, before consuming the SAT historical download quota (irreversible), and before backing up to the cloud. Payroll: SBC integration factor now versioned by year per the 'vacaciones dignas' reform (1.0493 from 2023). REP: issuance deadline validated at the fifth calendar day of the following month, per the current rule.",
-  "url_descarga": "https://github.com/jliu513612/cierre-mexicano-releases/releases/download/v1.0.30/CierreMexicano_dist.zip",
-  "sha256": "6a59bfbcaec8b2c4968e1dbdc314e2cda8fec5f9309bf2d769efc7ac071022f0",
-  "tamano_bytes": 133655397
+  "version": "1.0.31",
+  "fecha": "2026-07-18",
+  "notas_es": "Estados de cuenta escaneados se leen sin instalar nada: el motor de OCR en español ya viene incluido. Manual de usuario integrado (menú Más → Manual). Pólizas del banco exportables, cotización de regularización exportable y alertas ordenadas por monto. Recargos y actualización automáticos al declarar fuera de plazo. Corrección de fuente de datos: el INPC ahora se toma del índice general oficial (los factores de actualización salían ligeramente bajos). Tarifas ISR históricas 2022-2025 para recalcular ejercicios previos con la tabla de su año.",
+  "notas_en": "Scanned bank statements now read out of the box: the Spanish OCR engine ships included. Built-in user manual (More menu → Manual). Exportable bank journal entries, exportable regularization quote, and alerts sorted by amount. Automatic surcharges and inflation update when filing late. Data-source fix: the CPI now comes from the official general index (restatement factors were running slightly low). Historical income-tax tariffs 2022-2025 to recompute prior years with that year's table.",
+  "url_descarga": "https://github.com/jliu513612/cierre-mexicano-releases/releases/download/v1.0.31/CierreMexicano_dist.zip",
+  "sha256": "0240a19962e47515308a4083da6b377c5714ceec71006dddb4fb98a669a26081",
+  "tamano_bytes": 204170870
 }
