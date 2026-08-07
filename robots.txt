@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cierremexicano.netlify.app/sitemap.xml
+Sitemap: https://taxcerteza.mx/sitemap.xml
