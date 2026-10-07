@@ -102,6 +102,31 @@
   .cta-band .btn-primary{background:#fff;color:var(--brand-d)}
   .cta-band .btn-primary:hover{background:#F1F5F9}
 
+  /* Instalación en 3 pasos */
+  .install{margin-top:56px}
+  .install .sec-sub{margin-bottom:32px}
+  .inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .ins{display:flex;flex-direction:column;padding:16px 16px 22px}
+  .ins figure{margin:0 0 14px}
+  .ins .ilu{display:block;width:100%;height:auto;background:var(--bg);
+    border:1px solid var(--line);border-radius:10px}
+  .ins figcaption{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic}
+  .ins-h{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .ins-h .n{margin-bottom:0;flex:none}
+  .ins-h h3{margin:0;line-height:1.25}
+  .ins p b{color:var(--ink)}
+  .inst-notes{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  .inst-note{background:var(--light);border:1px solid var(--line);border-left:4px solid var(--brand);
+    border-radius:12px;padding:16px 20px;font-size:14.5px;color:#334155}
+  .inst-note.warn{background:#FFFBEB;border-left-color:var(--amber)}
+  .inst-note b{color:var(--ink)}
+  .inst-verif{margin-top:16px;font-size:14px;color:var(--muted)}
+  .inst-verif summary{cursor:pointer;font-weight:600;color:var(--brand-d)}
+  .inst-verif code{display:block;margin-top:8px;padding:10px 12px;background:var(--bg);
+    border:1px solid var(--line);border-radius:8px;font-size:12.5px;word-break:break-all;color:var(--ink)}
+  @media(max-width:860px){.inst-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+    .inst-notes{grid-template-columns:1fr}}
+
   /* Footer */
   footer{padding:46px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
@@ -249,6 +274,111 @@
       <a class="btn btn-primary" href="https://github.com/jliu513612/cierre-mexicano-releases/releases/latest/download/CierreMexicano_dist.zip">1 · Descargar para Windows</a>
       <a class="btn" style="background:transparent;color:#fff;border:1.6px solid rgba(255,255,255,.65)" href="https://wa.me/528125834137?text=Hola,%20quiero%20participar%20en%20la%20beta%20de%20TAX%20CERTEZA">2 · Pedir acceso a la beta por WhatsApp</a>
     </div>
+  </div>
+
+  <div class="wrap install" id="instalar">
+    <h2 class="sec-title">Instálalo en 3 pasos</h2>
+    <p class="sec-sub">Se entrega como un archivo .zip (no hay instalador). Tarda un par de minutos.</p>
+    <div class="inst-grid">
+
+      <div class="step ins">
+        <figure>
+          <svg class="ilu" viewBox="0 0 320 230" role="img" aria-labelledby="ilu1-t">
+            <title id="ilu1-t">Ilustración del paso 1: clic derecho sobre el archivo TaxCerteza_dist.zip y, en el menú, la opción Extraer todo.</title>
+            <rect x="22" y="72" width="76" height="56" rx="6" fill="#F6C84C"/>
+            <rect x="22" y="64" width="34" height="14" rx="4" fill="#E2AE2A"/>
+            <g stroke="#7C5A06" stroke-width="3" stroke-dasharray="5 4"><line x1="60" y1="72" x2="60" y2="128"/></g>
+            <text x="14" y="152" font-size="11" font-weight="700" fill="#0F172A">TaxCerteza_dist.zip</text>
+            <rect x="120" y="22" width="186" height="176" rx="8" fill="#fff" stroke="#CBD5E1"/>
+            <text x="136" y="52" font-size="13" fill="#334155">Abrir</text>
+            <rect x="128" y="68" width="170" height="38" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="136" y="92" font-size="13" font-weight="700" fill="#1E40AF">Extraer todo…</text>
+            <text x="136" y="130" font-size="13" fill="#334155">Cortar</text>
+            <text x="136" y="168" font-size="13" fill="#334155">Propiedades</text>
+            <polygon points="0,0 0,17 4.5,13 8,20.5 11,19 7.5,12 13,12" transform="translate(262 86)" fill="#0F172A" stroke="#fff" stroke-width="1"/>
+          </svg>
+          <figcaption>Ilustración</figcaption>
+        </figure>
+        <div class="ins-h"><div class="n">1</div><h3>Descomprime el .zip</h3></div>
+        <p>Clic derecho sobre <b>TaxCerteza_dist.zip</b> y elige <b>«Extraer todo…»</b>. Hazlo en una carpeta que no vayas a borrar y no abras el programa desde dentro del .zip.</p>
+      </div>
+
+      <div class="step ins">
+        <figure>
+          <svg class="ilu" viewBox="0 0 320 230" role="img" aria-labelledby="ilu2-t">
+            <title id="ilu2-t">Ilustración del paso 2: la carpeta TaxCerteza ya extraída, con el archivo TaxCerteza.exe resaltado y la indicación de hacerle doble clic.</title>
+            <rect x="14" y="18" width="292" height="194" rx="8" fill="#fff" stroke="#CBD5E1"/>
+            <path d="M14 26a8 8 0 0 1 8-8h276a8 8 0 0 1 8 8v20H14z" fill="#E2E8F0"/>
+            <rect x="26" y="26" width="16" height="12" rx="2" fill="#F6C84C"/>
+            <text x="50" y="37" font-size="12" font-weight="700" fill="#334155">TaxCerteza</text>
+            <rect x="26" y="62" width="14" height="11" rx="2" fill="#F6C84C"/><rect x="50" y="64" width="96" height="8" rx="4" fill="#CBD5E1"/>
+            <rect x="26" y="90" width="12" height="15" rx="2" fill="#CBD5E1"/><rect x="50" y="94" width="120" height="8" rx="4" fill="#CBD5E1"/>
+            <rect x="20" y="114" width="280" height="34" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+            <rect x="26" y="121" width="20" height="20" rx="4" fill="#2563EB"/><path d="M31 127h10M36 127v10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+            <text x="54" y="136" font-size="13" font-weight="700" fill="#1E40AF">TaxCerteza.exe</text>
+            <rect x="26" y="162" width="12" height="15" rx="2" fill="#CBD5E1"/><rect x="50" y="166" width="84" height="8" rx="4" fill="#CBD5E1"/>
+            <rect x="26" y="186" width="12" height="15" rx="2" fill="#CBD5E1"/><rect x="50" y="190" width="108" height="8" rx="4" fill="#CBD5E1"/>
+            <rect x="196" y="121" width="96" height="20" rx="10" fill="#2563EB"/>
+            <text x="244" y="135.5" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">doble clic</text>
+            <polygon points="0,0 0,17 4.5,13 8,20.5 11,19 7.5,12 13,12" transform="translate(172 128)" fill="#0F172A" stroke="#fff" stroke-width="1"/>
+          </svg>
+          <figcaption>Ilustración</figcaption>
+        </figure>
+        <div class="ins-h"><div class="n">2</div><h3>Abre TaxCerteza.exe</h3></div>
+        <p>Entra a la carpeta <b>TaxCerteza</b> y haz doble clic en <b>TaxCerteza.exe</b>. La primera vez puede tardar unos segundos en abrir.</p>
+      </div>
+
+      <div class="step ins">
+        <figure>
+          <svg class="ilu" viewBox="0 0 320 230" role="img" aria-labelledby="ilu3-t">
+            <title id="ilu3-t">Ilustración del paso 3: aviso azul de Windows. Primero se pulsa Más información; después aparece el botón Ejecutar de todas formas, que va antes que No ejecutar.</title>
+            <rect x="10" y="6" width="300" height="104" rx="6" fill="#1D5FA8"/>
+            <text x="24" y="32" font-size="14" font-weight="700" fill="#fff">Windows protegió su PC</text>
+            <rect x="24" y="44" width="250" height="6" rx="3" fill="#fff" opacity=".45"/>
+            <rect x="24" y="56" width="200" height="6" rx="3" fill="#fff" opacity=".45"/>
+            <rect x="18" y="72" width="124" height="26" rx="6" fill="none" stroke="#FBBF24" stroke-width="2.5"/>
+            <text x="26" y="90" font-size="12.5" font-weight="700" fill="#fff" text-decoration="underline">Más información</text>
+            <rect x="216" y="73" width="80" height="24" fill="none" stroke="#fff" stroke-width="1.2"/>
+            <text x="256" y="89" font-size="11.5" fill="#fff" text-anchor="middle">No ejecutar</text>
+            <path d="M160 112v12M154 120l6 6 6-6" fill="none" stroke="#475569" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="174" y="124" font-size="11" fill="#475569">y luego</text>
+            <rect x="10" y="130" width="300" height="94" rx="6" fill="#1D5FA8"/>
+            <text x="24" y="153" font-size="14" font-weight="700" fill="#fff">Windows protegió su PC</text>
+            <text x="24" y="170" font-size="11" fill="#fff" opacity=".9">Aplicación: TaxCerteza.exe</text>
+            <text x="24" y="184" font-size="11" fill="#fff" opacity=".9">Editor: Editor desconocido</text>
+            <rect x="18" y="192" width="162" height="26" rx="6" fill="none" stroke="#FBBF24" stroke-width="2.5"/>
+            <rect x="24" y="196" width="150" height="18" fill="#fff"/>
+            <text x="99" y="209" font-size="11.5" font-weight="700" fill="#1D5FA8" text-anchor="middle">Ejecutar de todas formas</text>
+            <rect x="196" y="196" width="100" height="18" fill="none" stroke="#fff" stroke-width="1.2"/>
+            <text x="246" y="209" font-size="11.5" fill="#fff" text-anchor="middle">No ejecutar</text>
+          </svg>
+          <figcaption>Ilustración</figcaption>
+        </figure>
+        <div class="ins-h"><div class="n">3</div><h3>Si sale el aviso azul</h3></div>
+        <p>Windows puede mostrar <b>«Windows protegió su PC»</b>. Pulsa <b>«Más información»</b> y luego <b>«Ejecutar de todas formas»</b>.</p>
+      </div>
+
+    </div>
+
+    <div class="inst-notes">
+      <div class="inst-note">
+        <b>¿Por qué sale ese aviso?</b> TAX CERTEZA es un programa nuevo y todavía no lleva firma digital;
+        Windows avisa con cualquier programa así. La firma llegará en una versión próxima.
+        El antivirus de Windows (Defender) no detecta amenazas en el archivo.
+      </div>
+      <div class="inst-note warn">
+        <b>Necesitas una licencia.</b> Cada equipo usa una licencia que se solicita:
+        pídela con el botón «2 · Pedir acceso a la beta por WhatsApp», aquí arriba.
+      </div>
+    </div>
+
+    <!-- RELLENAR AL PUBLICAR LA VERSION: poner el SHA-256 real del .zip publicado (el mismo de version.json)
+         en <code> y quitar el atributo "hidden" de este <details>. No inventar ni dejar de relleno. -->
+    <details class="inst-verif" hidden>
+      <summary>Verifica tu descarga (opcional)</summary>
+      <p>La huella SHA-256 del archivo debe coincidir con esta. En PowerShell: <b>Get-FileHash TaxCerteza_dist.zip</b></p>
+      <code>SHA256_DEL_ZIP_PENDIENTE_DE_PUBLICAR</code>
+    </details>
   </div>
 </section>
 
