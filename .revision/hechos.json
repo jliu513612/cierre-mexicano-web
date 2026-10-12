@@ -1,0 +1,277 @@
+{
+ "hechos": {
+  "cff-28": {
+   "cita": "CFF, artículo 28",
+   "etiqueta": "CFF, artículo 28 (obligación de llevar contabilidad)",
+   "cifras": [
+    "28"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 09-04-2026",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "cff-29-a": {
+   "cita": "CFF, artículo 29-A",
+   "etiqueta": "CFF, artículo 29-A",
+   "cifras": [
+    "29-A"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 09-04-2026",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "cff-69-b": {
+   "cita": "CFF, artículo 69-B",
+   "etiqueta": "CFF, artículo 69-B",
+   "cifras": [
+    "69-B",
+    "15",
+    "5",
+    "50",
+    "30"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 09-04-2026",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "cff-84-iv-d": {
+   "cita": "CFF, artículo 84, fracción IV, inciso d)",
+   "etiqueta": "CFF, artículo 84, fracción IV, inciso d)",
+   "cifras": [
+    "84",
+    "450.00",
+    "670.00",
+    "450",
+    "670"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 09-04-2026",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "liva-1": {
+   "cita": "Ley del IVA, artículo 1o.",
+   "etiqueta": "Ley del IVA, artículo 1o. (tasa general)",
+   "cifras": [
+    "1o.",
+    "16"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-1-b": {
+   "cita": "Ley del IVA, artículo 1o.-B",
+   "etiqueta": "Ley del IVA, artículo 1o.-B",
+   "cifras": [
+    "1o.-B"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-5-iii": {
+   "cita": "Ley del IVA, artículo 5o., fracción III",
+   "etiqueta": "Ley del IVA, artículo 5o., fracción III",
+   "cifras": [
+    "5o."
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-32-viii": {
+   "cita": "Ley del IVA, artículo 32, fracción VIII",
+   "etiqueta": "Ley del IVA, artículo 32, fracción VIII",
+   "cifras": [
+    "32",
+    "17"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "rmf-2026-2.7.1.32": {
+   "cita": "RMF 2026, regla 2.7.1.32",
+   "etiqueta": "RMF 2026, regla 2.7.1.32",
+   "cifras": [
+    "2.7.1.32",
+    "5",
+    "20"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Publicada en el DOF el 28-12-2025, ejercicio 2026",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf"
+  },
+  "rmf-2026-2.7.1.39": {
+   "cita": "RMF 2026, regla 2.7.1.39",
+   "etiqueta": "RMF 2026, regla 2.7.1.39",
+   "cifras": [
+    "2.7.1.39",
+    "99"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Publicada en el DOF el 28-12-2025, ejercicio 2026",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf"
+  },
+  "rmf-2026-4.5.1": {
+   "cita": "RMF 2026, regla 4.5.1",
+   "etiqueta": "RMF 2026, regla 4.5.1 (remite a la regla 4.5.2)",
+   "cifras": [
+    "4.5.1",
+    "4.5.2"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Publicada en el DOF el 28-12-2025, ejercicio 2026",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf"
+  },
+  "diot-54-campos": {
+   "cita": "Formato de carga de la DIOT",
+   "etiqueta": "Formato de carga de la DIOT (portal del SAT)",
+   "cifras": [
+    "54"
+   ],
+   "estado": "pendiente_fuente",
+   "vigencia": "Sin documento oficial cotejado",
+   "url": "",
+   "tolerado_en": [
+    "diot-como-se-calcula-y-se-presenta"
+   ]
+  },
+  "sat-descarga-masiva-servicio": {
+   "cita": "Servicio de descarga masiva del SAT",
+   "etiqueta": "Documentación del servicio de descarga masiva (portal del SAT)",
+   "cifras": [],
+   "estado": "pendiente_fuente",
+   "vigencia": "Sin documento oficial cotejado",
+   "url": "",
+   "tolerado_en": [
+    "descarga-masiva-cfdi-sat"
+   ]
+  },
+  "lisr-27-iii": {
+   "cita": "Ley del ISR, artículo 27, fracción III",
+   "etiqueta": "Ley del ISR, artículo 27, fracción III",
+   "cifras": [
+    "27",
+    "2,000.00",
+    "2,000"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 01-04-2024",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "rmf-2026-2.7.1.37": {
+   "cita": "RMF 2026, regla 2.7.1.37",
+   "etiqueta": "RMF 2026, regla 2.7.1.37 (remite a los artículos 27, fracción III y 147, fracción IV de la Ley del ISR)",
+   "cifras": [
+    "2.7.1.37",
+    "27",
+    "147"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Publicada en el DOF el 28-12-2025. Ejercicio 2026",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf"
+  },
+  "lisr-207": {
+   "cita": "Ley del ISR, artículo 207",
+   "etiqueta": "Ley del ISR, artículo 207",
+   "cifras": [
+    "207"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 01-04-2024; artículo adicionado DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "lisr-113-e": {
+   "cita": "Ley del ISR, artículo 113-E",
+   "etiqueta": "Ley del ISR, artículo 113-E",
+   "cifras": [
+    "113-E",
+    "17"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 01-04-2024 (Sección IV adicionada DOF 12-11-2021; tasas y límites sin reforma posterior)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "lisr-14": {
+   "cita": "Ley del ISR, artículo 14",
+   "etiqueta": "Ley del ISR, artículo 14",
+   "cifras": [
+    "14"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma DOF 01-04-2024",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "cff-17-a": {
+   "cita": "CFF, artículo 17-A",
+   "etiqueta": "CFF, artículo 17-A",
+   "cifras": [
+    "17-A"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma DOF 09-04-2026",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "cff-21": {
+   "cita": "CFF, artículo 21",
+   "etiqueta": "CFF, artículo 21",
+   "cifras": [
+    "21"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma DOF 09-04-2026",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "lif-2026-11": {
+   "cita": "Ley de Ingresos de la Federación 2026, artículo 11",
+   "etiqueta": "Ley de Ingresos de la Federación 2026, artículo 11",
+   "cifras": [
+    "11"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente a partir del 01-01-2026 , Nueva Ley DOF 07-11-2025",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIF_2026.pdf"
+  },
+  "liva-24": {
+   "cita": "Ley del IVA, artículo 24",
+   "etiqueta": "Ley del IVA, artículo 24",
+   "cifras": [
+    "24"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-26": {
+   "cita": "Ley del IVA, artículo 26",
+   "etiqueta": "Ley del IVA, artículo 26",
+   "cifras": [
+    "26"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-27": {
+   "cita": "Ley del IVA, artículo 27",
+   "etiqueta": "Ley del IVA, artículo 27",
+   "cifras": [
+    "27"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-5-d": {
+   "cita": "Ley del IVA, artículo 5o.-D",
+   "etiqueta": "Ley del IVA, artículo 5o.-D",
+   "cifras": [
+    "5o.-D"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente , última reforma publicada DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  }
+ }
+}
