@@ -1,28 +1,27 @@
 {
  "slug": "resico-ingresos-cobrados-o-facturados",
- "huella": "c31ef13ccd162820d8860956ae98e3482076234d9587f6f0c05feed9aedde929",
+ "huella": "e47bfb8acde9704b6e08f3598f7d3ff95998d6a6d5cc2e2a670358c32a01d0d8",
  "fecha": "2026-10-12",
- "puntaje": 62,
+ "puntaje": 66,
  "a_ciegas_con_anclas": true,
  "anclas": {
   "humanos": [
-   92,
-   96,
+   95,
+   88,
    90
   ],
   "maquina": [
-   8,
+   12,
    15
   ]
  },
  "graves": 0,
  "medios": 0,
- "leves": 5,
+ "leves": 4,
  "leves_pendientes": [
-  "pasaje del cheque: distinguir cobrado, transmitido y guardado",
-  "'aunque no tenga factura' atribuido al articulo 207",
-  "PUE sin cobrar: afirmacion en terminos absolutos",
-  "fecha de pago del complemento: deduccion practica",
-  "columna Pagado (REP): 'se ve que PPD sigue pendiente'"
+  "fecha de pago del complemento como regla",
+  "cheque: depósito igualado a fecha de cobro y falta 'salvo en procuración' en ese pasaje",
+  "'aunque no tenga factura' atribuido al artículo 207",
+  "'PPD mientras no se cobra' dicho sin matiz"
  ]
 }
