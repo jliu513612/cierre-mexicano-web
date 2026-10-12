@@ -31,7 +31,7 @@ UMBRAL = {
     # Calibrados el 2026-10-12 contra 8 articulos de contadores escritos por personas (2018-2022)
     # y los 4 articulos viejos del blog. Detalle y limites en ESTANDAR.md.
     "rayas_largas": 0, "muletillas_por_1000": 0.0, "no_es_sino_por_1000": 1.0, "negritas_pct": 4.0,
-    "lista_pct": 50.0, "cv_parrafos_min": 0.40, "cv_frases_min": 0.40, "exclamaciones": 0,
+    "lista_pct": 50.0, "cv_parrafos_min": 0.30, "cv_frases_min": 0.40, "exclamaciones": 0,
     "enlaces_internos_min": 3, "preguntas_cuerpo_max": 2,
 }
 
