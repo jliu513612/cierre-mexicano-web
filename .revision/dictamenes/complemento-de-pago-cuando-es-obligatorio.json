@@ -1,0 +1,29 @@
+{
+ "slug": "complemento-de-pago-cuando-es-obligatorio",
+ "huella": "a161e7ef941356d9e9b508dba80603fa4d4b685693e9fbf69d0699d6af23053f",
+ "fecha": "2026-10-12",
+ "puntaje": 60,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   92,
+   93,
+   84
+  ],
+  "maquina": [
+   7,
+   16
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 5,
+ "nota": "ronda 2; en la ronda 1 la misma reescritura sacó 68 antes de corregir 2 hallazgos medios",
+ "leves_pendientes": [
+  "plazo de cancelación: 'se presenta' debe ser 'se debe presentar' la declaración anual",
+  "cruce manual: tomar todos los REP de la factura, no solo los del periodo",
+  "'el complemento le interesa por el IVA' liga el REP con el acreditamiento",
+  "'cada complemento relaciona la factura que liquida'",
+  "límite de la señal sin REP: no consta en la lista de funciones"
+ ]
+}

@@ -66,42 +66,33 @@ details.faq p{margin:12px 0 2px;color:#475569;font-size:16px}
   <h1>Complemento de pago (REP): cuándo es obligatorio y qué plazo tienes</h1>
   <div class="meta">CFDI · Publicado el <time datetime="2026-06-08">8 de junio de 2026</time> · Actualizado el <time datetime="2026-10-12">12 de octubre de 2026</time></div>
   <p class="respuesta">El complemento de pago, o REP, es obligatorio en las facturas con método de pago PPD, las que se pagan en parcialidades o después de expedirse. Se emite por cada pago recibido, a más tardar el quinto día natural del mes siguiente al pago (regla 2.7.1.32 de la RMF 2026).</p>
-<h2>Cuándo se emite</h2>
-<p>El artículo 29-A, fracción VII del Código Fiscal de la Federación (CFF) separa dos casos. El inciso a) trata la contraprestación que se paga en una sola exhibición al expedir la factura: basta con ese CFDI. El inciso b) trata la que se paga en parcialidades, o en un solo pago posterior a la fecha de la factura: se emite un CFDI por el valor total de la operación y después un CFDI por cada pago recibido.</p>
-<p>La regla 2.7.1.32 de la Resolución Miscelánea Fiscal (RMF) para 2026 detalla cómo es ese segundo comprobante: lleva "cero" en el campo Total, no lleva método ni forma de pago, e incorpora el complemento para recepción de pagos. Por eso se le conoce como REP.</p>
-<p>La misma regla permite dos formas de emitirlo: un REP por cada pago recibido, o un solo REP por todos los pagos del mes cuando corresponden al mismo cliente.</p>
+<p>Los primeros días de cada mes llega la misma pregunta: cuáles complementos de pago del mes anterior faltan por emitir. Si nadie tiene la lista, queda muy poco tiempo para armarla.</p>
 
-<h2>El plazo: día 5 del mes siguiente</h2>
-<p>La regla 2.7.1.32 fija el plazo. El REP se emite a más tardar el quinto día natural del mes inmediato siguiente a aquel en que se recibió el pago. Un cobro del 20 de octubre se documenta, como máximo, el 5 de noviembre.</p>
+<h2>El plazo y de dónde sale</h2>
+<p>El artículo 29-A, fracción VII del Código Fiscal de la Federación (CFF) separa dos casos. En el inciso a), la contraprestación se paga en una sola exhibición al momento de expedir la factura. En el inciso b), se paga en parcialidades o en un solo pago posterior, y entonces se emite un CFDI por el valor total de la operación y después un CFDI por cada pago que se reciba.</p>
+<p>Ese segundo comprobante es el que la regla 2.7.1.32 de la Resolución Miscelánea Fiscal (RMF) para 2026 describe con detalle. Lleva "cero" en el campo Total, va sin método ni forma de pago a nivel comprobante e incorpora el complemento para recepción de pagos, de donde le viene el nombre de REP. La regla deja elegir entre emitir uno por cada pago o uno solo por todos los pagos del mes de un mismo cliente, y fija el plazo: a más tardar el quinto día natural del mes inmediato siguiente a aquel en que se recibió el pago.</p>
 
-<h2>La factura PUE que no se cobró en el mes</h2>
-<p>La regla 2.7.1.39 de la RMF 2026 permite emitir una factura como PUE sin haber recibido el pago, siempre que el total se cobre a más tardar el último día del mes en que se expidió.</p>
-<p>Si llega el fin de mes y no se cobró completa, la misma regla dice qué sigue: cancelar ese CFDI y emitir uno nuevo con forma de pago "99 Por definir" y método PPD, relacionado con el original como sustitución. Los cobros posteriores se documentan con REP.</p>
-<p>En el cierre esto se nota al cruzar contra el banco: la factura dice PUE y el depósito no aparece en el mes.</p>
+<div class="ejemplo">
+<p><strong>Un mes de ejemplo (cifras inventadas).</strong> Tu cliente facturó a una constructora $116,000 con IVA incluido el 2 de octubre, con método PPD. La constructora le depositó $58,000 el 20 de octubre y otros $58,000 el 31.</p>
+<p>Puede emitir dos complementos, uno por cada depósito, o uno solo que relacione los dos pagos de octubre. En cualquiera de los dos casos el límite es el 5 de noviembre. Si la constructora hubiera hecho el segundo depósito el 1 de noviembre, ese pago ya sería de noviembre y su complemento tendría hasta el 5 de diciembre.</p>
+</div>
 
-<h2>Qué pasa con el IVA mientras no hay pago</h2>
-<p>El IVA funciona por flujo de efectivo. Para quien cobra, el artículo 1o.-B de la Ley del IVA define cuándo una contraprestación se considera efectivamente cobrada. Para quien paga, el artículo 5o., fracción III de la misma ley exige que el IVA trasladado haya sido efectivamente pagado en el mes para poder acreditarlo.</p>
-<p>En una factura PPD el REP es el comprobante que documenta la fecha y el monto de ese pago. Si recibiste una factura PPD, ya la pagaste y tu proveedor no ha emitido el REP, conviene pedírselo y revisar el soporte del acreditamiento.</p>
+<h2>La PUE que no se cobró</h2>
+<p>Aquí es donde más se enreda el cierre. La regla 2.7.1.39 de la RMF 2026 permite emitir una factura como PUE sin haber recibido el pago, con la condición de que se cobre completa a más tardar el último día del mes en que se expidió. Cuando eso no ocurre, la misma regla indica cancelar ese CFDI y emitir uno nuevo con forma de pago 99 y método PPD, relacionado con el original como sustitución; los cobros que lleguen después se documentan con REP. Esa cancelación tiene sus propias condiciones en el artículo 29-A del CFF: la aceptación de quien recibió la factura y un plazo, que llega hasta el mes en que se presenta la declaración anual del ejercicio en que se expidió.</p>
+<p>Antes de cancelar nada conviene confirmar con el cliente que de verdad no se cobró, porque el depósito pudo entrar a otra cuenta.</p>
+
+<h2>Del lado de quien paga</h2>
+<p>Cuando tu cliente es el que recibió la factura PPD, el complemento le interesa por el IVA. El artículo 5o., fracción III de la Ley del IVA pide, para acreditar el impuesto que le trasladaron, que haya sido efectivamente pagado en el mes de que se trate, y el artículo 1o.-B de la misma ley define cuándo una contraprestación se considera efectivamente cobrada.</p>
+<p>Si ya pagó y el proveedor no ha emitido el complemento, conviene pedírselo antes de cerrar el mes y evaluar con qué documentación se cuenta.</p>
 
 <h2>La multa</h2>
-<p>El artículo 84, fracción IV, inciso d) del CFF prevé una multa de $450.00 a $670.00 por cada comprobante fiscal que se emita sin los complementos que determinan las reglas del SAT. Conviene confirmar el monto vigente y evaluar si aplica al caso.</p>
+<p>El artículo 84, fracción IV, inciso d) del CFF prevé una multa de $450.00 a $670.00 por cada comprobante fiscal que se emita sin los complementos que determinan las reglas del SAT. El inciso habla de comprobantes emitidos sin sus complementos. Si alcanza al caso de tu cliente es algo para evaluar con él y, de ser necesario, con su asesor.</p>
 
-<h2>Cómo encontrar las facturas PPD sin REP</h2>
-<p>Para las facturas que emitiste, el control a mano se lleva así:</p>
-<ol>
-<li>Separa los CFDI de ingreso emitidos con método PPD.</li>
-<li>Reúne los CFDI de tipo pago del periodo. Cada uno trae, en sus documentos relacionados, el folio fiscal de la factura que liquida, el importe pagado y el saldo insoluto.</li>
-<li>Cruza los folios. Una factura PPD que no aparece en ningún REP sigue sin pago documentado.</li>
-<li>En las que sí aparecen, suma lo pagado y compáralo con el total. Lo que falte es el saldo pendiente.</li>
-<li>Compara contra el banco. Un depósito que corresponde a una factura PPD y no tiene REP es un complemento pendiente.</li>
-</ol>
-<p>Con pocas facturas se hace en una hoja de cálculo. Con cientos al mes lleva horas. Para las facturas que recibiste el cruce es el mismo, con los complementos que te emitieron tus proveedores.</p>
-
-<h2>Cómo lo muestra Tax Certeza</h2>
-<p>En la pestaña CFDIs, cada factura tiene una columna "Pagado (REP)" que indica si los complementos de pago cubren el total o solo una parte.</p>
-<p>En "Salud del cliente" aparece una señal cuando hay facturas emitidas que siguen sin REP.</p>
-<p>En el cálculo de IVA, una factura PPD se mantiene como pendiente hasta que existe el complemento que documenta el pago.</p>
-<p>Tax Certeza no emite ni timbra comprobantes. El REP se emite en tu sistema de facturación.</p>
+<h2>Cómo llevar el control</h2>
+<p>Para las facturas emitidas, el cruce a mano tiene cinco pasos. Se separan los CFDI de ingreso con método PPD. Se reúnen los CFDI de tipo pago del periodo. Se cruzan por folio fiscal, porque cada complemento relaciona la factura que liquida. A las que sí tienen complemento se les compara lo pagado contra el total, para saber cuáles quedaron con saldo. Y al final se compara contra el banco: un depósito que corresponde a una factura PPD y no tiene complemento es un REP pendiente.</p>
+<p>Con veinte facturas al mes eso cabe en una hoja de cálculo. Con cuatrocientas ya no. Tax Certeza cubre la parte de los comprobantes: en la pestaña CFDIs cada factura tiene una columna "Pagado (REP)" que indica si los complementos de pago cubren el total o solo una parte, y en "Salud del cliente" aparece una señal cuando hay facturas emitidas que siguen sin REP. En el cálculo de IVA, la factura PPD se queda como pendiente hasta que existe el complemento que documenta el pago.</p>
+<p>Esa señal no distingue una factura cobrada a la que le falta el complemento de una que simplemente no se ha cobrado. Para separarlas hay que mirar el banco, y ese último paso lo sigues haciendo tú.</p>
+<p>El programa no emite ni timbra comprobantes. El REP se sigue emitiendo en el sistema de facturación de tu cliente.</p>
   <section class="fundamento">
   <h2>Fundamento legal</h2>
   <ul>
