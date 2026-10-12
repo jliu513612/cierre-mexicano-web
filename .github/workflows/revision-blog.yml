@@ -1,0 +1,29 @@
+name: revision-blog
+on:
+  pull_request_target:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  revision-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: main (de aqui salen el script y la base de hechos)
+        uses: actions/checkout@v4
+        with:
+          path: base
+          fetch-depth: 0
+      - name: contenido del PR (solo datos, no se ejecuta)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: lista de cambios
+        run: git -C pr diff --name-only "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" > cambios.txt && cat cambios.txt
+      - name: revision
+        run: python -X utf8 base/.revision/ci.py base pr cambios.txt
