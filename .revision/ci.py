@@ -73,8 +73,14 @@ def main(base, pr, lista):
         d = json.loads(dic_p.read_text(encoding="utf-8"))
         if d.get("huella") != h_pr:
             fallos.append(f"{slug}: el dictamen es de otra version del texto")
-        if d.get("puntaje", 0) < reglas["puntaje_minimo"]:
-            fallos.append(f"{slug}: puntaje {d.get('puntaje')} menor que {reglas['puntaje_minimo']}")
+        # Desde el 2026-10-12 (June): el puntaje es el PROMEDIO de al menos dos revisores independientes.
+        ps = d.get("puntajes") or []
+        if len(ps) < reglas.get("revisores_minimos", 1):
+            fallos.append(f"{slug}: el dictamen trae {len(ps)} puntajes y hacen falta {reglas.get('revisores_minimos', 1)}")
+        media = sum(ps) / len(ps) if ps else d.get("puntaje", 0)
+        if media < reglas["puntaje_minimo"]:
+            fallos.append(f"{slug}: puntaje {media:.1f} menor que {reglas['puntaje_minimo']}")
+        d["puntaje"] = round(media, 1)
         if not d.get("a_ciegas_con_anclas"):
             fallos.append(f"{slug}: el puntaje no se tomo a ciegas y con anclas")
         if d.get("graves", 1) or d.get("medios", 1):
