@@ -1,0 +1,85 @@
+{
+ "funciones": {
+  "descarga-sat": {
+   "nombre": "Descarga de CFDI del SAT",
+   "confianza": "manual"
+  },
+  "completitud": {
+   "nombre": "Completitud (vs Metadata SAT)",
+   "confianza": "codigo"
+  },
+  "vigencia": {
+   "nombre": "Verificar vigencia",
+   "confianza": "codigo"
+  },
+  "pagado-rep": {
+   "nombre": "Columna Pagado (REP)",
+   "confianza": "manual"
+  },
+  "salud-sin-rep": {
+   "nombre": "Señal de facturas emitidas sin REP",
+   "confianza": "manual"
+  },
+  "iva-flujo": {
+   "nombre": "IVA por flujo de efectivo",
+   "confianza": "manual"
+  },
+  "efos": {
+   "nombre": "EFOS (lista 69-B)",
+   "confianza": "manual"
+  },
+  "diot": {
+   "nombre": "DIOT",
+   "confianza": "manual"
+  },
+  "banco": {
+   "nombre": "Conciliación bancaria",
+   "confianza": "manual"
+  },
+  "gasto-sin-comprobante": {
+   "nombre": "Gasto sin comprobante",
+   "confianza": "manual"
+  },
+  "cierre-mensual": {
+   "nombre": "Cierre mensual",
+   "confianza": "manual"
+  },
+  "efectivo-2000": {
+   "nombre": "Pagos en efectivo mayores a $2,000",
+   "confianza": "codigo"
+  },
+  "sat-vs-libros": {
+   "nombre": "SAT vs Libros",
+   "confianza": "manual"
+  },
+  "prellenado": {
+   "nombre": "Prellenado de la declaración mensual",
+   "confianza": "codigo"
+  },
+  "recargos": {
+   "nombre": "Recargos por pago tardío",
+   "confianza": "codigo"
+  },
+  "pedimentos": {
+   "nombre": "Comercio exterior (vista previa)",
+   "confianza": "manual",
+   "obliga_a_decir": "vista previa"
+  },
+  "parametros": {
+   "nombre": "Parámetros fiscales",
+   "confianza": "manual"
+  },
+  "datos-locales": {
+   "nombre": "Datos en la computadora del usuario",
+   "confianza": "manual"
+  },
+  "polizas-excel": {
+   "nombre": "Pólizas",
+   "confianza": "manual"
+  },
+  "estado-comercial": {
+   "nombre": "Estado del producto",
+   "confianza": "manual"
+  }
+ }
+}
