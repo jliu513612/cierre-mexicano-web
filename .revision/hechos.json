@@ -24,11 +24,13 @@
    "cita": "CFF, artículo 69-B",
    "etiqueta": "CFF, artículo 69-B",
    "cifras": [
-    "69-B",
+    "10",
     "15",
+    "20",
+    "30",
     "5",
     "50",
-    "30"
+    "69-B"
    ],
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma DOF 09-04-2026",
@@ -152,9 +154,9 @@
    "cita": "Ley del ISR, artículo 27, fracción III",
    "etiqueta": "Ley del ISR, artículo 27, fracción III",
    "cifras": [
-    "27",
+    "2,000",
     "2,000.00",
-    "2,000"
+    "27"
    ],
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma DOF 01-04-2024",
@@ -197,7 +199,8 @@
    "cita": "Ley del ISR, artículo 14",
    "etiqueta": "Ley del ISR, artículo 14",
    "cifras": [
-    "14"
+    "14",
+    "17"
    ],
    "estado": "aprobado",
    "vigencia": "Texto vigente , última reforma DOF 01-04-2024",
@@ -207,6 +210,7 @@
    "cita": "CFF, artículo 17-A",
    "etiqueta": "CFF, artículo 17-A",
    "cifras": [
+    "1",
     "17-A"
    ],
    "estado": "aprobado",
@@ -217,7 +221,9 @@
    "cita": "CFF, artículo 21",
    "etiqueta": "CFF, artículo 21",
    "cifras": [
-    "21"
+    "21",
+    "50",
+    "67"
    ],
    "estado": "aprobado",
    "vigencia": "Texto vigente , última reforma DOF 09-04-2026",
@@ -227,7 +233,16 @@
    "cita": "Ley de Ingresos de la Federación 2026, artículo 11",
    "etiqueta": "Ley de Ingresos de la Federación 2026, artículo 11",
    "cifras": [
-    "11"
+    "1.38",
+    "1.42",
+    "1.63",
+    "1.97",
+    "11",
+    "12",
+    "2.07",
+    "2026",
+    "24",
+    "50"
    ],
    "estado": "aprobado",
    "vigencia": "Texto vigente a partir del 01-01-2026 , Nueva Ley DOF 07-11-2025",
@@ -247,6 +262,7 @@
    "cita": "Ley del IVA, artículo 26",
    "etiqueta": "Ley del IVA, artículo 26",
    "cifras": [
+    "24",
     "26"
    ],
    "estado": "aprobado",
@@ -257,6 +273,7 @@
    "cita": "Ley del IVA, artículo 27",
    "etiqueta": "Ley del IVA, artículo 27",
    "cifras": [
+    "24",
     "27"
    ],
    "estado": "aprobado",
@@ -267,11 +284,48 @@
    "cita": "Ley del IVA, artículo 5o.-D",
    "etiqueta": "Ley del IVA, artículo 5o.-D",
    "cifras": [
+    "17",
+    "28",
     "5o.-D"
    ],
    "estado": "aprobado",
    "vigencia": "Texto vigente , última reforma publicada DOF 12-11-2021",
    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-5": {
+   "cita": "Ley del IVA, artículo 5o., fracciones I a IV",
+   "etiqueta": "Ley del IVA, artículo 5o., fracciones I a IV",
+   "cifras": [
+    "5o.",
+    "0"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 12-11-2021",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "lisr-9": {
+   "cita": "Ley del ISR, artículo 9",
+   "etiqueta": "Ley del ISR, artículo 9",
+   "cifras": [
+    "9",
+    "30"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 01-04-2024",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "lisr-105": {
+   "cita": "Ley del ISR, artículo 105",
+   "etiqueta": "Ley del ISR, artículo 105",
+   "cifras": [
+    "105",
+    "27",
+    "2,000.00",
+    "2,000"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 01-04-2024",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
   }
  }
 }
