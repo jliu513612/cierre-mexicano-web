@@ -1,0 +1,52 @@
+{
+ "slug": "lista-negra-sat-efos-69b",
+ "huella": "070a3d1b0dc3b5ce6b695767d1c31b7b5214e34b96cce177bd6d9051204beab1",
+ "fecha": "2026-10-12",
+ "puntajes": [
+  73,
+  70
+ ],
+ "puntaje": 71.5,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "revisor_a": {
+   "humanos": [
+    95,
+    93,
+    94
+   ],
+   "maquina": [
+    14,
+    11
+   ]
+  },
+  "revisor_b": {
+   "humanos": [
+    90,
+    93,
+    95
+   ],
+   "maquina": [
+    8,
+    18
+   ]
+  }
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 5,
+ "nota": "ronda 2; ronda 1: 66 y 70, con 2 medios (prórroga 'dentro del mismo plazo'; ejemplo con pago en efectivo)",
+ "leves_pendientes": [
+  "'todavía puede desvirtuar': el plazo de pruebas del presunto puede haber vencido",
+  "juicio probatorio del ejemplo",
+  "'ante la propia autoridad'",
+  "'ese cruce' sugiere listado vigente al día y repetición mensual",
+  "'Eso lo decide el cliente' depende del ejemplo"
+ ],
+ "que_baja_el_puntaje": [
+  "la respuesta directa del inicio se lee como formato para buscadores",
+  "paráfrasis del artículo en orden, sin observaciones de práctica",
+  "ejemplo demasiado simétrico",
+  "voz sin postura propia"
+ ]
+}
