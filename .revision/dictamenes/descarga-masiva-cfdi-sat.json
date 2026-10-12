@@ -1,0 +1,49 @@
+{
+ "slug": "descarga-masiva-cfdi-sat",
+ "huella": "da91797745514f659a190194932558578b548ac367632eaea9c20a01f4dc3d9f",
+ "fecha": "2026-10-12",
+ "puntajes": [
+  60,
+  72
+ ],
+ "puntaje": 66,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "revisor_a": {
+   "humanos": [
+    95,
+    84,
+    92
+   ],
+   "maquina": [
+    12,
+    4
+   ]
+  },
+  "revisor_b": {
+   "humanos": [
+    95,
+    90,
+    88
+   ],
+   "maquina": [
+    12,
+    10
+   ]
+  }
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 8,
+ "nota": "ronda 2; ronda 1: 62 y 66, con 2 medios ('no hay nada que recuperar' de los cancelados; Completitud equiparada a la prueba completa)",
+ "leves_pendientes": [
+  "'lleva unos minutos': sugiere tiempo de respuesta del servicio",
+  "'no marca error': comportamiento del servicio sin entrada",
+  "'representación impresa' sin entrada en la base",
+  "'dejar documentado por qué' insinúa que suple al comprobante",
+  "no dice quién obtiene la metadata que compara el programa",
+  "la promesa central descansa en dos funciones de confianza 'codigo'",
+  "'se saca revisando el listado' sugiere lista de faltantes",
+  "'los que no aparezcan son los que faltan' frente a los cancelados del ejemplo"
+ ]
+}
