@@ -1,0 +1,15 @@
+# Tax Certeza
+
+> Software de escritorio para Windows que ayuda a contadores en México con el cierre fiscal mensual: descarga los CFDI del SAT, concilia el banco, calcula IVA, ISR y DIOT y exporta las pólizas en Excel. Los datos se quedan en la computadora del usuario. Está en beta privada.
+
+## Recursos fiscales
+
+- [Complemento de pago (REP): cuándo es obligatorio y qué plazo tienes](https://taxcerteza.mx/blog/complemento-de-pago-cuando-es-obligatorio/): El REP se emite por cada pago de una factura PPD, a más tardar el día 5 del mes siguiente. Fundamento, multa y cómo encontrar las facturas que siguen sin complemento.
+- [Descarga masiva de CFDI del SAT: cómo saber si te faltan XML](https://taxcerteza.mx/blog/descarga-masiva-cfdi-sat/): Qué es la descarga masiva de CFDI, qué necesitas, dónde suele fallar y cómo comprobar contra la metadata del SAT que tienes todos los XML del periodo.
+- [DIOT: cómo se arma, qué se informa y cuándo se presenta](https://taxcerteza.mx/blog/diot-como-se-calcula-y-se-presenta/): La DIOT se arma con los CFDI recibidos que se pagaron en el mes, por proveedor y por tasa, y se presenta a más tardar el día 17 del mes siguiente. Fundamento y pasos.
+- [Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores](https://taxcerteza.mx/blog/lista-negra-sat-efos-69b/): Qué es la lista del artículo 69-B del CFF, qué diferencia hay entre presunto y definitivo, el plazo de 30 días para quien recibió las facturas y cómo revisar a todos tus proveedores.
+
+## Sitio
+
+- [Inicio](https://taxcerteza.mx/): qué hace el programa y cómo pedir acceso a la beta privada
+- [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
