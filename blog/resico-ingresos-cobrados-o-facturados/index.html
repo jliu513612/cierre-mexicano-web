@@ -67,8 +67,8 @@ details.faq p{margin:12px 0 2px;color:#475569;font-size:16px}
   <div class="meta">Impuestos · Publicado el <time datetime="2026-10-12">12 de octubre de 2026</time> · Actualizado el <time datetime="2026-10-12">12 de octubre de 2026</time></div>
   <p class="respuesta">En el régimen simplificado de confianza una factura emitida y no cobrada todavía no es ingreso del mes. Para personas morales, el artículo 207 de la Ley del ISR considera acumulable el ingreso en el momento en que es efectivamente percibido. Para personas físicas, el artículo 113-E determina el pago mensual con los ingresos amparados por CFDI efectivamente cobrados.</p>
 <div class="ejemplo">
-<p><strong>Un caso para ubicarnos (cifras inventadas).</strong> Una persona moral en RESICO factura en octubre $80,000 más IVA a un cliente, con método PPD. El cliente abona $30,000 más IVA el 28 de octubre y liquida el resto el 9 de diciembre. Además, el 15 de octubre entró al banco un anticipo de $12,000 de otro cliente, todavía sin factura.</p>
-<p>¿Cuánto es ingreso de octubre? No son los $80,000 facturados. Son los $30,000 cobrados de esa factura y, como se verá abajo, también hay que mirar el anticipo de $12,000. Los $50,000 restantes son de diciembre.</p>
+<p><strong>Un caso para ubicarnos (cifras inventadas).</strong> Una persona moral en RESICO factura en octubre $80,000 más IVA a un cliente, con método PPD. El cliente abona $30,000 más IVA el 28 de octubre y liquida el resto el 9 de diciembre. Además, el 15 de octubre entró al banco un anticipo de $12,000 más IVA de otro cliente, todavía sin factura.</p>
+<p>¿Cuánto es ingreso de octubre? No son los $80,000 facturados. Son los $30,000 cobrados de esa factura, más el anticipo de $12,000 si se confirma que es a cuenta de una operación, porque el artículo 207 lo trata como percibido aunque no tenga factura. Los $50,000 restantes son de diciembre.</p>
 </div>
 
 <h2>De dónde sale esa respuesta</h2>
@@ -78,25 +78,24 @@ details.faq p{margin:12px 0 2px;color:#475569;font-size:16px}
 
 <h2>Personas físicas</h2>
 <p>El artículo 113-E de la Ley del ISR está redactado de otra manera. Los pagos mensuales se determinan con el total de los ingresos amparados por CFDI efectivamente cobrados, sin incluir el IVA y sin aplicar deducción alguna, usando la tabla del propio artículo, y se pagan a más tardar el día 17 del mes inmediato posterior. El régimen es opcional y tiene un límite de ingresos de tres millones quinientos mil pesos en el ejercicio inmediato anterior.</p>
-<p>Lo que sigue sobre anticipos, cheques y adeudos saldados se apoya en el artículo 207, que es de personas morales. Para personas físicas esta guía no va más allá de lo que dice el 113-E.</p>
+<p>Lo dicho arriba sobre anticipos, cheques y adeudos saldados se apoya en el artículo 207, que es de personas morales. Para personas físicas esta guía no va más allá de lo que dice el 113-E.</p>
 
 <h2>Lo que complica el cierre</h2>
 <p>La factura PPD es el caso fácil. Mientras no se cobra no es ingreso del mes, y cada cobro se documenta con su complemento de pago, uno por pago o uno por todos los del mes al mismo cliente, a más tardar el quinto día natural del mes siguiente (regla 2.7.1.32 de la Resolución Miscelánea Fiscal para 2026). Ojo con una cosa al tomar los cobros de los complementos: la fecha que sirve es la fecha de pago que trae el complemento. La de emisión puede caer ya en el mes siguiente.</p>
-<p>La factura PUE da más guerra, porque el comprobante afirma que se pagó. La regla 2.7.1.39 de la misma resolución permite emitirla así sin haber recibido el pago, siempre que se cobre completa a más tardar el último día del mes en que se expidió. Si eso no pasa, la regla indica cancelarla y sustituirla por una con forma de pago 99 y método PPD. Mientras no se cobre, el artículo 207 no la considera ingreso percibido. Antes de evaluar la sustitución conviene confirmar con el cliente que de verdad no se cobró, porque a veces el dinero entró a otra cuenta.</p>
+<p>La factura PUE da más guerra, porque el comprobante afirma que se pagó. La regla 2.7.1.39 de la misma resolución permite emitirla así sin haber recibido el pago, siempre que se cobre completa a más tardar el último día del mes en que se expidió. Si eso no pasa, la regla indica cancelarla y sustituirla por una con forma de pago 99 y método PPD. Mientras no se cobre, en una persona moral no encaja en ninguno de los supuestos del artículo 207. Antes de evaluar la sustitución conviene confirmar con el cliente que de verdad no se cobró, porque a veces el dinero entró a otra cuenta.</p>
 <p>Y luego está lo que no pasa por el banco. El efectivo, el cheque que el cliente guardó dos semanas en el cajón y los adeudos que se saldaron de palabra no aparecen en ningún estado de cuenta. Solo se saben preguntando.</p>
 
 <h2>Una forma de revisarlo</h2>
 <ol>
 <li>Lista los cobros del mes con dos fuentes: los depósitos del banco y la fecha de pago de los complementos emitidos.</li>
-<li>Relaciona cada cobro con su factura. Lo que se cobró y no tiene factura es un punto a evaluar; en personas morales el artículo 207 ya lo considera percibido.</li>
+<li>Relaciona cada cobro con su factura. Lo que se cobró y no tiene factura es un punto a evaluar: si es un anticipo o un depósito por una operación, en personas morales el artículo 207 lo trata como percibido.</li>
 <li>Recorre las facturas PUE emitidas en el mes y confirma que cada una se cobró.</li>
 <li>Pregunta por efectivo, cheques pendientes de cobro y adeudos saldados.</li>
 <li>Lista las PPD que siguen sin cobrar y confirma que no se liquidaron por otra vía antes de dejarlas fuera del mes.</li>
 </ol>
 
 <h2>Qué parte hace Tax Certeza</h2>
-<p>En el cierre mensual el programa calcula el régimen simplificado de confianza de personas morales sobre ingresos cobrados y deducciones pagadas, y el de personas físicas sobre ingresos cobrados con la tabla del artículo 113-E. En la pestaña CFDIs, la columna "Pagado (REP)" indica si los complementos de pago cubren el total de cada factura o solo una parte, y con eso se ve qué PPD sigue pendiente.</p>
-<p>Lo que no hace: trabaja con lo que dicen los comprobantes, así que una factura PUE se toma como pagada sin exigir el movimiento bancario, y no conoce cobros que no consten en un comprobante. En el ejemplo de arriba, el anticipo sin factura y una PUE que no se cobró los tendrías que detectar tú.</p>
+<p>En el cierre mensual el programa calcula el régimen simplificado de confianza de personas morales sobre ingresos cobrados y deducciones pagadas, y el de personas físicas sobre ingresos cobrados con la tabla del artículo 113-E. En la pestaña CFDIs, la columna "Pagado (REP)" indica si los complementos de pago cubren el total de cada factura o solo una parte, y con eso se ve qué PPD sigue pendiente. Lo que no hace: trabaja con lo que dicen los comprobantes, así que una factura PUE se toma como pagada sin exigir el movimiento bancario, y no conoce cobros que no consten en un comprobante. En el ejemplo de arriba, el anticipo sin factura lo tendrías que detectar tú, igual que una PUE que no se hubiera cobrado.</p>
   <section class="fundamento">
   <h2>Fundamento legal</h2>
   <ul>
