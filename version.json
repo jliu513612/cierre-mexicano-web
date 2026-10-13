@@ -1,9 +1,11 @@
 {
-  "version": "1.0.31",
-  "fecha": "2026-07-18",
-  "notas_es": "Estados de cuenta escaneados se leen sin instalar nada: el motor de OCR en español ya viene incluido. Manual de usuario integrado (menú Más → Manual). Pólizas del banco exportables, cotización de regularización exportable y alertas ordenadas por monto. Recargos y actualización automáticos al declarar fuera de plazo. Corrección de fuente de datos: el INPC ahora se toma del índice general oficial (los factores de actualización salían ligeramente bajos). Tarifas ISR históricas 2022-2025 para recalcular ejercicios previos con la tabla de su año.",
-  "notas_en": "Scanned bank statements now read out of the box: the Spanish OCR engine ships included. Built-in user manual (More menu → Manual). Exportable bank journal entries, exportable regularization quote, and alerts sorted by amount. Automatic surcharges and inflation update when filing late. Data-source fix: the CPI now comes from the official general index (restatement factors were running slightly low). Historical income-tax tariffs 2022-2025 to recompute prior years with that year's table.",
-  "url_descarga": "https://github.com/jliu513612/cierre-mexicano-releases/releases/download/v1.0.31/CierreMexicano_dist.zip",
-  "sha256": "0240a19962e47515308a4083da6b377c5714ceec71006dddb4fb98a669a26081",
-  "tamano_bytes": 204170870
+  "version": "1.0.47",
+  "fecha": "2026-10-13",
+  "notas_es": "Versión 1.0.47. Cada aviso que detiene un cierre trae ahora un botón que lleva al lugar donde se resuelve. El IVA acreditable se llena solo cuando en el periodo no hay ingresos exentos ni no objeto; si los hay, queda para revisión. En pedimentos se corrigió la lectura de PRV e IVA/PRV, y el programa propone el proveedor y su identificador fiscal para que los confirmes. Un XML que ya está cargado no se cuenta dos veces. Esta versión es para un solo equipo: el trabajo en varios equipos no está completo. Revisa tus datos antes de declarar.",
+  "notas_en": "Version 1.0.47. Every warning that stops a closing now has a button that takes you to where it is fixed. Creditable VAT is filled in automatically when the period has no exempt or non-taxable income; if it does, it is left for review. In customs declarations (pedimentos), the reading of PRV and IVA/PRV was corrected, and the program proposes the supplier and its tax ID for you to confirm. An XML that is already loaded is not counted twice. This version is for a single computer: working across several computers is not complete. Review your data before filing.",
+  "url_descarga": "https://taxcerteza.mx/#descargar",
+  "url_zip": "https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.47/TaxCerteza_dist.zip",
+  "sha256": "1d70b8cf049e20faca42817a6fe02628af404069e6ba5071318ee6455deaacbc",
+  "tamano_bytes": 201905414,
+  "firma": "e70ZMhAovKHjBotWALPlYw3MRusR1ddhnguei96Bi2hnMljzUhtNTxMr3mMzjDs4GHX1re2czvCvTEVC4iukCw=="
 }
