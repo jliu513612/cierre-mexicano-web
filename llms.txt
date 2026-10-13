@@ -1,6 +1,6 @@
 # Tax Certeza
 
-> Software de escritorio para Windows que ayuda a contadores en México con el cierre fiscal mensual: descarga los CFDI del SAT, concilia el banco, calcula IVA, ISR y DIOT y exporta las pólizas en Excel. Los datos se quedan en la computadora del usuario. Está en beta privada.
+> Software de escritorio para Windows que ayuda a contadores en México con el cierre fiscal mensual: descarga los CFDI del SAT, concilia el banco, calcula IVA, ISR y DIOT y exporta las pólizas en Excel. Los datos se quedan en la computadora del usuario. Se descarga desde taxcerteza.mx.
 
 ## Recursos fiscales
 
@@ -13,5 +13,5 @@
 
 ## Sitio
 
-- [Inicio](https://taxcerteza.mx/): qué hace el programa y cómo pedir acceso a la beta privada
+- [Inicio](https://taxcerteza.mx/): qué hace el programa y cómo descargarlo
 - [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
