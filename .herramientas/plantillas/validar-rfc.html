@@ -1,0 +1,105 @@
+@@TITULO
+Validar RFC: estructura, fecha y dígito verificador | Tax Certeza
+@@TITULO_CORTO
+Validador de RFC
+@@MIGA
+Validador de RFC
+@@DESCRIPCION
+Comprueba si un RFC de persona física o moral está bien escrito: estructura, fecha y dígito verificador. Gratis y sin registro; el RFC no sale de tu equipo.
+@@SCRIPTS
+<script src="/herramientas/validar-rfc/rfc.js" defer></script>
+<script src="/herramientas/validar-rfc/pagina.js" defer></script>
+@@FAQ
+P: ¿Cuántos caracteres tiene un RFC?
+R: El de una persona física tiene 13: cuatro letras, seis dígitos de fecha y tres caracteres de homoclave. El de una persona moral tiene 12, porque empieza con tres letras en lugar de cuatro.
+P: ¿Qué es la homoclave del RFC?
+R: Son los tres últimos caracteres. El tercero es el dígito verificador, que se calcula a partir de todos los caracteres anteriores y sirve para detectar errores de captura.
+P: ¿Esta página dice si un RFC existe en el SAT?
+R: No. La página revisa que el RFC esté bien formado. No consulta al SAT, así que no dice si el RFC existe, a quién pertenece, si está activo ni si aparece en alguna lista.
+P: ¿Qué son XAXX010101000 y XEXX010101000?
+R: Son claves genéricas. El artículo 29-A, fracción IV del CFF prevé que, cuando no se cuenta con el RFC de quien recibe el comprobante, se señale la clave genérica que establece el SAT. La página las reconoce y no les calcula dígito verificador.
+P: ¿Se guarda el RFC que escribo?
+R: No. El cálculo se hace en tu navegador. La página no envía el RFC a ningún servidor, no lo guarda y no usa cookies.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Validador de RFC</h1>
+  <p class="lead">Escribe un RFC y la página revisa que esté bien formado: 13 caracteres para una persona física o 12 para una persona moral, una fecha que exista y un dígito verificador que coincida con el cálculo. Sirve para detectar errores de captura antes de facturar o de dar de alta a un cliente o a un proveedor.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-rfc">
+  <h2 id="t-rfc">Validar un RFC</h2>
+  <form id="f-rfc" novalidate>
+    <div class="campo">
+      <label for="rfc">RFC</label>
+      <input class="mono" type="text" id="rfc" name="rfc" maxlength="24" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="rfc-ayuda" placeholder="XAXX010101000">
+      <p class="ayuda" id="rfc-ayuda">Puedes escribirlo con minúsculas, espacios o guiones: la página los quita.</p>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Validar</button>
+      <button class="btn btn-ghost" type="reset">Limpiar</button>
+    </div>
+  </form>
+  <div class="res" id="res-rfc" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para hacer el cálculo en tu navegador.</p></noscript>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía el RFC a ningún servidor y no lo guarda.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué comprueba y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí comprueba</h3>
+      <ul>
+        <li>La longitud y el orden: tres o cuatro letras, seis dígitos y tres caracteres de homoclave. Acepta la letra Ñ y el signo &amp;.</li>
+        <li>Que los seis dígitos formen una fecha que exista.</li>
+        <li>Que el último carácter coincida con el dígito verificador calculado.</li>
+        <li>Las dos claves genéricas, XAXX010101000 y XEXX010101000.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No comprueba</h3>
+      <ul>
+        <li>No consulta al SAT.</li>
+        <li>No dice si el RFC existe ni a quién pertenece.</li>
+        <li>No dice si está activo, suspendido o cancelado.</li>
+        <li>No revisa listas del SAT, como la del artículo 69-B.</li>
+        <li>No revisa el nombre, el régimen fiscal ni el código postal.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se usa</h2>
+  <ol>
+    <li>Escribe o pega el RFC en el campo.</li>
+    <li>Pulsa Validar o la tecla Enter.</li>
+    <li>Lee el resultado. En verde, la estructura es correcta. En ámbar, el dígito verificador no coincide y conviene comparar el RFC con la Constancia de Situación Fiscal. En rojo, el texto no tiene la estructura de un RFC y la página indica qué parte falla.</li>
+  </ol>
+
+  <h2>Cómo se calcula el dígito verificador</h2>
+  <p>La herramienta aplica el cálculo de módulo 11. A cada carácter le corresponde un valor: los dígitos valen de 0 a 9, las letras de la A a la N valen de 10 a 23, el signo &amp; vale 24, las letras de la O a la Z valen de 25 a 36, el espacio vale 37 y la Ñ vale 38. El RFC de una persona moral se completa con un espacio al inicio para tener doce posiciones antes del dígito.</p>
+  <p>Cada valor se multiplica por un factor que baja de 13 a 2 según la posición. Se suman los productos y se toma el residuo de dividir la suma entre 11. Si el residuo es 0, el dígito es 0. En los demás casos se resta el residuo de 11: cuando el resultado es 10 el dígito es la letra A, y si no, es ese número.</p>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">CFF, artículo 29-A</a>, fracción IV: cuando no se cuenta con la clave del RFC de la persona a favor de quien se expide el comprobante, se señala la clave genérica que establece el SAT mediante reglas de carácter general, y la operación se considera celebrada con el público en general. Texto vigente, última reforma DOF 09-04-2026.</li>
+    </ul>
+    <p>El cálculo del dígito verificador es el de módulo 11 de uso público. Esta página no cita un documento oficial para ese cálculo.</p>
+  </div>
+
+  <h2>Límites</h2>
+  <p>La herramienta aplica una comprobación de forma. Un RFC con estructura correcta puede no existir, y un dígito verificador que no coincide indica que hay que revisar la captura, sin que eso baste para concluir algo sobre el contribuyente. Lo que decide es la Constancia de Situación Fiscal o la consulta en el portal del SAT. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Tener bien escrito el RFC de un proveedor es una revisión; saber si ese proveedor aparece en la lista del artículo 69-B es otra. La guía está en <a href="/blog/lista-negra-sat-efos-69b/">Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza trabaja con los RFC que vienen en los CFDI que descargas del SAT, así que no hay que capturarlos uno por uno, y revisa en lote a todos tus proveedores contra la lista del artículo 69-B.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>
