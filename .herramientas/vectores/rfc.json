@@ -1,0 +1,6009 @@
+{
+ "sat_prueba": [
+  "EKU9003173C9",
+  "XIQB891116QE4",
+  "CACX7605101P8",
+  "IIA040805DZ4",
+  "H&E951128469",
+  "KIJ0906199R1",
+  "JES900109Q90",
+  "MISC491214B86",
+  "IVD920810GU2",
+  "FUNK671228PH6",
+  "URE180429TM6",
+  "OÑO120726RX3",
+  "XOJI740919U48",
+  "ICV060329BY0",
+  "WATM640917J45",
+  "COSC8001137NA",
+  "CUSC850516316",
+  "SPR190613I52",
+  "IXS7607092R5",
+  "CTE950627K46",
+  "EWE1709045U0",
+  "L&O950913MSA",
+  "S&S051221SE2",
+  "JUFA7608212V6",
+  "XIA190128J61",
+  "HERD890308UAA"
+ ],
+ "casos": [
+  {
+   "entrada": "EKU9003173C9",
+   "normalizado": "EKU9003173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "XIQB891116QE4",
+   "normalizado": "XIQB891116QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "CACX7605101P8",
+   "normalizado": "CACX7605101P8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "IIA040805DZ4",
+   "normalizado": "IIA040805DZ4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "H&E951128469",
+   "normalizado": "H&E951128469",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "KIJ0906199R1",
+   "normalizado": "KIJ0906199R1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "JES900109Q90",
+   "normalizado": "JES900109Q90",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "MISC491214B86",
+   "normalizado": "MISC491214B86",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "IVD920810GU2",
+   "normalizado": "IVD920810GU2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "FUNK671228PH6",
+   "normalizado": "FUNK671228PH6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "URE180429TM6",
+   "normalizado": "URE180429TM6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "OÑO120726RX3",
+   "normalizado": "OÑO120726RX3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "XOJI740919U48",
+   "normalizado": "XOJI740919U48",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "ICV060329BY0",
+   "normalizado": "ICV060329BY0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "WATM640917J45",
+   "normalizado": "WATM640917J45",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "COSC8001137NA",
+   "normalizado": "COSC8001137NA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "CUSC850516316",
+   "normalizado": "CUSC850516316",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "SPR190613I52",
+   "normalizado": "SPR190613I52",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "IXS7607092R5",
+   "normalizado": "IXS7607092R5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "CTE950627K46",
+   "normalizado": "CTE950627K46",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "EWE1709045U0",
+   "normalizado": "EWE1709045U0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "L&O950913MSA",
+   "normalizado": "L&O950913MSA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "S&S051221SE2",
+   "normalizado": "S&S051221SE2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "JUFA7608212V6",
+   "normalizado": "JUFA7608212V6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "XIA190128J61",
+   "normalizado": "XIA190128J61",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "HERD890308UAA",
+   "normalizado": "HERD890308UAA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "XAXX010101000",
+   "normalizado": "XAXX010101000",
+   "producto": {
+    "ok": true,
+    "tipo": "GENERICO_NAC"
+   },
+   "esperado": {
+    "resultado": "GENERICO"
+   }
+  },
+  {
+   "entrada": "XEXX010101000",
+   "normalizado": "XEXX010101000",
+   "producto": {
+    "ok": true,
+    "tipo": "GENERICO_EXT"
+   },
+   "esperado": {
+    "resultado": "GENERICO"
+   }
+  },
+  {
+   "entrada": " xaxx010101000 ",
+   "normalizado": "XAXX010101000",
+   "producto": {
+    "ok": true,
+    "tipo": "GENERICO_NAC"
+   },
+   "esperado": {
+    "resultado": "GENERICO"
+   }
+  },
+  {
+   "entrada": "xexx-010101-000",
+   "normalizado": "XEXX010101000",
+   "producto": {
+    "ok": true,
+    "tipo": "GENERICO_EXT"
+   },
+   "esperado": {
+    "resultado": "GENERICO"
+   }
+  },
+  {
+   "entrada": "eku9003173c9",
+   "normalizado": "EKU9003173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": " EKU 900317 3C9 ",
+   "normalizado": "EKU9003173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "EKU-900317-3C9",
+   "normalizado": "EKU9003173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "oño120726rx3",
+   "normalizado": "OÑO120726RX3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "h&e951128469",
+   "normalizado": "H&E951128469",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "",
+   "normalizado": "",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "VACIO"
+   }
+  },
+  {
+   "entrada": "   ",
+   "normalizado": "",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "VACIO"
+   }
+  },
+  {
+   "entrada": "EKU9003173C",
+   "normalizado": "EKU9003173C",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU9003173C99X",
+   "normalizado": "EKU9003173C99X",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU90O3173C9",
+   "normalizado": "EKU90O3173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "1KU9003173C9",
+   "normalizado": "1KU9003173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU9003173C-",
+   "normalizado": "EKU9003173C",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "ÁKU9003173C9",
+   "normalizado": "ÁKU9003173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU9003173Ñ9",
+   "normalizado": "EKU9003173Ñ9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU 9003173",
+   "normalizado": "EKU9003173",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "XIQB89111QE4",
+   "normalizado": "XIQB89111QE4",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "XIQB891116QE",
+   "normalizado": "XIQB891116QE",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "XIQB8911160QE4",
+   "normalizado": "XIQB8911160QE4",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU9003173C9\t",
+   "normalizado": "EKU9003173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "EKU\t9003173C9",
+   "normalizado": "EKU\t9003173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "E.U9003173C9",
+   "normalizado": "E.U9003173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "XIQB891116Q&4",
+   "normalizado": "XIQB891116Q&4",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EK9003173C9",
+   "normalizado": "EK9003173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "ABCDE9003173C9",
+   "normalizado": "ABCDE9003173C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKUX90031733C9",
+   "normalizado": "EKUX90031733C9",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "12345678901",
+   "normalizado": "12345678901",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "ABCDEFGHIJKLM",
+   "normalizado": "ABCDEFGHIJKLM",
+   "producto": {
+    "ok": false,
+    "tipo": "INVALIDO"
+   },
+   "esperado": {
+    "resultado": "FORMATO_INVALIDO"
+   }
+  },
+  {
+   "entrada": "EKU9013173C9",
+   "normalizado": "EKU9013173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "EKU9000173C9",
+   "normalizado": "EKU9000173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "EKU9003003C9",
+   "normalizado": "EKU9003003C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "EKU9003323C9",
+   "normalizado": "EKU9003323C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "EKU9002303C9",
+   "normalizado": "EKU9002303C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "EKU9004313C9",
+   "normalizado": "EKU9004313C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "XIQB891316QE4",
+   "normalizado": "XIQB891316QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "XIQB890230QE4",
+   "normalizado": "XIQB890230QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "XIQB010229QE4",
+   "normalizado": "XIQB010229QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "XIQB000229QE4",
+   "normalizado": "XIQB000229QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "XIQB040229QE4",
+   "normalizado": "XIQB040229QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "XIQB000000QE4",
+   "normalizado": "XIQB000000QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "FECHA_INVALIDA"
+   }
+  },
+  {
+   "entrada": "EKU9003173C1",
+   "normalizado": "EKU9003173C1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "EKU9003173CB",
+   "normalizado": "EKU9003173CB",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "EZU9003173C9",
+   "normalizado": "EZU9003173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "XIQB891116QE1",
+   "normalizado": "XIQB891116QE1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "XIQB891116QEB",
+   "normalizado": "XIQB891116QEB",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "XZQB891116QE4",
+   "normalizado": "XZQB891116QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "CACX7605101P1",
+   "normalizado": "CACX7605101P1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "CACX7605101PB",
+   "normalizado": "CACX7605101PB",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "CZCX7605101P8",
+   "normalizado": "CZCX7605101P8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "IIA040805DZ1",
+   "normalizado": "IIA040805DZ1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "IIA040805DZB",
+   "normalizado": "IIA040805DZB",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "IZA040805DZ4",
+   "normalizado": "IZA040805DZ4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "H&E951128461",
+   "normalizado": "H&E951128461",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "H&E95112846B",
+   "normalizado": "H&E95112846B",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "HZE951128469",
+   "normalizado": "HZE951128469",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "KIJ0906199R2",
+   "normalizado": "KIJ0906199R2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "KIJ0906199RB",
+   "normalizado": "KIJ0906199RB",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "KZJ0906199R1",
+   "normalizado": "KZJ0906199R1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "JES900109Q91",
+   "normalizado": "JES900109Q91",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "JES900109Q9B",
+   "normalizado": "JES900109Q9B",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "JZS900109Q90",
+   "normalizado": "JZS900109Q90",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "MISC491214B81",
+   "normalizado": "MISC491214B81",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "MISC491214B8B",
+   "normalizado": "MISC491214B8B",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "MZSC491214B86",
+   "normalizado": "MZSC491214B86",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "IVD920810GU1",
+   "normalizado": "IVD920810GU1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "IVD920810GUB",
+   "normalizado": "IVD920810GUB",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "IZD920810GU2",
+   "normalizado": "IZD920810GU2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "FUNK671228PH1",
+   "normalizado": "FUNK671228PH1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "FUNK671228PHB",
+   "normalizado": "FUNK671228PHB",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "FZNK671228PH6",
+   "normalizado": "FZNK671228PH6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "EKU0903173C9",
+   "normalizado": "EKU0903173C9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "XIQB981116QE4",
+   "normalizado": "XIQB981116QE4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "CIMI130208Z43",
+   "normalizado": "CIMI130208Z43",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "FLR740822JH6",
+   "normalizado": "FLR740822JH6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "CDRC9601312QG",
+   "normalizado": "CDRC9601312QG",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "KXD63052538R",
+   "normalizado": "KXD63052538R",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "IMJN890615ME7",
+   "normalizado": "IMJN890615ME7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "SJP600901VA3",
+   "normalizado": "SJP600901VA3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "ÑRQB991102DIU",
+   "normalizado": "ÑRQB991102DIU",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "FN&770811RQL",
+   "normalizado": "FN&770811RQL",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "CYVT720229OI9",
+   "normalizado": "CYVT720229OI9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "DBO7809157G9",
+   "normalizado": "DBO7809157G9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "ÑOÑÑ360529MGX",
+   "normalizado": "ÑOÑÑ360529MGX",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "GUA8710241E2",
+   "normalizado": "GUA8710241E2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "AOJ&271222BT6",
+   "normalizado": "AOJ&271222BT6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "GDU780616LP8",
+   "normalizado": "GDU780616LP8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "MBNZ400406E38",
+   "normalizado": "MBNZ400406E38",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "JIX691209NPG",
+   "normalizado": "JIX691209NPG",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "WTAS7610301J1",
+   "normalizado": "WTAS7610301J1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "IKP730505S90",
+   "normalizado": "IKP730505S90",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "WTCW410125R83",
+   "normalizado": "WTCW410125R83",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "DYC030423EQI",
+   "normalizado": "DYC030423EQI",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "NGGG181224UG8",
+   "normalizado": "NGGG181224UG8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "HÑY270104ER3",
+   "normalizado": "HÑY270104ER3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "CNÑO8208218JE",
+   "normalizado": "CNÑO8208218JE",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "YZO120302UKS",
+   "normalizado": "YZO120302UKS",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "DYGQ340111UM8",
+   "normalizado": "DYGQ340111UM8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "BVB460406WB3",
+   "normalizado": "BVB460406WB3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "BZÑT591210DIV",
+   "normalizado": "BZÑT591210DIV",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "QUH2511235N4",
+   "normalizado": "QUH2511235N4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "IDDL870912W16",
+   "normalizado": "IDDL870912W16",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "G&P9211157Q1",
+   "normalizado": "G&P9211157Q1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "SO&B3502133T6",
+   "normalizado": "SO&B3502133T6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "AIC740104OHH",
+   "normalizado": "AIC740104OHH",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "NTBN620818W79",
+   "normalizado": "NTBN620818W79",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "ROA020401EZ3",
+   "normalizado": "ROA020401EZ3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "RAF&5603104IF",
+   "normalizado": "RAF&5603104IF",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "YCT611018L7I",
+   "normalizado": "YCT611018L7I",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "LLTU8708135O7",
+   "normalizado": "LLTU8708135O7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "CKP571229AS5",
+   "normalizado": "CKP571229AS5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "OLTA1103176ZE",
+   "normalizado": "OLTA1103176ZE",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "FZJ6002017HN",
+   "normalizado": "FZJ6002017HN",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "ÑRVV690912ZI9",
+   "normalizado": "ÑRVV690912ZI9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "FDÑ111125FGA",
+   "normalizado": "FDÑ111125FGA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "UTHÑ900419HB5",
+   "normalizado": "UTHÑ900419HB5",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "ZYZ730727M1V",
+   "normalizado": "ZYZ730727M1V",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "K&EH471210DW7",
+   "normalizado": "K&EH471210DW7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "VTÑ0710254R2",
+   "normalizado": "VTÑ0710254R2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "CÑIZ270729D17",
+   "normalizado": "CÑIZ270729D17",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "JBE220720KXU",
+   "normalizado": "JBE220720KXU",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "ECIR820213EI2",
+   "normalizado": "ECIR820213EI2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "RWM240803970",
+   "normalizado": "RWM240803970",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "JJGU790216EMS",
+   "normalizado": "JJGU790216EMS",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "PVZ4410233VF",
+   "normalizado": "PVZ4410233VF",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "JH&Z160728CC0",
+   "normalizado": "JH&Z160728CC0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "LXP9311198B1",
+   "normalizado": "LXP9311198B1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "MJUB780414QPI",
+   "normalizado": "MJUB780414QPI",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "AÑN590408ST4",
+   "normalizado": "AÑN590408ST4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "BPPY390304HP4",
+   "normalizado": "BPPY390304HP4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "LWL390818QV4",
+   "normalizado": "LWL390818QV4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "Z&ÑM870801Y2J",
+   "normalizado": "Z&ÑM870801Y2J",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "CTV3406173HX",
+   "normalizado": "CTV3406173HX",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "PKKE360709JI4",
+   "normalizado": "PKKE360709JI4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "JOL770122OS4",
+   "normalizado": "JOL770122OS4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "GATR351026XNT",
+   "normalizado": "GATR351026XNT",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "UYF760107YOC",
+   "normalizado": "UYF760107YOC",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "Y&QO071117CE7",
+   "normalizado": "Y&QO071117CE7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "JIM231021718",
+   "normalizado": "JIM231021718",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "WDPL9909115V4",
+   "normalizado": "WDPL9909115V4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "UWB430115KS6",
+   "normalizado": "UWB430115KS6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "&GXS0608083L6",
+   "normalizado": "&GXS0608083L6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "UCW3003128X9",
+   "normalizado": "UCW3003128X9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "BKXT960609ELW",
+   "normalizado": "BKXT960609ELW",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "GNY251008MCN",
+   "normalizado": "GNY251008MCN",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "APXB150619KV1",
+   "normalizado": "APXB150619KV1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "AÑY1303295Q5",
+   "normalizado": "AÑY1303295Q5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "ÑDZR761126G12",
+   "normalizado": "ÑDZR761126G12",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "XAH090420294",
+   "normalizado": "XAH090420294",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "RBTP520201N27",
+   "normalizado": "RBTP520201N27",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "SWO501003KN5",
+   "normalizado": "SWO501003KN5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "XXLS470716PGP",
+   "normalizado": "XXLS470716PGP",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "MKW6407035QC",
+   "normalizado": "MKW6407035QC",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "MZHK131216YK0",
+   "normalizado": "MZHK131216YK0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "ÑZW650620XA0",
+   "normalizado": "ÑZW650620XA0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "&YVB200410BAL",
+   "normalizado": "&YVB200410BAL",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "EZU990913QMN",
+   "normalizado": "EZU990913QMN",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "EI&V780626TQ8",
+   "normalizado": "EI&V780626TQ8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "VÑR130114MY1",
+   "normalizado": "VÑR130114MY1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "QLHI580617JEU",
+   "normalizado": "QLHI580617JEU",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "&BT961223GNY",
+   "normalizado": "&BT961223GNY",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "FNLZ400313IS9",
+   "normalizado": "FNLZ400313IS9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "UHB201010XN3",
+   "normalizado": "UHB201010XN3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "BEVE310708DXG",
+   "normalizado": "BEVE310708DXG",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "LSK3803299KS",
+   "normalizado": "LSK3803299KS",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "JXEF200613J02",
+   "normalizado": "JXEF200613J02",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "LBZ110807N85",
+   "normalizado": "LBZ110807N85",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "XYUU460815LX5",
+   "normalizado": "XYUU460815LX5",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "HIK1003260E8",
+   "normalizado": "HIK1003260E8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "&BRG590528FL0",
+   "normalizado": "&BRG590528FL0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "KV&110321G84",
+   "normalizado": "KV&110321G84",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "SACH111003RTG",
+   "normalizado": "SACH111003RTG",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "FYW190212MOX",
+   "normalizado": "FYW190212MOX",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "RKVH9804180BA",
+   "normalizado": "RKVH9804180BA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "NXL1209036X0",
+   "normalizado": "NXL1209036X0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "YÑVF630326DWK",
+   "normalizado": "YÑVF630326DWK",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "YBÑ410718F7K",
+   "normalizado": "YBÑ410718F7K",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "ALQT360306PH2",
+   "normalizado": "ALQT360306PH2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "IPT960820527",
+   "normalizado": "IPT960820527",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "VÑMF280622K8A",
+   "normalizado": "VÑMF280622K8A",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "RKD420712NPD",
+   "normalizado": "RKD420712NPD",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "VTMR200818503",
+   "normalizado": "VTMR200818503",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "IQ&6008305C7",
+   "normalizado": "IQ&6008305C7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "AAIJ500918UB2",
+   "normalizado": "AAIJ500918UB2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "&AZ590824A7I",
+   "normalizado": "&AZ590824A7I",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "VRGE850715CB4",
+   "normalizado": "VRGE850715CB4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "HIJ741120HF4",
+   "normalizado": "HIJ741120HF4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "&BIB72020559C",
+   "normalizado": "&BIB72020559C",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "CGC500208IHM",
+   "normalizado": "CGC500208IHM",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "QÑQX4007106UA",
+   "normalizado": "QÑQX4007106UA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "CIB010827YZ6",
+   "normalizado": "CIB010827YZ6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "TVCV870924WDC",
+   "normalizado": "TVCV870924WDC",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "JOÑ071001N93",
+   "normalizado": "JOÑ071001N93",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "PVTU0510232Z9",
+   "normalizado": "PVTU0510232Z9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "HLA340108UZ9",
+   "normalizado": "HLA340108UZ9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "YHBV411102LNM",
+   "normalizado": "YHBV411102LNM",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "ZMS040411ZHR",
+   "normalizado": "ZMS040411ZHR",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "EPRA071012GQ9",
+   "normalizado": "EPRA071012GQ9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "BIB940903T09",
+   "normalizado": "BIB940903T09",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "ÑKSX650606Z67",
+   "normalizado": "ÑKSX650606Z67",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "EEX320415KM9",
+   "normalizado": "EEX320415KM9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "DV&N630203YA2",
+   "normalizado": "DV&N630203YA2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "AUH300209LB4",
+   "normalizado": "AUH300209LB4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "VITH330913V60",
+   "normalizado": "VITH330913V60",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "RAS740928JH5",
+   "normalizado": "RAS740928JH5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "OSQY280408GS9",
+   "normalizado": "OSQY280408GS9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "FQU761124UX5",
+   "normalizado": "FQU761124UX5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "SIPÑ69090104D",
+   "normalizado": "SIPÑ69090104D",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "H&A881214EIQ",
+   "normalizado": "H&A881214EIQ",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "FEJN3408180P3",
+   "normalizado": "FEJN3408180P3",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "WFJ8609302DA",
+   "normalizado": "WFJ8609302DA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "ODH&93081745W",
+   "normalizado": "ODH&93081745W",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "AZ&720727EID",
+   "normalizado": "AZ&720727EID",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "ZSTT621106211",
+   "normalizado": "ZSTT621106211",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "XB&770612Z89",
+   "normalizado": "XB&770612Z89",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "DYVT021225S3Q",
+   "normalizado": "DYVT021225S3Q",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "IWK101209A8Q",
+   "normalizado": "IWK101209A8Q",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "ZLRK330728EK7",
+   "normalizado": "ZLRK330728EK7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "VLG1008041BA",
+   "normalizado": "VLG1008041BA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "QÑBY251027UE6",
+   "normalizado": "QÑBY251027UE6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "FLV170105B5W",
+   "normalizado": "FLV170105B5W",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "XPKP140801QB0",
+   "normalizado": "XPKP140801QB0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "QWV190921S54",
+   "normalizado": "QWV190921S54",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "FOVR601009Z2X",
+   "normalizado": "FOVR601009Z2X",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "O&F780710F0P",
+   "normalizado": "O&F780710F0P",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "CDWU2406229T1",
+   "normalizado": "CDWU2406229T1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "TSV420909VB9",
+   "normalizado": "TSV420909VB9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "NYY&6004249P7",
+   "normalizado": "NYY&6004249P7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "GEV9009294HJ",
+   "normalizado": "GEV9009294HJ",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "MIÑX110811HR0",
+   "normalizado": "MIÑX110811HR0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "AZJ160522YHA",
+   "normalizado": "AZJ160522YHA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "CIR&990512K07",
+   "normalizado": "CIR&990512K07",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "BQH011208RTU",
+   "normalizado": "BQH011208RTU",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "SHUI330420990",
+   "normalizado": "SHUI330420990",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "WXD5511106Y1",
+   "normalizado": "WXD5511106Y1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "OYJR740322A99",
+   "normalizado": "OYJR740322A99",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "ÑHM620816479",
+   "normalizado": "ÑHM620816479",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "GZBT7604156S1",
+   "normalizado": "GZBT7604156S1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "FOG1305030G7",
+   "normalizado": "FOG1305030G7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "JIHG831116PRG",
+   "normalizado": "JIHG831116PRG",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "TIX34113072D",
+   "normalizado": "TIX34113072D",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "&CUN050614JQ8",
+   "normalizado": "&CUN050614JQ8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "RR&471027YP2",
+   "normalizado": "RR&471027YP2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "CXXT411115W8M",
+   "normalizado": "CXXT411115W8M",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "LEU391123028",
+   "normalizado": "LEU391123028",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "ÑLDQ460527BE3",
+   "normalizado": "ÑLDQ460527BE3",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "ZGH131124FN8",
+   "normalizado": "ZGH131124FN8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "IMÑT3509140H1",
+   "normalizado": "IMÑT3509140H1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "BAN511002D1F",
+   "normalizado": "BAN511002D1F",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "KHWU9502086L2",
+   "normalizado": "KHWU9502086L2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "DRL240214269",
+   "normalizado": "DRL240214269",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "JASI3305271RZ",
+   "normalizado": "JASI3305271RZ",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "OYM210313VPF",
+   "normalizado": "OYM210313VPF",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "YRSN9107028JA",
+   "normalizado": "YRSN9107028JA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "FZÑ590317DV8",
+   "normalizado": "FZÑ590317DV8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "&IRD421205X4Y",
+   "normalizado": "&IRD421205X4Y",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "VEB4504153I3",
+   "normalizado": "VEB4504153I3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "RLZB1511300RA",
+   "normalizado": "RLZB1511300RA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "HHX5307065R1",
+   "normalizado": "HHX5307065R1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "W&FF130720NB9",
+   "normalizado": "W&FF130720NB9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "PGK220501BLF",
+   "normalizado": "PGK220501BLF",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "OQYC850308BJA",
+   "normalizado": "OQYC850308BJA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "XFT791022B12",
+   "normalizado": "XFT791022B12",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "GDFW460919XTB",
+   "normalizado": "GDFW460919XTB",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "WZE840101ZWY",
+   "normalizado": "WZE840101ZWY",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "GYFM32082660A",
+   "normalizado": "GYFM32082660A",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "IHX020804H84",
+   "normalizado": "IHX020804H84",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "XDHP100107VWP",
+   "normalizado": "XDHP100107VWP",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "DTP790410LTC",
+   "normalizado": "DTP790410LTC",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "Y&CS330309OB8",
+   "normalizado": "Y&CS330309OB8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "PKD031026E20",
+   "normalizado": "PKD031026E20",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "SCTX5012061HM",
+   "normalizado": "SCTX5012061HM",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "YVR261108QNY",
+   "normalizado": "YVR261108QNY",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "YBXR311119UPA",
+   "normalizado": "YBXR311119UPA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "AMW200229PP7",
+   "normalizado": "AMW200229PP7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "GVML090322498",
+   "normalizado": "GVML090322498",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "ÑA&100210AX9",
+   "normalizado": "ÑA&100210AX9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "XWZX541230OA2",
+   "normalizado": "XWZX541230OA2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "AIR860822S28",
+   "normalizado": "AIR860822S28",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "KMUI121116NKS",
+   "normalizado": "KMUI121116NKS",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "YAE740215H0H",
+   "normalizado": "YAE740215H0H",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "DCCN510827FA1",
+   "normalizado": "DCCN510827FA1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "VJZ630802SJ1",
+   "normalizado": "VJZ630802SJ1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "QLAG1904106YN",
+   "normalizado": "QLAG1904106YN",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "KUM0908216W0",
+   "normalizado": "KUM0908216W0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "WBDK900908L93",
+   "normalizado": "WBDK900908L93",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "VUD3410236O4",
+   "normalizado": "VUD3410236O4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "ÑYGJ400804Y3V",
+   "normalizado": "ÑYGJ400804Y3V",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "BCF03063063N",
+   "normalizado": "BCF03063063N",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "VCCB580926E47",
+   "normalizado": "VCCB580926E47",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "UDU140615MN9",
+   "normalizado": "UDU140615MN9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "RVBM780213J0I",
+   "normalizado": "RVBM780213J0I",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "CQF58092871X",
+   "normalizado": "CQF58092871X",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "I&OÑ1809058D1",
+   "normalizado": "I&OÑ1809058D1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "WFI940811U43",
+   "normalizado": "WFI940811U43",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "QJQY72032303Z",
+   "normalizado": "QJQY72032303Z",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "SJV780910IAB",
+   "normalizado": "SJV780910IAB",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "QPB&410425V03",
+   "normalizado": "QPB&410425V03",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "BFE7612307F8",
+   "normalizado": "BFE7612307F8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "XQTQ410930BO4",
+   "normalizado": "XQTQ410930BO4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "RAO490625NQU",
+   "normalizado": "RAO490625NQU",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "UFX&070311368",
+   "normalizado": "UFX&070311368",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "OGM640629ES7",
+   "normalizado": "OGM640629ES7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "YXMN900423XJU",
+   "normalizado": "YXMN900423XJU",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "ÑZT471119GBA",
+   "normalizado": "ÑZT471119GBA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "MOZR710316GC0",
+   "normalizado": "MOZR710316GC0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "GTU920415XCA",
+   "normalizado": "GTU920415XCA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "PRHY750204F0T",
+   "normalizado": "PRHY750204F0T",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "GIZ150422EY9",
+   "normalizado": "GIZ150422EY9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "USHJ050406CK6",
+   "normalizado": "USHJ050406CK6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "DYM0507251O1",
+   "normalizado": "DYM0507251O1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "DUNW350816I4Q",
+   "normalizado": "DUNW350816I4Q",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "VIG86092905B",
+   "normalizado": "VIG86092905B",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "LYUP090524BR7",
+   "normalizado": "LYUP090524BR7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "KYA861106184",
+   "normalizado": "KYA861106184",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "TYVZ490113I37",
+   "normalizado": "TYVZ490113I37",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "E&Q240125TS8",
+   "normalizado": "E&Q240125TS8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "COXG280124N55",
+   "normalizado": "COXG280124N55",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "BFH510205XR8",
+   "normalizado": "BFH510205XR8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "NÑGA600414UWZ",
+   "normalizado": "NÑGA600414UWZ",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "AQF150221AAD",
+   "normalizado": "AQF150221AAD",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "YGQZ441103OG3",
+   "normalizado": "YGQZ441103OG3",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "ZJJ040118EW1",
+   "normalizado": "ZJJ040118EW1",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "JSBY951218S9D",
+   "normalizado": "JSBY951218S9D",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "DTH070830YD7",
+   "normalizado": "DTH070830YD7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "BDGÑ740614FL6",
+   "normalizado": "BDGÑ740614FL6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "PON200627D28",
+   "normalizado": "PON200627D28",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "HÑAF4404216K6",
+   "normalizado": "HÑAF4404216K6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "AÑX820708CVX",
+   "normalizado": "AÑX820708CVX",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "BEPO180112724",
+   "normalizado": "BEPO180112724",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "FON081202T06",
+   "normalizado": "FON081202T06",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "ZMYJ9306273XB",
+   "normalizado": "ZMYJ9306273XB",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "QRW921028QJB",
+   "normalizado": "QRW921028QJB",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "SMLK470920RN6",
+   "normalizado": "SMLK470920RN6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "NPH781028IL0",
+   "normalizado": "NPH781028IL0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "ÑABU3802278KG",
+   "normalizado": "ÑABU3802278KG",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "RSG850512KRO",
+   "normalizado": "RSG850512KRO",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "LTZZ700118KX5",
+   "normalizado": "LTZZ700118KX5",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "LSH700823KD0",
+   "normalizado": "LSH700823KD0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "TOAM9702145AP",
+   "normalizado": "TOAM9702145AP",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "EJG661215Y32",
+   "normalizado": "EJG661215Y32",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "UFOK1209048M0",
+   "normalizado": "UFOK1209048M0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "SQÑ680128V97",
+   "normalizado": "SQÑ680128V97",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "GBMN26061177V",
+   "normalizado": "GBMN26061177V",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "HEK8211129S5",
+   "normalizado": "HEK8211129S5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "PGPG900611QX3",
+   "normalizado": "PGPG900611QX3",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "WÑO600804QH4",
+   "normalizado": "WÑO600804QH4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "TKGS830801VSO",
+   "normalizado": "TKGS830801VSO",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "RIR010419B78",
+   "normalizado": "RIR010419B78",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "JDPW570513C23",
+   "normalizado": "JDPW570513C23",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "BWT120713861",
+   "normalizado": "BWT120713861",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "ÑDVV130804JFI",
+   "normalizado": "ÑDVV130804JFI",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "FNE270525MT8",
+   "normalizado": "FNE270525MT8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "JZÑI9806065Z4",
+   "normalizado": "JZÑI9806065Z4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "IÑW860530HHA",
+   "normalizado": "IÑW860530HHA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "EUYN600729OBL",
+   "normalizado": "EUYN600729OBL",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "SRK331013AC3",
+   "normalizado": "SRK331013AC3",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "IZQE010103AC5",
+   "normalizado": "IZQE010103AC5",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "CPY760723J62",
+   "normalizado": "CPY760723J62",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "OOCO4407133QZ",
+   "normalizado": "OOCO4407133QZ",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "NIN8408014MJ",
+   "normalizado": "NIN8408014MJ",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "TYAE601025CS9",
+   "normalizado": "TYAE601025CS9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "JE&741214IQ7",
+   "normalizado": "JE&741214IQ7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "TUC&190310HN0",
+   "normalizado": "TUC&190310HN0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "TJS741030TGK",
+   "normalizado": "TJS741030TGK",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "YUQQ271029YZ7",
+   "normalizado": "YUQQ271029YZ7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "INM220725YZA",
+   "normalizado": "INM220725YZA",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "QQGO0003138K9",
+   "normalizado": "QQGO0003138K9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "&KJ0204262FV",
+   "normalizado": "&KJ0204262FV",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "YXJF1412011O3",
+   "normalizado": "YXJF1412011O3",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "CÑ&3801184Q2",
+   "normalizado": "CÑ&3801184Q2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "XCJJ840924SPF",
+   "normalizado": "XCJJ840924SPF",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "GPV741129OFO",
+   "normalizado": "GPV741129OFO",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "ZCNM241228N78",
+   "normalizado": "ZCNM241228N78",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "XCH1902033F7",
+   "normalizado": "XCH1902033F7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "ÑKUK920222K2C",
+   "normalizado": "ÑKUK920222K2C",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "XGK520217N5H",
+   "normalizado": "XGK520217N5H",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "TBSN770307AJ5",
+   "normalizado": "TBSN770307AJ5",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "JBZ920808CG6",
+   "normalizado": "JBZ920808CG6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "QQFI320219Z9A",
+   "normalizado": "QQFI320219Z9A",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "PKK471002R6D",
+   "normalizado": "PKK471002R6D",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "EZWP570530EV7",
+   "normalizado": "EZWP570530EV7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "UCD160906OX4",
+   "normalizado": "UCD160906OX4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "WWMZ3012251IE",
+   "normalizado": "WWMZ3012251IE",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "&SY570117SKC",
+   "normalizado": "&SY570117SKC",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "TNAD500204W35",
+   "normalizado": "TNAD500204W35",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "E&R36012680A",
+   "normalizado": "E&R36012680A",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "BLMO271127BVP",
+   "normalizado": "BLMO271127BVP",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "NBU610812292",
+   "normalizado": "NBU610812292",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "&JIG630308DX0",
+   "normalizado": "&JIG630308DX0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "UIV050814LB8",
+   "normalizado": "UIV050814LB8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "AFKF0508318A6",
+   "normalizado": "AFKF0508318A6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "V&T510118U0B",
+   "normalizado": "V&T510118U0B",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "VTHC020909T59",
+   "normalizado": "VTHC020909T59",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "CÑU381128BN6",
+   "normalizado": "CÑU381128BN6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "DOTG380227D2L",
+   "normalizado": "DOTG380227D2L",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "J&I010905F4M",
+   "normalizado": "J&I010905F4M",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "SGMB650223S16",
+   "normalizado": "SGMB650223S16",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "RT&6105316D9",
+   "normalizado": "RT&6105316D9",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "OGUY900716ENC",
+   "normalizado": "OGUY900716ENC",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "IJG511101K0L",
+   "normalizado": "IJG511101K0L",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "EZTA9509303B0",
+   "normalizado": "EZTA9509303B0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "WNZ070807A76",
+   "normalizado": "WNZ070807A76",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "NSLB630103WGL",
+   "normalizado": "NSLB630103WGL",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "NON921008UVF",
+   "normalizado": "NON921008UVF",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "EMTQ660127EI6",
+   "normalizado": "EMTQ660127EI6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "MAF930410PW4",
+   "normalizado": "MAF930410PW4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "QÑVB531008S0H",
+   "normalizado": "QÑVB531008S0H",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "SQN0807310S8",
+   "normalizado": "SQN0807310S8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "BLVO2605240X1",
+   "normalizado": "BLVO2605240X1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "GUH410209F93",
+   "normalizado": "GUH410209F93",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "KJSH160606AUW",
+   "normalizado": "KJSH160606AUW",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "X&C9702082CC",
+   "normalizado": "X&C9702082CC",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "MXXT5103194K8",
+   "normalizado": "MXXT5103194K8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "ZXI440712U78",
+   "normalizado": "ZXI440712U78",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "SVÑM250604E3I",
+   "normalizado": "SVÑM250604E3I",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "VMQ7504072F6",
+   "normalizado": "VMQ7504072F6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "MUYG250111N16",
+   "normalizado": "MUYG250111N16",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "CIW8206069K7",
+   "normalizado": "CIW8206069K7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "FRBS9303298TG",
+   "normalizado": "FRBS9303298TG",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "&ZN711005RLS",
+   "normalizado": "&ZN711005RLS",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "9"
+   }
+  },
+  {
+   "entrada": "ÑVYG340922ID5",
+   "normalizado": "ÑVYG340922ID5",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "FLO860110FJ8",
+   "normalizado": "FLO860110FJ8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "QFKV9604110N8",
+   "normalizado": "QFKV9604110N8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "YLQ74010385Y",
+   "normalizado": "YLQ74010385Y",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "AQO&350729OJ6",
+   "normalizado": "AQO&350729OJ6",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "QU&500506BD7",
+   "normalizado": "QU&500506BD7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "JHBA440420H48",
+   "normalizado": "JHBA440420H48",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "IYR9010212L7",
+   "normalizado": "IYR9010212L7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "GDES920415QQ0",
+   "normalizado": "GDES920415QQ0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "XZR870920178",
+   "normalizado": "XZR870920178",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "HGS&851208DP1",
+   "normalizado": "HGS&851208DP1",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "VWU870124LZ5",
+   "normalizado": "VWU870124LZ5",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "RFBX3803253N0",
+   "normalizado": "RFBX3803253N0",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "WFZ1805221S0",
+   "normalizado": "WFZ1805221S0",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "EFDR301217WJB",
+   "normalizado": "EFDR301217WJB",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "WMK320703XZV",
+   "normalizado": "WMK320703XZV",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "ÑGÑZ821127GS7",
+   "normalizado": "ÑGÑZ821127GS7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "UW&85030943A",
+   "normalizado": "UW&85030943A",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "YYAW640127IOP",
+   "normalizado": "YYAW640127IOP",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "OTG100914C23",
+   "normalizado": "OTG100914C23",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "KHRT220917FZA",
+   "normalizado": "KHRT220917FZA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "ÑYJ050907ID2",
+   "normalizado": "ÑYJ050907ID2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "AXZT440716PEA",
+   "normalizado": "AXZT440716PEA",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "DUP081130YI6",
+   "normalizado": "DUP081130YI6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "RWAO6803168A2",
+   "normalizado": "RWAO6803168A2",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "ZZH4409300D8",
+   "normalizado": "ZZH4409300D8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "NOFT831218HV4",
+   "normalizado": "NOFT831218HV4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "0"
+   }
+  },
+  {
+   "entrada": "PIÑ480105T0B",
+   "normalizado": "PIÑ480105T0B",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "WNRR910203GR8",
+   "normalizado": "WNRR910203GR8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "EGU700429Q04",
+   "normalizado": "EGU700429Q04",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "DUÑO220905TYS",
+   "normalizado": "DUÑO220905TYS",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "KPU400725ZN6",
+   "normalizado": "KPU400725ZN6",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "5"
+   }
+  },
+  {
+   "entrada": "ÑGRI630706PP4",
+   "normalizado": "ÑGRI630706PP4",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "4"
+   }
+  },
+  {
+   "entrada": "TFD481103ZV8",
+   "normalizado": "TFD481103ZV8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "HCLÑ000311TPV",
+   "normalizado": "HCLÑ000311TPV",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "&OB860204DW2",
+   "normalizado": "&OB860204DW2",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "KKCO920430M3A",
+   "normalizado": "KKCO920430M3A",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "FYD901204F56",
+   "normalizado": "FYD901204F56",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "6"
+   }
+  },
+  {
+   "entrada": "JWQO49031511Y",
+   "normalizado": "JWQO49031511Y",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "PPG890911QGC",
+   "normalizado": "PPG890911QGC",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "ZHXC6111216O8",
+   "normalizado": "ZHXC6111216O8",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "WXN240823EM7",
+   "normalizado": "WXN240823EM7",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "CYWL530119MHN",
+   "normalizado": "CYWL530119MHN",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "ÑBW020720I90",
+   "normalizado": "ÑBW020720I90",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "1"
+   }
+  },
+  {
+   "entrada": "ODPH500306EA3",
+   "normalizado": "ODPH500306EA3",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "3"
+   }
+  },
+  {
+   "entrada": "RSW9003261U8",
+   "normalizado": "RSW9003261U8",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "NQQK211203J6U",
+   "normalizado": "NQQK211203J6U",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "8"
+   }
+  },
+  {
+   "entrada": "JXL01052294Q",
+   "normalizado": "JXL01052294Q",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "2"
+   }
+  },
+  {
+   "entrada": "GNOP6012159D7",
+   "normalizado": "GNOP6012159D7",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "KXR080703W2A",
+   "normalizado": "KXR080703W2A",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "CORRECTO",
+    "digito_esperado": "A"
+   }
+  },
+  {
+   "entrada": "ASRD891014HA9",
+   "normalizado": "ASRD891014HA9",
+   "producto": {
+    "ok": true,
+    "tipo": "PF"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "7"
+   }
+  },
+  {
+   "entrada": "DMH020914LY4",
+   "normalizado": "DMH020914LY4",
+   "producto": {
+    "ok": true,
+    "tipo": "PM"
+   },
+   "esperado": {
+    "resultado": "DIGITO_NO_COINCIDE",
+    "digito_esperado": "3"
+   }
+  }
+ ]
+}

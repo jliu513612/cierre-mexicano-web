@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de la fecha límite del complemento de pago (REP) | Tax Certeza</title>
+<meta name="description" content="Con la fecha del pago, calcula hasta qué día se puede emitir el complemento de pago (REP). Con el método y la forma de pago, indica si la factura lo lleva. RMF 2026.">
+<link rel="canonical" href="https://taxcerteza.mx/herramientas/complemento-de-pago/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de la fecha límite del complemento de pago (REP) | Tax Certeza">
+<meta property="og:description" content="Con la fecha del pago, calcula hasta qué día se puede emitir el complemento de pago (REP). Con el método y la forma de pago, indica si la factura lo lleva. RMF 2026.">
+<meta property="og:url" content="https://taxcerteza.mx/herramientas/complemento-de-pago/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Tax Certeza">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/herramientas/herramientas.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Calculadora de la fecha límite del complemento de pago (REP)", "url": "https://taxcerteza.mx/herramientas/complemento-de-pago/", "description": "Con la fecha del pago, calcula hasta qué día se puede emitir el complemento de pago (REP). Con el método y la forma de pago, indica si la factura lo lleva. RMF 2026.", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "browserRequirements": "Requiere JavaScript", "inLanguage": "es-MX", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Tax Certeza", "url": "https://taxcerteza.mx", "logo": "https://taxcerteza.mx/apple-touch-icon.png"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Hasta qué día se puede emitir el complemento de pago?", "acceptedAnswer": {"@type": "Answer", "text": "A más tardar el quinto día natural del mes inmediato siguiente a aquel en que se recibió el pago, según la regla 2.7.1.32 de la RMF 2026. Un pago recibido en octubre tiene como límite el 5 de noviembre."}}, {"@type": "Question", "name": "¿El plazo del REP se cuenta en días hábiles?", "acceptedAnswer": {"@type": "Answer", "text": "La regla 2.7.1.32 de la RMF 2026 habla del quinto día natural. Por eso la página no recorre la fecha cuando el día 5 cae en sábado, domingo o día festivo."}}, {"@type": "Question", "name": "¿Una factura PUE lleva complemento de pago?", "acceptedAnswer": {"@type": "Answer", "text": "No. El complemento corresponde a las facturas con método PPD. Si una factura PUE no se cobra completa a más tardar el último día del mes en que se expidió, la regla 2.7.1.39 de la RMF 2026 indica cancelarla y emitir una nueva con forma de pago 99 y método PPD; los pagos posteriores se documentan con REP."}}, {"@type": "Question", "name": "¿Se puede emitir un solo REP por varios pagos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La regla 2.7.1.32 de la RMF 2026 permite emitir un REP por cada pago o uno solo por todos los pagos recibidos en un mes, siempre que correspondan al mismo receptor."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://taxcerteza.mx/"}, {"@type": "ListItem", "position": 2, "name": "Herramientas", "item": "https://taxcerteza.mx/herramientas/"}, {"@type": "ListItem", "position": 3, "name": "Complemento de pago (REP)", "item": "https://taxcerteza.mx/herramientas/complemento-de-pago/"}]}]}</script>
+</head>
+<body>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<nav aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/assets/logo-tax-certeza.svg" alt="Tax Certeza" width="194" height="36"></a>
+    <div class="nav-links">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/#funciones">Funciones</a>
+      <a href="/blog/">Recursos</a>
+      <a href="/herramientas/">Herramientas</a>
+      <a class="btn btn-primary nav-cta" href="/#descargar">Descargar</a>
+    </div>
+  </div>
+</nav>
+
+<main id="contenido">
+<div class="h-wrap">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Complemento de pago (REP)</li></ol></nav>
+<header class="cab">
+  <h1>Calculadora de la fecha límite del complemento de pago (REP)</h1>
+  <p class="lead">El complemento de pago se emite a más tardar el quinto día natural del mes siguiente a aquel en que se recibió el pago (regla 2.7.1.32 de la RMF 2026). Indica la fecha del pago y la página da el día límite y cuántos días faltan. Más abajo, con el método y la forma de pago, indica si la factura lleva REP.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-plazo">
+  <h2 id="t-plazo">Fecha límite para emitir el REP</h2>
+  <form id="f-plazo" novalidate>
+    <div class="campo">
+      <label for="fecha-pago">Fecha en que se recibió el pago</label>
+      <input type="date" id="fecha-pago" name="fecha-pago" min="2026-01-01" max="2026-12-31" aria-describedby="fp-ayuda">
+      <p class="ayuda" id="fp-ayuda">La página aplica la regla de 2026: calcula pagos recibidos entre el 1 de enero y el 31 de diciembre de 2026.</p>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Calcular fecha límite</button>
+    </div>
+  </form>
+  <div class="res" id="res-plazo" role="status" aria-live="polite"></div>
+</section>
+
+<section class="tool" aria-labelledby="t-lleva">
+  <h2 id="t-lleva">¿Esta factura lleva REP?</h2>
+  <form id="f-lleva" novalidate>
+    <fieldset class="campo">
+      <legend>Método de pago de la factura</legend>
+      <div class="opciones">
+        <label><input type="radio" name="metodo" value="PPD"> PPD: pago en parcialidades o diferido</label>
+        <label><input type="radio" name="metodo" value="PUE"> PUE: pago en una sola exhibición</label>
+      </div>
+    </fieldset>
+    <fieldset class="campo">
+      <legend>Forma de pago de la factura</legend>
+      <div class="opciones">
+        <label><input type="radio" name="forma" value="99"> Clave 99</label>
+        <label><input type="radio" name="forma" value="OTRA"> Otra clave, distinta de 99</label>
+      </div>
+    </fieldset>
+    <fieldset class="campo" id="g-cobro" hidden>
+      <legend>Cobro de la factura PUE</legend>
+      <div class="opciones">
+        <label><input type="radio" name="cobro" value="COBRADA"> Se cobró completa a más tardar el último día del mes en que se expidió</label>
+        <label><input type="radio" name="cobro" value="MES_ABIERTO"> Todavía no se cobra completa y el mes en que se expidió no ha terminado</label>
+        <label><input type="radio" name="cobro" value="NO_COBRADA"> Terminó el mes en que se expidió y no se cobró completa</label>
+      </div>
+    </fieldset>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Consultar</button>
+    </div>
+  </form>
+  <div class="res" id="res-lleva" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para hacer el cálculo en tu navegador.</p></noscript>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía nada a ningún servidor y no guarda lo que eliges.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Calcula el día límite para emitir el REP a partir de la fecha del pago.</li>
+        <li>Cuenta los días que faltan o los que han pasado desde el límite.</li>
+        <li>Indica si la factura lleva REP según su método de pago.</li>
+        <li>Indica qué prevé la regla para una factura PUE que no se cobró en el mes.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No emite ni timbra comprobantes.</li>
+        <li>No consulta al SAT ni revisa si el REP ya existe.</li>
+        <li>No recorre la fecha si el día 5 cae en día inhábil.</li>
+        <li>No calcula multas ni evalúa las consecuencias de emitir fuera de plazo.</li>
+        <li>No calcula pagos de otros ejercicios: aplica la regla de 2026.</li>
+        <li>No evalúa qué clave de forma de pago es compatible con cada método.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se usa</h2>
+  <ol>
+    <li>Para el plazo, elige la fecha en que se recibió el pago y pulsa Calcular fecha límite. Si hubo varios pagos en el mes, todos comparten el mismo día límite.</li>
+    <li>Para saber si una factura lleva REP, elige su método y su forma de pago. Si es PUE, indica además cómo va el cobro.</li>
+  </ol>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+      <li><a href="https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf" rel="noopener">RMF 2026, regla 2.7.1.32</a>: CFDI con complemento para recepción de pagos por cada pago, o uno por todos los pagos del mes al mismo receptor, a más tardar el quinto día natural del mes inmediato siguiente al del pago. Publicada en el DOF el 28-12-2025, ejercicio 2026.</li>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">CFF, artículo 29-A</a>, fracción VII: en el inciso a), pago en una sola exhibición al expedir el comprobante; en el inciso b), si no se paga en una sola exhibición o se paga después, un CFDI por el total y un CFDI por cada pago. Texto vigente, última reforma DOF 09-04-2026.</li>
+      <li><a href="https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf" rel="noopener">RMF 2026, regla 2.7.1.39</a>: se puede emitir como PUE sin haber recibido el pago si el total se cobra a más tardar el último día del mes de expedición; si no se cobra completo, cancelar y emitir uno nuevo con forma de pago 99 y método PPD, relacionado como sustitución, y documentar los pagos con REP. Publicada en el DOF el 28-12-2025, ejercicio 2026.</li>
+    </ul>
+  </div>
+
+  <h2>Límites</h2>
+  <p>La herramienta aplica las tres disposiciones citadas a los datos que indiques y no conoce el resto del caso: anticipos, pagos en moneda extranjera, compensaciones o facturas con varios pagos parciales pueden requerir otro análisis. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Hasta qué día se puede emitir el complemento de pago?</summary>
+<p>A más tardar el quinto día natural del mes inmediato siguiente a aquel en que se recibió el pago, según la regla 2.7.1.32 de la RMF 2026. Un pago recibido en octubre tiene como límite el 5 de noviembre.</p></details>
+<details><summary>¿El plazo del REP se cuenta en días hábiles?</summary>
+<p>La regla 2.7.1.32 de la RMF 2026 habla del quinto día natural. Por eso la página no recorre la fecha cuando el día 5 cae en sábado, domingo o día festivo.</p></details>
+<details><summary>¿Una factura PUE lleva complemento de pago?</summary>
+<p>No. El complemento corresponde a las facturas con método PPD. Si una factura PUE no se cobra completa a más tardar el último día del mes en que se expidió, la regla 2.7.1.39 de la RMF 2026 indica cancelarla y emitir una nueva con forma de pago 99 y método PPD; los pagos posteriores se documentan con REP.</p></details>
+<details><summary>¿Se puede emitir un solo REP por varios pagos?</summary>
+<p>Sí. La regla 2.7.1.32 de la RMF 2026 permite emitir un REP por cada pago o uno solo por todos los pagos recibidos en un mes, siempre que correspondan al mismo receptor.</p></details>
+
+  <h2>Relacionado</h2>
+  <p>El detalle del plazo, de la factura PUE que no se cobró y de cómo llevar el control está en <a href="/blog/complemento-de-pago-cuando-es-obligatorio/">Complemento de pago (REP): cuándo es obligatorio y qué plazo tienes</a>. Para saber qué facturas se cobraron de verdad, sirve el <a href="/blog/conciliacion-bancaria-contra-cfdi/">cruce del banco contra los CFDI</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza hace esta revisión en lote sobre los comprobantes del mes: en la pestaña CFDIs cada factura tiene una columna "Pagado (REP)" que indica si los complementos de pago cubren el total o solo una parte, y en "Salud del cliente" aparece una señal cuando hay facturas emitidas que siguen sin REP. El programa no emite ni timbra comprobantes.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="enl">
+      <a href="https://wa.me/528125834137">WhatsApp: +52 81 2583 4137</a><br>
+      <a href="mailto:support@taxcerteza.mx">support@taxcerteza.mx</a>
+    </div>
+    <div class="nota">
+      <b>Nota:</b> Tax Certeza 1.0.47 funciona en Windows y se activa con una licencia por equipo.
+      El software no sustituye el criterio profesional del contador.
+    </div>
+  </div>
+</footer>
+<script src="/herramientas/complemento-de-pago/rep.js" defer></script>
+<script src="/herramientas/complemento-de-pago/pagina.js" defer></script>
+</body>
+</html>

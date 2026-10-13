@@ -1,0 +1,1224 @@
+{
+ "limite": [
+  {
+   "fecha_pago": "2025-01-01",
+   "limite": "2025-02-05"
+  },
+  {
+   "fecha_pago": "2025-01-05",
+   "limite": "2025-02-05"
+  },
+  {
+   "fecha_pago": "2025-01-15",
+   "limite": "2025-02-05"
+  },
+  {
+   "fecha_pago": "2025-01-31",
+   "limite": "2025-02-05"
+  },
+  {
+   "fecha_pago": "2025-02-01",
+   "limite": "2025-03-05"
+  },
+  {
+   "fecha_pago": "2025-02-05",
+   "limite": "2025-03-05"
+  },
+  {
+   "fecha_pago": "2025-02-15",
+   "limite": "2025-03-05"
+  },
+  {
+   "fecha_pago": "2025-02-28",
+   "limite": "2025-03-05"
+  },
+  {
+   "fecha_pago": "2025-03-01",
+   "limite": "2025-04-05"
+  },
+  {
+   "fecha_pago": "2025-03-05",
+   "limite": "2025-04-05"
+  },
+  {
+   "fecha_pago": "2025-03-15",
+   "limite": "2025-04-05"
+  },
+  {
+   "fecha_pago": "2025-03-31",
+   "limite": "2025-04-05"
+  },
+  {
+   "fecha_pago": "2025-04-01",
+   "limite": "2025-05-05"
+  },
+  {
+   "fecha_pago": "2025-04-05",
+   "limite": "2025-05-05"
+  },
+  {
+   "fecha_pago": "2025-04-15",
+   "limite": "2025-05-05"
+  },
+  {
+   "fecha_pago": "2025-04-30",
+   "limite": "2025-05-05"
+  },
+  {
+   "fecha_pago": "2025-05-01",
+   "limite": "2025-06-05"
+  },
+  {
+   "fecha_pago": "2025-05-05",
+   "limite": "2025-06-05"
+  },
+  {
+   "fecha_pago": "2025-05-15",
+   "limite": "2025-06-05"
+  },
+  {
+   "fecha_pago": "2025-05-31",
+   "limite": "2025-06-05"
+  },
+  {
+   "fecha_pago": "2025-06-01",
+   "limite": "2025-07-05"
+  },
+  {
+   "fecha_pago": "2025-06-05",
+   "limite": "2025-07-05"
+  },
+  {
+   "fecha_pago": "2025-06-15",
+   "limite": "2025-07-05"
+  },
+  {
+   "fecha_pago": "2025-06-30",
+   "limite": "2025-07-05"
+  },
+  {
+   "fecha_pago": "2025-07-01",
+   "limite": "2025-08-05"
+  },
+  {
+   "fecha_pago": "2025-07-05",
+   "limite": "2025-08-05"
+  },
+  {
+   "fecha_pago": "2025-07-15",
+   "limite": "2025-08-05"
+  },
+  {
+   "fecha_pago": "2025-07-31",
+   "limite": "2025-08-05"
+  },
+  {
+   "fecha_pago": "2025-08-01",
+   "limite": "2025-09-05"
+  },
+  {
+   "fecha_pago": "2025-08-05",
+   "limite": "2025-09-05"
+  },
+  {
+   "fecha_pago": "2025-08-15",
+   "limite": "2025-09-05"
+  },
+  {
+   "fecha_pago": "2025-08-31",
+   "limite": "2025-09-05"
+  },
+  {
+   "fecha_pago": "2025-09-01",
+   "limite": "2025-10-05"
+  },
+  {
+   "fecha_pago": "2025-09-05",
+   "limite": "2025-10-05"
+  },
+  {
+   "fecha_pago": "2025-09-15",
+   "limite": "2025-10-05"
+  },
+  {
+   "fecha_pago": "2025-09-30",
+   "limite": "2025-10-05"
+  },
+  {
+   "fecha_pago": "2025-10-01",
+   "limite": "2025-11-05"
+  },
+  {
+   "fecha_pago": "2025-10-05",
+   "limite": "2025-11-05"
+  },
+  {
+   "fecha_pago": "2025-10-15",
+   "limite": "2025-11-05"
+  },
+  {
+   "fecha_pago": "2025-10-31",
+   "limite": "2025-11-05"
+  },
+  {
+   "fecha_pago": "2025-11-01",
+   "limite": "2025-12-05"
+  },
+  {
+   "fecha_pago": "2025-11-05",
+   "limite": "2025-12-05"
+  },
+  {
+   "fecha_pago": "2025-11-15",
+   "limite": "2025-12-05"
+  },
+  {
+   "fecha_pago": "2025-11-30",
+   "limite": "2025-12-05"
+  },
+  {
+   "fecha_pago": "2025-12-01",
+   "limite": "2026-01-05"
+  },
+  {
+   "fecha_pago": "2025-12-05",
+   "limite": "2026-01-05"
+  },
+  {
+   "fecha_pago": "2025-12-15",
+   "limite": "2026-01-05"
+  },
+  {
+   "fecha_pago": "2025-12-31",
+   "limite": "2026-01-05"
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "limite": "2026-02-05"
+  },
+  {
+   "fecha_pago": "2026-01-05",
+   "limite": "2026-02-05"
+  },
+  {
+   "fecha_pago": "2026-01-15",
+   "limite": "2026-02-05"
+  },
+  {
+   "fecha_pago": "2026-01-31",
+   "limite": "2026-02-05"
+  },
+  {
+   "fecha_pago": "2026-02-01",
+   "limite": "2026-03-05"
+  },
+  {
+   "fecha_pago": "2026-02-05",
+   "limite": "2026-03-05"
+  },
+  {
+   "fecha_pago": "2026-02-15",
+   "limite": "2026-03-05"
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "limite": "2026-03-05"
+  },
+  {
+   "fecha_pago": "2026-03-01",
+   "limite": "2026-04-05"
+  },
+  {
+   "fecha_pago": "2026-03-05",
+   "limite": "2026-04-05"
+  },
+  {
+   "fecha_pago": "2026-03-15",
+   "limite": "2026-04-05"
+  },
+  {
+   "fecha_pago": "2026-03-31",
+   "limite": "2026-04-05"
+  },
+  {
+   "fecha_pago": "2026-04-01",
+   "limite": "2026-05-05"
+  },
+  {
+   "fecha_pago": "2026-04-05",
+   "limite": "2026-05-05"
+  },
+  {
+   "fecha_pago": "2026-04-15",
+   "limite": "2026-05-05"
+  },
+  {
+   "fecha_pago": "2026-04-30",
+   "limite": "2026-05-05"
+  },
+  {
+   "fecha_pago": "2026-05-01",
+   "limite": "2026-06-05"
+  },
+  {
+   "fecha_pago": "2026-05-05",
+   "limite": "2026-06-05"
+  },
+  {
+   "fecha_pago": "2026-05-15",
+   "limite": "2026-06-05"
+  },
+  {
+   "fecha_pago": "2026-05-31",
+   "limite": "2026-06-05"
+  },
+  {
+   "fecha_pago": "2026-06-01",
+   "limite": "2026-07-05"
+  },
+  {
+   "fecha_pago": "2026-06-05",
+   "limite": "2026-07-05"
+  },
+  {
+   "fecha_pago": "2026-06-15",
+   "limite": "2026-07-05"
+  },
+  {
+   "fecha_pago": "2026-06-30",
+   "limite": "2026-07-05"
+  },
+  {
+   "fecha_pago": "2026-07-01",
+   "limite": "2026-08-05"
+  },
+  {
+   "fecha_pago": "2026-07-05",
+   "limite": "2026-08-05"
+  },
+  {
+   "fecha_pago": "2026-07-15",
+   "limite": "2026-08-05"
+  },
+  {
+   "fecha_pago": "2026-07-31",
+   "limite": "2026-08-05"
+  },
+  {
+   "fecha_pago": "2026-08-01",
+   "limite": "2026-09-05"
+  },
+  {
+   "fecha_pago": "2026-08-05",
+   "limite": "2026-09-05"
+  },
+  {
+   "fecha_pago": "2026-08-15",
+   "limite": "2026-09-05"
+  },
+  {
+   "fecha_pago": "2026-08-31",
+   "limite": "2026-09-05"
+  },
+  {
+   "fecha_pago": "2026-09-01",
+   "limite": "2026-10-05"
+  },
+  {
+   "fecha_pago": "2026-09-05",
+   "limite": "2026-10-05"
+  },
+  {
+   "fecha_pago": "2026-09-15",
+   "limite": "2026-10-05"
+  },
+  {
+   "fecha_pago": "2026-09-30",
+   "limite": "2026-10-05"
+  },
+  {
+   "fecha_pago": "2026-10-01",
+   "limite": "2026-11-05"
+  },
+  {
+   "fecha_pago": "2026-10-05",
+   "limite": "2026-11-05"
+  },
+  {
+   "fecha_pago": "2026-10-15",
+   "limite": "2026-11-05"
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "limite": "2026-11-05"
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "limite": "2026-12-05"
+  },
+  {
+   "fecha_pago": "2026-11-05",
+   "limite": "2026-12-05"
+  },
+  {
+   "fecha_pago": "2026-11-15",
+   "limite": "2026-12-05"
+  },
+  {
+   "fecha_pago": "2026-11-30",
+   "limite": "2026-12-05"
+  },
+  {
+   "fecha_pago": "2026-12-01",
+   "limite": "2027-01-05"
+  },
+  {
+   "fecha_pago": "2026-12-05",
+   "limite": "2027-01-05"
+  },
+  {
+   "fecha_pago": "2026-12-15",
+   "limite": "2027-01-05"
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "limite": "2027-01-05"
+  },
+  {
+   "fecha_pago": "2027-01-01",
+   "limite": "2027-02-05"
+  },
+  {
+   "fecha_pago": "2027-01-05",
+   "limite": "2027-02-05"
+  },
+  {
+   "fecha_pago": "2027-01-15",
+   "limite": "2027-02-05"
+  },
+  {
+   "fecha_pago": "2027-01-31",
+   "limite": "2027-02-05"
+  },
+  {
+   "fecha_pago": "2027-02-01",
+   "limite": "2027-03-05"
+  },
+  {
+   "fecha_pago": "2027-02-05",
+   "limite": "2027-03-05"
+  },
+  {
+   "fecha_pago": "2027-02-15",
+   "limite": "2027-03-05"
+  },
+  {
+   "fecha_pago": "2027-02-28",
+   "limite": "2027-03-05"
+  },
+  {
+   "fecha_pago": "2027-03-01",
+   "limite": "2027-04-05"
+  },
+  {
+   "fecha_pago": "2027-03-05",
+   "limite": "2027-04-05"
+  },
+  {
+   "fecha_pago": "2027-03-15",
+   "limite": "2027-04-05"
+  },
+  {
+   "fecha_pago": "2027-03-31",
+   "limite": "2027-04-05"
+  },
+  {
+   "fecha_pago": "2027-04-01",
+   "limite": "2027-05-05"
+  },
+  {
+   "fecha_pago": "2027-04-05",
+   "limite": "2027-05-05"
+  },
+  {
+   "fecha_pago": "2027-04-15",
+   "limite": "2027-05-05"
+  },
+  {
+   "fecha_pago": "2027-04-30",
+   "limite": "2027-05-05"
+  },
+  {
+   "fecha_pago": "2027-05-01",
+   "limite": "2027-06-05"
+  },
+  {
+   "fecha_pago": "2027-05-05",
+   "limite": "2027-06-05"
+  },
+  {
+   "fecha_pago": "2027-05-15",
+   "limite": "2027-06-05"
+  },
+  {
+   "fecha_pago": "2027-05-31",
+   "limite": "2027-06-05"
+  },
+  {
+   "fecha_pago": "2027-06-01",
+   "limite": "2027-07-05"
+  },
+  {
+   "fecha_pago": "2027-06-05",
+   "limite": "2027-07-05"
+  },
+  {
+   "fecha_pago": "2027-06-15",
+   "limite": "2027-07-05"
+  },
+  {
+   "fecha_pago": "2027-06-30",
+   "limite": "2027-07-05"
+  },
+  {
+   "fecha_pago": "2027-07-01",
+   "limite": "2027-08-05"
+  },
+  {
+   "fecha_pago": "2027-07-05",
+   "limite": "2027-08-05"
+  },
+  {
+   "fecha_pago": "2027-07-15",
+   "limite": "2027-08-05"
+  },
+  {
+   "fecha_pago": "2027-07-31",
+   "limite": "2027-08-05"
+  },
+  {
+   "fecha_pago": "2027-08-01",
+   "limite": "2027-09-05"
+  },
+  {
+   "fecha_pago": "2027-08-05",
+   "limite": "2027-09-05"
+  },
+  {
+   "fecha_pago": "2027-08-15",
+   "limite": "2027-09-05"
+  },
+  {
+   "fecha_pago": "2027-08-31",
+   "limite": "2027-09-05"
+  },
+  {
+   "fecha_pago": "2027-09-01",
+   "limite": "2027-10-05"
+  },
+  {
+   "fecha_pago": "2027-09-05",
+   "limite": "2027-10-05"
+  },
+  {
+   "fecha_pago": "2027-09-15",
+   "limite": "2027-10-05"
+  },
+  {
+   "fecha_pago": "2027-09-30",
+   "limite": "2027-10-05"
+  },
+  {
+   "fecha_pago": "2027-10-01",
+   "limite": "2027-11-05"
+  },
+  {
+   "fecha_pago": "2027-10-05",
+   "limite": "2027-11-05"
+  },
+  {
+   "fecha_pago": "2027-10-15",
+   "limite": "2027-11-05"
+  },
+  {
+   "fecha_pago": "2027-10-31",
+   "limite": "2027-11-05"
+  },
+  {
+   "fecha_pago": "2027-11-01",
+   "limite": "2027-12-05"
+  },
+  {
+   "fecha_pago": "2027-11-05",
+   "limite": "2027-12-05"
+  },
+  {
+   "fecha_pago": "2027-11-15",
+   "limite": "2027-12-05"
+  },
+  {
+   "fecha_pago": "2027-11-30",
+   "limite": "2027-12-05"
+  },
+  {
+   "fecha_pago": "2027-12-01",
+   "limite": "2028-01-05"
+  },
+  {
+   "fecha_pago": "2027-12-05",
+   "limite": "2028-01-05"
+  },
+  {
+   "fecha_pago": "2027-12-15",
+   "limite": "2028-01-05"
+  },
+  {
+   "fecha_pago": "2027-12-31",
+   "limite": "2028-01-05"
+  },
+  {
+   "fecha_pago": "2028-01-01",
+   "limite": "2028-02-05"
+  },
+  {
+   "fecha_pago": "2028-01-05",
+   "limite": "2028-02-05"
+  },
+  {
+   "fecha_pago": "2028-01-15",
+   "limite": "2028-02-05"
+  },
+  {
+   "fecha_pago": "2028-01-31",
+   "limite": "2028-02-05"
+  },
+  {
+   "fecha_pago": "2028-02-01",
+   "limite": "2028-03-05"
+  },
+  {
+   "fecha_pago": "2028-02-05",
+   "limite": "2028-03-05"
+  },
+  {
+   "fecha_pago": "2028-02-15",
+   "limite": "2028-03-05"
+  },
+  {
+   "fecha_pago": "2028-02-29",
+   "limite": "2028-03-05"
+  },
+  {
+   "fecha_pago": "2028-03-01",
+   "limite": "2028-04-05"
+  },
+  {
+   "fecha_pago": "2028-03-05",
+   "limite": "2028-04-05"
+  },
+  {
+   "fecha_pago": "2028-03-15",
+   "limite": "2028-04-05"
+  },
+  {
+   "fecha_pago": "2028-03-31",
+   "limite": "2028-04-05"
+  },
+  {
+   "fecha_pago": "2028-04-01",
+   "limite": "2028-05-05"
+  },
+  {
+   "fecha_pago": "2028-04-05",
+   "limite": "2028-05-05"
+  },
+  {
+   "fecha_pago": "2028-04-15",
+   "limite": "2028-05-05"
+  },
+  {
+   "fecha_pago": "2028-04-30",
+   "limite": "2028-05-05"
+  },
+  {
+   "fecha_pago": "2028-05-01",
+   "limite": "2028-06-05"
+  },
+  {
+   "fecha_pago": "2028-05-05",
+   "limite": "2028-06-05"
+  },
+  {
+   "fecha_pago": "2028-05-15",
+   "limite": "2028-06-05"
+  },
+  {
+   "fecha_pago": "2028-05-31",
+   "limite": "2028-06-05"
+  },
+  {
+   "fecha_pago": "2028-06-01",
+   "limite": "2028-07-05"
+  },
+  {
+   "fecha_pago": "2028-06-05",
+   "limite": "2028-07-05"
+  },
+  {
+   "fecha_pago": "2028-06-15",
+   "limite": "2028-07-05"
+  },
+  {
+   "fecha_pago": "2028-06-30",
+   "limite": "2028-07-05"
+  },
+  {
+   "fecha_pago": "2028-07-01",
+   "limite": "2028-08-05"
+  },
+  {
+   "fecha_pago": "2028-07-05",
+   "limite": "2028-08-05"
+  },
+  {
+   "fecha_pago": "2028-07-15",
+   "limite": "2028-08-05"
+  },
+  {
+   "fecha_pago": "2028-07-31",
+   "limite": "2028-08-05"
+  },
+  {
+   "fecha_pago": "2028-08-01",
+   "limite": "2028-09-05"
+  },
+  {
+   "fecha_pago": "2028-08-05",
+   "limite": "2028-09-05"
+  },
+  {
+   "fecha_pago": "2028-08-15",
+   "limite": "2028-09-05"
+  },
+  {
+   "fecha_pago": "2028-08-31",
+   "limite": "2028-09-05"
+  },
+  {
+   "fecha_pago": "2028-09-01",
+   "limite": "2028-10-05"
+  },
+  {
+   "fecha_pago": "2028-09-05",
+   "limite": "2028-10-05"
+  },
+  {
+   "fecha_pago": "2028-09-15",
+   "limite": "2028-10-05"
+  },
+  {
+   "fecha_pago": "2028-09-30",
+   "limite": "2028-10-05"
+  },
+  {
+   "fecha_pago": "2028-10-01",
+   "limite": "2028-11-05"
+  },
+  {
+   "fecha_pago": "2028-10-05",
+   "limite": "2028-11-05"
+  },
+  {
+   "fecha_pago": "2028-10-15",
+   "limite": "2028-11-05"
+  },
+  {
+   "fecha_pago": "2028-10-31",
+   "limite": "2028-11-05"
+  },
+  {
+   "fecha_pago": "2028-11-01",
+   "limite": "2028-12-05"
+  },
+  {
+   "fecha_pago": "2028-11-05",
+   "limite": "2028-12-05"
+  },
+  {
+   "fecha_pago": "2028-11-15",
+   "limite": "2028-12-05"
+  },
+  {
+   "fecha_pago": "2028-11-30",
+   "limite": "2028-12-05"
+  },
+  {
+   "fecha_pago": "2028-12-01",
+   "limite": "2029-01-05"
+  },
+  {
+   "fecha_pago": "2028-12-05",
+   "limite": "2029-01-05"
+  },
+  {
+   "fecha_pago": "2028-12-15",
+   "limite": "2029-01-05"
+  },
+  {
+   "fecha_pago": "2028-12-31",
+   "limite": "2029-01-05"
+  }
+ ],
+ "estado": [
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-09-26",
+   "estado": "NORMAL",
+   "dias": 40
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-10-26",
+   "estado": "NORMAL",
+   "dias": 10
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-01",
+   "estado": "NORMAL",
+   "dias": 4
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-02",
+   "estado": "URGENTE",
+   "dias": 3
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-03",
+   "estado": "URGENTE",
+   "dias": 2
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-04",
+   "estado": "URGENTE",
+   "dias": 1
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-05",
+   "estado": "URGENTE",
+   "dias": 0
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-06",
+   "estado": "VENCIDO",
+   "dias": -1
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-11-07",
+   "estado": "VENCIDO",
+   "dias": -2
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2026-12-05",
+   "estado": "VENCIDO",
+   "dias": -30
+  },
+  {
+   "fecha_pago": "2026-10-20",
+   "hoy": "2027-12-10",
+   "estado": "VENCIDO",
+   "dias": -400
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-09-26",
+   "estado": "NORMAL",
+   "dias": 40
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-10-26",
+   "estado": "NORMAL",
+   "dias": 10
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-01",
+   "estado": "NORMAL",
+   "dias": 4
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-02",
+   "estado": "URGENTE",
+   "dias": 3
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-03",
+   "estado": "URGENTE",
+   "dias": 2
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-04",
+   "estado": "URGENTE",
+   "dias": 1
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-05",
+   "estado": "URGENTE",
+   "dias": 0
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-06",
+   "estado": "VENCIDO",
+   "dias": -1
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-11-07",
+   "estado": "VENCIDO",
+   "dias": -2
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2026-12-05",
+   "estado": "VENCIDO",
+   "dias": -30
+  },
+  {
+   "fecha_pago": "2026-10-31",
+   "hoy": "2027-12-10",
+   "estado": "VENCIDO",
+   "dias": -400
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-10-26",
+   "estado": "NORMAL",
+   "dias": 40
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-11-25",
+   "estado": "NORMAL",
+   "dias": 10
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-01",
+   "estado": "NORMAL",
+   "dias": 4
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-02",
+   "estado": "URGENTE",
+   "dias": 3
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-03",
+   "estado": "URGENTE",
+   "dias": 2
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-04",
+   "estado": "URGENTE",
+   "dias": 1
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-05",
+   "estado": "URGENTE",
+   "dias": 0
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-06",
+   "estado": "VENCIDO",
+   "dias": -1
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2026-12-07",
+   "estado": "VENCIDO",
+   "dias": -2
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2027-01-04",
+   "estado": "VENCIDO",
+   "dias": -30
+  },
+  {
+   "fecha_pago": "2026-11-01",
+   "hoy": "2028-01-09",
+   "estado": "VENCIDO",
+   "dias": -400
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2026-11-26",
+   "estado": "NORMAL",
+   "dias": 40
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2026-12-26",
+   "estado": "NORMAL",
+   "dias": 10
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-01",
+   "estado": "NORMAL",
+   "dias": 4
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-02",
+   "estado": "URGENTE",
+   "dias": 3
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-03",
+   "estado": "URGENTE",
+   "dias": 2
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-04",
+   "estado": "URGENTE",
+   "dias": 1
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-05",
+   "estado": "URGENTE",
+   "dias": 0
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-06",
+   "estado": "VENCIDO",
+   "dias": -1
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-01-07",
+   "estado": "VENCIDO",
+   "dias": -2
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2027-02-04",
+   "estado": "VENCIDO",
+   "dias": -30
+  },
+  {
+   "fecha_pago": "2026-12-31",
+   "hoy": "2028-02-09",
+   "estado": "VENCIDO",
+   "dias": -400
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-01-24",
+   "estado": "NORMAL",
+   "dias": 40
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-02-23",
+   "estado": "NORMAL",
+   "dias": 10
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-01",
+   "estado": "NORMAL",
+   "dias": 4
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-02",
+   "estado": "URGENTE",
+   "dias": 3
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-03",
+   "estado": "URGENTE",
+   "dias": 2
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-04",
+   "estado": "URGENTE",
+   "dias": 1
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-05",
+   "estado": "URGENTE",
+   "dias": 0
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-06",
+   "estado": "VENCIDO",
+   "dias": -1
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-03-07",
+   "estado": "VENCIDO",
+   "dias": -2
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2026-04-04",
+   "estado": "VENCIDO",
+   "dias": -30
+  },
+  {
+   "fecha_pago": "2026-02-28",
+   "hoy": "2027-04-09",
+   "estado": "VENCIDO",
+   "dias": -400
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2025-12-27",
+   "estado": "NORMAL",
+   "dias": 40
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-01-26",
+   "estado": "NORMAL",
+   "dias": 10
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-01",
+   "estado": "NORMAL",
+   "dias": 4
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-02",
+   "estado": "URGENTE",
+   "dias": 3
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-03",
+   "estado": "URGENTE",
+   "dias": 2
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-04",
+   "estado": "URGENTE",
+   "dias": 1
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-05",
+   "estado": "URGENTE",
+   "dias": 0
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-06",
+   "estado": "VENCIDO",
+   "dias": -1
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-02-07",
+   "estado": "VENCIDO",
+   "dias": -2
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2026-03-07",
+   "estado": "VENCIDO",
+   "dias": -30
+  },
+  {
+   "fecha_pago": "2026-01-01",
+   "hoy": "2027-03-12",
+   "estado": "VENCIDO",
+   "dias": -400
+  }
+ ],
+ "lleva": [
+  {
+   "metodo": "PPD",
+   "producto": "sin_rep",
+   "lleva_rep": true
+  },
+  {
+   "metodo": "PUE",
+   "producto": "no_aplica",
+   "lleva_rep": false
+  },
+  {
+   "metodo": "ppd",
+   "producto": "sin_rep",
+   "lleva_rep": true
+  },
+  {
+   "metodo": "pue",
+   "producto": "no_aplica",
+   "lleva_rep": false
+  },
+  {
+   "metodo": " PPD",
+   "producto": "no_aplica",
+   "lleva_rep": false
+  },
+  {
+   "metodo": "",
+   "producto": "no_aplica",
+   "lleva_rep": false
+  },
+  {
+   "metodo": "XXX",
+   "producto": "no_aplica",
+   "lleva_rep": false
+  },
+  {
+   "metodo": "PPDD",
+   "producto": "no_aplica",
+   "lleva_rep": false
+  }
+ ],
+ "fechas_invalidas": [
+  "",
+  "2026-02-30",
+  "2026-13-01",
+  "2026-00-10",
+  "20261020",
+  "20/10/2026",
+  "2026-10-32",
+  "abcd-ef-gh",
+  "2026-1-5",
+  "2025-02-29"
+ ]
+}

@@ -1,0 +1,52 @@
+# PROPUESTA. Para activarla se copia a .github/workflows/herramientas.yml en un PR APARTE
+# (tocar .github/ es un cambio del estandar del sitio: lo decide la duena).
+#
+# Corre en cada PR que toque /herramientas/ o /.herramientas/:
+#   1. las pruebas de la logica contra los vectores de referencia,
+#   2. que lo publicado sea exactamente lo que sale de las plantillas y los datos,
+#   3. la verificacion en negativo (cada sabotaje tiene que poner algo en rojo).
+# Usa `pull_request` (no `pull_request_target`): ejecuta codigo del PR, asi que va SIN secretos y solo con lectura.
+# No lleva filtro `paths:` a proposito: un check requerido que no corre deja el PR bloqueado para siempre.
+name: herramientas
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  herramientas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: ¿el PR toca las herramientas?
+        id: toca
+        run: |
+          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/)'; then
+            echo "si=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "No toca /herramientas/: nada que probar."
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.toca.outputs.si == '1'
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        if: steps.toca.outputs.si == '1'
+        with:
+          python-version: '3.12'
+      - name: pruebas contra los vectores de referencia
+        if: steps.toca.outputs.si == '1'
+        run: node --test ".herramientas/pruebas/*.test.js"
+      - name: lo publicado coincide con las plantillas y los datos
+        if: steps.toca.outputs.si == '1'
+        run: python -X utf8 .herramientas/construir.py --comprobar
+      - name: estilo de los textos
+        if: steps.toca.outputs.si == '1'
+        run: python -X utf8 .herramientas/estilo.py
+      - name: verificacion en negativo
+        if: steps.toca.outputs.si == '1'
+        run: node .herramientas/verificacion_negativa.mjs

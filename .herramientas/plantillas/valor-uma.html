@@ -1,0 +1,124 @@
+@@TITULO
+Valor de la UMA {{UMA_ANIO}}: diario, mensual y anual, con conversor | Tax Certeza
+@@TITULO_CORTO
+Valor de la UMA y conversor
+@@MIGA
+Valor de la UMA
+@@DESCRIPCION
+UMA {{UMA_ANIO}}: ${{UMA_DIARIO}} diarios, ${{UMA_MENSUAL}} mensuales y ${{UMA_ANUAL}} anuales, desde el {{UMA_DESDE}}. Conversor de veces UMA a pesos y valores de años anteriores con su DOF.
+@@SCRIPTS
+<script src="/herramientas/valor-uma/uma-datos.js" defer></script>
+<script src="/herramientas/valor-uma/uma.js" defer></script>
+<script src="/herramientas/valor-uma/pagina.js" defer></script>
+@@FAQ
+P: ¿Cuánto vale la UMA en {{UMA_ANIO}}?
+R: ${{UMA_DIARIO}} pesos diarios, ${{UMA_MENSUAL}} mensuales y ${{UMA_ANUAL}} anuales. Son los valores que el INEGI publicó en el Diario Oficial de la Federación el {{UMA_DOF}} y rigen del {{UMA_DESDE}} al {{UMA_HASTA}}.
+P: ¿Desde cuándo rige el valor nuevo de la UMA cada año?
+R: Desde el 1 de febrero. El artículo 5 de la Ley para Determinar el Valor de la Unidad de Medida y Actualización dispone que el INEGI publique los valores en el DOF dentro de los primeros diez días de enero y que entren en vigor el 1 de febrero de ese año.
+P: ¿Qué valor de la UMA corresponde a una operación de enero?
+R: El que se publicó el año anterior, porque el valor nuevo entra en vigor el 1 de febrero. El conversor toma el valor que regía en la fecha que indiques.
+P: ¿Cómo se obtienen la UMA mensual y la anual?
+R: Las publicaciones del INEGI explican el método: el valor mensual es el valor diario multiplicado por 30.4, y el valor anual es el valor mensual multiplicado por 12.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Valor de la UMA {{UMA_ANIO}} y conversor</h1>
+  <p class="lead">Del {{UMA_DESDE}} al {{UMA_HASTA}}, la Unidad de Medida y Actualización (UMA) vale ${{UMA_DIARIO}} pesos diarios, ${{UMA_MENSUAL}} mensuales y ${{UMA_ANUAL}} anuales. El INEGI publicó estos valores en el Diario Oficial de la Federación el {{UMA_DOF}}.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-valor">
+  <h2 id="t-valor"><span id="uma-rotulo">Valor vigente de la UMA</span></h2>
+  <div class="cifras">
+    <div class="cifra"><small>Diario</small><b>${{UMA_DIARIO}}</b></div>
+    <div class="cifra"><small>Mensual</small><b>${{UMA_MENSUAL}}</b></div>
+    <div class="cifra"><small>Anual</small><b>${{UMA_ANUAL}}</b></div>
+  </div>
+  <p class="vigencia">Vigencia: del {{UMA_DESDE}} al {{UMA_HASTA}}. Fuente: <a href="{{UMA_URL}}" rel="noopener" style="color:var(--brand-d);font-weight:600;text-decoration:underline">INEGI, Diario Oficial de la Federación del {{UMA_DOF}}</a>.</p>
+  <p class="vigencia">Dato cotejado contra esa publicación el {{UMA_VERIFICADO}}.</p>
+  <div class="aviso" id="uma-aviso" role="status" hidden></div>
+</section>
+
+<section class="tool" aria-labelledby="t-conv">
+  <h2 id="t-conv">Conversor</h2>
+  <form id="f-uma" novalidate>
+    <fieldset class="campo">
+      <legend>Qué quieres convertir</legend>
+      <div class="opciones en-linea">
+        <label><input type="radio" name="sentido" value="VECES_A_PESOS" checked> Veces UMA a pesos</label>
+        <label><input type="radio" name="sentido" value="PESOS_A_VECES"> Pesos a veces UMA</label>
+      </div>
+    </fieldset>
+    <div class="fila">
+      <div class="campo">
+        <label for="cantidad" id="l-cantidad">Veces UMA</label>
+        <input type="text" id="cantidad" name="cantidad" inputmode="decimal" autocomplete="off" maxlength="24" placeholder="25">
+      </div>
+      <div class="campo">
+        <label for="periodo">Valor de la UMA</label>
+        <select id="periodo" name="periodo">
+          <option value="diario">Diario</option>
+          <option value="mensual">Mensual</option>
+          <option value="anual">Anual</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="fecha">Fecha de la operación</label>
+        <input type="date" id="fecha" name="fecha">
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Convertir</button>
+    </div>
+  </form>
+  <div class="res" id="res-uma" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">El conversor necesita JavaScript para hacer el cálculo en tu navegador. Los valores de esta página se leen sin él.</p></noscript>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía nada a ningún servidor y no guarda lo que escribes.</p>
+</section>
+
+<section class="txt">
+  <h2>Valores de la UMA por año</h2>
+  <p>Cada valor rige del 1 de febrero del año en que se publica al 31 de enero del año siguiente. Esta página tiene los valores desde el {{UMA_PRIMER_DESDE}}.</p>
+  <div class="tabla-wrap" tabindex="0" role="region" aria-label="Valores de la UMA por año">
+    <table>
+      <thead><tr><th scope="col">Año</th><th scope="col">Diario</th><th scope="col">Mensual</th><th scope="col">Anual</th><th scope="col">Vigencia</th><th scope="col">Publicación</th></tr></thead>
+      <tbody>
+{{UMA_TABLA}}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Cómo se usa el conversor</h2>
+  <ol>
+    <li>Elige si vas de veces UMA a pesos o de pesos a veces UMA.</li>
+    <li>Escribe la cantidad y elige el valor que pide la disposición que estás aplicando: diario, mensual o anual.</li>
+    <li>Indica la fecha de la operación. El conversor toma el valor que regía ese día; en enero es el del año anterior.</li>
+  </ol>
+  <p>El resultado en pesos se redondea a centavos y el resultado en veces UMA a cuatro decimales.</p>
+
+  <h2>Qué pasa cada enero</h2>
+  <p>El INEGI publica los valores nuevos en los primeros diez días de enero y entran en vigor el 1 de febrero. Durante enero sigue rigiendo el valor anterior, y esta página lo indica con un aviso. Un valor nuevo no aparece aquí hasta que se coteja contra su publicación en el DOF. Si llega el 1 de febrero y eso no ha ocurrido, la página deja de mostrar el valor anterior como vigente y el conversor no calcula fechas posteriores al 31 de enero.</p>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+      <li><a href="{{UMA_LEY_URL}}" rel="noopener">Ley para Determinar el Valor de la Unidad de Medida y Actualización, artículo 5</a>: el INEGI publica en el DOF, dentro de los primeros diez días de enero de cada año, el valor diario, mensual y anual de la UMA, y esos valores entran en vigor el 1 de febrero. Nueva Ley DOF 30-12-2016.</li>
+{{UMA_FUENTES}}
+    </ul>
+    <p>El método de cálculo (valor mensual igual al diario por 30.4, valor anual igual al mensual por 12) está descrito en cada una de esas publicaciones, con fundamento en el artículo 4 de la misma ley.</p>
+  </div>
+
+  <h2>Límites</h2>
+  <p>La herramienta aplica el valor publicado que regía en la fecha indicada y hace la multiplicación o la división. Qué valor corresponde a cada obligación, y de qué fecha, depende de la disposición que se esté aplicando. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Las guías sobre CFDI, IVA, ISR y DIOT están en <a href="/blog/">Recursos fiscales</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>En Tax Certeza la UMA está en Parámetros fiscales, con su vigencia y su fuente oficial, y los cálculos toman el valor que regía en la fecha de cada operación, sin que tengas que convertir nada a mano.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>

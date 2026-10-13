@@ -1,0 +1,94 @@
+// Verificacion en negativo: rompe la logica de una en una y comprueba que las pruebas se ponen ROJAS.
+// Uso: node .herramientas/verificacion_negativa.mjs
+// Cada sabotaje se aplica sobre una COPIA de respaldo del archivo, que se restaura siempre (tambien si algo falla),
+// y al final se comprueba que todo vuelve a estar verde y byte a byte igual que antes.
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import { fileURLToPath } from 'node:url';
+
+const RAIZ = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+const H = p => path.join(RAIZ, 'herramientas', p);
+const SABOTAJES = [
+  // --- RFC: los modos de fallo del algoritmo, no un ejemplo comodo
+  ['rfc: el orden de la tabla de valores (& despues de la O)', H('validar-rfc/rfc.js'), 'LMN&OPQ', 'LMNO&PQ'],
+  ['rfc: los factores empiezan en 12 en vez de 13', H('validar-rfc/rfc.js'), 'suma += valor * (13 - i);', 'suma += valor * (12 - i);'],
+  ['rfc: el resultado 10 ya no da la letra A', H('validar-rfc/rfc.js'), "=== 10 ? 'A' :", "=== 10 ? '0' :"],
+  ['rfc: el residuo 0 ya no da el digito 0', H('validar-rfc/rfc.js'), "if (resto === 0) return '0';", "if (resto === 0) return '1';"],
+  ['rfc: la persona moral se rellena con 0 en vez de espacio', H('validar-rfc/rfc.js'), "cuerpo = ' ' + cuerpo;", "cuerpo = '0' + cuerpo;"],
+  ['rfc: se acepta el 29 de febrero de cualquier ano', H('validar-rfc/rfc.js'), 'if (mm === 2 && dd === 29 && aa % 4 !== 0) return false;', ''],
+  ['rfc: se acepta cualquier dia del 1 al 31 en todos los meses', H('validar-rfc/rfc.js'), 'dd > DIAS_MES[mm - 1]', 'dd > 31'],
+  ['rfc: la persona fisica deja de aceptar la Ñ', H('validar-rfc/rfc.js'), 'var RE_FISICA = /^[A-ZÑ&]{4}', 'var RE_FISICA = /^[A-Z&]{4}'],
+  ['rfc: la persona moral acepta 2 letras', H('validar-rfc/rfc.js'), 'var RE_MORAL = /^[A-ZÑ&]{3}', 'var RE_MORAL = /^[A-ZÑ&]{2,3}'],
+  ['rfc: la clave generica nacional deja de reconocerse', H('validar-rfc/rfc.js'), "var GENERICO_NACIONAL = 'XAXX010101000';", "var GENERICO_NACIONAL = 'XAXX010101001';"],
+  ['rfc: ya no se quitan los guiones', H('validar-rfc/rfc.js'), ".replace(/-/g, '')", ''],
+  ['rfc: el digito que no coincide pasa por correcto', H('validar-rfc/rfc.js'), "r.resultado = 'DIGITO_NO_COINCIDE';", "r.resultado = 'CORRECTO';"],
+  // --- UMA
+  ['uma: el ultimo dia de vigencia (31 de enero) queda fuera', H('valor-uma/uma.js'), 'fecha <= valores[i].hasta', 'fecha < valores[i].hasta'],
+  ['uma: el primer dia de vigencia (1 de febrero) queda fuera', H('valor-uma/uma.js'), 'fecha >= valores[i].desde', 'fecha > valores[i].desde'],
+  ['uma: se trunca en vez de redondear', H('valor-uma/uma.js'), 'return (a * 2n + b) / (b * 2n);', 'return a / b;'],
+  ['uma: antes del primer valor ya no dice ANTERIOR_A_TABLA', H('valor-uma/uma.js'), 'if (fecha < primero.desde)', 'if (false)'],
+  ['uma: despues del ultimo valor se da el ultimo como vigente', H('valor-uma/uma.js'), "if (fecha > ultimo.hasta) return { estado: 'SIN_CONFIRMAR', valor: null, ultimo: ultimo };", "if (fecha > ultimo.hasta) return { estado: 'VIGENTE', valor: ultimo };"],
+  ['uma: pesos a veces con la escala equivocada', H('valor-uma/uma.js'), 'q * 100n * 10000n', 'q * 100n * 1000n'],
+  ['uma: se acepta la coma como decimal', H('valor-uma/uma.js'), 'var RE_CANTIDAD = /^\\d{1,12}(\\.\\d{1,6})?$/;', 'var RE_CANTIDAD = /^\\d{1,12}([.,]\\d{1,6})?$/;'],
+  ['uma: enero ya no avisa de que viene un valor nuevo', H('valor-uma/uma.js'), "return 'ENERO';", "return 'AL_DIA';"],
+  ['uma: un numero cambiado a mano en los datos publicados', H('valor-uma/uma-datos.js'), '"diario": "117.31"', '"diario": "117.13"'],
+  ['uma: un numero cambiado a mano en el texto de la pagina', H('valor-uma/index.html'), '<div class="cifra"><small>Diario</small><b>$117.31</b></div>', '<div class="cifra"><small>Diario</small><b>$117.13</b></div>', true],
+  // --- REP
+  ['rep: dia 10 en vez de dia 5 (la regla vieja)', H('complemento-de-pago/rep.js'), 'aIso(f.a, f.m + 1, 5)', 'aIso(f.a, f.m + 1, 10)'],
+  ['rep: diciembre no cambia de ano', H('complemento-de-pago/rep.js'), 'aIso(f.a + 1, 1, 5)', 'aIso(f.a, 1, 5)'],
+  ['rep: el dia del limite cuenta como vencido', H('complemento-de-pago/rep.js'), "dias < 0 ? 'VENCIDO'", "dias <= 0 ? 'VENCIDO'"],
+  ['rep: urgente con 5 dias en vez de 3', H('complemento-de-pago/rep.js'), "dias <= 3 ? 'URGENTE'", "dias <= 5 ? 'URGENTE'"],
+  ['rep: se aceptan fechas que no existen', H('complemento-de-pago/rep.js'), 'if (f.getUTCFullYear() !== a || f.getUTCMonth() !== mes - 1 || f.getUTCDate() !== d) return null;', ''],
+  ['rep: se calculan pagos de cualquier ejercicio', H('complemento-de-pago/rep.js'), 'if (f.a !== EJERCICIO_DE_LA_REGLA) return', 'if (false) return'],
+  ['rep: el metodo distingue mayusculas', H('complemento-de-pago/rep.js'), ".toUpperCase() === 'PPD'", " === 'PPD'"],
+  ['rep: la PUE no cobrada al cierre sale como que no lleva nada', H('complemento-de-pago/rep.js'), "return { resultado: 'SUSTITUIR'", "return { resultado: 'NO'"],
+  ['rep: la PUE con forma 99 recibe veredicto', H('complemento-de-pago/rep.js'), "if (forma === '99') return { resultado: 'NO_CUBIERTO', fundamento: [], avisos: ['PUE_CON_99'] };", ''],
+  ['rep: el aviso de forma no evaluada desaparece', H('complemento-de-pago/rep.js'), "avisos: forma === '99' ? [] : ['FORMA_NO_EVALUADA']", 'avisos: []'],
+];
+
+function pruebas() {
+  const r = spawnSync(process.execPath, ['--test', '--test-reporter=tap', '.herramientas/pruebas/*.test.js'], { cwd: RAIZ, encoding: 'utf8' });
+  const rojas = [...r.stdout.matchAll(/^not ok \d+ - (.+)$/gm)].map(m => m[1]);
+  const total = (r.stdout.match(/^(not )?ok \d+ - /gm) || []).length;
+  // El segundo candado: lo publicado tiene que ser exactamente lo que sale de las plantillas y los datos.
+  const c = spawnSync(process.env.PYTHON || 'python', ['-X', 'utf8', '.herramientas/construir.py', '--comprobar'], { cwd: RAIZ, encoding: 'utf8' });
+  if (c.status !== 0) rojas.push('construir.py --comprobar: ' + ((c.stdout || '').match(/^DISTINTO .+$/gm) || ['no se pudo ejecutar']).join(', '));
+  return { rojas, total, codigo: r.status || c.status };
+}
+
+const base = pruebas();
+if (base.codigo !== 0 || base.rojas.length || base.total < 20) {
+  console.error('ANTES de sabotear las pruebas tienen que estar verdes:', base);
+  process.exit(2);
+}
+console.log(`punto de partida: ${base.total} pruebas, todas verdes\n`);
+const dirCopia = fs.mkdtempSync(path.join(os.tmpdir(), 'tc-negativa-'));
+let mal = 0;
+SABOTAJES.forEach(([nombre, archivo, viejo, nuevo], i) => {
+  const copia = path.join(dirCopia, `${i}-${path.basename(archivo)}`);
+  fs.copyFileSync(archivo, copia);
+  const original = fs.readFileSync(archivo, 'utf8');
+  let r;
+  try {
+    const veces = original.split(viejo).length - 1;
+    if (veces !== 1) throw new Error(`el patron aparece ${veces} veces (esperaba 1): ${viejo}`);
+    fs.writeFileSync(archivo, original.replace(viejo, nuevo));
+    if (fs.readFileSync(archivo, 'utf8') === original) throw new Error('el sabotaje no cambio el archivo');
+    r = pruebas();
+  } finally {
+    fs.copyFileSync(copia, archivo);  // se restaura SIEMPRE desde la copia
+  }
+  if (fs.readFileSync(archivo, 'utf8') !== original) throw new Error(`no se pudo restaurar ${archivo}`);
+  const bien = r.rojas.length > 0;
+  mal += !bien;
+  console.log(`${bien ? 'ROJO  ' : 'VERDE!'} ${nombre}`);
+  for (const t of r.rojas) console.log(`         - ${t}`);
+  if (!bien) console.log('         ningun test lo vio: ESTE SABOTAJE PASA SIN SER DETECTADO');
+});
+fs.rmSync(dirCopia, { recursive: true, force: true });
+const fin = pruebas();
+console.log(`\nrestaurado: ${fin.total} pruebas, ${fin.rojas.length} rojas`);
+console.log(`${SABOTAJES.length} sabotajes, ${SABOTAJES.length - mal} detectados, ${mal} sin detectar`);
+process.exit(mal || fin.rojas.length || fin.codigo ? 1 : 0);
