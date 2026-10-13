@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAX CERTEZA — Tu cierre mensual en horas, no en días</title>
-<meta name="description" content="Descarga tus CFDIs del SAT, clasifícalos, concilia y calcula impuestos — listo para CONTPAQi. 100% local. En beta privada.">
+<title>Tax Certeza: tu cierre mensual en horas, no en días</title>
+<meta name="description" content="Descarga tus CFDIs del SAT, clasifícalos, concilia y calcula impuestos, listo para CONTPAQi. 100% local. Versión 1.0.47 para Windows.">
 <link rel="canonical" href="https://taxcerteza.mx/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TAX CERTEZA — Tu cierre mensual en horas, no en días">
-<meta property="og:description" content="Descarga tus CFDIs del SAT, clasifícalos, concilia y calcula impuestos — listo para CONTPAQi. 100% local. En beta privada.">
+<meta property="og:title" content="Tax Certeza: tu cierre mensual en horas, no en días">
+<meta property="og:description" content="Descarga tus CFDIs del SAT, clasifícalos, concilia y calcula impuestos, listo para CONTPAQi. 100% local. Versión 1.0.47 para Windows.">
 <meta property="og:url" content="https://taxcerteza.mx/">
 <meta property="og:locale" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"TAX CERTEZA","applicationCategory":"BusinessApplication","operatingSystem":"Windows","description":"Software de cierre fiscal para contadores en México: descarga CFDIs del SAT, clasifica pólizas, concilia banco, calcula IVA/ISR/DIOT y exporta las pólizas en Excel para importarlas a su sistema contable.","publisher":{"@type":"Organization","name":"TAX CERTEZA","url":"https://taxcerteza.mx"}}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tax Certeza","softwareVersion":"1.0.47","applicationCategory":"BusinessApplication","operatingSystem":"Windows","description":"Software de cierre fiscal para contadores en México: descarga CFDIs del SAT, clasifica pólizas, concilia banco, calcula IVA/ISR/DIOT y exporta las pólizas en Excel para importarlas a su sistema contable.","publisher":{"@type":"Organization","name":"Tax Certeza","url":"https://taxcerteza.mx","logo":"https://taxcerteza.mx/apple-touch-icon.png"}}</script>
 <style>
   :root{
     --brand:#2563EB; --brand-d:#1E40AF; --ink:#0F172A; --muted:#64748B;
@@ -32,21 +34,24 @@
   .btn-primary:hover{background:var(--brand-d);box-shadow:0 6px 20px rgba(37,99,235,.4)}
   .btn-ghost{background:#fff;color:var(--brand);border:1.5px solid var(--line)}
   .btn-ghost:hover{border-color:var(--brand);background:var(--light)}
-  .badge{display:inline-block;background:#FEF3C7;color:#92400E;font-weight:700;
+  .badge{display:inline-block;background:#DBEAFE;color:#1E40AF;font-weight:700;
     font-size:12.5px;padding:5px 12px;border-radius:999px;letter-spacing:.3px}
 
   /* Nav */
   nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
     backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:19px;color:var(--brand-d)}
-  .logo span{color:var(--ink)}
+  .logo{display:flex;align-items:center;flex:none}
+  .logo img{display:block;height:36px;width:auto}
   .nav-links{display:flex;gap:28px;align-items:center}
   .nav-links a{color:var(--muted);font-weight:600;font-size:15px}
   .nav-links a:hover{color:var(--ink)}
   .nav-cta{padding:9px 18px;font-size:14px}
   .nav-links a.nav-cta,.nav-links a.nav-cta:hover,.nav-links a.nav-cta:focus{color:#fff}
-  @media(max-width:720px){.nav-links a:not(.nav-cta){display:none}}
+  .nav-links a.nav-cta:focus-visible{background:var(--brand-d)}
+  a:focus-visible{outline:3px solid var(--brand-d);outline-offset:2px;border-radius:4px}
+  .btn:focus-visible{border-radius:10px}
+  @media(max-width:720px){.nav-links a:not(.nav-cta){display:none}.logo img{height:30px}}
 
   /* Hero */
   .hero{background:linear-gradient(180deg,var(--light),#fff);padding:72px 0 60px;text-align:center}
@@ -103,15 +108,17 @@
   .cta-band .btn-primary{background:#fff;color:var(--brand-d)}
   .cta-band .btn-primary:hover{background:#F1F5F9}
 
-  /* Instalación en 3 pasos */
+  /* Descarga, instalación y activación */
+  .cta-band .dl-meta{font-size:14px;margin:18px 0 0;opacity:.92;overflow-wrap:anywhere}
+  .cta-band a:focus-visible{outline-color:#fff}
   .install{margin-top:56px}
   .install .sec-sub{margin-bottom:32px}
   .inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .ins{display:flex;flex-direction:column;padding:16px 16px 22px}
   .ins figure{margin:0 0 14px}
-  .ins .ilu{display:block;width:100%;height:auto;background:var(--bg);
+  .ins .ilu,.activar .ilu{display:block;width:100%;height:auto;background:var(--bg);
     border:1px solid var(--line);border-radius:10px}
-  .ins figcaption{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic}
+  .ins figcaption,.activar figcaption{font-size:12px;color:var(--muted);margin-top:6px;font-style:italic}
   .ins-h{display:flex;align-items:center;gap:12px;margin-bottom:8px}
   .ins-h .n{margin-bottom:0;flex:none}
   .ins-h h3{margin:0;line-height:1.25}
@@ -121,19 +128,23 @@
     border-radius:12px;padding:16px 20px;font-size:14.5px;color:#334155}
   .inst-note.warn{background:#FFFBEB;border-left-color:var(--amber)}
   .inst-note b{color:var(--ink)}
-  .inst-note .demo-call{margin:12px 0 10px;padding-top:12px;border-top:1px solid #FDE68A}
+  .inst-note p{margin-bottom:12px}
+  .activar{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:center;margin-top:20px;padding:16px 22px 16px 16px}
+  .activar figure{margin:0}
+  .activar p{margin-bottom:14px}
   .demo-btn{padding:10px 18px;font-size:14.5px}
   .inst-verif{margin-top:16px;font-size:14px;color:var(--muted)}
   .inst-verif summary{cursor:pointer;font-weight:600;color:var(--brand-d)}
   .inst-verif code{display:block;margin-top:8px;padding:10px 12px;background:var(--bg);
     border:1px solid var(--line);border-radius:8px;font-size:12.5px;word-break:break-all;color:var(--ink)}
   @media(max-width:860px){.inst-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
-    .inst-notes{grid-template-columns:1fr}}
+    .inst-notes{grid-template-columns:1fr}
+    .activar{grid-template-columns:1fr;max-width:420px;margin:20px auto 0;padding:16px 16px 22px}}
 
   /* Footer */
   footer{padding:46px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-  footer .beta-note{max-width:520px}
+  footer .nota{max-width:520px}
   footer b{color:var(--ink)}
 </style>
 </head>
@@ -141,29 +152,29 @@
 
 <nav>
   <div class="wrap">
-    <div class="logo">TAX <span>CERTEZA</span></div>
+    <a class="logo" href="/"><img src="/assets/logo-tax-certeza.svg" alt="Tax Certeza" width="203" height="36"></a>
     <div class="nav-links">
       <a href="#como">Cómo funciona</a>
       <a href="#funciones">Funciones</a>
       <a href="/blog/">Recursos</a>
-      <a class="btn btn-primary nav-cta" href="#descargar">Descargar Beta</a>
+      <a class="btn btn-primary nav-cta" href="#descargar">Descargar</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <span class="badge">⚡ Beta privada — en fase de prueba</span>
+    <span class="badge">Versión 1.0.47 para Windows</span>
     <h1>Tu cierre mensual<br>en <em>horas, no en días</em></h1>
-    <p class="sub">TAX CERTEZA descarga tus CFDIs del SAT, los clasifica,
-      concilia con el banco y calcula tus impuestos — todo listo para importar
+    <p class="sub">Tax Certeza descarga tus CFDIs del SAT, los clasifica,
+      concilia con el banco y calcula tus impuestos. Todo queda listo para importar
       a CONTPAQi.</p>
     <p class="tags">100% local · Sigues usando CONTPAQi · Al día con los cambios del SAT</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://wa.me/528125834137?text=Hola,%20quiero%20acceso%20a%20la%20demo%20en%20l%C3%ADnea%20de%20Tax%20Certeza" target="_blank" rel="noopener">Solicitar acceso a la demo</a>
-      <a class="btn btn-ghost" href="#descargar">Descargar</a>
+      <a class="btn btn-primary" href="#descargar">Descargar para Windows</a>
+      <a class="btn btn-ghost" href="https://wa.me/528125834137?text=Hola,%20quiero%20acceso%20a%20la%20demo%20en%20l%C3%ADnea%20de%20Tax%20Certeza" target="_blank" rel="noopener">Solicitar acceso a la demo</a>
     </div>
-    <small><b>La demo se ve en el navegador</b> — sin instalar nada y con datos de una empresa de demostración. El acceso se entrega por WhatsApp (lunes a sábado, 8:00 a 21:00, hora del centro de México). <b>Beta privada:</b> estamos en fase de prueba con los primeros contadores.</small>
+    <small><b>El programa se descarga libremente</b> y se activa con una licencia por equipo. <b>La demo se ve en el navegador</b>, sin instalar nada y con datos de una empresa de demostración; el acceso se entrega por WhatsApp (lunes a sábado, 8:00 a 21:00, hora del centro de México).</small>
   </div>
 </header>
 
@@ -188,10 +199,10 @@
 <section id="funciones" style="background:var(--bg)">
   <div class="wrap">
     <h2 class="sec-title">Todo lo que necesitas para el cierre</h2>
-    <p class="sec-sub">Un solo programa cubre todo el mes — no una herramienta para cada cosa.</p>
+    <p class="sec-sub">Un solo programa cubre todo el mes, en lugar de una herramienta para cada cosa.</p>
     <div class="feat-grid">
       <div class="feat"><div class="ic">◆</div><h4>Descarga directa del SAT</h4>
-        <p>Descarga Masiva con tu e.firma, cifrada y 100% local. (Beta)</p></div>
+        <p>Descarga Masiva con tu e.firma, cifrada y 100% local.</p></div>
       <div class="feat"><div class="ic">◆</div><h4>Clasificación automática</h4>
         <p>Lee la descripción del CFDI y mejora con cada uso. Cada cliente, sus propias reglas.</p></div>
       <div class="feat"><div class="ic">◆</div><h4>Conciliación banco–CFDI</h4>
@@ -203,7 +214,7 @@
       <div class="feat"><div class="ic">◆</div><h4>Monitor SAT/DOF</h4>
         <p>Te avisa de los cambios fiscales y si el software ya los refleja.</p></div>
       <div class="feat"><div class="ic">◆</div><h4>Lista negra EFOS 69-B</h4>
-        <p>El IVA de un EFOS <b>definitivo</b> no se acredita desde su publicación en el DOF; el <b>presunto</b> se alerta sin excluirlo — el matiz que un visor no hace.</p></div>
+        <p>El IVA de un EFOS <b>definitivo</b> no se acredita desde su publicación en el DOF; el <b>presunto</b> se alerta sin excluirlo. Es el matiz que un visor no hace.</p></div>
       <div class="feat"><div class="ic">◆</div><h4>Alertas de Complemento de Pago</h4>
         <p>Detecta PPD vencidas sin su REP y te avisa a tiempo, con el monto en riesgo.</p></div>
       <div class="feat"><div class="ic">◆</div><h4>Auditoría antes de entregar</h4>
@@ -241,14 +252,14 @@
 
 <section id="porque" class="why">
   <div class="wrap">
-    <h2 class="sec-title">¿Por qué TAX CERTEZA?</h2>
+    <h2 class="sec-title">¿Por qué Tax Certeza?</h2>
     <p class="sec-sub">Las plataformas en la nube guardan tus datos en sus servidores y te piden cambiar de sistema. Nosotros no.</p>
     <div class="why-grid">
       <div class="why-card us">
-        <h3>TAX CERTEZA</h3>
+        <h3>Tax Certeza</h3>
         <ul>
-          <li>100% en tu computadora — tus datos no salen de ahí</li>
-          <li>Sigues usando tu CONTPAQi — cero migración</li>
+          <li>100% en tu computadora: tus datos no salen de ahí</li>
+          <li>Sigues usando tu CONTPAQi, sin migrar nada</li>
           <li>Al día con los cambios del SAT</li>
           <li>Soporte humano directo</li>
         </ul>
@@ -268,20 +279,19 @@
 
 <section id="descargar">
   <div class="cta-band">
-    <h2>Beta privada — en fase de prueba</h2>
-    <p>¿Prefieres verlo antes de instalar nada? <a href="https://wa.me/528125834137?text=Hola,%20quiero%20acceso%20a%20la%20demo%20en%20l%C3%ADnea%20de%20Tax%20Certeza" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline"><b>Solicita acceso a la demo en línea</b></a>.
-       Para usarlo con tus clientes: descárgalo, instálalo en minutos, y <b>escríbenos por WhatsApp para
-       recibir tu licencia de la beta</b>. Únete a los
-       primeros contadores y ayúdanos a afinarlo.</p>
+    <h2>Descarga Tax Certeza 1.0.47</h2>
+    <p>Para Windows, en un archivo .zip. El programa necesita una <b>licencia por equipo</b>:
+       al abrirlo muestra un código de máquina, nos lo envías por WhatsApp y te mandamos la licencia.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-primary" href="https://github.com/jliu513612/cierre-mexicano-releases/releases/latest/download/CierreMexicano_dist.zip">1 · Descargar para Windows</a>
-      <a class="btn" style="background:transparent;color:#fff;border:1.6px solid rgba(255,255,255,.65)" href="https://wa.me/528125834137?text=Hola,%20quiero%20participar%20en%20la%20beta%20de%20TAX%20CERTEZA">2 · Pedir acceso a la beta por WhatsApp</a>
+      <a class="btn btn-primary" href="{{URL_ZIP}}">Descargar para Windows</a>
+      <a class="btn" style="background:transparent;color:#fff;border:1.6px solid rgba(255,255,255,.65)" href="https://wa.me/528125834137?text=Hola,%20quiero%20activar%20Tax%20Certeza.%20Mi%20c%C3%B3digo%20de%20m%C3%A1quina%20es:%20" target="_blank" rel="noopener">Pedir licencia por WhatsApp</a>
     </div>
+    <p class="dl-meta">TaxCerteza_dist.zip · versión 1.0.47 · {{BYTES_ZIP}} bytes</p>
   </div>
 
   <div class="wrap install" id="instalar">
-    <h2 class="sec-title">Instálalo en 3 pasos</h2>
-    <p class="sec-sub">Se entrega como un archivo .zip (no hay instalador). Tarda un par de minutos.</p>
+    <h2 class="sec-title">Instalar y activar</h2>
+    <p class="sec-sub">Se entrega como un archivo .zip, sin instalador. Son tres pasos para abrirlo y uno más para activar la licencia.</p>
     <div class="inst-grid">
 
       <div class="step ins">
@@ -363,26 +373,47 @@
 
     </div>
 
+    <div class="step activar" id="activar">
+      <figure>
+        <svg class="ilu" viewBox="0 0 320 230" role="img" aria-labelledby="ilu4-t">
+          <title id="ilu4-t">Ilustración del paso 4: ventana de activación con el código de máquina resaltado, el cuadro para pegar la clave de licencia y el botón Activar.</title>
+          <rect x="14" y="18" width="292" height="194" rx="8" fill="#fff" stroke="#CBD5E1"/>
+          <path d="M14 26a8 8 0 0 1 8-8h276a8 8 0 0 1 8 8v20H14z" fill="#E2E8F0"/>
+          <text x="26" y="37" font-size="12" font-weight="700" fill="#334155">Activación</text>
+          <rect x="22" y="58" width="276" height="34" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="30" y="79" font-size="12" font-weight="700" fill="#1E40AF">Código de máquina:</text>
+          <rect x="152" y="70" width="52" height="9" rx="4.5" fill="#1E40AF" opacity=".55"/><rect x="210" y="70" width="52" height="9" rx="4.5" fill="#1E40AF" opacity=".55"/>
+          <text x="26" y="114" font-size="11" font-weight="700" fill="#334155">Clave de licencia:</text>
+          <rect x="22" y="121" width="276" height="46" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <rect x="30" y="131" width="230" height="7" rx="3.5" fill="#CBD5E1"/><rect x="30" y="146" width="170" height="7" rx="3.5" fill="#CBD5E1"/>
+          <rect x="218" y="178" width="80" height="24" rx="5" fill="#15803D"/>
+          <text x="258" y="194.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Activar</text>
+        </svg>
+        <figcaption>Ilustración</figcaption>
+      </figure>
+      <div>
+        <div class="ins-h"><div class="n">4</div><h3>Activa tu licencia</h3></div>
+        <p>La primera vez, el programa abre la ventana de activación y muestra el <b>código de máquina</b> de tu equipo. Envíanos ese código por WhatsApp y te mandamos la <b>clave de licencia</b>. Pégala en esa misma ventana y pulsa <b>«Activar»</b>. Cada licencia sirve para un equipo.</p>
+        <a class="btn btn-primary demo-btn" href="https://wa.me/528125834137?text=Hola,%20quiero%20activar%20Tax%20Certeza.%20Mi%20c%C3%B3digo%20de%20m%C3%A1quina%20es:%20" target="_blank" rel="noopener">Enviar mi código por WhatsApp</a>
+      </div>
+    </div>
+
     <div class="inst-notes">
       <div class="inst-note">
-        <b>¿Por qué sale ese aviso?</b> TAX CERTEZA es un programa nuevo y todavía no lleva firma digital;
-        Windows avisa con cualquier programa así. La firma llegará en una versión próxima.
-        El antivirus de Windows (Defender) no detecta amenazas en el archivo.
+        <b>¿Por qué sale el aviso azul?</b> El programa todavía no lleva firma de código, y Windows
+        muestra ese aviso con cualquier programa sin ella. Si quieres comprobar que el archivo es el
+        que publicamos, compara su huella con la de «Verifica tu descarga», aquí abajo.
       </div>
-      <div class="inst-note warn">
-        <b>Necesitas una licencia.</b> Cada equipo usa una licencia que se solicita:
-        pídela con el botón «2 · Pedir acceso a la beta por WhatsApp», aquí arriba.
-        <p class="demo-call"><b>¿Quieres verlo antes?</b> La demo en línea se ve en el navegador, sin instalar nada, con datos de una empresa de demostración. El acceso se entrega por WhatsApp. Horario: lunes a sábado, 8:00 a 21:00 (hora del centro de México).</p>
+      <div class="inst-note">
+        <p><b>¿Quieres verlo antes?</b> La demo en línea se ve en el navegador, sin instalar nada, con datos de una empresa de demostración. El acceso se entrega por WhatsApp. Horario: lunes a sábado, 8:00 a 21:00 (hora del centro de México).</p>
         <a class="btn btn-ghost demo-btn" href="https://wa.me/528125834137?text=Hola,%20quiero%20acceso%20a%20la%20demo%20en%20l%C3%ADnea%20de%20Tax%20Certeza" target="_blank" rel="noopener">Solicitar acceso a la demo en línea</a>
       </div>
     </div>
 
-    <!-- RELLENAR AL PUBLICAR LA VERSION: poner el SHA-256 real del .zip publicado (el mismo de version.json)
-         en <code> y quitar el atributo "hidden" de este <details>. No inventar ni dejar de relleno. -->
-    <details class="inst-verif" hidden>
+    <details class="inst-verif">
       <summary>Verifica tu descarga (opcional)</summary>
       <p>La huella SHA-256 del archivo debe coincidir con esta. En PowerShell: <b>Get-FileHash TaxCerteza_dist.zip</b></p>
-      <code>SHA256_DEL_ZIP_PENDIENTE_DE_PUBLICAR</code>
+      <code>{{SHA256_ZIP}}</code>
     </details>
   </div>
 </section>
@@ -393,11 +424,10 @@
       <a href="https://wa.me/528125834137" style="color:var(--brand);font-weight:600">WhatsApp: +52 81 2583 4137</a><br>
       <a href="mailto:support@taxcerteza.mx" style="color:var(--brand);font-weight:600">support@taxcerteza.mx</a>
     </div>
-    <div class="beta-note">
-      <b>Nota:</b> TAX CERTEZA está en beta privada (fase de prueba). La descarga automática
-      del SAT y otras funciones avanzadas están en afinación; agradecemos tu
-      retroalimentación. El software no sustituye el criterio profesional del
-      contador.
+    <div class="nota">
+      <b>Nota:</b> Tax Certeza 1.0.47 funciona en Windows y se activa con una licencia por equipo.
+      La descarga automática del SAT sigue en afinación; agradecemos tus comentarios.
+      El software no sustituye el criterio profesional del contador.
     </div>
   </div>
 </footer>
