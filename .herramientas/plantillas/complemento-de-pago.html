@@ -8,6 +8,7 @@ Complemento de pago (REP)
 Con la fecha del pago, calcula hasta qué día se puede emitir el complemento de pago (REP). Con el método y la forma de pago, indica si la factura lo lleva. RMF 2026.
 @@SCRIPTS
 <script src="/herramientas/complemento-de-pago/rep.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
 <script src="/herramientas/complemento-de-pago/pagina.js" defer></script>
 @@FAQ
 P: ¿Hasta qué día se puede emitir el complemento de pago?
@@ -71,7 +72,7 @@ R: Sí. La regla 2.7.1.32 de la RMF 2026 permite emitir un REP por cada pago o u
   </form>
   <div class="res" id="res-lleva" role="status" aria-live="polite"></div>
   <noscript><p class="aviso">Esta herramienta necesita JavaScript para hacer el cálculo en tu navegador.</p></noscript>
-  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía nada a ningún servidor y no guarda lo que eliges.</p>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía a ningún servidor la fecha ni lo que eliges, y no lo guarda. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
 </section>
 
 <section class="txt">

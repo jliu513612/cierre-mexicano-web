@@ -88,7 +88,7 @@
   </form>
   <div class="res" id="res-lleva" role="status" aria-live="polite"></div>
   <noscript><p class="aviso">Esta herramienta necesita JavaScript para hacer el cálculo en tu navegador.</p></noscript>
-  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía nada a ningún servidor y no guarda lo que eliges.</p>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía a ningún servidor la fecha ni lo que eliges, y no lo guarda. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
 </section>
 
 <section class="txt">
@@ -168,7 +168,9 @@
     </div>
   </div>
 </footer>
+<form name="opinion-herramientas" method="POST" data-netlify="true" netlify-honeypot="sitio" hidden aria-hidden="true"><input type="hidden" name="herramienta"><input type="hidden" name="clase"><input type="hidden" name="voto"><input type="hidden" name="motivo"><input type="hidden" name="correo"><input type="hidden" name="fecha"><input type="hidden" name="sitio"></form>
 <script src="/herramientas/complemento-de-pago/rep.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
 <script src="/herramientas/complemento-de-pago/pagina.js" defer></script>
 </body>
 </html>

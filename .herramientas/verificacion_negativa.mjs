@@ -46,19 +46,36 @@ const SABOTAJES = [
   ['rep: la PUE no cobrada al cierre sale como que no lleva nada', H('complemento-de-pago/rep.js'), "return { resultado: 'SUSTITUIR'", "return { resultado: 'NO'"],
   ['rep: la PUE con forma 99 recibe veredicto', H('complemento-de-pago/rep.js'), "if (forma === '99') return { resultado: 'NO_CUBIERTO', fundamento: [], avisos: ['PUE_CON_99'] };", ''],
   ['rep: el aviso de forma no evaluada desaparece', H('complemento-de-pago/rep.js'), "avisos: forma === '99' ? [] : ['FORMA_NO_EVALUADA']", 'avisos: []'],
+  // --- Opinion sobre el resultado. La marca 'nav' corre ademas la prueba en el navegador (lo que SALE por la red).
+  ['opinion: el RFC escrito en el motivo ya no se quita', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : ''", "motivo: d.voto === 'NO' ? String(d.motivo || '') : ''", 'nav'],
+  ['opinion: el envio anade lo tecleado en la pagina (las pruebas de node no pueden verlo)', H('opinion.js'), "body: e.cuerpo })", "body: e.cuerpo + '&tecleado=' + encodeURIComponent((doc.querySelector('main input') || {}).value || '') })", 'nav'],
+  ['opinion: la pagina pasa el RFC normalizado en vez de la clase', H('validar-rfc/pagina.js'), 'opinion(r.resultado);', 'opinion(r.rfc);', 'nav'],
+  ['opinion: un fallo del servidor se da por bueno', H('opinion.js'), "alTerminar(r && r.ok ? 'OK' : 'FALLO');", "alTerminar('OK');", 'nav'],
+  ['opinion: la pagina ya no comprueba que opinion.js haya cargado', H('validar-rfc/pagina.js'), "if (clase !== 'VACIO' && window.TCOpinion)", "if (clase !== 'VACIO')", 'nav'],
+  ['opinion: el campo trampa deja de mirarse', H('opinion.js'), "if (d.trampa) return { ok: false, motivo: 'TRAMPA' };", '', 'nav'],
+  ['opinion: sin tope de envios', H('opinion.js'), "if (envios >= MAX_ENVIOS) { alTerminar('TOPE'); return; }", '', 'nav'],
+  ['opinion: se acepta cualquier texto como clase', H('opinion.js'), 'if (!RE_CLASE.test(String(d.clase)))', 'if (false)'],
+  ['opinion: el voto positivo arrastra motivo y correo', H('opinion.js'), "correo: d.voto === 'NO' ? correo : ''", 'correo: correo'],
+  ['opinion: el formulario estatico pierde un campo', path.join(RAIZ, '.herramientas', 'construir.py'), '<input type="hidden" name="motivo">', ''],
 ];
 
-function pruebas() {
+function pruebas(nav) {
   const r = spawnSync(process.execPath, ['--test', '--test-reporter=tap', '.herramientas/pruebas/*.test.js'], { cwd: RAIZ, encoding: 'utf8' });
   const rojas = [...r.stdout.matchAll(/^not ok \d+ - (.+)$/gm)].map(m => m[1]);
   const total = (r.stdout.match(/^(not )?ok \d+ - /gm) || []).length;
   // El segundo candado: lo publicado tiene que ser exactamente lo que sale de las plantillas y los datos.
   const c = spawnSync(process.env.PYTHON || 'python', ['-X', 'utf8', '.herramientas/construir.py', '--comprobar'], { cwd: RAIZ, encoding: 'utf8' });
   if (c.status !== 0) rojas.push('construir.py --comprobar: ' + ((c.stdout || '').match(/^DISTINTO .+$/gm) || ['no se pudo ejecutar']).join(', '));
-  return { rojas, total, codigo: r.status || c.status };
+  let n = { status: 0 };
+  if (nav) {
+    n = spawnSync(process.execPath, ['.herramientas/prueba_navegador.mjs'], { cwd: RAIZ, encoding: 'utf8', timeout: 120000 });
+    for (const m of (n.stdout || '').matchAll(/^  FALLA (.+)$/gm)) rojas.push('navegador: ' + m[1]);
+    if (n.status !== 0 && !/FALLA/.test(n.stdout || '')) rojas.push('navegador: la prueba no termino (' + String(n.stderr || n.error || n.status).slice(0, 200) + ')');
+  }
+  return { rojas, total, codigo: r.status || c.status || n.status };
 }
 
-const base = pruebas();
+const base = pruebas(true);
 if (base.codigo !== 0 || base.rojas.length || base.total < 20) {
   console.error('ANTES de sabotear las pruebas tienen que estar verdes:', base);
   process.exit(2);
@@ -66,7 +83,7 @@ if (base.codigo !== 0 || base.rojas.length || base.total < 20) {
 console.log(`punto de partida: ${base.total} pruebas, todas verdes\n`);
 const dirCopia = fs.mkdtempSync(path.join(os.tmpdir(), 'tc-negativa-'));
 let mal = 0;
-SABOTAJES.forEach(([nombre, archivo, viejo, nuevo], i) => {
+SABOTAJES.forEach(([nombre, archivo, viejo, nuevo, marca], i) => {
   const copia = path.join(dirCopia, `${i}-${path.basename(archivo)}`);
   fs.copyFileSync(archivo, copia);
   const original = fs.readFileSync(archivo, 'utf8');
@@ -76,7 +93,7 @@ SABOTAJES.forEach(([nombre, archivo, viejo, nuevo], i) => {
     if (veces !== 1) throw new Error(`el patron aparece ${veces} veces (esperaba 1): ${viejo}`);
     fs.writeFileSync(archivo, original.replace(viejo, nuevo));
     if (fs.readFileSync(archivo, 'utf8') === original) throw new Error('el sabotaje no cambio el archivo');
-    r = pruebas();
+    r = pruebas(marca === 'nav');
   } finally {
     fs.copyFileSync(copia, archivo);  // se restaura SIEMPRE desde la copia
   }
@@ -88,7 +105,7 @@ SABOTAJES.forEach(([nombre, archivo, viejo, nuevo], i) => {
   if (!bien) console.log('         ningun test lo vio: ESTE SABOTAJE PASA SIN SER DETECTADO');
 });
 fs.rmSync(dirCopia, { recursive: true, force: true });
-const fin = pruebas();
+const fin = pruebas(true);
 console.log(`\nrestaurado: ${fin.total} pruebas, ${fin.rojas.length} rojas`);
 console.log(`${SABOTAJES.length} sabotajes, ${SABOTAJES.length - mal} detectados, ${mal} sin detectar`);
 process.exit(mal || fin.rojas.length || fin.codigo ? 1 : 0);

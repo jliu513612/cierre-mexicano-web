@@ -1,12 +1,14 @@
-# PROPUESTA. Para activarla se copia a .github/workflows/herramientas.yml en un PR APARTE
-# (tocar .github/ es un cambio del estandar del sitio: lo decide la duena).
+# Pruebas de /herramientas/ en cada PR. Aprobado por la duena del sitio el 2026-10-13.
 #
-# Corre en cada PR que toque /herramientas/ o /.herramientas/:
+# Si el PR toca herramientas/, .herramientas/ o _headers, corre:
 #   1. las pruebas de la logica contra los vectores de referencia,
 #   2. que lo publicado sea exactamente lo que sale de las plantillas y los datos,
-#   3. la verificacion en negativo (cada sabotaje tiene que poner algo en rojo).
+#   3. el estilo de los textos,
+#   4. la prueba en un navegador: lo que SALE por la red al opinar, y la politica de contenido de _headers,
+#   5. la verificacion en negativo (cada sabotaje tiene que poner algo en rojo).
+# Si el PR NO toca esas rutas (por ejemplo, un articulo del blog), el check termina en verde sin probar nada:
+# no lleva filtro `paths:` a proposito, porque un check requerido que no corre deja el PR bloqueado para siempre.
 # Usa `pull_request` (no `pull_request_target`): ejecuta codigo del PR, asi que va SIN secretos y solo con lectura.
-# No lleva filtro `paths:` a proposito: un check requerido que no corre deja el PR bloqueado para siempre.
 name: herramientas
 on:
   pull_request:
@@ -16,7 +18,7 @@ permissions:
 jobs:
   herramientas:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,7 +27,7 @@ jobs:
       - name: ¿el PR toca las herramientas?
         id: toca
         run: |
-          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/)'; then
+          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/|_headers$|\.github/workflows/herramientas\.yml$)'; then
             echo "si=1" >> "$GITHUB_OUTPUT"
           else
             echo "No toca /herramientas/: nada que probar."
@@ -47,6 +49,9 @@ jobs:
       - name: estilo de los textos
         if: steps.toca.outputs.si == '1'
         run: python -X utf8 .herramientas/estilo.py
+      - name: navegador (lo que sale por la red y la politica de contenido)
+        if: steps.toca.outputs.si == '1'
+        run: node .herramientas/prueba_navegador.mjs
       - name: verificacion en negativo
         if: steps.toca.outputs.si == '1'
         run: node .herramientas/verificacion_negativa.mjs

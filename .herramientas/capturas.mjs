@@ -46,6 +46,7 @@ const TOMAS = [
   ['indice', '/herramientas/', [], { completa: true }],
   ['rfc_valido', '/herramientas/validar-rfc/', [], { teclado: { sel: '#rfc', texto: 'eku-900317-3c9' } }],
   ['rfc_invalido_digito', '/herramientas/validar-rfc/', [escribe('#rfc', 'EKU9003173C8'), envia('#f-rfc')]],
+  ['opinion_formulario_abierto', '/herramientas/validar-rfc/', [escribe('#rfc', 'EKU9003173C8'), envia('#f-rfc'), "document.querySelector('#res-rfc .op-botones button:nth-child(2)').click()", escribe('#res-rfc .op-forma textarea', 'Esperaba que dijera en qué posición está el error')]],
   ['rfc_invalido_formato', '/herramientas/validar-rfc/', [escribe('#rfc', 'EKU90O3173C'), envia('#f-rfc')]],
   ['rfc_invalido_fecha', '/herramientas/validar-rfc/', [escribe('#rfc', 'XIQB890230QE4'), envia('#f-rfc')]],
   ['rfc_generico', '/herramientas/validar-rfc/', [escribe('#rfc', 'XAXX010101000'), envia('#f-rfc')]],

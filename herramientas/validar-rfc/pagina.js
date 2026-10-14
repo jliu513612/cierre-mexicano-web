@@ -90,9 +90,16 @@
     res.appendChild(el('p', '', 'Este resultado no indica si el RFC existe o está activo: eso solo se confirma con el SAT.'));
   }
 
+  /* Solo viaja la CLASE del resultado; el RFC tecleado no se le pasa. */
+  function opinion(clase) {
+    if (clase !== 'VACIO' && window.TCOpinion) window.TCOpinion.mostrar(res, 'validar-rfc', clase);
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    pintar(window.TCRfc.validar(campo.value));
+    var r = window.TCRfc.validar(campo.value);
+    pintar(r);
+    opinion(r.resultado);
   });
   form.addEventListener('reset', function () {
     res.textContent = '';

@@ -8,6 +8,7 @@ Validador de RFC
 Comprueba si un RFC de persona física o moral está bien escrito: estructura, fecha y dígito verificador. Gratis y sin registro; el RFC no sale de tu equipo.
 @@SCRIPTS
 <script src="/herramientas/validar-rfc/rfc.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
 <script src="/herramientas/validar-rfc/pagina.js" defer></script>
 @@FAQ
 P: ¿Cuántos caracteres tiene un RFC?
@@ -19,7 +20,7 @@ R: No. La página revisa que el RFC esté bien formado. No consulta al SAT, así
 P: ¿Qué son XAXX010101000 y XEXX010101000?
 R: Son claves genéricas. El artículo 29-A, fracción IV del CFF prevé que, cuando no se cuenta con el RFC de quien recibe el comprobante, se señale la clave genérica que establece el SAT. La página las reconoce y no les calcula dígito verificador.
 P: ¿Se guarda el RFC que escribo?
-R: No. El cálculo se hace en tu navegador. La página no envía el RFC a ningún servidor, no lo guarda y no usa cookies.
+R: No. El cálculo se hace en tu navegador. La página no envía el RFC a ningún servidor, no lo guarda y no usa cookies. Si opinas sobre el resultado, se envía tu voto y el comentario que escribas, nunca el RFC.
 @@CUERPO
 [[MIGAS]]
 <header class="cab">
@@ -42,7 +43,7 @@ R: No. El cálculo se hace en tu navegador. La página no envía el RFC a ningú
   </form>
   <div class="res" id="res-rfc" role="status" aria-live="polite"></div>
   <noscript><p class="aviso">Esta herramienta necesita JavaScript para hacer el cálculo en tu navegador.</p></noscript>
-  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía el RFC a ningún servidor y no lo guarda.</p>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía el RFC a ningún servidor y no lo guarda. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
 </section>
 
 <section class="txt">

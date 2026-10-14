@@ -74,6 +74,7 @@
       else if (r.motivo === 'ANTERIOR_A_TABLA') error('La fecha es anterior a los valores de esta página', 'Esta página tiene valores desde el ' + larga(uma.primero.desde) + '. Para una fecha anterior consulta la publicación del INEGI de ese año.');
       else if (r.motivo === 'SIN_CONFIRMAR') error('El valor de esa fecha no está confirmado aquí', 'El último valor de esta página rigió hasta el ' + larga(ult.hasta) + '. Para una fecha posterior consulta la publicación del INEGI en el Diario Oficial de la Federación.');
       else error('No se pudo convertir', 'Revisa los datos e inténtalo de nuevo.');
+      if ((r.motivo === 'ANTERIOR_A_TABLA' || r.motivo === 'SIN_CONFIRMAR') && window.TCOpinion) window.TCOpinion.mostrar(res, 'valor-uma', r.motivo);
       return;
     }
     var v = r.valor;
@@ -95,5 +96,6 @@
     fuente.appendChild(a);
     fuente.appendChild(document.createTextNode('.'));
     res.appendChild(fuente);
+    if (window.TCOpinion) window.TCOpinion.mostrar(res, 'valor-uma', r.sentido);
   });
 })();
