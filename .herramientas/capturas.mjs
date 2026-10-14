@@ -35,7 +35,7 @@ function cdp(metodo, params = {}, sesion) {
 }
 
 const DESKTOP = { nombre: 'escritorio', width: 1440, height: 1000, deviceScaleFactor: 1, mobile: false };
-const MOVIL = { nombre: 'movil', width: 390, height: 844, deviceScaleFactor: 2, mobile: true };
+const MOVIL = { nombre: 'movil', width: 375, height: 844, deviceScaleFactor: 2, mobile: true };
 const escribe = (sel, v) => `(()=>{const e=document.querySelector(${JSON.stringify(sel)});e.focus();e.value=${JSON.stringify(v)};e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));})()`;
 const marca = sel => `(()=>{const e=document.querySelector(${JSON.stringify(sel)});e.checked=true;e.dispatchEvent(new Event('change',{bubbles:true}));})()`;
 const envia = sel => `document.querySelector(${JSON.stringify(sel)}).requestSubmit()`;
