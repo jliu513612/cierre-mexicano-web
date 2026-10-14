@@ -25,6 +25,15 @@ PAGINAS = {  # plantilla -> ruta publicada
 }
 
 
+# Formulario ESTATICO que Netlify detecta al desplegar. No se ve ni se usa a mano: opinion.js envia con fetch a este
+# mismo nombre. Los campos son la lista completa de lo que se puede enviar; no hay campo para lo tecleado.
+FORMULARIO = (
+    '<form name="opinion-herramientas" method="POST" data-netlify="true" netlify-honeypot="sitio" hidden aria-hidden="true">'
+    '<input type="hidden" name="herramienta"><input type="hidden" name="clase"><input type="hidden" name="voto">'
+    '<input type="hidden" name="motivo"><input type="hidden" name="correo"><input type="hidden" name="fecha">'
+    '<input type="hidden" name="sitio"></form>\n')
+
+
 def fecha_larga(iso):
     a, m, d = (int(x) for x in iso.split("-"))
     return f"{d} de {MESES[m - 1]} de {a}"
@@ -113,7 +122,7 @@ def construir():
             "TITULO": html.escape(s["TITULO"], quote=True), "DESCRIPCION": html.escape(s["DESCRIPCION"], quote=True), "RUTA": ruta,
             "JSONLD": json.dumps({"@context": "https://schema.org", "@graph": grafo}, ensure_ascii=False).replace("</", "<\\/"),
             "NAV_ACTUAL": ' aria-current="page"' if nombre == "indice" else "",
-            "CUERPO": cuerpo, "SCRIPTS": s.get("SCRIPTS", ""),
+            "CUERPO": cuerpo, "SCRIPTS": s.get("SCRIPTS", ""), "FORMULARIO": "" if nombre == "indice" else FORMULARIO,
         })
         if "[[" in pagina or "{{" in pagina or "@@" in pagina:
             raise SystemExit(f"{nombre}: quedaron marcadores sin rellenar")
