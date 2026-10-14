@@ -11,7 +11,14 @@
 - [Descarga masiva de CFDI del SAT: cómo saber si te faltan XML](https://taxcerteza.mx/blog/descarga-masiva-cfdi-sat/): Qué es la descarga masiva de CFDI, qué necesitas, dónde suele fallar y cómo comprobar contra la metadata del SAT que tienes todos los XML del periodo.
 - [Complemento de pago (REP): cuándo es obligatorio y qué plazo tienes](https://taxcerteza.mx/blog/complemento-de-pago-cuando-es-obligatorio/): El REP se emite por cada pago de una factura PPD, a más tardar el día 5 del mes siguiente. Fundamento, multa y cómo encontrar las facturas que siguen sin complemento.
 
+## Herramientas gratuitas
+
+- [Validar RFC: estructura, fecha y dígito verificador](https://taxcerteza.mx/herramientas/validar-rfc/): Comprueba si un RFC de persona física o moral está bien escrito: estructura, fecha y dígito verificador. Gratis y sin registro; el RFC no sale de tu equipo.
+- [Valor de la UMA 2026: diario, mensual y anual, con conversor](https://taxcerteza.mx/herramientas/valor-uma/): UMA 2026: $117.31 diarios, $3,566.22 mensuales y $42,794.64 anuales, desde el 1 de febrero de 2026. Conversor de veces UMA a pesos y valores de años anteriores con su DOF.
+- [Calculadora de la fecha límite del complemento de pago (REP)](https://taxcerteza.mx/herramientas/complemento-de-pago/): Con la fecha del pago, calcula hasta qué día se puede emitir el complemento de pago (REP). Con el método y la forma de pago, indica si la factura lo lleva. RMF 2026.
+
 ## Sitio
 
 - [Inicio](https://taxcerteza.mx/): qué hace el programa y cómo descargarlo
 - [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
+- [Herramientas](https://taxcerteza.mx/herramientas/): Validador de RFC, valor de la UMA con conversor y fecha límite del complemento de pago. Gratis, sin registro, y lo que escribes no sale de tu equipo.
