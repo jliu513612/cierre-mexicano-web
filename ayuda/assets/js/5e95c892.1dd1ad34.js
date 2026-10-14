@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcierre_mexicano_ayuda=self.webpackChunkcierre_mexicano_ayuda||[]).push([[9647],{7121(e,r,a){a.r(r),a.d(r,{default:()=>t});a(96540);var c=a(34164),s=a(17559),u=a(45500),n=a(22831),i=a(44060),d=a(74848);function t(e){return(0,d.jsx)(u.e3,{className:(0,c.A)(s.G.wrapper.docsPages),children:(0,d.jsx)(i.A,{children:(0,n.v)(e.route.routes)})})}}}]);
