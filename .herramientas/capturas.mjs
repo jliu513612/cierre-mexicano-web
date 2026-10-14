@@ -59,6 +59,7 @@ const TOMAS = [
   ['uma_sin_confirmar_feb_2027', '/herramientas/valor-uma/', [escribe('#cantidad', '25'), envia('#f-uma')], { reloj: '2027-02-03T12:00:00' }],
   ['uma_pagina_completa', '/herramientas/valor-uma/', [escribe('#cantidad', '25'), envia('#f-uma')], { completa: true }],
   ['rep_valido_en_plazo', '/herramientas/complemento-de-pago/', [escribe('#fecha-pago', '2026-10-08'), envia('#f-plazo')], { reloj: '2026-10-13T12:00:00' }],
+  ['rep_aviso_dia_inhabil', '/herramientas/complemento-de-pago/', [escribe('#fecha-pago', '2026-03-17'), envia('#f-plazo')], { reloj: '2026-03-20T12:00:00' }],
   ['rep_vencido', '/herramientas/complemento-de-pago/', [escribe('#fecha-pago', '2026-08-15'), envia('#f-plazo')], { reloj: '2026-10-13T12:00:00' }],
   ['rep_invalido_otro_ejercicio', '/herramientas/complemento-de-pago/', [escribe('#fecha-pago', '2025-12-31'), envia('#f-plazo')], { reloj: '2026-10-13T12:00:00' }],
   ['rep_lleva_si_ppd', '/herramientas/complemento-de-pago/', [marca('input[name=metodo][value=PPD]'), marca('input[name=forma][value="99"]'), envia('#f-lleva'), a('#t-lleva')]],

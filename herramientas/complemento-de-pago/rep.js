@@ -47,6 +47,29 @@
     return { estado: dias < 0 ? 'VENCIDO' : (dias <= 3 ? 'URGENTE' : 'NORMAL'), dias: dias };
   }
 
+  /* ¿El dia limite cae en un dia que el CFF, articulo 12, primer parrafo, no cuenta en los plazos fijados en dias?
+     Sabado, domingo, 1 de enero, primer lunes de febrero, tercer lunes de marzo, 1 y 5 de mayo, 16 de septiembre,
+     tercer lunes de noviembre, 25 de diciembre y el 1 de diciembre de cada 6 anos (cambio del Poder Ejecutivo:
+     2024, 2030...). NO decide si el plazo del REP se recorre: la regla 2.7.1.32 habla de dia natural y no remite
+     a ese articulo. Solo sirve para AVISAR de la duda. No conoce las vacaciones generales de las autoridades. */
+  function nLunes(a, m, n) {
+    var primero = new Date(Date.UTC(a, m - 1, 1)).getUTCDay();
+    return 1 + ((8 - primero) % 7) + 7 * (n - 1);
+  }
+  function diaNoComputable(iso) {
+    var f = leerFecha(iso);
+    if (!f) return null;
+    var dow = new Date(Date.UTC(f.a, f.m - 1, f.d)).getUTCDay();
+    if (dow === 6) return 'SABADO';
+    if (dow === 0) return 'DOMINGO';
+    var md = f.m * 100 + f.d;
+    if (md === 101 || md === 501 || md === 505 || md === 916 || md === 1225) return 'FESTIVO';
+    if ((f.m === 2 && f.d === nLunes(f.a, 2, 1)) || (f.m === 3 && f.d === nLunes(f.a, 3, 3)) ||
+        (f.m === 11 && f.d === nLunes(f.a, 11, 3))) return 'FESTIVO';
+    if (md === 1201 && (f.a - 2024) % 6 === 0) return 'FESTIVO';
+    return null;
+  }
+
   function consultarPlazo(fechaPago, hoy) {
     var f = leerFecha(fechaPago);
     if (!f) return { ok: false, motivo: 'FECHA_INVALIDA' };
@@ -54,7 +77,8 @@
     if (f.a !== EJERCICIO_DE_LA_REGLA) return { ok: false, motivo: 'FUERA_DE_EJERCICIO', ejercicio: f.a };
     var limite = fechaLimite(fechaPago);
     var r = { ok: true, fechaPago: fechaPago, limite: limite,
-              limiteEnOtroEjercicio: leerFecha(limite).a !== EJERCICIO_DE_LA_REGLA, plazo: null, pagoFuturo: false };
+              limiteEnOtroEjercicio: leerFecha(limite).a !== EJERCICIO_DE_LA_REGLA, plazo: null, pagoFuturo: false,
+              limiteNoComputable: diaNoComputable(limite) };
     var h = leerFecha(hoy);
     if (h) {
       r.plazo = estadoPlazo(fechaPago, hoy);
@@ -92,7 +116,7 @@
     return { resultado: 'FALTAN_DATOS', fundamento: [], avisos: [] };
   }
 
-  return { fechaLimite: fechaLimite, estadoPlazo: estadoPlazo, consultarPlazo: consultarPlazo,
+  return { fechaLimite: fechaLimite, estadoPlazo: estadoPlazo, consultarPlazo: consultarPlazo, diaNoComputable: diaNoComputable,
            metodoLlevaRep: metodoLlevaRep, llevaRep: llevaRep, leerFecha: leerFecha,
            EJERCICIO_DE_LA_REGLA: EJERCICIO_DE_LA_REGLA };
 });

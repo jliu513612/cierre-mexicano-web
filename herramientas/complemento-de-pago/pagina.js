@@ -61,6 +61,10 @@
     resPlazo.appendChild(el('p', '', cuenta));
     resPlazo.appendChild(el('p', '', 'Pago recibido el ' + larga(r.fechaPago) + '. La ' + R32 + ' da hasta el quinto día natural del mes inmediato siguiente al del pago. Todos los pagos recibidos en ese mes tienen el mismo día límite.'));
     if (r.pagoFuturo) resPlazo.appendChild(el('p', '', 'La fecha indicada es posterior a hoy: el cálculo supone que el pago se recibe ese día.'));
+    if (r.limiteNoComputable) {
+      var cae = r.limiteNoComputable === 'SABADO' ? 'en sábado' : (r.limiteNoComputable === 'DOMINGO' ? 'en domingo' : 'en un día festivo del artículo 12 del CFF');
+      resPlazo.appendChild(el('p', 'op-nota-plazo', 'El ' + larga(r.limite) + ' cae ' + cae + '. La página no recorre la fecha porque la regla habla de día natural; si el artículo 12 del CFF permite pasarla al siguiente día hábil es un punto que conviene confirmar con tu contador.'));
+    }
     if (r.limiteEnOtroEjercicio) resPlazo.appendChild(el('p', '', 'El día límite cae en ' + r.limite.slice(0, 4) + '. La página aplica la regla de 2026: confirma el plazo en la resolución miscelánea de ' + r.limite.slice(0, 4) + ' cuando se publique.'));
     if (window.TCOpinion) window.TCOpinion.mostrar(resPlazo, 'complemento-de-pago', 'PLAZO_' + p.estado);
   });

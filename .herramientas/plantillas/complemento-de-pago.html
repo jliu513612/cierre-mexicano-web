@@ -14,7 +14,7 @@ Con la fecha del pago, calcula hasta qué día se puede emitir el complemento de
 P: ¿Hasta qué día se puede emitir el complemento de pago?
 R: A más tardar el quinto día natural del mes inmediato siguiente a aquel en que se recibió el pago, según la regla 2.7.1.32 de la RMF 2026. Un pago recibido en octubre tiene como límite el 5 de noviembre.
 P: ¿El plazo del REP se cuenta en días hábiles?
-R: La regla 2.7.1.32 de la RMF 2026 habla del quinto día natural. Por eso la página no recorre la fecha cuando el día 5 cae en sábado, domingo o día festivo.
+R: La regla 2.7.1.32 de la RMF 2026 habla del quinto día natural, y la página no recorre la fecha. El artículo 12 del CFF prorroga al siguiente día hábil algunos plazos que vencen en día inhábil; la regla no remite a ese artículo y la página no decide si aplica. Cuando el día 5 cae en sábado, domingo o un día festivo de ese artículo, la página lo avisa para que lo confirmes con tu contador.
 P: ¿Una factura PUE lleva complemento de pago?
 R: No. El complemento corresponde a las facturas con método PPD. Si una factura PUE no se cobra completa a más tardar el último día del mes en que se expidió, la regla 2.7.1.39 de la RMF 2026 indica cancelarla y emitir una nueva con forma de pago 99 y método PPD; los pagos posteriores se documentan con REP.
 P: ¿Se puede emitir un solo REP por varios pagos?
@@ -92,7 +92,7 @@ R: Sí. La regla 2.7.1.32 de la RMF 2026 permite emitir un REP por cada pago o u
       <ul>
         <li>No emite ni timbra comprobantes.</li>
         <li>No consulta al SAT ni revisa si el REP ya existe.</li>
-        <li>No recorre la fecha si el día 5 cae en día inhábil.</li>
+        <li>No recorre la fecha si el día 5 cae en día inhábil: lo avisa.</li>
         <li>No calcula multas ni evalúa las consecuencias de emitir fuera de plazo.</li>
         <li>No calcula pagos de otros ejercicios: aplica la regla de 2026.</li>
         <li>No evalúa qué clave de forma de pago es compatible con cada método.</li>

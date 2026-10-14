@@ -46,6 +46,9 @@ const SABOTAJES = [
   ['rep: la PUE no cobrada al cierre sale como que no lleva nada', H('complemento-de-pago/rep.js'), "return { resultado: 'SUSTITUIR'", "return { resultado: 'NO'"],
   ['rep: la PUE con forma 99 recibe veredicto', H('complemento-de-pago/rep.js'), "if (forma === '99') return { resultado: 'NO_CUBIERTO', fundamento: [], avisos: ['PUE_CON_99'] };", ''],
   ['rep: el aviso de forma no evaluada desaparece', H('complemento-de-pago/rep.js'), "avisos: forma === '99' ? [] : ['FORMA_NO_EVALUADA']", 'avisos: []'],
+  ['rep: el aviso de dia no computable desaparece', H('complemento-de-pago/rep.js'), 'limiteNoComputable: diaNoComputable(limite) };', 'limiteNoComputable: null };'],
+  ['rep: el 5 de mayo deja de contar como festivo', H('complemento-de-pago/rep.js'), 'md === 505 || ', ''],
+  ['rep: el aviso RECORRE la fecha en vez de solo avisar', H('complemento-de-pago/rep.js'), "return f.m === 12 ? aIso(f.a + 1, 1, 5) : aIso(f.a, f.m + 1, 5);", "var l = f.m === 12 ? aIso(f.a + 1, 1, 5) : aIso(f.a, f.m + 1, 5); return diaNoComputable(l) === 'DOMINGO' ? l.slice(0, 8) + '06' : l;"],
   // --- Opinion sobre el resultado. La marca 'nav' corre ademas la prueba en el navegador (lo que SALE por la red).
   ['opinion: el RFC escrito en el motivo ya no se quita', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : ''", "motivo: d.voto === 'NO' ? String(d.motivo || '') : ''", 'nav'],
   ['opinion: el envio anade lo tecleado en la pagina (las pruebas de node no pueden verlo)', H('opinion.js'), "body: e.cuerpo })", "body: e.cuerpo + '&tecleado=' + encodeURIComponent((doc.querySelector('main input') || {}).value || '') })", 'nav'],
