@@ -23,10 +23,11 @@ MULETILLAS = [
     "más vale", "en la era", "hoy en día", "sin sustos", "imagina que", "vale la pena señalar",
 ]
 PROHIBIDAS = [
-    "contpaqi", "cierre mexicano", "mexican closing", "cpa", "veredicto", "dictamen", "multipuesto",
+    "cierre mexicano", "mexican closing", "cpa", "veredicto", "dictamen", "multipuesto",
     "multi-puesto", "varios equipos", "en red", "inteligencia artificial", "(fin del art", "[related", "[affiliate",
     "<<<", "lorem",
 ]
+NOTA_MARCA = "es una marca de su titular, sin relación ni afiliación con Tax Certeza"
 UMBRAL = {
     # Calibrados el 2026-10-12 contra 8 articulos de contadores escritos por personas (2018-2022)
     # y los 4 articulos viejos del blog. Detalle y limites en ESTANDAR.md.
@@ -124,6 +125,9 @@ def revisar(ruta, solo_estilo=False):
         patron = r"(?<![a-záéíóúñ])" + re.escape(p) + r"(?![a-záéíóúñ])" if p.isalpha() else re.escape(p)
         if re.search(patron, s.lower()):
             fallos.append(f"termino prohibido: {p}")
+    # June 2026-10-13: un articulo puede nombrar CONTPAQi, pero solo con la nota de marca ajena.
+    if "contpaq" in s.lower() and NOTA_MARCA.lower() not in s.lower():
+        fallos.append("nombra CONTPAQi sin la nota de marca ajena")
     if re.search(r"\b[A-ZÑ&]{3,4}\d{6}[A-Z0-9]{3}\b", t_art):
         fallos.append("posible RFC en el texto")
     if re.search(r"(?i)<h2>\s*(en resumen|conclusi[oó]n|en conclusi[oó]n|para terminar)", art):
