@@ -22,3 +22,4 @@
 - [Inicio](https://taxcerteza.mx/): qué hace el programa y cómo descargarlo
 - [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
 - [Herramientas](https://taxcerteza.mx/herramientas/): Validador de RFC, valor de la UMA con conversor y fecha límite del complemento de pago. Gratis, sin registro, y lo que escribes no sale de tu equipo.
+- [Centro de ayuda](https://taxcerteza.mx/ayuda/): Guías del programa para contadores y despachos: qué pantalla usar para cada tarea
