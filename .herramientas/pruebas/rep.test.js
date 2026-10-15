@@ -73,3 +73,33 @@ test('rep: deben FALLAR los datos incompletos o desconocidos (no hay veredicto)'
     assert.equal(REP.llevaRep(d).resultado, 'FALTAN_DATOS', JSON.stringify(d));
   }
 });
+
+test('rep: avisa cuando el dia limite cae en un dia que el CFF 12 no cuenta, sin mover la fecha', () => {
+  // 2026: el 5 cae en domingo (abril, julio), sabado (septiembre, diciembre) y en el 5 de mayo (festivo del CFF 12).
+  const casos = { '2026-03-17': 'DOMINGO', '2026-04-20': 'FESTIVO', '2026-06-10': 'DOMINGO', '2026-08-15': 'SABADO', '2026-11-30': 'SABADO' };
+  for (let m = 1; m <= 12; m++) {
+    const pago = `2026-${String(m).padStart(2, '0')}-10`;
+    const r = REP.consultarPlazo(pago, '2026-01-01');
+    const esperado = Object.entries(casos).find(([p]) => p.slice(5, 7) === pago.slice(5, 7));
+    assert.equal(r.limiteNoComputable, esperado ? esperado[1] : null, pago);
+    assert.equal(r.limite, REP.fechaLimite(pago), 'la fecha limite NO se recorre');
+  }
+});
+
+test('rep: calendario del CFF 12 (dias fijos y lunes moviles)', () => {
+  const d = REP.diaNoComputable;
+  // dias fijos que en 2026 no caen en fin de semana, y el 1 de diciembre de 2036 (cambio del Poder Ejecutivo)
+  for (const f of ['2026-01-01', '2026-05-01', '2026-05-05', '2026-09-16', '2026-12-25', '2036-12-01']) assert.equal(d(f), 'FESTIVO', f);
+  assert.equal(d('2030-12-01'), 'DOMINGO');  // en 2030 el 1 de diciembre es domingo: el fin de semana se nombra primero
+  assert.equal(d('2026-02-02'), 'FESTIVO');   // primer lunes de febrero
+  assert.equal(d('2026-02-05'), null);        // el 5 de febrero ya no es el dia que no se cuenta
+  assert.equal(d('2026-03-16'), 'FESTIVO');   // tercer lunes de marzo
+  assert.equal(d('2026-03-21'), 'SABADO');
+  assert.equal(d('2026-11-16'), 'FESTIVO');   // tercer lunes de noviembre
+  assert.equal(d('2026-11-20'), null);
+  assert.equal(d('2026-12-01'), null);
+  assert.equal(d('2024-12-01'), 'DOMINGO');
+  assert.equal(d('2026-10-05'), null);
+  assert.equal(d('2026-04-05'), 'DOMINGO');
+  assert.equal(d('no-es-fecha'), null);
+});
