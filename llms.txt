@@ -4,6 +4,7 @@
 
 ## Recursos fiscales
 
+- [Cierre fiscal del mes sin dejar tu sistema contable: qué hace Tax Certeza y qué sigue donde está](https://taxcerteza.mx/blog/cierre-fiscal-mensual-sin-dejar-tu-sistema-contable/): Si llevas la contabilidad en CONTPAQi: qué parte del cierre fiscal del mes hace Tax Certeza (IVA, ISR provisional, DIOT) y qué sigue en tu sistema contable.
 - [RESICO: cuándo cuenta como ingreso una factura que todavía no se cobra](https://taxcerteza.mx/blog/resico-ingresos-cobrados-o-facturados/): En el régimen simplificado de confianza el ingreso se considera al cobrarse. Qué dicen los artículos 207 y 113-E de la Ley del ISR y cómo tratar PPD, PUE sin cobrar, anticipos y cheques.
 - [Cruce del banco contra los CFDI: depósitos sin factura y facturas PUE sin cobrar](https://taxcerteza.mx/blog/conciliacion-bancaria-contra-cfdi/): Cómo cruzar los movimientos del banco contra los CFDI del mes, qué revisar en un depósito sin factura y en una factura PUE que no se cobró, y qué dice la regla 2.7.1.39.
 - [Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores](https://taxcerteza.mx/blog/lista-negra-sat-efos-69b/): Qué es la lista del artículo 69-B del CFF, qué diferencia hay entre presunto y definitivo, el plazo de 30 días para quien recibió las facturas y cómo revisar a todos tus proveedores.
