@@ -121,8 +121,9 @@ def revisar(ruta, solo_estilo=False):
         v = m[k]
         if (k.endswith("_min") and v < lim) or (not k.endswith("_min") and v > lim):
             fallos.append(f"{k}={v} (umbral {lim})")
+    # Palabras sueltas y frases de palabras ("en red") se buscan como palabra entera: "en redes sociales" no es "en red".
     for p in PROHIBIDAS:
-        patron = r"(?<![a-záéíóúñ])" + re.escape(p) + r"(?![a-záéíóúñ])" if p.isalpha() else re.escape(p)
+        patron = r"(?<![a-záéíóúñ])" + re.escape(p) + r"(?![a-záéíóúñ])" if p.replace(" ", "").isalpha() else re.escape(p)
         if re.search(patron, s.lower()):
             fallos.append(f"termino prohibido: {p}")
     # June 2026-10-13: un articulo puede nombrar CONTPAQi, pero solo con la nota de marca ajena.
