@@ -35,6 +35,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brand-d);outline-offset:2px;border-radius:4px}
 .btn:focus-visible{border-radius:10px}
 @media(max-width:720px){.nav-links a:not(.nav-cta){display:none}.logo img{height:30px}}
+/* menu movil de la cabecera (fragmento unico) */
+.menu-movil{display:none;position:relative;border:0;border-radius:0;margin:0;padding:0;background:none}.menu-movil>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;color:#0F172A;padding:0;margin:0;font-size:16px}.menu-movil>summary::-webkit-details-marker{display:none}.menu-movil>summary:hover{background:#F1F5F9}.menu-movil>summary:focus-visible{outline:3px solid #1E40AF;outline-offset:2px}.menu-movil svg{flex:none;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}.menu-movil .cerrar,.menu-movil[open] .abrir{display:none}.menu-movil[open] .cerrar{display:block}.menu-movil-panel{position:absolute;right:0;top:calc(100% + 10px);min-width:200px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;box-shadow:0 10px 30px rgba(15,23,42,.14);padding:6px;display:flex;flex-direction:column}.menu-movil-panel a{display:block;padding:12px 14px;border-radius:8px;color:#0F172A;font-weight:600;font-size:16px}.menu-movil-panel a:hover,.menu-movil-panel a[aria-current]{background:#EFF6FF;color:#1E40AF}@media(max-width:720px){.menu-movil{display:block}.nav-links{gap:8px}.nav-links .menu-movil-panel a{display:block}}
+/* telefono muy estrecho (320 px): logo, Descargar y menu caben con hueco */
+@media(max-width:380px){nav .wrap{padding-left:16px;padding-right:16px}.logo img{height:24px}.nav-cta{padding:8px 12px}.menu-movil>summary{width:40px}}
 .salto{position:absolute;left:-9999px;top:8px;background:#fff;color:var(--brand-d);padding:8px 14px;border-radius:8px;
   font-weight:700;z-index:60;border:2px solid var(--brand-d)}
 .salto:focus{left:12px}
