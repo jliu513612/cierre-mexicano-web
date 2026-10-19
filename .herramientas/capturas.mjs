@@ -76,6 +76,9 @@ const TOMAS = [
   ['retenciones_invalido', '/herramientas/factura-con-retenciones/', [escribe('#subtotal', 'diez mil'), envia('#f-ret')]],
   ['calendario_2026', '/herramientas/calendario-dia-17/', []],
   ['calendario_2027_rfc', '/herramientas/calendario-dia-17/', [escribe('#anio', '2027'), escribe('#rfc', 'XIQB891116QE4'), envia('#f-cal')]],
+  ['iva_xml', '/herramientas/iva-del-mes/', [escribe('#rfc', 'TCE160101AB1'), escribe('#mes-a', '2026'), escribe('#mes-m', '05'), envia('#f-iva'), 'new Promise(r => setTimeout(r, 900))'], { archivos: { sel: '#xml', dir: 'iva', lista: ['01_factura.xml', '02_factura.xml', '03_factura.xml', '04_factura.xml', '05_complemento_pago.xml'] } }],
+  ['iva_sin_estimacion', '/herramientas/iva-del-mes/', [escribe('#rfc', 'TCE160101AB1'), escribe('#mes-a', '2026'), escribe('#mes-m', '05'), envia('#f-iva'), 'new Promise(r => setTimeout(r, 900))'], { archivos: { sel: '#xml', dir: 'iva', lista: ['01_factura.xml', '02_factura.xml', '03_factura.xml', '04_factura.xml', '05_complemento_pago.xml'].concat(['90_nota_de_credito.xml']) } }],
+  ['iva_manual', '/herramientas/iva-del-mes/', [escribe('#cobrado', '16,000'), escribe('#pagado', '6,000'), escribe('#retuviste', '400'), escribe('#teRetuvieron', '1,066.67'), envia('#f-man')]],
   ['factura_pagina_completa', '/herramientas/verificar-factura/', [], { completa: true, archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml'] } }],
 ];
 
@@ -119,7 +122,7 @@ async function main() {
         await cdp('DOM.enable', {}, s);
         const { root } = await cdp('DOM.getDocument', {}, s);
         const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: op.archivos.sel }, s);
-        await cdp('DOM.setFileInputFiles', { nodeId, files: op.archivos.lista.map(f => path.join(RAIZ, '.herramientas', 'fixtures', 'cfdi', f)) }, s);
+        await cdp('DOM.setFileInputFiles', { nodeId, files: op.archivos.lista.map(f => path.join(RAIZ, '.herramientas', 'fixtures', op.archivos.dir || 'cfdi', f)) }, s);
         await espera(700);
       }
       if (op.teclado) {  // foco, texto y Enter como lo haria una persona con el teclado

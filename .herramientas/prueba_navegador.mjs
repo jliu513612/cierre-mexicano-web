@@ -307,6 +307,64 @@ async function main() {
     await cdp('Target.closeTarget', { targetId });
   }
 
+  console.log('L. IVA del mes: XML en el navegador, el 69-B del propio sitio y nada mas');
+  recibidos.length = 0;
+  {
+    const zlib = await import('node:zlib');
+    const V = JSON.parse(fs.readFileSync(path.join(RAIZ, '.herramientas', 'vectores', 'iva.json'), 'utf8'));
+    const CASOS = JSON.parse(zlib.gunzipSync(Buffer.from(V.casos_gz, 'base64')).toString('utf8'));
+    const real = JSON.parse(fs.readFileSync(path.join(RAIZ, 'herramientas', 'lista-69b', 'listado.json'), 'utf8'));
+    // un caso con IVA a cargo, determinado, y sin emisores del 69-B inventado ni del real: el sitio usa el listado REAL
+    const caso = CASOS.find(c => c.salida.tipo === 'a_cargo' && c.salida.iva_estado === 'DETERMINADO' && c.xml.length >= 3 &&
+      c.xml.every(x => { const e = /Emisor Rfc="([^"]+)"/.exec(x)[1]; return !V.listado_prueba.r[e] && !real.r[e]; }));
+    exige(!!caso, 'calibracion: hay un caso de prueba a cargo y sin 69-B');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'tc-iva-'));
+    const rutas = caso.xml.map((x, i) => { const f = path.join(dir, `f${i}.xml`); fs.writeFileSync(f, x); return f; });
+    const malo = path.join(dir, 'nota.xml');
+    fs.writeFileSync(malo, caso.xml[0].replace('TipoDeComprobante="I"', 'TipoDeComprobante="E"'));
+    const { targetId } = await cdp('Target.createTarget', { url: 'about:blank' });
+    const { sessionId: s } = await cdp('Target.attachToTarget', { targetId, flatten: true });
+    await cdp('Page.enable', {}, s); await cdp('Runtime.enable', {}, s); await cdp('DOM.enable', {}, s); await cdp('Network.enable', {}, s);
+    await cdp('Page.addScriptToEvaluateOnNewDocument', { source: "window.__csp=[];document.addEventListener('securitypolicyviolation',e=>window.__csp.push(e.violatedDirective))" }, s);
+    const desde = eventos.length;
+    await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}/herramientas/iva-del-mes/` }, s);
+    for (let i = 0; i < 100 && !eventos.slice(desde).some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
+    await espera(300);
+    const js = async e => (await cdp('Runtime.evaluate', { expression: e, returnByValue: true }, s)).result.value;
+    const subir = async files => {
+      const { root } = await cdp('DOM.getDocument', {}, s);
+      const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: '#xml' }, s);
+      await cdp('DOM.setFileInputFiles', { nodeId, files }, s);
+    };
+    await js(`document.querySelector('#rfc').value=${JSON.stringify(V.propio)};document.querySelector('#mes-a').value=${JSON.stringify(V.periodo.slice(0, 4))};document.querySelector('#mes-m').value=${JSON.stringify(V.periodo.slice(5))}`);
+    await subir(rutas);
+    await js("document.querySelector('#f-iva').requestSubmit()");
+    for (let i = 0; i < 60 && !(await js("!!document.querySelector('#res-iva h3')")); i++) await espera(100);
+    const miles = t => '$' + t.split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + t.split('.')[1];
+    const h3 = await js("(document.querySelector('#res-iva h3')||{}).textContent");
+    exige(h3 === 'IVA a cargo de mayo de 2026: ' + miles(caso.salida.iva_neto), `la cifra es la del programa: «${h3}» (programa ${caso.salida.iva_neto})`);
+    exige((await js("document.querySelector('#res-iva').innerText")).includes('Total a pagar en el mes'), 'muestra el total a pagar');
+    exige((await js("(document.querySelector('#res-iva .op-pregunta')||{}).textContent")) === '¿Te sirvió este resultado?', 'aparece la opinion');
+    await subir(rutas.concat([malo]));
+    await js("document.querySelector('#f-iva').requestSubmit()");
+    await espera(800);
+    exige((await js("(document.querySelector('#res-iva h3')||{}).textContent")) === 'No se puede estimar el IVA con estos archivos', 'una nota de credito deja la estimacion sin cifra');
+    exige((await js("document.querySelector('#res-iva').innerText")).includes('nota.xml: nota de crédito'), 'y dice que archivo y por que');
+    await js("document.querySelector('#rfc').value='NO ES RFC';document.querySelector('#f-iva').requestSubmit()");
+    await espera(200);
+    exige((await js("(document.querySelector('#res-iva h3')||{}).textContent")) === 'Escribe tu RFC', 'sin RFC valido no lee nada');
+    await js("for(const [k,v] of [['cobrado','16,000'],['pagado','6,000'],['retuviste',''],['teRetuvieron','']]) document.querySelector('#'+k).value=v; document.querySelector('#f-man').requestSubmit()");
+    await espera(200);
+    exige((await js("(document.querySelector('#res-man h3')||{}).textContent")) === 'IVA a cargo: $10,000.00', 'modo manual: 16,000 menos 6,000');
+    const fuera = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && !e.params.request.url.startsWith(`http://127.0.0.1:${PUERTO}/`) && !e.params.request.url.startsWith('data:'));
+    const listados = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && e.params.request.url.endsWith('/herramientas/lista-69b/listado.json'));
+    exige(fuera.length === 0 && recibidos.length === 0, `estimar no envia nada (${fuera.length} fuera, ${recibidos.length} POST)`);
+    exige(listados.length === 1, `el listado 69-B se descarga una vez del propio sitio (${listados.length})`);
+    exige((await js('window.__csp.join("|")')) === '', 'cero violaciones de la politica');
+    await cdp('Target.closeTarget', { targetId });
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+
   console.log('G. politica de contenido de _headers');
   exige(/script-src 'self'/.test(CABECERAS['Content-Security-Policy'] || ''), 'calibracion: el servidor de prueba manda la politica de _headers');
   p = await abrir('/herramientas/validar-rfc/');
@@ -317,7 +375,7 @@ async function main() {
   recibidos.length = 0;
   const articulo = '/blog/' + fs.readdirSync(path.join(RAIZ, 'blog')).filter(d => fs.existsSync(path.join(RAIZ, 'blog', d, 'index.html')))[0] + '/';
   for (const [ruta, pasos] of [
-    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null], ['/herramientas/calendario-dia-17/', null],
+    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null], ['/herramientas/calendario-dia-17/', null], ['/herramientas/iva-del-mes/', null],
     ['/herramientas/validar-rfc/', async q => { await q.teclea('#rfc', 'EKU9003173C9'); await q.pulsa('#f-rfc button[type=submit]'); await q.pulsa('#res-rfc .op-botones button:nth-child(1)'); }],
     ['/herramientas/valor-uma/', async q => { await q.teclea('#cantidad', '25'); await q.pulsa('#f-uma button[type=submit]'); await q.pulsa('#res-uma .op-botones button:nth-child(1)'); }],
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],

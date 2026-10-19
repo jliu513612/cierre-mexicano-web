@@ -26,6 +26,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "lista-69b": "/herramientas/lista-69b/",
     "factura-con-retenciones": "/herramientas/factura-con-retenciones/",
     "calendario-dia-17": "/herramientas/calendario-dia-17/",
+    "iva-del-mes": "/herramientas/iva-del-mes/",
 }
 
 
@@ -136,6 +137,17 @@ def construir():
     v_uma["CAL_TABLA_DIGITOS"] = "\n".join(
         f'<tr><th scope="row">{" y ".join(ds)}</th><td>{n} {"día" if n == 1 else "días"}</td></tr>' for n, ds in _dias.items())
     v_uma["CAL_OPCIONES"] = "\n".join(f'          <option value="{x}">{x}</option>' for x in _cal["anios"])
+    _iva = json.loads((AQUI / "datos" / "iva.json").read_text(encoding="utf-8"))
+    _que_iva = {"liva-1-b": "el IVA se causa cuando la contraprestación se cobra efectivamente",
+                "liva-5": "requisitos para acreditar el IVA, entre ellos que corresponda a gastos efectivamente pagados",
+                "liva-5-d": "el IVA se calcula por mes de calendario y se paga a más tardar el día 17 del mes siguiente",
+                "liva-1-a": "quién retiene el IVA; lo retenido se entera aparte",
+                "lisr-27": "en la fracción III, los pagos de más de $2,000 se hacen con medios distintos del efectivo",
+                "cff-69-b": "contribuyentes publicados por operaciones presuntamente inexistentes (lista 69-B)"}
+    _nombre_iva = {"LIVA": "Ley del IVA", "LISR": "Ley del ISR", "CFF": "Código Fiscal de la Federación"}
+    v_uma["FUENTES_IVA"] = "\n".join(
+        f'      <li><a href="{html.escape(_iva["fuentes"][k]["url"])}" rel="noopener">{_nombre_iva[_iva["fuentes"][k]["ley"]]}, artículo {_iva["fuentes"][k]["articulo"]}</a>: {_que_iva[k]}. {_reforma(_iva["fuentes"][k]["vigencia"])}.</li>'
+        for k in _que_iva)
     base = (AQUI / "plantillas" / "base.html").read_text(encoding="utf-8")
     salidas = {}
     for nombre, ruta in PAGINAS.items():
@@ -190,6 +202,11 @@ def construir():
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/calendario.json. No se edita a mano. */\n"
         "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
         "  else raiz.TCCalendarioDatos = datos;\n})(this, " + json.dumps(cal, ensure_ascii=False, indent=1) + ");\n")
+    iva = {k: v for k, v in json.loads((AQUI / "datos" / "iva.json").read_text(encoding="utf-8")).items() if k != "_nota"}
+    salidas["herramientas/iva-del-mes/iva-datos.js"] = (
+        "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/iva.json. No se edita a mano. */\n"
+        "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
+        "  else raiz.TCIvaDatos = datos;\n})(this, " + json.dumps(iva, ensure_ascii=False, indent=1) + ");\n")
     return salidas
 
 
