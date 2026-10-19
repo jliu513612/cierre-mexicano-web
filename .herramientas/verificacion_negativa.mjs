@@ -72,6 +72,9 @@ const SABOTAJES = [
   ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
+  // --- _redirects
+  ['redirecciones: el 301 apunta a una pagina que no existe', path.join(RAIZ, '_redirects'), '/ayuda/banco-y-conciliacion/  301', '/ayuda/banco-y-conciliacion-vieja/  301'],
+  ['redirecciones: el icono de la ayuda apunta a un fichero que no existe', path.join(RAIZ, '_redirects'), '/favicon.ico  200', '/img/favicon.ico  200'],
   // --- Sitemap de /herramientas/
   ['sitemap: falta una herramienta y nombra una que no existe', H('sitemap.xml'), '<loc>https://taxcerteza.mx/herramientas/iva-del-mes/</loc>', '<loc>https://taxcerteza.mx/herramientas/no-existe/</loc>'],
   ['sitemap: robots.txt no declara el de herramientas', path.join(RAIZ, 'robots.txt'), 'Sitemap: https://taxcerteza.mx/herramientas/sitemap.xml', 'Sitemap: https://taxcerteza.mx/otro/sitemap.xml'],

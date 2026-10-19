@@ -1,6 +1,6 @@
 # Pruebas de /herramientas/ en cada PR. Aprobado por la duena del sitio el 2026-10-13.
 #
-# Si el PR toca herramientas/, .herramientas/ o _headers, corre:
+# Si el PR toca herramientas/, .herramientas/, _headers o _redirects, corre:
 #   1. las pruebas de la logica contra los vectores de referencia,
 #   2. que lo publicado sea exactamente lo que sale de las plantillas y los datos,
 #   3. el estilo de los textos,
@@ -31,7 +31,7 @@ jobs:
       - name: ¿el PR toca las herramientas?
         id: toca
         run: |
-          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/|_headers$|\.github/workflows/(herramientas|lista-69b)\.yml$)'; then
+          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/|_headers$|_redirects$|\.github/workflows/(herramientas|lista-69b)\.yml$)'; then
             echo "si=1" >> "$GITHUB_OUTPUT"
           else
             echo "No toca /herramientas/: nada que probar."
