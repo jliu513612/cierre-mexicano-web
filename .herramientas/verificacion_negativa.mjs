@@ -67,7 +67,7 @@ const SABOTAJES = [
   ['cal: la facilidad tambien a la DIOT', H('calendario-dia-17/calendario.js'), "if (obligacion === 'DIOT') return iso(recorrer(ultimoDia(s.a, s.m)));", "if (obligacion === 'DIOT') return iso(prorroga === true ? masHabiles(recorrer(ultimoDia(s.a, s.m)), diasExtraRfc(rfc)) : recorrer(ultimoDia(s.a, s.m)));"],
   ['cal: sexto caracter en vez de sexto digito', H('calendario-dia-17/calendario.js'), 'return dig.length < 6 ? 0 : datos.dias_por_digito[dig.charAt(5)];', 'return dig.length < 6 ? 0 : (datos.dias_por_digito[String(rfc).charAt(5)] || 0);'],
   ['cal: los dias de la facilidad contados naturales', H('calendario-dia-17/calendario.js'), 'while (k > 0) { n += 1; if (!motivo(deDias(n))) k -= 1; }', 'while (k > 0) { n += 1; k -= 1; }'],
-  ['cal: se ofrece un ano sin medir', H('calendario-dia-17/calendario-datos.js'), '"anios": [\n  2026,\n  2027\n ]', '"anios": [\n  2026,\n  2027,\n  2028\n ]'],
+  ['cal: se ofrece un ano sin medir', H('calendario-dia-17/calendario-datos.js'), '"anios": [', '"anios": [ 2028,'],
   ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],

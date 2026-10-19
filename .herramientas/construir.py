@@ -116,7 +116,7 @@ def construir():
     _que_cal = {"lisr-14": "los pagos provisionales mensuales del ISR se presentan a más tardar el día 17 del mes inmediato posterior",
                 "liva-5-d": "el IVA se calcula por mes de calendario y se paga a más tardar el día 17 del mes siguiente",
                 "cff-12": "días inhábiles; si el último día del plazo es inhábil, se prorroga hasta el siguiente día hábil; las vacaciones generales del SAT no cuentan como inhábiles para declaraciones y pagos",
-                "rmf-2026-4-5-1": "la información de operaciones con proveedores (DIOT) se presenta durante el mes inmediato posterior",
+                "rmf-2026-4-5-1": "la información de operaciones con proveedores (DIOT) se presenta «durante el mes inmediato posterior al que corresponda dicha información»",
                 "rmf-2026-2-1-6": "periodos de vacaciones generales del SAT en 2026",
                 "dec-compila-2013-5.1": "días hábiles adicionales al día 17 según el sexto dígito numérico del RFC, con supuestos excluidos"}
     _nombre_cal = {"LISR": "Ley del ISR, artículo {a}", "LIVA": "Ley del IVA, artículo {a}", "CFF": "Código Fiscal de la Federación, artículo {a}",
