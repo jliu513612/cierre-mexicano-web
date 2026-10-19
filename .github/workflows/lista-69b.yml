@@ -1,0 +1,71 @@
+# Actualizacion programada del listado 69-B de /herramientas/lista-69b/ (aprobada por la duena del sitio el 2026-10-19).
+#
+# De lunes a viernes: descarga el listado completo del SAT (solo https) y lo compara por sha256 con el publicado.
+#   - Sin cambio: no hace nada (cero despliegues).
+#   - Con cambio y validaciones en verde: abre un PR con herramientas/lista-69b/listado.json. Un despliegue por cambio real.
+#   - Si la descarga o la validacion fallan: abre un PR que marca el listado como «no se pudo actualizar» (la pagina lo
+#     dice con la fecha de los datos) y un aviso (issue).
+#   - Latido: si el listado publicado lleva mas de 45 dias sin cambiar, abre un aviso.
+# Los PR que abre el GITHUB_TOKEN no disparan otros workflows (limite de GitHub), asi que sus checks requeridos no
+# corren solos. Si existe el secreto TAXCERTEZA_BOT_TOKEN (token con permiso de PR en este repo) se usa ese; si no,
+# hay que relanzar los checks a mano en el PR.
+name: lista-69b
+on:
+  schedule:
+    - cron: '15 14 * * 1-5'   # 08:15 en la Ciudad de Mexico
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency:
+  group: lista-69b
+  cancel-in-progress: false
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.TAXCERTEZA_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TAXCERTEZA_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: descargar y comparar
+        id: act
+        run: |
+          set +e
+          python -X utf8 .herramientas/lista69b.py actualizar | tee salida.txt
+          echo "resultado=$(tail -n 1 salida.txt | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - name: si fallo, marcar el listado
+        id: fallo
+        if: steps.act.outputs.resultado == 'FALLO'
+        run: |
+          python -X utf8 .herramientas/lista69b.py fallo | tee marca.txt
+          echo "resultado=$(tail -n 1 marca.txt)" >> "$GITHUB_OUTPUT"
+          titulo="Lista 69-B: no se pudo actualizar ($(date -u +%F))"
+          gh issue list --state open --search "Lista 69-B: no se pudo actualizar in:title" --json number --jq 'length' | grep -q '^0$' && \
+            gh issue create --title "$titulo" --body "$(cat salida.txt)" || true
+      - name: abrir PR si cambio algo
+        if: steps.act.outputs.resultado == 'CAMBIO' || steps.fallo.outputs.resultado == 'CAMBIO'
+        run: |
+          rama="datos/lista-69b-$(date -u +%Y%m%d)"
+          git config user.name "lista-69b"
+          git config user.email "lista-69b@users.noreply.github.com"
+          git switch -c "$rama"
+          git add herramientas/lista-69b/listado.json
+          git commit -m "Lista 69-B: $(tail -n 2 salida.txt | head -n 1)"
+          git push origin "$rama"
+          gh pr create --base main --head "$rama" --title "Lista 69-B: actualizacion de datos $(date -u +%F)" \
+            --body "Generado por el workflow lista-69b. Salida: $(cat salida.txt)"
+      - name: latido (45 dias sin cambio)
+        run: |
+          dias=$(python -c "import json,datetime as d;x=json.load(open('herramientas/lista-69b/listado.json',encoding='utf-8'));print((d.date.today()-d.date.fromisoformat(x['actualizado'])).days)")
+          echo "dias desde el ultimo cambio publicado: $dias"
+          if [ "$dias" -gt 45 ]; then
+            gh issue list --state open --search "Lista 69-B: 45 dias in:title" --json number --jq 'length' | grep -q '^0$' && \
+              gh issue create --title "Lista 69-B: 45 dias sin cambio" --body "El listado publicado no cambia desde hace $dias dias. Revisar si el SAT movio el archivo." || true
+          fi

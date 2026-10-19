@@ -1,0 +1,107 @@
+@@TITULO
+¿Tu proveedor está en la lista 69-B del SAT? Consulta por RFC o XML | Tax Certeza
+@@TITULO_CORTO
+Consulta de la lista 69-B (EFOS)
+@@MIGA
+Lista 69-B
+@@DESCRIPCION
+Coteja uno o muchos RFC, o los emisores de tus XML, contra el listado completo del artículo 69-B que publica el SAT. Muestra la situación y la fecha del listado. Los RFC no salen de tu equipo.
+@@SCRIPTS
+<script src="/herramientas/selector-archivos.js" defer></script>
+<script src="/herramientas/lista-69b/lista69b.js" defer></script>
+<script src="/herramientas/verificar-factura/cfdi.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/lista-69b/pagina.js" defer></script>
+@@FAQ
+P: ¿Qué es la lista 69-B?
+R: Es el listado que el SAT publica en términos del artículo 69-B del CFF: contribuyentes a los que se presume que emitieron comprobantes sin tener activos, personal, infraestructura o capacidad material, o por no estar localizados, y la etapa en que está cada uno.
+P: ¿Qué significan presunto, definitivo, desvirtuado y sentencia favorable?
+R: Son las situaciones con que el SAT publica a cada contribuyente en el listado. La página muestra la que trae el listado y las fechas de publicación en el DOF de cada etapa; qué consecuencias tiene cada una para tus operaciones conviene revisarlo con tu contador.
+P: ¿De qué fecha es el listado?
+R: La página muestra siempre la fecha con que el SAT publica el archivo («información actualizada al…»). El archivo se revisa de lunes a viernes y se actualiza cuando el SAT publica uno nuevo; si una actualización falla, la página lo dice.
+P: ¿Se envían mis RFC o mis XML a algún servidor?
+R: No. La página descarga el listado completo del propio sitio y hace la consulta en tu navegador. Lo que escribes y los XML que eliges no salen de tu equipo.
+P: Si un proveedor no aparece, ¿ya no tengo que revisar nada más?
+R: Que no aparezca significa solo que no está en el listado a la fecha indicada. La página no revisa otras listas del SAT ni la situación fiscal del proveedor.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Consulta de la lista 69-B (EFOS)</h1>
+  <p class="lead">Escribe uno o muchos RFC, o elige los XML de tus facturas recibidas, y la página los coteja contra el listado completo del artículo 69-B que publica el SAT. Para cada RFC que aparece, muestra su situación y las fechas de publicación en el DOF.</p>
+</header>
+
+<div class="aviso neutro" id="estado-listado" role="status">Cargando la fecha del listado…</div>
+
+<section class="tool" aria-labelledby="t-69b">
+  <h2 id="t-69b">Consultar</h2>
+  <form id="f-69b" novalidate>
+    <div class="campo">
+      <label for="rfcs">RFC a consultar</label>
+      <textarea id="rfcs" name="rfcs" rows="4" class="mono" autocomplete="off" spellcheck="false" aria-describedby="rfcs-ayuda" placeholder="Uno por línea, o separados por comas"></textarea>
+      <p class="ayuda" id="rfcs-ayuda">Hasta 2,000 RFC. Puedes pegar una columna de una hoja de cálculo.</p>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Consultar</button>
+    </div>
+    <div class="campo" style="margin-top:18px">
+      <label for="xml69">O elige los XML de tus facturas recibidas</label>
+      <div class="selector">
+        <input type="file" id="xml69" name="xml69" class="oculto-accesible" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml69-estado xml69-ayuda">
+        <label for="xml69" class="btn btn-ghost sel-boton">Seleccionar archivos</label>
+        <span class="sel-estado" id="xml69-estado" aria-live="polite">Ningún archivo seleccionado</span>
+      </div>
+      <p class="ayuda" id="xml69-ayuda">La página toma el RFC del emisor de cada XML y consulta todos a la vez.</p>
+    </div>
+  </form>
+  <div class="res" id="res-69b" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para consultar en tu navegador.</p></noscript>
+  <p class="privado"><b>Lo que escribes y tus XML no salen de tu equipo.</b> La página descarga el listado completo desde este mismo sitio y coteja en tu navegador. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Coteja RFC escritos o tomados de tus XML contra el listado completo 69-B del SAT.</li>
+        <li>Muestra la situación de cada RFC que aparece y las fechas de publicación en el DOF de cada etapa.</li>
+        <li>Dice de qué fecha es el listado que usó.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No consulta al SAT en el momento: usa el último listado publicado.</li>
+        <li>No decide si una operación es deducible o si un IVA es acreditable.</li>
+        <li>No revisa otras listas del SAT, como las del artículo 69.</li>
+        <li>No revisa si una factura está vigente o cancelada.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>De dónde sale el listado</h2>
+  <p>Del archivo «Listado completo de contribuyentes (Artículo 69-B del CFF)» que el SAT publica en su sección de <a href="https://www.sat.gob.mx/minisitio/DatosAbiertos/contribuyentes_publicados.html" rel="noopener">datos abiertos</a>. El sitio lo revisa de lunes a viernes y lo actualiza cuando el SAT publica uno nuevo. La fecha que ves arriba es la que trae el propio archivo del SAT.</p>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">CFF, artículo 69-B</a>: presunción de inexistencia de operaciones; notificación por buzón tributario, página del SAT y DOF; plazos para aportar pruebas; listado definitivo; efectos para quienes dieron efectos fiscales a esos comprobantes. Texto vigente, última reforma DOF 09-04-2026.</li>
+    </ul>
+  </div>
+
+  <h2>Límites</h2>
+  <p>La herramienta aplica el listado tal como lo publica el SAT y no evalúa tus operaciones con cada proveedor. Las consecuencias de que un proveedor aparezca dependen de su situación y de las fechas; esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Las etapas, los plazos y qué revisar están explicados en <a href="/blog/lista-negra-sat-efos-69b/">Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores</a>. Para los XML de un periodo, también puedes <a href="/herramientas/verificar-factura/">verificar las facturas</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza revisa en lote a todos los proveedores de los CFDI que descargas del SAT contra la lista del artículo 69-B.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>
