@@ -10,9 +10,12 @@
    Mismo criterio que el programa: complemento_pago_monitor.fecha_limite_complemento,
    .clasificar_severidad y .estado_rep. */
 (function (raiz, fabrica) {
-  if (typeof module === 'object' && module.exports) module.exports = fabrica();
-  else raiz.TCRep = fabrica();
-})(this, function () {
+  // el calendario del CFF 12 es UNO para todo el sitio: el de calendario-dia-17, cotejado contra el programa
+  if (typeof module === 'object' && module.exports) {
+    var C = require('../calendario-dia-17/calendario.js'), D = require('../calendario-dia-17/calendario-datos.js');
+    module.exports = fabrica(C.crear(D));
+  } else raiz.TCRep = fabrica(raiz.TCCalendario.crear(raiz.TCCalendarioDatos));
+})(this, function (cal) {
   'use strict';
 
   var EJERCICIO_DE_LA_REGLA = 2026;
@@ -47,27 +50,15 @@
     return { estado: dias < 0 ? 'VENCIDO' : (dias <= 3 ? 'URGENTE' : 'NORMAL'), dias: dias };
   }
 
-  /* ¿El dia limite cae en un dia que el CFF, articulo 12, primer parrafo, no cuenta en los plazos fijados en dias?
-     Sabado, domingo, 1 de enero, primer lunes de febrero, tercer lunes de marzo, 1 y 5 de mayo, 16 de septiembre,
-     tercer lunes de noviembre, 25 de diciembre y el 1 de diciembre de cada 6 anos (cambio del Poder Ejecutivo:
-     2024, 2030...). NO decide si el plazo del REP se recorre: la regla 2.7.1.32 habla de dia natural y no remite
-     a ese articulo. Solo sirve para AVISAR de la duda. No conoce las vacaciones generales de las autoridades. */
-  function nLunes(a, m, n) {
-    var primero = new Date(Date.UTC(a, m - 1, 1)).getUTCDay();
-    return 1 + ((8 - primero) % 7) + 7 * (n - 1);
-  }
+  /* ¿El dia limite cae en un dia que el CFF, articulo 12, no cuenta en los plazos fijados en dias? SABADO, DOMINGO,
+     FESTIVO (uno de los inhabiles del CFF 12) o null. El calendario es el de calendario-dia-17 (port de
+     calendario_obligaciones.dias_inhabiles_cff12 del programa, cotejado dia por dia con sus vectores): este modulo no
+     tiene lista propia. NO decide si el plazo del REP se recorre: la regla 2.7.1.32 habla de dia natural. Solo sirve
+     para AVISAR. */
   function diaNoComputable(iso) {
-    var f = leerFecha(iso);
-    if (!f) return null;
-    var dow = new Date(Date.UTC(f.a, f.m - 1, f.d)).getUTCDay();
-    if (dow === 6) return 'SABADO';
-    if (dow === 0) return 'DOMINGO';
-    var md = f.m * 100 + f.d;
-    if (md === 101 || md === 501 || md === 505 || md === 916 || md === 1225) return 'FESTIVO';
-    if ((f.m === 2 && f.d === nLunes(f.a, 2, 1)) || (f.m === 3 && f.d === nLunes(f.a, 3, 3)) ||
-        (f.m === 11 && f.d === nLunes(f.a, 11, 3))) return 'FESTIVO';
-    if (md === 1201 && (f.a - 2024) % 6 === 0) return 'FESTIVO';
-    return null;
+    if (!leerFecha(iso)) return null;
+    var m = cal.motivo(iso);
+    return m === null ? null : (m === 'SABADO' || m === 'DOMINGO' ? m : 'FESTIVO');
   }
 
   function consultarPlazo(fechaPago, hoy) {
