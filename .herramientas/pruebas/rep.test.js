@@ -88,8 +88,11 @@ test('rep: avisa cuando el dia limite cae en un dia que el CFF 12 no cuenta, sin
 
 test('rep: calendario del CFF 12 (dias fijos y lunes moviles)', () => {
   const d = REP.diaNoComputable;
-  // dias fijos que en 2026 no caen en fin de semana, y el 1 de diciembre de 2036 (cambio del Poder Ejecutivo)
-  for (const f of ['2026-01-01', '2026-05-01', '2026-05-05', '2026-09-16', '2026-12-25', '2036-12-01']) assert.equal(d(f), 'FESTIVO', f);
+  // dias fijos que en 2026 no caen en fin de semana
+  for (const f of ['2026-01-01', '2026-05-01', '2026-05-05', '2026-09-16', '2026-12-25']) assert.equal(d(f), 'FESTIVO', f);
+  // el 1 de diciembre de la transmision: solo hasta 2018, como el programa (dias_inhabiles_cff12)
+  assert.equal(d('2018-12-03'), null);
+  assert.equal(d('2036-12-01'), null);
   assert.equal(d('2030-12-01'), 'DOMINGO');  // en 2030 el 1 de diciembre es domingo: el fin de semana se nombra primero
   assert.equal(d('2026-02-02'), 'FESTIVO');   // primer lunes de febrero
   assert.equal(d('2026-02-05'), null);        // el 5 de febrero ya no es el dia que no se cuenta
@@ -102,4 +105,18 @@ test('rep: calendario del CFF 12 (dias fijos y lunes moviles)', () => {
   assert.equal(d('2026-10-05'), null);
   assert.equal(d('2026-04-05'), 'DOMINGO');
   assert.equal(d('no-es-fecha'), null);
+});
+
+test('rep: el calendario es el del programa, dia por dia de 2015 a 2040 (vectores de dias_inhabiles_cff12)', () => {
+  const C = require(path.join('..', 'vectores', 'calendario.json'));
+  let n = 0;
+  for (const [a, lista] of Object.entries(C.no_habiles)) {
+    const no = new Set(lista);
+    for (let t = Date.UTC(+a, 0, 1); t <= Date.UTC(+a, 11, 31); t += 86400000) {
+      const iso = new Date(t).toISOString().slice(0, 10);
+      assert.equal(REP.diaNoComputable(iso) !== null, no.has(iso), iso);
+      n++;
+    }
+  }
+  assert.equal(n, 9497);
 });
