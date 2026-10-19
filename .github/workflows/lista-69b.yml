@@ -9,11 +9,24 @@
 # Los PR que abre el GITHUB_TOKEN no disparan otros workflows (limite de GitHub), asi que sus checks requeridos no
 # corren solos. Si existe el secreto TAXCERTEZA_BOT_TOKEN (token con permiso de PR en este repo) se usa ese; si no,
 # hay que relanzar los checks a mano en el PR.
+#
+# Caducidad del token (aprobado por la duena del sitio el 2026-10-19): antes de nada se consulta /rate_limit con el
+# token del bot. Si GitHub contesta 401, el job sale ROJO («token caducado o revocado») y abre un aviso. Si la
+# respuesta trae la cabecera github-authentication-token-expiration y faltan 30 dias o menos, abre un aviso con la
+# fecha. Si no la trae, lo dice en el log (un token sin fecha de caducidad no la manda).
+#
+# Prueba forzada: al lanzarlo a mano con «forzar», si no hay cambio de datos abre igual un PR de PRUEBA con un commit
+# vacio (sin ficheros), para comprobar que el PR del bot dispara los checks requeridos. Ese PR NO se mergea: se cierra.
 name: lista-69b
 on:
   schedule:
     - cron: '15 14 * * 1-5'   # 08:15 en la Ciudad de Mexico
   workflow_dispatch:
+    inputs:
+      forzar:
+        description: 'Prueba: abrir un PR de prueba aunque el listado no cambie (no se mergea)'
+        type: boolean
+        default: false
 permissions:
   contents: write
   pull-requests: write
@@ -31,6 +44,42 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.TAXCERTEZA_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+      - name: caducidad del token del bot
+        env:
+          BOT: ${{ secrets.TAXCERTEZA_BOT_TOKEN }}
+          AVISOS: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$BOT" ]; then
+            echo "::warning::sin TAXCERTEZA_BOT_TOKEN: se usa GITHUB_TOKEN y los checks del PR no correran solos"
+            exit 0
+          fi
+          codigo=$(curl -sS -o /dev/null -D cabeceras.txt -w '%{http_code}' \
+            -H "Authorization: Bearer $BOT" -H "Accept: application/vnd.github+json" https://api.github.com/rate_limit || echo 000)
+          echo "respuesta de GitHub al token del bot: HTTP $codigo"
+          aviso() {  # titulo, cuerpo; con GITHUB_TOKEN, que sigue valiendo aunque el del bot no
+            GH_TOKEN="$AVISOS" gh issue list --state open --search "$1 in:title" --json number --jq 'length' | grep -q '^0$' && \
+              GH_TOKEN="$AVISOS" gh issue create --title "$1" --body "$2" || true
+          }
+          if [ "$codigo" = "401" ]; then
+            aviso "Lista 69-B: token del bot caducado o revocado" "GitHub contesto 401 al token TAXCERTEZA_BOT_TOKEN el $(date -u +%F). Hay que generar uno nuevo y guardarlo en el secreto."
+            echo "::error::token del bot caducado o revocado (HTTP 401)"
+            exit 1
+          fi
+          if [ "$codigo" != "200" ]; then
+            echo "::warning::no se pudo comprobar el token del bot (HTTP $codigo); se sigue"
+            exit 0
+          fi
+          caduca=$(grep -i '^github-authentication-token-expiration:' cabeceras.txt | cut -d' ' -f2- | tr -d '\r')
+          if [ -z "$caduca" ]; then
+            echo "el token del bot no informa fecha de caducidad (cabecera github-authentication-token-expiration ausente)"
+            exit 0
+          fi
+          dias=$(( ( $(date -u -d "$caduca" +%s) - $(date -u +%s) ) / 86400 ))
+          echo "el token del bot caduca el $caduca: faltan $dias dias"
+          if [ "$dias" -le 30 ]; then
+            aviso "Lista 69-B: el token del bot caduca pronto" "El token TAXCERTEZA_BOT_TOKEN caduca el $caduca (faltan $dias dias). Hay que generar uno nuevo y guardarlo en el secreto antes de esa fecha."
+            echo "::warning::el token del bot caduca en $dias dias ($caduca)"
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -61,6 +110,17 @@ jobs:
           git push origin "$rama"
           gh pr create --base main --head "$rama" --title "Lista 69-B: actualizacion de datos $(date -u +%F)" \
             --body "Generado por el workflow lista-69b. Salida: $(cat salida.txt)"
+      - name: prueba forzada (PR vacio que no se mergea)
+        if: inputs.forzar && steps.act.outputs.resultado != 'CAMBIO' && steps.fallo.outputs.resultado != 'CAMBIO'
+        run: |
+          rama="prueba/lista-69b-$(date -u +%Y%m%d-%H%M%S)"
+          git config user.name "lista-69b"
+          git config user.email "lista-69b@users.noreply.github.com"
+          git switch -c "$rama"
+          git commit --allow-empty -m "Lista 69-B: prueba forzada del camino PR -> checks (sin cambios)"
+          git push origin "$rama"
+          gh pr create --base main --head "$rama" --title "[PRUEBA] Lista 69-B: prueba forzada, no mergear" \
+            --body "Prueba lanzada a mano con «forzar». No cambia ningun fichero: sirve para ver si el PR que abre el bot dispara los checks requeridos. Se cierra sin mergear. Salida de la descarga: $(cat salida.txt)"
       - name: latido (45 dias sin cambio)
         run: |
           dias=$(python -c "import json,datetime as d;x=json.load(open('herramientas/lista-69b/listado.json',encoding='utf-8'));print((d.date.today()-d.date.fromisoformat(x['actualizado'])).days)")
