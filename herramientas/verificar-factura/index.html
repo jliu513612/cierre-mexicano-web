@@ -51,7 +51,11 @@
       <label for="xml" id="l-xml">Archivos XML</label>
       <div class="soltar" id="soltar">
         <p>Arrastra aquí los XML o</p>
-        <input type="file" id="xml" name="xml" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml-ayuda">
+        <div class="selector">
+          <input type="file" id="xml" name="xml" class="oculto-accesible" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml-estado xml-ayuda">
+          <label for="xml" class="btn btn-ghost sel-boton">Seleccionar archivos</label>
+          <span class="sel-estado" id="xml-estado" aria-live="polite">Ningún archivo seleccionado</span>
+        </div>
       </div>
       <p class="ayuda" id="xml-ayuda">Hasta 500 archivos de hasta 2 MB cada uno. CFDI versión 3.3 o 4.0.</p>
     </div>
@@ -136,6 +140,7 @@
   </div>
 </footer>
 <form name="opinion-herramientas" method="POST" data-netlify="true" netlify-honeypot="sitio" hidden aria-hidden="true"><input type="hidden" name="herramienta"><input type="hidden" name="clase"><input type="hidden" name="voto"><input type="hidden" name="motivo"><input type="hidden" name="correo"><input type="hidden" name="fecha"><input type="hidden" name="sitio"></form>
+<script src="/herramientas/selector-archivos.js" defer></script>
 <script src="/herramientas/verificar-factura/cfdi.js" defer></script>
 <script src="/herramientas/opinion.js" defer></script>
 <script src="/herramientas/verificar-factura/pagina.js" defer></script>

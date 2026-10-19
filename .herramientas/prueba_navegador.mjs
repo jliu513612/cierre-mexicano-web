@@ -225,6 +225,7 @@ async function main() {
     await cdp('DOM.setFileInputFiles', { nodeId, files: ['01_cfdi40_ingreso.xml', '11_enie_en_rfc.xml'].map(f => path.join(RAIZ, '.herramientas', 'fixtures', 'cfdi', f)) }, s);
     await espera(800);
     exige((await js("document.querySelector('#res-69b').innerText")).includes('emisores tomados de 2 XML'), 'toma los emisores de los XML');
+    exige((await js("document.querySelector('#xml69-estado').textContent")) === '2 archivos seleccionados', 'el selector del 69-B dice cuantos archivos hay');
     const fuera = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && !e.params.request.url.startsWith(`http://127.0.0.1:${PUERTO}/`) && !e.params.request.url.startsWith('data:'));
     const conRfc = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && (e.params.request.url + (e.params.request.postData || '')).toUpperCase().includes(enLista));
     exige(fuera.length === 0 && recibidos.length === 0 && conRfc.length === 0, `consultar no envia los RFC (${fuera.length} fuera, ${recibidos.length} POST, ${conRfc.length} con el RFC)`);
@@ -257,6 +258,9 @@ async function main() {
     await espera(800);
     const v = await js(`({n:document.querySelectorAll('#res-xml .factura').length, enlaces:[...document.querySelectorAll('#res-xml a.fac-sat')].map(a=>a.href), titulo:(document.querySelector('#res-xml h3')||{}).textContent, csp:window.__csp.join('|')})`);
     exige(v.n === 4, `lista las 4 facturas (${v.n})`);
+    const sel = await js(`({estado:document.querySelector('#xml-estado').textContent, nativos:document.querySelectorAll('input[type=file]:not(.oculto-accesible)').length, ancho:document.querySelector('#xml').getBoundingClientRect().width, boton:document.querySelector('label[for=xml].sel-boton').textContent})`);
+    exige(sel.estado === '4 archivos seleccionados' && sel.boton === 'Seleccionar archivos', `el selector habla en español sea cual sea el idioma del navegador («${sel.boton}», «${sel.estado}»)`);
+    exige(sel.nativos === 0 && sel.ancho <= 1, `el input nativo queda oculto a la vista (${sel.nativos} visibles, ancho ${sel.ancho})`);
     exige(v.enlaces.length === 2 && v.enlaces.every(h => h.startsWith('https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=')), `arma 2 enlaces al SAT (${v.enlaces.length})`);
     exige(v.enlaces.some(h => h.includes('rr=H%26E951128469')), 'el RFC con & va codificado en el enlace');
     exige(/2 completos/.test(v.titulo || ''), `resumen del lote: «${v.titulo}»`);

@@ -103,5 +103,9 @@
   ['dragleave', 'drop'].forEach(function (t) {
     zona.addEventListener(t, function (e) { e.preventDefault(); zona.classList.remove('encima'); });
   });
-  zona.addEventListener('drop', function (e) { if (e.dataTransfer) procesar(e.dataTransfer.files); });
+  zona.addEventListener('drop', function (e) {
+    if (!e.dataTransfer) return;
+    if (window.TCSelector) window.TCSelector.indicar(entrada, e.dataTransfer.files.length);
+    procesar(e.dataTransfer.files);
+  });
 })();

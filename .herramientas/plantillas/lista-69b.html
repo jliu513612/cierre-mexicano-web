@@ -7,6 +7,7 @@ Lista 69-B
 @@DESCRIPCION
 Coteja uno o muchos RFC, o los emisores de tus XML, contra el listado completo del artículo 69-B que publica el SAT. Muestra la situación y la fecha del listado. Los RFC no salen de tu equipo.
 @@SCRIPTS
+<script src="/herramientas/selector-archivos.js" defer></script>
 <script src="/herramientas/lista-69b/lista69b.js" defer></script>
 <script src="/herramientas/verificar-factura/cfdi.js" defer></script>
 <script src="/herramientas/opinion.js" defer></script>
@@ -44,7 +45,11 @@ R: Que no aparezca significa solo que no está en el listado a la fecha indicada
     </div>
     <div class="campo" style="margin-top:18px">
       <label for="xml69">O elige los XML de tus facturas recibidas</label>
-      <input type="file" id="xml69" name="xml69" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml69-ayuda">
+      <div class="selector">
+        <input type="file" id="xml69" name="xml69" class="oculto-accesible" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml69-estado xml69-ayuda">
+        <label for="xml69" class="btn btn-ghost sel-boton">Seleccionar archivos</label>
+        <span class="sel-estado" id="xml69-estado" aria-live="polite">Ningún archivo seleccionado</span>
+      </div>
       <p class="ayuda" id="xml69-ayuda">La página toma el RFC del emisor de cada XML y consulta todos a la vez.</p>
     </div>
   </form>
