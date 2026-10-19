@@ -58,6 +58,18 @@ const servidor = http.createServer((req, res) => {
 });
 
 const espera = ms => new Promise(r => setTimeout(r, ms));
+/* Espera a que lleguen `n` envios (con tope) y luego un poco mas, para ver si llega alguno DE MAS. Una espera fija
+   fallaba bajo carga: el envio llegaba despues de los 400 ms y la prueba lo leia como «no salio». */
+async function esperaEnvios(n, tope = 8000) {
+  for (let t = 0; t < tope && recibidos.length < n; t += 50) await espera(50);
+  await espera(250);
+}
+/* Espera a que el texto de `sel` cumpla `cond` (con tope); devuelve el ultimo texto leido. */
+async function esperaTexto(p, sel, cond, tope = 8000) {
+  let x = '';
+  for (let t = 0; t < tope; t += 50) { x = await p.texto(sel); if (cond(x)) break; await espera(50); }
+  return x;
+}
 let ws, sig = 0;
 const pendientes = new Map(), eventos = [];
 function cdp(metodo, params = {}, sesion) {
@@ -120,7 +132,7 @@ async function main() {
   await p.pulsa('#res-rfc .op-botones button:nth-child(2)');
   await p.teclea('#res-rfc .op-forma textarea', `mi RFC ${RFC} si es correcto, y tambien eku-900317-3c8`);
   await p.teclea('#res-rfc .op-forma input[type=email]', 'ana@despacho.mx');
-  await p.pulsa('#res-rfc .op-enviar'); await espera(400);
+  await p.pulsa('#res-rfc .op-enviar'); await esperaEnvios(1);
   exige(recibidos.length === 1, `sale exactamente una peticion (salieron ${recibidos.length})`);
   let c = recibidos[0] ? campos(recibidos[0].cuerpo) : {};
   const crudo = recibidos[0] ? decodeURIComponent(recibidos[0].cuerpo.replace(/\+/g, ' ')) : '';
@@ -130,14 +142,14 @@ async function main() {
   exige(c.correo === 'ana@despacho.mx' && /^\d{4}-\d{2}-\d{2}$/.test(c.fecha || ''), 'lleva el correo opcional y la fecha');
   exige(Object.keys(c).sort().join() === 'clase,correo,fecha,form-name,herramienta,motivo,voto', `solo los siete campos (${Object.keys(c).sort().join()})`);
   exige(recibidos[0] && recibidos[0].url === '/' && /x-www-form-urlencoded/.test(recibidos[0].tipo), 'va a la raiz del propio sitio, como formulario');
-  exige((await p.texto('#res-rfc .op-estado')).startsWith('Gracias'), 'la pagina da las gracias');
+  exige((await esperaTexto(p, '#res-rfc .op-estado', x => x.startsWith('Gracias'))).startsWith('Gracias'), 'la pagina da las gracias');
   await p.cerrar();
 
   console.log('B. voto «Si» en la UMA y en el REP');
   recibidos.length = 0;
   p = await abrir('/herramientas/valor-uma/');
   await p.teclea('#cantidad', '987654.32'); await p.pulsa('#f-uma button[type=submit]');
-  await p.pulsa('#res-uma .op-botones button:nth-child(1)'); await espera(400);
+  await p.pulsa('#res-uma .op-botones button:nth-child(1)'); await esperaEnvios(1);
   c = recibidos[0] ? campos(recibidos[0].cuerpo) : {};
   exige(recibidos.length === 1 && c.herramienta === 'valor-uma' && c.clase === 'VECES_A_PESOS' && c.voto === 'SI', `UMA: un envio con su clase (${c.clase})`);
   exige(recibidos[0] && !/987654|115860/.test(recibidos[0].cuerpo), 'UMA: no viaja la cantidad tecleada ni el resultado');
@@ -145,7 +157,7 @@ async function main() {
   recibidos.length = 0;
   p = await abrir('/herramientas/complemento-de-pago/');
   await p.pon('#fecha-pago', '2026-03-17'); await p.pulsa('#f-plazo button[type=submit]');
-  await p.pulsa('#res-plazo .op-botones button:nth-child(1)'); await espera(400);
+  await p.pulsa('#res-plazo .op-botones button:nth-child(1)'); await esperaEnvios(1);
   c = recibidos[0] ? campos(recibidos[0].cuerpo) : {};
   exige(recibidos.length === 1 && c.herramienta === 'complemento-de-pago' && /^PLAZO_(NORMAL|URGENTE|VENCIDO)$/.test(c.clase || ''), `REP: un envio con su clase (${c.clase})`);
   exige(recibidos[0] && !/2026-03-17|2026-04-05|03-17/.test(decodeURIComponent(recibidos[0].cuerpo)), 'REP: no viaja la fecha del pago ni la fecha limite');
@@ -155,8 +167,8 @@ async function main() {
   recibidos.length = 0; modo = 'FALLA_500';
   p = await abrir('/herramientas/validar-rfc/');
   await p.teclea('#rfc', 'XIQB891116QE4'); await p.pulsa('#f-rfc button[type=submit]');
-  await p.pulsa('#res-rfc .op-botones button:nth-child(1)'); await espera(400);
-  exige((await p.texto('#res-rfc .op-estado')).startsWith('No se pudo enviar'), 'la pagina dice que no se pudo enviar');
+  await p.pulsa('#res-rfc .op-botones button:nth-child(1)'); await esperaEnvios(1);
+  exige((await esperaTexto(p, '#res-rfc .op-estado', x => x.startsWith('No se pudo enviar'))).startsWith('No se pudo enviar'), 'la pagina dice que no se pudo enviar');
   await p.js(`document.querySelector('#rfc').value='EKU9003173C9'`); await p.pulsa('#f-rfc button[type=submit]');
   exige((await p.texto('#res-rfc')).includes('El RFC está bien formado'), 'despues del fallo el calculo sigue funcionando');
   exige(p.excepciones() === 0, 'sin excepciones en la pagina');
@@ -182,7 +194,7 @@ async function main() {
   await p.teclea('#rfc', 'EKU9003173C9'); await p.pulsa('#f-rfc button[type=submit]');
   await p.pulsa('#res-rfc .op-botones button:nth-child(2)');
   await p.js(`document.querySelector('#res-rfc .op-trampa').value='http://spam.example'`);
-  await p.pulsa('#res-rfc .op-enviar'); await espera(400);
+  await p.pulsa('#res-rfc .op-enviar'); await espera(1500);
   exige(recibidos.length === 0, 'con la trampa rellena no sale ninguna peticion');
 
   console.log('F. tope de envios por carga de pagina');
@@ -190,7 +202,7 @@ async function main() {
     await p.js(`document.querySelector('#rfc').value='EKU9003173C9'`); await p.pulsa('#f-rfc button[type=submit]');
     await p.pulsa('#res-rfc .op-botones button:nth-child(1)'); await espera(120);
   }
-  await espera(300);
+  await esperaEnvios(5); await espera(1000);
   exige(recibidos.length === 5, `de 9 votos seguidos salen 5, el tope (salieron ${recibidos.length})`);
   await p.cerrar();
 
@@ -381,7 +393,7 @@ async function main() {
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],
   ]) {
     p = await abrir(ruta);
-    if (pasos) { await pasos(p); await espera(400); }
+    if (pasos) { const antes = recibidos.length; await pasos(p); await esperaEnvios(antes + 1); }
     const v = await p.violaciones();
     exige(v === '' && p.excepciones() === 0, `${ruta}: cero violaciones de la politica${v ? ' (' + v + ')' : ''}`);
     await p.cerrar();
