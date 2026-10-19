@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://taxcerteza.mx/sitemap.xml
 Sitemap: https://taxcerteza.mx/ayuda/sitemap.xml
+Sitemap: https://taxcerteza.mx/herramientas/sitemap.xml

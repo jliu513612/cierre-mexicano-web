@@ -210,10 +210,39 @@ def construir():
     return salidas
 
 
+def con_sitemap(salidas, hoy=None, previas=None):
+    """Anade el sitemap de /herramientas/ y el registro de fechas que le da su lastmod.
+
+    Una SOLA fuente de paginas: PAGINAS, la misma lista que construye las paginas. El lastmod es REAL: la fecha en que
+    cambio el contenido publicado de cada pagina. Se guarda con la huella (sha256) de la pagina en
+    .herramientas/fechas.json; si la pagina no cambio, su fecha se conserva; si cambio, toma la de hoy. Con
+    --comprobar, una pagina cambiada sin su fecha nueva sale DISTINTO, como cualquier otra salida.
+    Va en su propio sitemap (como /ayuda/sitemap.xml, declarado en robots.txt): el sitemap.xml raiz es del blog y la
+    revision del blog no deja que un PR de herramientas lo toque."""
+    import datetime as dt
+    import hashlib
+    hoy = hoy or dt.date.today().isoformat()
+    if previas is None:
+        previas = json.loads((AQUI / "fechas.json").read_text(encoding="utf-8")) if (AQUI / "fechas.json").exists() else {}
+    fechas, urls = {}, []
+    for nombre, ruta in PAGINAS.items():
+        rel = ruta.strip("/") + "/index.html"
+        huella = hashlib.sha256(salidas[rel].encode("utf-8")).hexdigest()
+        antes = previas.get(ruta) or {}
+        fechas[ruta] = {"huella": huella, "fecha": antes["fecha"] if antes.get("huella") == huella else hoy}
+        urls.append(f'  <url><loc>{SITIO}{ruta}</loc><lastmod>{fechas[ruta]["fecha"]}</lastmod>'
+                    f'<priority>{"0.8" if nombre == "indice" else "0.7"}</priority></url>')
+    salidas[".herramientas/fechas.json"] = json.dumps(fechas, ensure_ascii=False, indent=1, sort_keys=True) + "\n"
+    salidas["herramientas/sitemap.xml"] = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+                                           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                           + "\n".join(urls) + "\n</urlset>\n")
+    return salidas
+
+
 def main():
     comprobar = "--comprobar" in sys.argv
     mal = 0
-    for rel, contenido in construir().items():
+    for rel, contenido in con_sitemap(construir()).items():
         p = RAIZ / rel
         if comprobar:
             igual = p.exists() and p.read_text(encoding="utf-8") == contenido
