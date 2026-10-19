@@ -22,6 +22,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "validar-rfc": "/herramientas/validar-rfc/",
     "valor-uma": "/herramientas/valor-uma/",
     "complemento-de-pago": "/herramientas/complemento-de-pago/",
+    "verificar-factura": "/herramientas/verificar-factura/",
 }
 
 

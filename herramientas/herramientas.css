@@ -124,6 +124,25 @@ fieldset{border:0;min-width:0}
 .op-estado:empty{display:none}
 .op-trampa{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 
+/* Verificar factura */
+.soltar{border:2px dashed #94A3B8;border-radius:12px;background:#fff;padding:22px;text-align:center}
+.soltar.encima{border-color:var(--brand);background:var(--light)}
+.soltar p{margin:0 0 10px;color:var(--text);font-size:15px}
+.soltar input[type=file]{font:inherit;font-size:15px;max-width:100%}
+.facturas{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.factura{background:#fff;border:1px solid var(--line);border-left:5px solid var(--ok);border-radius:10px;padding:12px 14px}
+.factura.incompleto{border-left-color:#D97706}
+.factura.no_es_cfdi,.factura.ilegible{border-left-color:var(--bad)}
+.fac-cab{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;font-size:14.5px}
+.fac-archivo{overflow-wrap:anywhere;min-width:0}
+.fac-estado{color:var(--muted)}
+.fac-datos{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:8px 0 0;font-size:14px}
+.fac-datos dt{color:var(--muted)}
+.fac-datos dd{margin:0;overflow-wrap:anywhere;color:var(--ink)}
+.fac-falta{font-size:14px!important;color:var(--warn)!important;margin:8px 0 0!important}
+.fac-sat{padding:9px 16px!important;font-size:14.5px!important;margin-top:10px;color:#fff!important;text-decoration:none!important}
+@media(max-width:480px){.fac-datos{grid-template-columns:1fr}.fac-datos dt{margin-top:4px}}
+
 /* Valores de la UMA */
 .cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 6px}
 .cifra{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}

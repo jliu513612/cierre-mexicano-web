@@ -189,6 +189,34 @@ async function main() {
   exige(recibidos.length === 5, `de 9 votos seguidos salen 5, el tope (salieron ${recibidos.length})`);
   await p.cerrar();
 
+  console.log('H. verificar factura: XML elegidos en el navegador, nada sale');
+  recibidos.length = 0;
+  {
+    const { targetId } = await cdp('Target.createTarget', { url: 'about:blank' });
+    const { sessionId: s } = await cdp('Target.attachToTarget', { targetId, flatten: true });
+    await cdp('Page.enable', {}, s); await cdp('Runtime.enable', {}, s); await cdp('DOM.enable', {}, s); await cdp('Network.enable', {}, s);
+    await cdp('Page.addScriptToEvaluateOnNewDocument', { source: "window.__csp=[];document.addEventListener('securitypolicyviolation',e=>window.__csp.push(e.violatedDirective))" }, s);
+    const desde = eventos.length;
+    await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}/herramientas/verificar-factura/` }, s);
+    for (let i = 0; i < 100 && !eventos.slice(desde).some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
+    await espera(300);
+    const js = async e => (await cdp('Runtime.evaluate', { expression: e, returnByValue: true }, s)).result.value;
+    const FIX = path.join(RAIZ, '.herramientas', 'fixtures', 'cfdi');
+    const { root } = await cdp('DOM.getDocument', {}, s);
+    const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: '#xml' }, s);
+    await cdp('DOM.setFileInputFiles', { nodeId, files: ['01_cfdi40_ingreso.xml', '05_receptor_con_ampersand.xml', '04_sin_timbre.xml', '15_xml_roto.xml'].map(f => path.join(FIX, f)) }, s);
+    await espera(800);
+    const v = await js(`({n:document.querySelectorAll('#res-xml .factura').length, enlaces:[...document.querySelectorAll('#res-xml a.fac-sat')].map(a=>a.href), titulo:(document.querySelector('#res-xml h3')||{}).textContent, csp:window.__csp.join('|')})`);
+    exige(v.n === 4, `lista las 4 facturas (${v.n})`);
+    exige(v.enlaces.length === 2 && v.enlaces.every(h => h.startsWith('https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?id=')), `arma 2 enlaces al SAT (${v.enlaces.length})`);
+    exige(v.enlaces.some(h => h.includes('rr=H%26E951128469')), 'el RFC con & va codificado en el enlace');
+    exige(/2 completos/.test(v.titulo || ''), `resumen del lote: «${v.titulo}»`);
+    const salidas = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && !e.params.request.url.startsWith(`http://127.0.0.1:${PUERTO}/`) && !e.params.request.url.startsWith('data:'));
+    exige(salidas.length === 0 && recibidos.length === 0, `leer los XML no envia nada (${salidas.length} fuera, ${recibidos.length} POST)`);
+    exige(v.csp === '', `cero violaciones de la politica (${v.csp})`);
+    await cdp('Target.closeTarget', { targetId });
+  }
+
   console.log('G. politica de contenido de _headers');
   exige(/script-src 'self'/.test(CABECERAS['Content-Security-Policy'] || ''), 'calibracion: el servidor de prueba manda la politica de _headers');
   p = await abrir('/herramientas/validar-rfc/');
@@ -199,7 +227,7 @@ async function main() {
   recibidos.length = 0;
   const articulo = '/blog/' + fs.readdirSync(path.join(RAIZ, 'blog')).filter(d => fs.existsSync(path.join(RAIZ, 'blog', d, 'index.html')))[0] + '/';
   for (const [ruta, pasos] of [
-    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null],
+    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null],
     ['/herramientas/validar-rfc/', async q => { await q.teclea('#rfc', 'EKU9003173C9'); await q.pulsa('#f-rfc button[type=submit]'); await q.pulsa('#res-rfc .op-botones button:nth-child(1)'); }],
     ['/herramientas/valor-uma/', async q => { await q.teclea('#cantidad', '25'); await q.pulsa('#f-uma button[type=submit]'); await q.pulsa('#res-uma .op-botones button:nth-child(1)'); }],
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],

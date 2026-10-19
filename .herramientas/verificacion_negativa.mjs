@@ -49,6 +49,13 @@ const SABOTAJES = [
   ['rep: el aviso de dia no computable desaparece', H('complemento-de-pago/rep.js'), 'limiteNoComputable: diaNoComputable(limite) };', 'limiteNoComputable: null };'],
   ['rep: el 5 de mayo deja de contar como festivo', H('complemento-de-pago/rep.js'), 'md === 505 || ', ''],
   ['rep: el aviso RECORRE la fecha en vez de solo avisar', H('complemento-de-pago/rep.js'), "return f.m === 12 ? aIso(f.a + 1, 1, 5) : aIso(f.a, f.m + 1, 5);", "var l = f.m === 12 ? aIso(f.a + 1, 1, 5) : aIso(f.a, f.m + 1, 5); return diaNoComputable(l) === 'DOMINGO' ? l.slice(0, 8) + '06' : l;"],
+  // --- Verificar factura
+  ['cfdi: fe con los PRIMEROS 8 caracteres del sello', H('verificar-factura/cfdi.js'), 'fe: at.Sello.slice(-8)', 'fe: at.Sello.slice(0, 8)'],
+  ['cfdi: total con 2 decimales en vez de 6', H('verificar-factura/cfdi.js'), "while (dec.length < 6) dec += '0';", "while (dec.length < 2) dec += '0';"],
+  ['cfdi: el RFC va sin codificar en el enlace', H('verificar-factura/cfdi.js'), "'&rr=' + encodeURIComponent(p.rfcReceptor)", "'&rr=' + p.rfcReceptor"],
+  ['cfdi: sin timbre pasa por completo', H('verificar-factura/cfdi.js'), "if (!tfd) r.faltan.push('timbre fiscal digital (UUID)');", ''],
+  ['cfdi: el lector acepta cierres que no corresponden', H('verificar-factura/cfdi.js'), "if (!abierto || abierto.nombre !== cierra) throw", "if (!abierto) throw"],
+  ['cfdi: la pagina sube los XML (las pruebas de node no pueden verlo)', H('verificar-factura/pagina.js'), "return leerTexto(f).then(function (t) {", "return leerTexto(f).then(function (t) { try { fetch('/', { method: 'POST', body: t }); } catch (e) {}", 'nav'],
   // --- Opinion sobre el resultado. La marca 'nav' corre ademas la prueba en el navegador (lo que SALE por la red).
   ['opinion: el RFC escrito en el motivo ya no se quita', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : ''", "motivo: d.voto === 'NO' ? String(d.motivo || '') : ''", 'nav'],
   ['opinion: el envio anade lo tecleado en la pagina (las pruebas de node no pueden verlo)', H('opinion.js'), "body: e.cuerpo })", "body: e.cuerpo + '&tecleado=' + encodeURIComponent((doc.querySelector('main input') || {}).value || '') })", 'nav'],

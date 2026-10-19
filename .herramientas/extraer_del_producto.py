@@ -236,6 +236,42 @@ def vectores_rep(prod):
     return {"limite": limite, "estado": estado, "lleva": lleva, "fechas_invalidas": invalidas}
 
 
+def vectores_cfdi(prod):
+    """Lectura de CFDI y enlace de verificacion: se EJECUTAN clasificar.parse_cfdi y
+    representacion_impresa._qr_datauri (con un qrcode falso que solo captura la URL) sobre los XML inventados de
+    .herramientas/fixtures/cfdi/."""
+    import types
+    import xml.etree.ElementTree as ET
+    import clasificar
+    capturada = {}
+    falso = types.ModuleType('qrcode')
+
+    class _Img:
+        def save(self, buf, format=None):
+            buf.write(b'x')
+    falso.make = lambda url: (capturada.__setitem__('url', url), _Img())[1]
+    sys.modules['qrcode'] = falso
+    import representacion_impresa as ri
+    casos = []
+    for p in sorted((AQUI / 'fixtures' / 'cfdi').glob('*.xml')):
+        r = clasificar.parse_cfdi(str(p))
+        caso = {'archivo': p.name, 'producto_lee': r is not None}
+        if r is not None:
+            caso['producto'] = {k: r.get(k) for k in ('version', 'uuid', 'emisor_rfc', 'receptor_rfc', 'fecha', 'tipo', 'moneda')}
+            caso['producto']['total'] = str(r.get('total'))
+            raiz = ET.parse(str(p)).getroot()
+            if r.get('uuid') and raiz.attrib.get('Sello') and raiz.attrib.get('Total'):
+                capturada.clear()
+                ri._qr_datauri(r['uuid'], r['emisor_rfc'], r['receptor_rfc'], raiz.attrib.get('Total'), raiz.attrib.get('Sello'))
+                m = re.fullmatch(r'https://verificacfdi\.facturaelectronica\.sat\.gob\.mx/default\.aspx\?id=([^&]*)&re=(.*?)&rr=(.*?)&tt=([^&]*)&fe=(.*)',
+                                 capturada['url'])
+                assert m, capturada['url']
+                caso['enlace_producto'] = dict(zip(('id', 're', 'rr', 'tt', 'fe'), m.groups()))
+        casos.append(caso)
+    del sys.modules['qrcode']
+    return {'casos': casos}
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -248,6 +284,7 @@ def main():
         "vectores/rfc.json": vectores_rfc(prod),
         "vectores/uma.json": vectores_uma(datos),
         "vectores/rep.json": vectores_rep(prod),
+        "vectores/cfdi.json": vectores_cfdi(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel

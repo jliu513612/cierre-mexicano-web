@@ -3,7 +3,7 @@
   if (typeof module === 'object' && module.exports) module.exports = datos;
   else raiz.TCUmaDatos = datos;
 })(this, {
- "producto_commit": "1417af8e",
+ "producto_commit": "2e984389",
  "verificado": "2026-07-07",
  "ley": {
   "cita": "Ley para Determinar el Valor de la Unidad de Medida y Actualización, artículos 4 y 5",

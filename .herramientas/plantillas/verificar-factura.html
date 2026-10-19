@@ -1,0 +1,95 @@
+@@TITULO
+Verificar factura (CFDI) en el SAT: enlaces para varios XML | Tax Certeza
+@@TITULO_CORTO
+Verificar factura (CFDI)
+@@MIGA
+Verificar factura
+@@DESCRIPCION
+Suelta uno o varios XML de CFDI: la página lee UUID, RFC, total y fecha, revisa que el comprobante esté completo y arma el enlace oficial de verificación del SAT de cada uno.
+@@SCRIPTS
+<script src="/herramientas/verificar-factura/cfdi.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/verificar-factura/pagina.js" defer></script>
+@@FAQ
+P: ¿Esta página me dice si una factura está vigente o cancelada?
+R: No. La página arma el enlace del servicio de verificación del SAT; al abrirlo, el propio SAT muestra el estado del comprobante. La página no consulta al SAT por su cuenta.
+P: ¿Por qué no consulta al SAT automáticamente?
+R: Porque la consulta la hace la persona en el sitio del SAT, que puede pedir resolver una verificación de seguridad. La página solo prepara el enlace con los datos del XML para que no haya que capturarlos a mano.
+P: ¿Puedo revisar muchas facturas a la vez?
+R: Sí. Puedes soltar o elegir varios XML; la página lista cada uno con su enlace y permite copiar todos los enlaces juntos.
+P: ¿Se suben mis XML a algún servidor?
+R: No. Los archivos se leen en tu navegador y no salen de tu equipo. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.
+P: ¿Qué significa «incompleto»?
+R: Que el archivo es un CFDI pero le falta algún dato que la página revisa, por ejemplo el timbre fiscal digital con su UUID o el sello. Sin esos datos no se puede armar el enlace de verificación.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Verificar factura (CFDI)</h1>
+  <p class="lead">Suelta uno o varios XML de facturas. La página lee el UUID, los RFC del emisor y del receptor, el total y la fecha, revisa que el comprobante traiga los datos necesarios y arma, para cada uno, el enlace del servicio de verificación del SAT. Tú abres el enlace y el SAT te muestra el estado.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-xml">
+  <h2 id="t-xml">Leer los XML</h2>
+  <form id="f-xml" novalidate>
+    <div class="campo">
+      <label for="xml" id="l-xml">Archivos XML</label>
+      <div class="soltar" id="soltar">
+        <p>Arrastra aquí los XML o</p>
+        <input type="file" id="xml" name="xml" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml-ayuda">
+      </div>
+      <p class="ayuda" id="xml-ayuda">Hasta 500 archivos de hasta 2 MB cada uno. CFDI versión 3.3 o 4.0.</p>
+    </div>
+  </form>
+  <div class="res" id="res-xml" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para leer los archivos en tu navegador.</p></noscript>
+  <p class="privado"><b>Tus XML no salen de tu equipo.</b> Se leen en tu navegador; esta página no los sube a ningún servidor ni consulta al SAT. Los enlaces se abren solo cuando tú los pulsas. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Lee UUID, RFC y nombre del emisor y del receptor, total, moneda, tipo de comprobante, fecha y fecha de timbrado.</li>
+        <li>Revisa que el XML traiga el timbre fiscal digital, el sello y los datos que pide el enlace de verificación.</li>
+        <li>Arma el enlace de verificación del SAT de cada factura y te deja copiarlos todos.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No consulta al SAT: no dice si la factura está vigente o cancelada.</li>
+        <li>No valida el sello digital ni el certificado.</li>
+        <li>No revisa si los importes, impuestos o claves son correctos.</li>
+        <li>No decide si un gasto es deducible ni si el IVA es acreditable.</li>
+        <li>No lee CFDI de retenciones.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se usa</h2>
+  <ol>
+    <li>Arrastra los XML al recuadro o pulsa el botón para elegirlos.</li>
+    <li>Revisa la lista: cada factura dice si está completa y, si no, qué le falta.</li>
+    <li>Pulsa «Abrir en el SAT» en la factura que quieras consultar, o copia todos los enlaces para abrirlos después.</li>
+  </ol>
+
+  <h2>De dónde sale el enlace</h2>
+  <p>Es el mismo que lleva el código QR de la representación impresa de un CFDI: la dirección del servicio de verificación del SAT con el UUID, el RFC del emisor, el RFC del receptor, el total y los últimos ocho caracteres del sello del emisor. La página toma esos datos del XML tal como vienen.</p>
+
+  <h2>Límites</h2>
+  <p>La herramienta lee lo que trae el archivo y no comprueba que sea auténtico: un XML alterado puede verse completo. El estado de un comprobante solo lo da el SAT. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Para saber si te faltan XML del periodo, está la guía de <a href="/blog/descarga-masiva-cfdi-sat/">descarga masiva de CFDI del SAT</a>. Para revisar a un proveedor, la de la <a href="/blog/lista-negra-sat-efos-69b/">lista 69-B del SAT</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza descarga del SAT los CFDI de tu cliente y los compara contra la metadata del periodo para avisarte de los que faltan, sin que tengas que soltar archivos uno por uno.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>

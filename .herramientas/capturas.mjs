@@ -66,6 +66,9 @@ const TOMAS = [
   ['rep_pue_no_cobrada', '/herramientas/complemento-de-pago/', [marca('input[name=metodo][value=PUE]'), marca('input[name=forma][value=OTRA]'), marca('input[name=cobro][value=NO_COBRADA]'), envia('#f-lleva'), a('#t-lleva')]],
   ['rep_invalido_faltan_datos', '/herramientas/complemento-de-pago/', [marca('input[name=metodo][value=PUE]'), envia('#f-lleva'), a('#t-lleva')]],
   ['rep_pagina_completa', '/herramientas/complemento-de-pago/', [escribe('#fecha-pago', '2026-10-08'), envia('#f-plazo')], { completa: true, reloj: '2026-10-13T12:00:00' }],
+  ['factura_lote_valido', '/herramientas/verificar-factura/', [], { archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '05_receptor_con_ampersand.xml', '11_enie_en_rfc.xml'] } }],
+  ['factura_lote_con_invalidos', '/herramientas/verificar-factura/', [], { archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml', '15_xml_roto.xml', '14_no_es_cfdi.xml'] } }],
+  ['factura_pagina_completa', '/herramientas/verificar-factura/', [], { completa: true, archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml'] } }],
 ];
 
 async function main() {
@@ -104,6 +107,13 @@ async function main() {
       await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}${ruta}` }, s);
       for (let i = 0; i < 100 && !eventos.some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
       await espera(250);
+      if (op.archivos) {  // elegir archivos en el selector, como lo haria una persona
+        await cdp('DOM.enable', {}, s);
+        const { root } = await cdp('DOM.getDocument', {}, s);
+        const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: op.archivos.sel }, s);
+        await cdp('DOM.setFileInputFiles', { nodeId, files: op.archivos.lista.map(f => path.join(RAIZ, '.herramientas', 'fixtures', 'cfdi', f)) }, s);
+        await espera(700);
+      }
       if (op.teclado) {  // foco, texto y Enter como lo haria una persona con el teclado
         await cdp('Runtime.evaluate', { expression: `document.querySelector(${JSON.stringify(op.teclado.sel)}).focus()` }, s);
         await cdp('Input.insertText', { text: op.teclado.texto }, s);
