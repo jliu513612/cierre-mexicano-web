@@ -298,6 +298,123 @@ def vectores_69b(prod):
             'rfc_cotejados': len(del_prod), 'muestra': {k: del_prod[k] for k in muestra}}
 
 
+CAMPOS_M = ('uuid', 'fecha', 'subtotal', 'descuento', 'total', 'metodo_pago', 'forma_pago', 'tipo_comprobante', 'moneda',
+            'tipo_cambio', 'tipo_cambio_raw', 'emisor_rfc', 'receptor_rfc', 'uso_cfdi', 'tasas_unicas', 'iva_total_traslados',
+            'iva_total_retenido', 'es_efectivo_sobre_2k', 'conceptos', 'es_complemento_pago')
+CAMPOS_DR = ('uuid_original', 'fecha_pago', 'forma_pago_p', 'moneda_p', 'tipo_cambio_p', 'monto_pago_mxn', 'num_parcialidad',
+             'imp_saldo_anterior', 'imp_pagado', 'imp_saldo_insoluto', 'objeto_imp_dr', 'base_iva_dr', 'iva_dr', 'traslados_dr',
+             'iva_ret_dr', 'equivalencia_dr')
+
+
+def datos_iva(prod):
+    """Constantes del IVA del mes, LEIDAS del programa (no copiadas a mano), y sus fuentes del registro."""
+    import nomina_tablas as T
+    import calculador_iva_v2 as C
+    import sat_truth_invariants as S
+    reg = json.loads((prod / 'references' / 'afirmaciones_legales.json').read_text(encoding='utf-8'))['articulos']
+    fuentes = {}
+    for k in ('liva-1-b', 'liva-5', 'liva-5-d', 'liva-1-a', 'lisr-27', 'cff-69-b'):
+        a = reg[k]
+        fuentes[k] = {'ley': a['ley'], 'articulo': a['articulo'], 'url': a['fuente_url'], 'vigencia': a['vigencia'],
+                      'verificado': a['fecha_verificacion']}
+    commit = subprocess.run(['git', '-C', str(prod), 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
+    return {'_nota': 'GENERADO por .herramientas/extraer_del_producto.py desde el programa. No se edita a mano.',
+            'producto_commit': commit, 'umbral_efectivo_mxn': str(T.UMBRAL_EFECTIVO_DEDUCIBLE_MXN),
+            'formas_pago_en_dinero': sorted(C._FORMAS_PAGO_EN_DINERO), 'tolerancia_pagos': str(S.TOL_PAGOS),
+            'fuentes': fuentes}
+
+
+def vectores_iva(prod):
+    """IVA del mes: lotes INVENTADOS pasados por la cadena real del programa (ver .herramientas/oraculo_iva.py), y la
+    eleccion de fila del 69-B que hace el programa (efos_scraper.actualizar_cache) cuando un RFC tiene varias."""
+    import contextlib as _cl
+    import io as _io
+    import tempfile as _tf
+    import efos_scraper as F
+    import enriquecedor_v2 as E
+    sys.path.insert(0, str(AQUI))
+    import oraculo_iva as O
+    import lista69b
+    pub = json.loads((AQUI.parent / 'herramientas' / 'lista-69b' / 'listado.json').read_text(encoding='utf-8'))
+    import hashlib as _h
+    real = next(p for p in (AQUI / 'fuentes_locales').glob('*.csv') if _h.sha256(p.read_bytes()).hexdigest() == pub['sha256']).read_bytes()
+    tmp = Path(_tf.mkdtemp(prefix='oraculo_iva_'))
+    orig = F.descargar_csv
+
+    def cache_de(contenido, nombre):
+        F.descargar_csv = lambda *a, **k: (contenido, 'local')
+        try:
+            with _cl.redirect_stdout(_io.StringIO()):
+                F.actualizar_cache(cache_path=str(tmp / nombre), force=True)
+        finally:
+            F.descargar_csv = orig
+        return tmp / nombre
+    # (1) eleccion de fila sobre el listado REAL: todos los RFC con varias filas y una muestra de los demas
+    c_real = cache_de(real, 'real.json')
+    rnd = random.Random(1969)
+    varios = sorted(k for k, v in pub['r'].items() if len(v) > 1)
+    muestra = varios + sorted(rnd.sample(sorted(k for k, v in pub['r'].items() if len(v) == 1), 200))
+    eleccion = {}
+    for rfc in muestra:
+        e = F.consultar_rfc(rfc, cache_path=str(c_real))
+        eleccion[rfc] = [e['status'], lista69b._fecha_iso((e.get('fechas_dof') or {}).get('definitivo'))]
+    # (2) lotes inventados con un 69-B inventado
+    sint = O.csv_69b(real)
+    c_sint = cache_de(sint, 'sint.json')
+    _min = lista69b.MIN_FILAS
+    lista69b.MIN_FILAS = 1
+    try:
+        listado = lista69b.construir(sint)
+    finally:
+        lista69b.MIN_FILAS = _min
+    rnd = random.Random(2026)
+    casos = []
+    periodo, anterior = '2026-05', '2026-04'
+    for i in range(160):
+        docs = O.lote(rnd, periodo, anterior)
+        d = tmp / ('c%03d' % i)
+        d.mkdir()
+        sal = O.correr(prod, docs, periodo, c_sint, d)
+        xmls = [O.xml_cfdi(x) for x in docs]
+        ms = []
+        for j in range(len(docs)):
+            m = E.parse_cfdi_v2(str(d / ('%02d.xml' % j)))
+            sub = {k: m.get(k) for k in CAMPOS_M}
+            cp = m.get('complemento_pago')
+            if cp:
+                sub['drs'] = [{k: dr.get(k) for k in CAMPOS_DR} for dr in cp['documentos_relacionados']]
+            ms.append(json.loads(json.dumps(sub, default=str)))
+        casos.append({'xml': xmls, 'm': ms, 'salida': sal})
+    import base64 as _b64
+    import gzip as _gz
+    import shutil as _sh
+    _sh.rmtree(tmp, ignore_errors=True)   # solo XML inventados y JSON temporales creados aqui
+    # los casos van COMPRIMIDOS (gzip + base64): en claro son 3 MB de XML repetitivo. La prueba los descomprime.
+    crudo = json.dumps(casos, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+    manuales = O.manual(random.Random(17), 200)
+    # aritmetica de Decimal de Python (contexto de 28 digitos, redondeo al par), con empates a proposito
+    from decimal import Decimal as _D, ROUND_HALF_EVEN as _HE
+    rnd = random.Random(28)
+    dec = []
+    for _ in range(400):
+        a = str(_D(rnd.randint(-10 ** 12, 10 ** 12)) / _D(10 ** rnd.randint(0, 6)))
+        b = str(_D(rnd.randint(1, 10 ** 9)) / _D(10 ** rnd.randint(0, 6)))
+        dec.append(['sumar', a, b, str(_D(a) + _D(b))])
+        dec.append(['multiplicar', a, b, str(_D(a) * _D(b))])
+        dec.append(['dividir', a, b, str(_D(a) / _D(b))])
+        dec.append(['centavos', a + '5', None, str(_D(a + '5').quantize(_D('0.01'), rounding=_HE))])
+    for t in ('2.345', '2.355', '-2.345', '0.125', '0.135', '1.005', '1.015', '999999999999.995', '0.005', '-0.005'):
+        dec.append(['centavos', t, None, str(_D(t).quantize(_D('0.01'), rounding=_HE))])
+    for a, b in (('1', '3'), ('2', '3'), ('-2', '3'), ('10', '4'), ('1', '7'), ('123456789012345678901234567', '10'),
+                 ('99999999999999999999999999995', '10')):
+        dec.append(['dividir', a, b, str(_D(a) / _D(b))])
+    dec.append(['multiplicar', '1234567890123456.789', '98765432.123456789', str(_D('1234567890123456.789') * _D('98765432.123456789'))])
+    dec.append(['sumar', '9999999999999999999999999999', '0.5', str(_D('9999999999999999999999999999') + _D('0.5'))])
+    return {'propio': O.PROPIO, 'periodo': periodo, 'manual': manuales, 'decimal': dec, 'listado_prueba': {'r': listado['r']},
+            'eleccion_69b': eleccion, 'n_casos': len(casos),
+            'casos_gz': _b64.b64encode(_gz.compress(crudo, mtime=0)).decode('ascii')}
+
+
 def datos_retenciones(prod):
     """Tasas de retencion: las de nomina_tablas (las que usa validador_retenciones), con el id de su fuente legal."""
     import nomina_tablas as T
@@ -460,6 +577,8 @@ def main():
         "vectores/retenciones.json": vectores_retenciones(prod),
         "datos/calendario.json": datos_calendario(prod),
         "vectores/calendario.json": vectores_calendario(prod),
+        "datos/iva.json": datos_iva(prod),
+        "vectores/iva.json": vectores_iva(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel

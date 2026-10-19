@@ -1,0 +1,63 @@
+/* GENERADO por .herramientas/construir.py desde .herramientas/datos/iva.json. No se edita a mano. */
+(function (raiz, datos) {
+  if (typeof module === 'object' && module.exports) module.exports = datos;
+  else raiz.TCIvaDatos = datos;
+})(this, {
+ "producto_commit": "2e984389",
+ "umbral_efectivo_mxn": "2000",
+ "formas_pago_en_dinero": [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "28",
+  "29"
+ ],
+ "tolerancia_pagos": "0.50",
+ "fuentes": {
+  "liva-1-b": {
+   "ley": "LIVA",
+   "articulo": "1o.-B",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 12-11-2021",
+   "verificado": "2026-07-06"
+  },
+  "liva-5": {
+   "ley": "LIVA",
+   "articulo": "5o.",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 12-11-2021",
+   "verificado": "2026-07-06"
+  },
+  "liva-5-d": {
+   "ley": "LIVA",
+   "articulo": "5o.-D",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "vigencia": "Texto vigente — última reforma publicada DOF 12-11-2021",
+   "verificado": "2026-09-05"
+  },
+  "liva-1-a": {
+   "ley": "LIVA",
+   "articulo": "1o.-A",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 12-11-2021",
+   "verificado": "2026-07-06"
+  },
+  "lisr-27": {
+   "ley": "LISR",
+   "articulo": "27",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 01-04-2024",
+   "verificado": "2026-07-28"
+  },
+  "cff-69-b": {
+   "ley": "CFF",
+   "articulo": "69-B",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 09-04-2026",
+   "verificado": "2026-07-06"
+  }
+ }
+});
