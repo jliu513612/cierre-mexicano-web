@@ -1,0 +1,113 @@
+@@TITULO
+¿Cuándo vence la declaración mensual? Calendario del día 17 para {{CAL_ANIOS}} | Tax Certeza
+@@TITULO_CORTO
+Calendario del día 17
+@@MIGA
+Calendario del día 17
+@@DESCRIPCION
+Fechas límite del pago mensual del ISR y el IVA (día 17) y de la DIOT para {{CAL_ANIOS}}, recorridas al siguiente día hábil cuando caen en sábado, domingo o día inhábil del Código Fiscal.
+@@SCRIPTS
+<script src="/herramientas/calendario-dia-17/calendario-datos.js" defer></script>
+<script src="/herramientas/calendario-dia-17/calendario.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/calendario-dia-17/pagina.js" defer></script>
+@@FAQ
+P: ¿Qué pasa si el día 17 cae en sábado o domingo?
+R: El plazo se recorre al siguiente día hábil (Código Fiscal de la Federación, artículo 12). Por ejemplo, el 17 de octubre de 2026 es sábado: el pago mensual de septiembre de 2026 vence el lunes 19 de octubre.
+P: ¿Qué días son inhábiles para el SAT en el pago mensual?
+R: Los sábados, los domingos y los días que enumera el artículo 12 del Código Fiscal: 1 de enero, primer lunes de febrero, tercer lunes de marzo, 1 y 5 de mayo, 16 de septiembre, tercer lunes de noviembre y 25 de diciembre.
+P: ¿Las vacaciones del SAT recorren el plazo de la declaración?
+R: No. El artículo 12 del Código Fiscal dice que en los periodos de vacaciones generales de las autoridades fiscales los días son hábiles para presentar declaraciones y pagar contribuciones.
+P: ¿Cuándo vence la DIOT?
+R: La regla 4.5.1 de la Resolución Miscelánea Fiscal para 2026 dice que la información se presenta durante el mes inmediato posterior. La página toma el último día de ese mes y, si es inhábil, el siguiente día hábil. Por ejemplo, la DIOT de diciembre de 2026 vence el martes 2 de febrero de 2027: el 31 de enero es domingo y el 1 de febrero es el primer lunes de febrero.
+P: ¿Qué es la facilidad del sexto dígito del RFC?
+R: El artículo 5.1 del Decreto que compila diversos beneficios fiscales (DOF 26-12-2013) da de 1 a 5 días hábiles más después del día 17, según el sexto dígito numérico del RFC. Tiene supuestos excluidos. La página muestra la fecha con esos días solo si escribes tu RFC, y no decide si te aplica: revisa con tu contador si te aplica.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Calendario del día 17: pago mensual y DIOT en {{CAL_ANIOS}}</h1>
+  <p class="lead">El pago mensual del ISR y del IVA vence el día 17 del mes siguiente, y la DIOT el último día del mes siguiente. Si ese día es sábado, domingo o día inhábil del Código Fiscal, el plazo se recorre al siguiente día hábil. Elige el año y la página muestra las fechas de los doce meses.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-cal">
+  <h2 id="t-cal">Ver el calendario</h2>
+  <form id="f-cal" novalidate>
+    <div class="fila">
+      <div class="campo">
+        <label for="anio">Año del periodo</label>
+        <select id="anio" name="anio">
+{{CAL_OPCIONES}}
+        </select>
+      </div>
+      <div class="campo">
+        <label for="rfc">RFC (opcional)</label>
+        <input type="text" id="rfc" name="rfc" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="20" placeholder="Por ejemplo XAXX010101000" aria-describedby="rfc-ayuda">
+        <p class="ayuda" id="rfc-ayuda">Solo para ver la fecha con la facilidad del sexto dígito del RFC.</p>
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Ver calendario</button>
+    </div>
+  </form>
+  <div class="res" id="res-cal" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para armar el calendario en tu navegador.</p></noscript>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El calendario se arma en tu navegador: esta página no envía tu RFC a ningún servidor. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Da la fecha límite del pago mensual (día 17) y de la DIOT de cada mes de {{CAL_ANIOS}}.</li>
+        <li>Recorre la fecha al siguiente día hábil cuando cae en sábado, domingo o día inhábil del artículo 12 del Código Fiscal, y dice por qué.</li>
+        <li>Si escribes tu RFC, muestra aparte la fecha con los días de la facilidad del sexto dígito.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No decide si te aplica la facilidad del sexto dígito del RFC.</li>
+        <li>No cubre la contabilidad electrónica, los pagos trimestrales ni el complemento de pago.</li>
+        <li>No sirve para otros trámites ante el SAT: en esos, los periodos de vacaciones del SAT sí son inhábiles y este calendario no los incluye.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se calcula</h2>
+  <p>La herramienta aplica las mismas reglas que el programa Tax Certeza. El pago mensual vence el día 17 del mes siguiente al del periodo y la DIOT el último día del mes siguiente. Si ese día es sábado, domingo o uno de los días inhábiles del artículo 12 del Código Fiscal, la fecha pasa al siguiente día hábil. Las vacaciones generales del SAT no recorren estas fechas: para declaraciones y pagos, esos días son hábiles.</p>
+
+  <h3>La facilidad del sexto dígito del RFC</h3>
+  <p>El artículo 5.1 del Decreto que compila diversos beneficios fiscales da días hábiles adicionales después del día 17, según el sexto dígito numérico del RFC. Se cuentan a partir del día 17 ya recorrido y saltan sábados, domingos y días inhábiles. El artículo tiene supuestos excluidos: si te aplica lo revisas con tu contador. No aplica a la DIOT.</p>
+  <div class="tabla-wrap" tabindex="0" role="region" aria-label="Días adicionales por sexto dígito del RFC">
+    <table class="angosta">
+      <thead><tr><th scope="col">Sexto dígito numérico del RFC</th><th scope="col">Días hábiles adicionales</th></tr></thead>
+      <tbody>
+{{CAL_TABLA_DIGITOS}}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+{{FUENTES_CAL}}
+    </ul>
+  </div>
+
+  <h2>Límites</h2>
+  <p>Calendario para {{CAL_ANIOS}}. Sirve para declaraciones y pagos, no para otros trámites ante el SAT. El artículo 12 del Código Fiscal también recorre al siguiente día hábil el plazo que termina en viernes cuando la declaración se presenta ante las instituciones de crédito autorizadas; la página no aplica esa regla y muestra el viernes. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>El plazo del complemento de pago es otro: el quinto día natural del mes siguiente al del pago. Está en la <a href="/herramientas/complemento-de-pago/">calculadora de la fecha límite del REP</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza usa este mismo calendario para marcar qué declaraciones del cliente están pendientes o vencidas, y con la facilidad del sexto dígito solo cuando el perfil del contribuyente la confirma.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>

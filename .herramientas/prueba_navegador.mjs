@@ -211,6 +211,26 @@ async function main() {
   exige(recibidos.length === 0 && p.excepciones() === 0 && (await p.violaciones()) === '', 'calcular no envia nada, sin excepciones ni violaciones');
   await p.cerrar();
 
+  console.log('K. calendario del dia 17');
+  recibidos.length = 0; modo = 'OK';
+  p = await abrir('/herramientas/calendario-dia-17/');
+  exige((await p.js("document.querySelectorAll('#res-cal tbody tr').length")) === 12, 'al abrir, el calendario de 2026 ya tiene 12 meses');
+  exige((await p.texto('#res-cal tbody tr:nth-child(9)')) === 'septiembre lun 19 oct el 17 cae en sábado lun 2 nov el 31 cae en sábado', `septiembre 2026: ${await p.texto('#res-cal tbody tr:nth-child(9)')}`);
+  exige((await p.texto('#res-cal tbody tr:nth-child(12)')).includes('mar 2 feb 2027 el 31 cae en domingo'), 'DIOT de diciembre 2026 al 2 de febrero de 2027');
+  exige(!(await p.texto('#res-cal')).includes('facilidad'), 'sin RFC no se habla de la facilidad');
+  await p.pon('#anio', '2027');
+  exige((await p.texto('#res-cal h3')) === 'Fechas límite de los periodos de 2027', 'cambiar el ano repinta');
+  await p.teclea('#rfc', 'XIQB891116QE4'); await p.pulsa('#f-cal button[type=submit]');
+  exige((await p.texto('#res-cal thead')).includes('Con la facilidad (3 días)'), 'sexto digito 6: 3 dias');
+  exige((await p.texto('#res-cal')).includes('sábado 1 de mayo de 2027 (1 de mayo)') && !(await p.texto('#res-cal')).includes('undefined'), 'un dia inhabil que cae en sabado se nombra');
+  exige((await p.texto('#res-cal tbody tr:nth-child(1)')).endsWith('lun 22 feb'), `facilidad enero 2027: ${await p.texto('#res-cal tbody tr:nth-child(1)')}`);
+  exige((await p.texto('#res-cal .aviso')).includes('Revisa con tu contador si te aplica'), 'la facilidad va en condicional y remite al contador');
+  exige((await p.texto('#res-cal .op-pregunta')) === '¿Te sirvió este resultado?', 'al pedir el calendario aparece la opinion');
+  await p.js("document.querySelector('#rfc').value=''"); await p.teclea('#rfc', 'ABC12'); await p.pulsa('#f-cal button[type=submit]');
+  exige((await p.texto('#res-cal .aviso')).includes('no tiene seis dígitos'), 'RFC sin seis digitos: se dice');
+  exige(recibidos.length === 0 && p.excepciones() === 0 && (await p.violaciones()) === '', 'el calendario no envia nada, sin excepciones ni violaciones');
+  await p.cerrar();
+
   console.log('I. lista 69-B: la consulta se hace en el navegador');
   {
     const V69 = JSON.parse(fs.readFileSync(path.join(RAIZ, '.herramientas', 'vectores', 'lista69b.json'), 'utf8'));
@@ -297,7 +317,7 @@ async function main() {
   recibidos.length = 0;
   const articulo = '/blog/' + fs.readdirSync(path.join(RAIZ, 'blog')).filter(d => fs.existsSync(path.join(RAIZ, 'blog', d, 'index.html')))[0] + '/';
   for (const [ruta, pasos] of [
-    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null],
+    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null], ['/herramientas/calendario-dia-17/', null],
     ['/herramientas/validar-rfc/', async q => { await q.teclea('#rfc', 'EKU9003173C9'); await q.pulsa('#f-rfc button[type=submit]'); await q.pulsa('#res-rfc .op-botones button:nth-child(1)'); }],
     ['/herramientas/valor-uma/', async q => { await q.teclea('#cantidad', '25'); await q.pulsa('#f-uma button[type=submit]'); await q.pulsa('#res-uma .op-botones button:nth-child(1)'); }],
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],

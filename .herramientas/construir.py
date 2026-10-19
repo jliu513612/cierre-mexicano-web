@@ -25,6 +25,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "verificar-factura": "/herramientas/verificar-factura/",
     "lista-69b": "/herramientas/lista-69b/",
     "factura-con-retenciones": "/herramientas/factura-con-retenciones/",
+    "calendario-dia-17": "/herramientas/calendario-dia-17/",
 }
 
 
@@ -111,6 +112,30 @@ def construir():
     v_uma["FUENTES_RET"] = "\n".join(
         f'      <li><a href="{html.escape(f["url"])}" rel="noopener">{html.escape(_cita(f["cita"]))}</a>: {_que[k]}. {_reforma(f["vigencia"])}.</li>'
         for k, f in _ret["fuentes"].items())
+    _cal = json.loads((AQUI / "datos" / "calendario.json").read_text(encoding="utf-8"))
+    _que_cal = {"lisr-14": "los pagos provisionales mensuales del ISR se presentan a más tardar el día 17 del mes inmediato posterior",
+                "liva-5-d": "el IVA se calcula por mes de calendario y se paga a más tardar el día 17 del mes siguiente",
+                "cff-12": "días inhábiles; si el último día del plazo es inhábil, se prorroga hasta el siguiente día hábil; las vacaciones generales del SAT no cuentan como inhábiles para declaraciones y pagos",
+                "rmf-2026-4-5-1": "la información de operaciones con proveedores (DIOT) se presenta «durante el mes inmediato posterior al que corresponda dicha información»",
+                "rmf-2026-2-1-6": "periodos de vacaciones generales del SAT en 2026",
+                "dec-compila-2013-5.1": "días hábiles adicionales al día 17 según el sexto dígito numérico del RFC, con supuestos excluidos"}
+    _nombre_cal = {"LISR": "Ley del ISR, artículo {a}", "LIVA": "Ley del IVA, artículo {a}", "CFF": "Código Fiscal de la Federación, artículo {a}",
+                   "RMF": "Resolución Miscelánea Fiscal para 2026, regla {a}", "DECCOMPILA2013": "Decreto que compila diversos beneficios fiscales, artículo {a}"}
+
+    def _vig_cal(f):
+        if f["ley"] in ("LISR", "LIVA", "CFF"):
+            return _reforma(f["vigencia"])
+        return f'{"Publicado" if f["ley"] == "DECCOMPILA2013" else "Publicada"} en el DOF el {f["publicacion"]}'
+    v_uma["FUENTES_CAL"] = "\n".join(
+        f'      <li><a href="{html.escape(_cal["fuentes"][k]["url"])}" rel="noopener">{_nombre_cal[_cal["fuentes"][k]["ley"]].format(a=_cal["fuentes"][k]["articulo"])}</a>: {_que_cal[k]}. {_vig_cal(_cal["fuentes"][k])}.</li>'
+        for k in _que_cal)
+    v_uma["CAL_ANIOS"] = " y ".join(str(x) for x in _cal["anios"])
+    _dias = {}
+    for d in "1234567890":
+        _dias.setdefault(_cal["dias_por_digito"][d], []).append(d)
+    v_uma["CAL_TABLA_DIGITOS"] = "\n".join(
+        f'<tr><th scope="row">{" y ".join(ds)}</th><td>{n} {"día" if n == 1 else "días"}</td></tr>' for n, ds in _dias.items())
+    v_uma["CAL_OPCIONES"] = "\n".join(f'          <option value="{x}">{x}</option>' for x in _cal["anios"])
     base = (AQUI / "plantillas" / "base.html").read_text(encoding="utf-8")
     salidas = {}
     for nombre, ruta in PAGINAS.items():
@@ -160,6 +185,11 @@ def construir():
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/retenciones.json. No se edita a mano. */\n"
         "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
         "  else raiz.TCRetencionesDatos = datos;\n})(this, " + json.dumps(ret, ensure_ascii=False, indent=1) + ");\n")
+    cal = {k: v for k, v in json.loads((AQUI / "datos" / "calendario.json").read_text(encoding="utf-8")).items() if k != "_nota"}
+    salidas["herramientas/calendario-dia-17/calendario-datos.js"] = (
+        "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/calendario.json. No se edita a mano. */\n"
+        "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
+        "  else raiz.TCCalendarioDatos = datos;\n})(this, " + json.dumps(cal, ensure_ascii=False, indent=1) + ");\n")
     return salidas
 
 

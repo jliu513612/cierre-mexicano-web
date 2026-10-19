@@ -365,6 +365,83 @@ def vectores_retenciones(prod):
     return {'iva_de_subtotal': iva_de, 'casos': casos}
 
 
+ANIOS_CALENDARIO = (2026, 2027)  # los que la pagina deja elegir; ver vectores_calendario['transmision']
+
+
+def datos_calendario(prod):
+    """Calendario del dia 17: la tabla del sexto digito sale de EJECUTAR calendario_obligaciones.dias_extra_rfc; las
+    fuentes, del registro del programa. La regla 4.5.1 de la RMF 2026 (plazo de la DIOT) NO esta en el registro: se cita
+    del mismo PDF oficial que el registro ya tiene para rmf-2026-2-1-6 (sha256 6f71ce0c...a52919a)."""
+    import calendario_obligaciones as C
+    reg = json.loads((prod / 'references' / 'afirmaciones_legales.json').read_text(encoding='utf-8'))['articulos']
+    fuentes = {}
+    for k in ('lisr-14', 'liva-5-d', 'cff-12', 'dec-compila-2013-5.1', 'rmf-2026-2-1-6'):
+        a = reg[k]
+        fuentes[k] = {'ley': a['ley'], 'articulo': a['articulo'], 'url': a['fuente_url'], 'vigencia': a['vigencia'],
+                      'publicacion': a.get('fecha_publicacion'), 'verificado': a['fecha_verificacion']}
+    rmf = reg['rmf-2026-2-1-6']
+    fuentes['rmf-2026-4-5-1'] = {'ley': 'RMF', 'articulo': '4.5.1', 'url': rmf['fuente_url'], 'vigencia': rmf['vigencia'],
+                                 'publicacion': rmf.get('fecha_publicacion'), 'verificado': '2026-10-19',
+                                 'fuera_del_registro': 'leida del PDF oficial (sha256 6f71ce0cccf430171fe858c5d244b1c321fa68306f962d44ec4977858a52919a): «durante el mes inmediato posterior al que corresponda dicha información»'}
+    tabla = {}
+    for d in range(10):
+        tabla[str(d)] = C.dias_extra_rfc(f'XAXX0{d}0{d}0{d}AB{d}')  # el sexto digito es d
+        assert C.dias_extra_rfc(f'ABC12345{d}XY0') == tabla[str(d)]
+    commit = subprocess.run(['git', '-C', str(prod), 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
+    return {'_nota': 'GENERADO por .herramientas/extraer_del_producto.py desde calendario_obligaciones del programa. No se edita a mano.',
+            'producto_commit': commit, 'anios': list(ANIOS_CALENDARIO), 'transmision_hasta': C._TRANSMISION_1_DIC_HASTA,
+            'dias_por_digito': tabla, 'fuentes': fuentes}
+
+
+def vectores_calendario(prod):
+    """Se EJECUTAN dias_inhabiles_cff12, es_habil_fiscal, recorrer_a_habil, dias_extra_rfc y fecha_limite de
+    calendario_obligaciones para 2015-2040. Y se MIDE que en los anos elegibles la duda de la transmision (1 de
+    diciembre o 1 de octubre) no mueve ninguna fecha: se repite el calculo con esos dos dias inhabiles en TODOS los
+    anos y tiene que salir igual."""
+    import calendario_obligaciones as C
+    anios = range(2015, 2041)
+    inhabiles = {str(a): sorted(f.isoformat() for f in C.dias_inhabiles_cff12(a)) for a in anios}
+    no_habiles, recorrer = {}, {}
+    for a in anios:
+        f, fin, lista = dt.date(a, 1, 1), dt.date(a, 12, 31), []
+        while f <= fin:
+            if not C.es_habil_fiscal(f):
+                lista.append(f.isoformat())
+                recorrer[f.isoformat()] = C.recorrer_a_habil(f).isoformat()
+            else:
+                assert C.recorrer_a_habil(f) == f
+            f += dt.timedelta(days=1)
+        no_habiles[str(a)] = lista
+    rfcs = [f'XAXX0{d}0{d}0{d}AB{d}' for d in range(10)]
+    si = {C.PRORROGA_RFC_CONFIRMADA: True}
+
+    def limites(a, m):
+        return {'a': a, 'm': m, 'base': C.fecha_limite(a, m, rfcs[0], 'ISR').isoformat(),
+                'diot': C.fecha_limite(a, m, rfcs[0], 'DIOT').isoformat(),
+                'prorroga': [C.fecha_limite(a, m, r, 'ISR', si).isoformat() for r in rfcs]}
+    limite = [limites(a, m) for a in anios for m in range(1, 13)]
+    # el programa NO da prorroga sin un si explicito, ni a la DIOT
+    for a, m in ((2026, 1), (2026, 6), (2027, 12)):
+        b = C.fecha_limite(a, m, rfcs[9], 'ISR')
+        for perfil in (None, {}, {C.PRORROGA_RFC_CONFIRMADA: 'si'}, {C.PRORROGA_RFC_CONFIRMADA: 1}):
+            assert C.fecha_limite(a, m, rfcs[9], 'ISR', perfil) == b
+        assert C.fecha_limite(a, m, rfcs[9], 'DIOT', si) == C.fecha_limite(a, m, rfcs[9], 'DIOT')
+    extra = []
+    for r in ('XIQB891116QE4', 'EKU9003173C9', 'H&E951128469', 'OÑO120726RX3', 'xiqb891116qe4', 'ABC12345', 'ABC1234', '',
+              None, 'AB-12-34-56-7', 'XAXX010101000', 'ABCD9912319Z9', 'ABC0001010A0'):
+        extra.append({'rfc': r, 'dias': C.dias_extra_rfc(r)})
+    # duda de la transmision: con el 1 de octubre y el 1 de diciembre inhabiles en todos los anos
+    original = C.dias_inhabiles_cff12
+    C.dias_inhabiles_cff12 = lambda a: original(a) | {dt.date(a, 10, 1), dt.date(a, 12, 1)}
+    try:
+        movidos = sorted({x['a'] for x in limite if limites(x['a'], x['m']) != x})
+    finally:
+        C.dias_inhabiles_cff12 = original
+    assert not set(movidos) & set(ANIOS_CALENDARIO), f'la transmision mueve fechas en {movidos}'
+    return {'inhabiles': inhabiles, 'no_habiles': no_habiles, 'recorrer': recorrer, 'dias_extra': extra, 'limite': limite,
+            'transmision': {'anios_elegibles': list(ANIOS_CALENDARIO), 'anios_que_se_mueven': movidos}}
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -381,6 +458,8 @@ def main():
         "vectores/lista69b.json": vectores_69b(prod),
         "datos/retenciones.json": datos_retenciones(prod),
         "vectores/retenciones.json": vectores_retenciones(prod),
+        "datos/calendario.json": datos_calendario(prod),
+        "vectores/calendario.json": vectores_calendario(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel
