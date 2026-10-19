@@ -61,7 +61,7 @@
     res.appendChild(el('span', 'etq', hallados.length ? 'Aparecen en el listado' : 'Sin coincidencias'));
     res.appendChild(el('h3', '', hallados.length
       ? hallados.length + ' de ' + consulta.length + (hallados.length === 1 ? ' RFC aparece' : ' RFC aparecen') + ' en el listado 69-B'
-      : 'Ninguno de los ' + consulta.length + ' RFC aparece en el listado 69-B'));
+      : (consulta.length === 1 ? 'El RFC no aparece en el listado 69-B' : 'Ninguno de los ' + consulta.length + ' RFC aparece en el listado 69-B')));
     res.appendChild(el('p', '', 'Cotejado contra el listado del SAT con información al ' + larga(datos.fecha_info) + '. Que un RFC no aparezca significa que no está en ese listado a esa fecha.'));
     if (desdeXml) res.appendChild(el('p', '', 'RFC de emisores tomados de ' + desdeXml + (desdeXml === 1 ? ' XML.' : ' XML.')));
     if (invalidos.length) res.appendChild(el('p', '', 'No tienen forma de RFC y no se consultaron: ' + invalidos.slice(0, 10).join(', ') + (invalidos.length > 10 ? '…' : '') + '.'));
