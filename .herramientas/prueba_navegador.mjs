@@ -194,6 +194,23 @@ async function main() {
   exige(recibidos.length === 5, `de 9 votos seguidos salen 5, el tope (salieron ${recibidos.length})`);
   await p.cerrar();
 
+  console.log('J. factura con retenciones');
+  recibidos.length = 0; modo = 'OK';
+  p = await abrir('/herramientas/factura-con-retenciones/');
+  await p.teclea('#subtotal', '10,000');
+  exige((await p.js("document.querySelector('#iva').value")) === '1,600.00', 'el IVA se rellena al 16 % del subtotal');
+  await p.pulsa('#f-ret button[type=submit]');
+  exige((await p.texto('#res-ret h3')) === 'Se cobra $9,533.33 después de retenciones', `honorarios PF a PM: ${await p.texto('#res-ret h3')}`);
+  await p.pon('#regimen', '626'); await p.pulsa('#f-ret button[type=submit]');
+  exige((await p.texto('#res-ret')).includes('ISR retenido (1.25 %)'), 'RESICO 626: 1.25 % de ISR');
+  await p.js("document.querySelector('input[name=receptor][value=PF]').click()"); await p.pulsa('#f-ret button[type=submit]');
+  exige((await p.texto('#res-ret h3')).startsWith('Si paga una persona física'), 'receptor persona fisica: no aplica');
+  await p.js("document.querySelector('input[name=receptor][value=PM]').click()");
+  await p.js("document.querySelector('#iva').value=''"); await p.teclea('#iva', '1500'); await p.pulsa('#f-ret button[type=submit]');
+  exige((await p.texto('#res-ret')).includes('IVA trasladado (escrito)'), 'el IVA escrito a mano se respeta');
+  exige(recibidos.length === 0 && p.excepciones() === 0 && (await p.violaciones()) === '', 'calcular no envia nada, sin excepciones ni violaciones');
+  await p.cerrar();
+
   console.log('I. lista 69-B: la consulta se hace en el navegador');
   {
     const V69 = JSON.parse(fs.readFileSync(path.join(RAIZ, '.herramientas', 'vectores', 'lista69b.json'), 'utf8'));
@@ -280,7 +297,7 @@ async function main() {
   recibidos.length = 0;
   const articulo = '/blog/' + fs.readdirSync(path.join(RAIZ, 'blog')).filter(d => fs.existsSync(path.join(RAIZ, 'blog', d, 'index.html')))[0] + '/';
   for (const [ruta, pasos] of [
-    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null],
+    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null],
     ['/herramientas/validar-rfc/', async q => { await q.teclea('#rfc', 'EKU9003173C9'); await q.pulsa('#f-rfc button[type=submit]'); await q.pulsa('#res-rfc .op-botones button:nth-child(1)'); }],
     ['/herramientas/valor-uma/', async q => { await q.teclea('#cantidad', '25'); await q.pulsa('#f-uma button[type=submit]'); await q.pulsa('#res-uma .op-botones button:nth-child(1)'); }],
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],

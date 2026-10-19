@@ -71,6 +71,9 @@ const TOMAS = [
   ['lista69b_aparece', '/herramientas/lista-69b/', [escribe('#rfcs', 'AABL9902181Q7\nEKU9003173C9'), envia('#f-69b')]],
   ['lista69b_lote_xml_sin_coincidencias', '/herramientas/lista-69b/', [], { archivos: { sel: '#xml69', lista: ['01_cfdi40_ingreso.xml', '11_enie_en_rfc.xml'] } }],
   ['lista69b_invalido', '/herramientas/lista-69b/', [escribe('#rfcs', 'hola 12345'), envia('#f-69b')]],
+  ['retenciones_honorarios', '/herramientas/factura-con-retenciones/', ["(()=>{const e=document.querySelector('#subtotal');e.value='10,000';e.dispatchEvent(new Event('input',{bubbles:true}));})()", envia('#f-ret')]],
+  ['retenciones_resico', '/herramientas/factura-con-retenciones/', [escribe('#regimen', '626'), "(()=>{const e=document.querySelector('#subtotal');e.value='10,000';e.dispatchEvent(new Event('input',{bubbles:true}));})()", envia('#f-ret')]],
+  ['retenciones_invalido', '/herramientas/factura-con-retenciones/', [escribe('#subtotal', 'diez mil'), envia('#f-ret')]],
   ['factura_pagina_completa', '/herramientas/verificar-factura/', [], { completa: true, archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml'] } }],
 ];
 

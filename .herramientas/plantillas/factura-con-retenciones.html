@@ -1,0 +1,132 @@
+@@TITULO
+¿Cuánto me retienen si facturo a una persona moral? Calculadora | Tax Certeza
+@@TITULO_CORTO
+Factura con retenciones
+@@MIGA
+Factura con retenciones
+@@DESCRIPCION
+Honorarios, arrendamiento y fletes: calcula el IVA y el ISR que retiene una persona moral, con las tasas de la Ley del IVA y la Ley del ISR y el 1.25 % del RESICO.
+@@SCRIPTS
+<script src="/herramientas/factura-con-retenciones/retenciones-datos.js" defer></script>
+<script src="/herramientas/factura-con-retenciones/retenciones.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/factura-con-retenciones/pagina.js" defer></script>
+@@FAQ
+P: ¿Cuánto me retienen si facturo honorarios a una persona moral?
+R: La persona moral retiene dos terceras partes del IVA trasladado y el 10 % del importe como ISR (Ley del IVA, artículo 1o.-A; Reglamento de la Ley del IVA, artículo 3; Ley del ISR, artículo 106). Si estás en el RESICO y tu factura lo declara con el régimen 626, la retención de ISR es del 1.25 % (Ley del ISR, artículo 113-J).
+P: ¿Y si le facturo a una persona física?
+R: Estas retenciones las hace la persona moral. Si quien te paga es una persona física, la página no calcula retención.
+P: ¿Cuánto se retiene en un flete?
+R: En el autotransporte terrestre de bienes, la persona moral que recibe el servicio retiene el 4 % del valor de la contraprestación como IVA (Ley del IVA, artículo 1o.-A, fracción II; Reglamento de la Ley del IVA, artículo 3, fracción II). No hay retención de ISR por este concepto en esta herramienta.
+P: ¿Por qué el IVA retenido sale 1,066.67 y no 1,066.66?
+R: Por el redondeo a centavos. La página usa la misma tasa y el mismo redondeo que el programa: 66.6667 % del IVA y redondeo al centavo par cuando el tercer decimal es exactamente 5.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Factura con retenciones: honorarios, arrendamiento y fletes</h1>
+  <p class="lead">Cuando una persona física factura honorarios o arrendamiento a una persona moral, esta le retiene dos terceras partes del IVA y el 10 % de ISR (1.25 % si el emisor está en el RESICO). En los fletes, la persona moral retiene el 4 % de IVA. Escribe el subtotal de la factura y la página calcula el IVA, las retenciones y lo que se cobra.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-ret">
+  <h2 id="t-ret">Calcular</h2>
+  <form id="f-ret" novalidate>
+    <fieldset class="campo">
+      <legend>¿Qué se factura?</legend>
+      <div class="opciones">
+        <label><input type="radio" name="tipo" value="honorarios" checked> Honorarios (servicios profesionales)</label>
+        <label><input type="radio" name="tipo" value="arrendamiento"> Arrendamiento (renta de un inmueble)</label>
+        <label><input type="radio" name="tipo" value="autotransporte"> Flete (autotransporte terrestre de bienes)</label>
+      </div>
+    </fieldset>
+    <fieldset class="campo">
+      <legend>¿Quién paga la factura?</legend>
+      <div class="opciones en-linea">
+        <label><input type="radio" name="receptor" value="PM" checked> Persona moral</label>
+        <label><input type="radio" name="receptor" value="PF"> Persona física</label>
+      </div>
+      <p class="ayuda">Estas retenciones solo las hace una persona moral.</p>
+    </fieldset>
+    <fieldset class="campo" id="g-emisor">
+      <legend>¿Quién emite la factura?</legend>
+      <div class="opciones en-linea">
+        <label><input type="radio" name="emisor" value="PF" checked> Persona física</label>
+        <label><input type="radio" name="emisor" value="PM"> Persona moral</label>
+      </div>
+    </fieldset>
+    <div class="campo" id="g-regimen">
+      <label for="regimen">Régimen del emisor en la factura</label>
+      <select id="regimen" name="regimen">
+        <option value="otro">Otro régimen (no RESICO)</option>
+        <option value="626">626, Régimen Simplificado de Confianza (RESICO)</option>
+        <option value="">No lo sé</option>
+      </select>
+    </div>
+    <div class="fila">
+      <div class="campo">
+        <label for="subtotal">Subtotal (antes de IVA)</label>
+        <input type="text" id="subtotal" name="subtotal" inputmode="decimal" autocomplete="off" maxlength="20" placeholder="10,000.00">
+      </div>
+      <div class="campo">
+        <label for="iva">IVA trasladado</label>
+        <input type="text" id="iva" name="iva" inputmode="decimal" autocomplete="off" maxlength="20" aria-describedby="iva-ayuda">
+        <p class="ayuda" id="iva-ayuda">IVA calculado al 16 %; si tu factura trae otro IVA, corrígelo.</p>
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Calcular</button>
+    </div>
+  </form>
+  <div class="res" id="res-ret" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para calcular en tu navegador.</p></noscript>
+  <p class="privado"><b>Lo que escribes no sale de tu equipo.</b> El cálculo se hace en tu navegador: esta página no envía los importes a ningún servidor. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Calcula el IVA trasladado al 16 % del subtotal, o usa el que escribas.</li>
+        <li>Calcula el IVA y el ISR que retiene la persona moral en honorarios y arrendamiento de una persona física, y el IVA retenido en fletes.</li>
+        <li>Aplica el 1.25 % de ISR solo cuando el emisor declara el régimen 626.</li>
+        <li>Dice cuánto se cobra después de las retenciones.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No decide si tu operación es honorario, arrendamiento o flete: eso lo eliges tú.</li>
+        <li>No cubre otras retenciones (comisiones, plataformas digitales, residentes en el extranjero, IEPS, impuestos locales).</li>
+        <li>No calcula retenciones si la factura no trae IVA.</li>
+        <li>No calcula el pago provisional del emisor.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se calcula</h2>
+  <p>La herramienta aplica las mismas tasas y el mismo redondeo que el programa Tax Certeza. La base de la retención es el IVA trasladado entre la tasa del IVA. El IVA retenido en honorarios y arrendamiento es el 66.6667 % del IVA trasladado, y en fletes el 4 % de la base. El ISR retenido es el 10 % de la base, o el 1.25 % si el emisor está en el RESICO. Cada importe se redondea a centavos, al centavo par cuando el tercer decimal es exactamente 5.</p>
+  <p>Si no dices el régimen del emisor, la página aplica el 10 % de ISR y lo avisa: si el emisor está en el RESICO, la retención de ISR sería del 1.25 %.</p>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+{{FUENTES_RET}}
+    </ul>
+  </div>
+
+  <h2>Límites</h2>
+  <p>La herramienta aplica las tasas a los importes que escribes. Las retenciones se hacen al pagar y sobre lo efectivamente pagado; si la factura se paga en parcialidades, cada pago lleva su parte. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Si la factura se paga en parcialidades, el plazo de cada complemento de pago está en la <a href="/herramientas/complemento-de-pago/">calculadora de la fecha límite del REP</a>. Para los regímenes y el ingreso cobrado, la guía <a href="/blog/resico-ingresos-cobrados-o-facturados/">RESICO: cuándo cuenta como ingreso una factura</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza revisa los CFDI recibidos de tu cliente persona moral y avisa cuando un honorario, un arrendamiento o un flete no refleja la retención esperada, con estas mismas tasas.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>

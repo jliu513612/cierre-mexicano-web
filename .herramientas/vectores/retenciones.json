@@ -1,0 +1,4822 @@
+{
+ "iva_de_subtotal": [
+  {
+   "subtotal": "10000",
+   "iva": "1600.00"
+  },
+  {
+   "subtotal": "10000.03",
+   "iva": "1600.00"
+  },
+  {
+   "subtotal": "1234.56",
+   "iva": "197.53"
+  },
+  {
+   "subtotal": "999.99",
+   "iva": "160.00"
+  },
+  {
+   "subtotal": "15000",
+   "iva": "2400.00"
+  },
+  {
+   "subtotal": "250.25",
+   "iva": "40.04"
+  },
+  {
+   "subtotal": "83333.33",
+   "iva": "13333.33"
+  },
+  {
+   "subtotal": "100.00",
+   "iva": "16.00"
+  },
+  {
+   "subtotal": "7500.5",
+   "iva": "1200.08"
+  },
+  {
+   "subtotal": "12.5",
+   "iva": "2.00"
+  },
+  {
+   "subtotal": "402532.44",
+   "iva": "64405.19"
+  },
+  {
+   "subtotal": "366574.48",
+   "iva": "58651.92"
+  },
+  {
+   "subtotal": "484625.95",
+   "iva": "77540.15"
+  },
+  {
+   "subtotal": "200092.22",
+   "iva": "32014.76"
+  },
+  {
+   "subtotal": "5868.58",
+   "iva": "938.97"
+  },
+  {
+   "subtotal": "433711.86",
+   "iva": "69393.90"
+  },
+  {
+   "subtotal": "80832.11",
+   "iva": "12933.14"
+  },
+  {
+   "subtotal": "495021.31",
+   "iva": "79203.41"
+  },
+  {
+   "subtotal": "88715.45",
+   "iva": "14194.47"
+  },
+  {
+   "subtotal": "322614.55",
+   "iva": "51618.33"
+  },
+  {
+   "subtotal": "324706.35",
+   "iva": "51953.02"
+  },
+  {
+   "subtotal": "165063.85",
+   "iva": "26410.22"
+  },
+  {
+   "subtotal": "183959.31",
+   "iva": "29433.49"
+  },
+  {
+   "subtotal": "273713.37",
+   "iva": "43794.14"
+  },
+  {
+   "subtotal": "391620.69",
+   "iva": "62659.31"
+  },
+  {
+   "subtotal": "284338.32",
+   "iva": "45494.13"
+  },
+  {
+   "subtotal": "384465.67",
+   "iva": "61514.51"
+  },
+  {
+   "subtotal": "49129.16",
+   "iva": "7860.67"
+  },
+  {
+   "subtotal": "303309.87",
+   "iva": "48529.58"
+  },
+  {
+   "subtotal": "42885.02",
+   "iva": "6861.60"
+  },
+  {
+   "subtotal": "211518.11",
+   "iva": "33842.90"
+  },
+  {
+   "subtotal": "346526.04",
+   "iva": "55444.17"
+  },
+  {
+   "subtotal": "216028.63",
+   "iva": "34564.58"
+  },
+  {
+   "subtotal": "333018.01",
+   "iva": "53282.88"
+  },
+  {
+   "subtotal": "38304.98",
+   "iva": "6128.80"
+  },
+  {
+   "subtotal": "372482.16",
+   "iva": "59597.15"
+  },
+  {
+   "subtotal": "347701.76",
+   "iva": "55632.28"
+  },
+  {
+   "subtotal": "70611.93",
+   "iva": "11297.91"
+  },
+  {
+   "subtotal": "270962.69",
+   "iva": "43354.03"
+  },
+  {
+   "subtotal": "294715.44",
+   "iva": "47154.47"
+  }
+ ],
+ "casos": [
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "125.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "125.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "400.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "400.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "125.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "125.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1066.67",
+   "ret_isr": "1000.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "400.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1600.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "400.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "131.69",
+   "ret_isr": "123.46"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "131.69",
+   "ret_isr": "15.43"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "131.69",
+   "ret_isr": "123.46"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "131.69",
+   "ret_isr": "123.46"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "131.69",
+   "ret_isr": "15.43"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "131.69",
+   "ret_isr": "123.46"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "49.38",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "197.53",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "49.38",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "106.67",
+   "ret_isr": "100.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "106.67",
+   "ret_isr": "12.50"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "106.67",
+   "ret_isr": "100.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "106.67",
+   "ret_isr": "100.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "106.67",
+   "ret_isr": "12.50"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "106.67",
+   "ret_isr": "100.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "40.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "160.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "40.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1600.00",
+   "ret_isr": "1500.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1600.00",
+   "ret_isr": "187.50"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1600.00",
+   "ret_isr": "1500.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1600.00",
+   "ret_isr": "1500.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1600.00",
+   "ret_isr": "187.50"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1600.00",
+   "ret_isr": "1500.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "600.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "2400.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "600.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "26.69",
+   "ret_isr": "25.02"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "26.69",
+   "ret_isr": "3.13"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "26.69",
+   "ret_isr": "25.02"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "26.69",
+   "ret_isr": "25.02"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "26.69",
+   "ret_isr": "3.13"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "26.69",
+   "ret_isr": "25.02"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "10.01",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "40.04",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "10.01",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8888.89",
+   "ret_isr": "8333.33"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8888.89",
+   "ret_isr": "1041.67"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8888.89",
+   "ret_isr": "8333.33"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8888.89",
+   "ret_isr": "8333.33"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8888.89",
+   "ret_isr": "1041.67"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8888.89",
+   "ret_isr": "8333.33"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "3333.33",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "13333.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "3333.33",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "10.67",
+   "ret_isr": "10.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "10.67",
+   "ret_isr": "1.25"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "10.67",
+   "ret_isr": "10.00"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "10.67",
+   "ret_isr": "10.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "10.67",
+   "ret_isr": "1.25"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "10.67",
+   "ret_isr": "10.00"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "4.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "16.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "4.00",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "800.05",
+   "ret_isr": "750.05"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "800.05",
+   "ret_isr": "93.76"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "800.05",
+   "ret_isr": "750.05"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "800.05",
+   "ret_isr": "750.05"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "800.05",
+   "ret_isr": "93.76"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "800.05",
+   "ret_isr": "750.05"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "300.02",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "1200.08",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "300.02",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1.33",
+   "ret_isr": "1.25"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1.33",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1.33",
+   "ret_isr": "1.25"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1.33",
+   "ret_isr": "1.25"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1.33",
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "1.33",
+   "ret_isr": "1.25"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "2.00",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "42936.81",
+   "ret_isr": "40253.24"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "42936.81",
+   "ret_isr": "5031.66"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "42936.81",
+   "ret_isr": "40253.24"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "42936.81",
+   "ret_isr": "40253.24"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "42936.81",
+   "ret_isr": "5031.66"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "42936.81",
+   "ret_isr": "40253.24"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "16101.30",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "64405.19",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "16101.30",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39101.30",
+   "ret_isr": "36657.45"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39101.30",
+   "ret_isr": "4582.18"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39101.30",
+   "ret_isr": "36657.45"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39101.30",
+   "ret_isr": "36657.45"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39101.30",
+   "ret_isr": "4582.18"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39101.30",
+   "ret_isr": "36657.45"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "14662.98",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "58651.92",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "14662.98",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "51693.46",
+   "ret_isr": "48462.59"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "51693.46",
+   "ret_isr": "6057.82"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "51693.46",
+   "ret_isr": "48462.59"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "51693.46",
+   "ret_isr": "48462.59"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "51693.46",
+   "ret_isr": "6057.82"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "51693.46",
+   "ret_isr": "48462.59"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "19385.04",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "77540.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "19385.04",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "21343.18",
+   "ret_isr": "20009.22"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "21343.18",
+   "ret_isr": "2501.15"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "21343.18",
+   "ret_isr": "20009.22"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "21343.18",
+   "ret_isr": "20009.22"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "21343.18",
+   "ret_isr": "2501.15"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "21343.18",
+   "ret_isr": "20009.22"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "8003.69",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "32014.76",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "8003.69",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "625.98",
+   "ret_isr": "586.86"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "625.98",
+   "ret_isr": "73.36"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "625.98",
+   "ret_isr": "586.86"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "625.98",
+   "ret_isr": "586.86"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "625.98",
+   "ret_isr": "73.36"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "625.98",
+   "ret_isr": "586.86"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "234.74",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "938.97",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "234.74",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "46262.62",
+   "ret_isr": "43371.19"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "46262.62",
+   "ret_isr": "5421.40"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "46262.62",
+   "ret_isr": "43371.19"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "46262.62",
+   "ret_isr": "43371.19"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "46262.62",
+   "ret_isr": "5421.40"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "46262.62",
+   "ret_isr": "43371.19"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "17348.48",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "69393.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "17348.48",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8622.10",
+   "ret_isr": "8083.21"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8622.10",
+   "ret_isr": "1010.40"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8622.10",
+   "ret_isr": "8083.21"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8622.10",
+   "ret_isr": "8083.21"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8622.10",
+   "ret_isr": "1010.40"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "8622.10",
+   "ret_isr": "8083.21"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "3233.28",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "12933.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "3233.28",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "52802.30",
+   "ret_isr": "49502.13"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "52802.30",
+   "ret_isr": "6187.77"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "52802.30",
+   "ret_isr": "49502.13"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "52802.30",
+   "ret_isr": "49502.13"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "52802.30",
+   "ret_isr": "6187.77"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "52802.30",
+   "ret_isr": "49502.13"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "19800.85",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "79203.41",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "19800.85",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "9462.98",
+   "ret_isr": "8871.54"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "9462.98",
+   "ret_isr": "1108.94"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "9462.98",
+   "ret_isr": "8871.54"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "9462.98",
+   "ret_isr": "8871.54"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "9462.98",
+   "ret_isr": "1108.94"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "9462.98",
+   "ret_isr": "8871.54"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "3548.62",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "14194.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "3548.62",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34412.24",
+   "ret_isr": "32261.46"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34412.24",
+   "ret_isr": "4032.68"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34412.24",
+   "ret_isr": "32261.46"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34412.24",
+   "ret_isr": "32261.46"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34412.24",
+   "ret_isr": "4032.68"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34412.24",
+   "ret_isr": "32261.46"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "12904.58",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "51618.33",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "12904.58",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34635.36",
+   "ret_isr": "32470.64"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34635.36",
+   "ret_isr": "4058.83"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34635.36",
+   "ret_isr": "32470.64"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34635.36",
+   "ret_isr": "32470.64"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34635.36",
+   "ret_isr": "4058.83"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "34635.36",
+   "ret_isr": "32470.64"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "12988.26",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "51953.02",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "12988.26",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "17606.82",
+   "ret_isr": "16506.39"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "17606.82",
+   "ret_isr": "2063.30"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "17606.82",
+   "ret_isr": "16506.39"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "17606.82",
+   "ret_isr": "16506.39"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "17606.82",
+   "ret_isr": "2063.30"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "17606.82",
+   "ret_isr": "16506.39"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "6602.56",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "26410.22",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "6602.56",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "19622.34",
+   "ret_isr": "18395.93"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "19622.34",
+   "ret_isr": "2299.49"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "19622.34",
+   "ret_isr": "18395.93"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "19622.34",
+   "ret_isr": "18395.93"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "19622.34",
+   "ret_isr": "2299.49"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "19622.34",
+   "ret_isr": "18395.93"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "7358.37",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "29433.49",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "7358.37",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "29196.11",
+   "ret_isr": "27371.34"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "29196.11",
+   "ret_isr": "3421.42"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "29196.11",
+   "ret_isr": "27371.34"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "29196.11",
+   "ret_isr": "27371.34"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "29196.11",
+   "ret_isr": "3421.42"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "29196.11",
+   "ret_isr": "27371.34"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "10948.54",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "43794.14",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "10948.54",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41772.89",
+   "ret_isr": "39162.07"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41772.89",
+   "ret_isr": "4895.26"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41772.89",
+   "ret_isr": "39162.07"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41772.89",
+   "ret_isr": "39162.07"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41772.89",
+   "ret_isr": "4895.26"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41772.89",
+   "ret_isr": "39162.07"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "15664.83",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "62659.31",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "15664.83",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "30329.44",
+   "ret_isr": "28433.83"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "30329.44",
+   "ret_isr": "3554.23"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "30329.44",
+   "ret_isr": "28433.83"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "30329.44",
+   "ret_isr": "28433.83"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "30329.44",
+   "ret_isr": "3554.23"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "30329.44",
+   "ret_isr": "28433.83"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "11373.53",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "45494.13",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "11373.53",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41009.69",
+   "ret_isr": "38446.57"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41009.69",
+   "ret_isr": "4805.82"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41009.69",
+   "ret_isr": "38446.57"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41009.69",
+   "ret_isr": "38446.57"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41009.69",
+   "ret_isr": "4805.82"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "41009.69",
+   "ret_isr": "38446.57"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "15378.63",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "61514.51",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "15378.63",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "5240.45",
+   "ret_isr": "4912.92"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "5240.45",
+   "ret_isr": "614.11"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "5240.45",
+   "ret_isr": "4912.92"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "5240.45",
+   "ret_isr": "4912.92"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "5240.45",
+   "ret_isr": "614.11"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "5240.45",
+   "ret_isr": "4912.92"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "1965.17",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "7860.67",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "1965.17",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "32353.07",
+   "ret_isr": "30330.99"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "32353.07",
+   "ret_isr": "3791.37"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "32353.07",
+   "ret_isr": "30330.99"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "32353.07",
+   "ret_isr": "30330.99"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "32353.07",
+   "ret_isr": "3791.37"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "32353.07",
+   "ret_isr": "30330.99"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "12132.40",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "48529.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "12132.40",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4574.40",
+   "ret_isr": "4288.50"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4574.40",
+   "ret_isr": "536.06"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4574.40",
+   "ret_isr": "4288.50"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4574.40",
+   "ret_isr": "4288.50"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4574.40",
+   "ret_isr": "536.06"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4574.40",
+   "ret_isr": "4288.50"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "1715.40",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "6861.60",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "1715.40",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "22561.94",
+   "ret_isr": "21151.81"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "22561.94",
+   "ret_isr": "2643.98"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "22561.94",
+   "ret_isr": "21151.81"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "22561.94",
+   "ret_isr": "21151.81"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "22561.94",
+   "ret_isr": "2643.98"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "22561.94",
+   "ret_isr": "21151.81"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "8460.72",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "33842.90",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "8460.72",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "36962.80",
+   "ret_isr": "34652.61"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "36962.80",
+   "ret_isr": "4331.58"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "36962.80",
+   "ret_isr": "34652.61"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "36962.80",
+   "ret_isr": "34652.61"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "36962.80",
+   "ret_isr": "4331.58"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "36962.80",
+   "ret_isr": "34652.61"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "13861.04",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "55444.17",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "13861.04",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "23043.06",
+   "ret_isr": "21602.86"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "23043.06",
+   "ret_isr": "2700.36"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "23043.06",
+   "ret_isr": "21602.86"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "23043.06",
+   "ret_isr": "21602.86"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "23043.06",
+   "ret_isr": "2700.36"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "23043.06",
+   "ret_isr": "21602.86"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "8641.14",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "34564.58",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "8641.14",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "35521.94",
+   "ret_isr": "33301.80"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "35521.94",
+   "ret_isr": "4162.72"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "35521.94",
+   "ret_isr": "33301.80"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "35521.94",
+   "ret_isr": "33301.80"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "35521.94",
+   "ret_isr": "4162.72"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "35521.94",
+   "ret_isr": "33301.80"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "13320.72",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "53282.88",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "13320.72",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4085.87",
+   "ret_isr": "3830.50"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4085.87",
+   "ret_isr": "478.81"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4085.87",
+   "ret_isr": "3830.50"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4085.87",
+   "ret_isr": "3830.50"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4085.87",
+   "ret_isr": "478.81"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "4085.87",
+   "ret_isr": "3830.50"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "1532.20",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "6128.80",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "1532.20",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39731.45",
+   "ret_isr": "37248.22"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39731.45",
+   "ret_isr": "4656.03"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39731.45",
+   "ret_isr": "37248.22"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39731.45",
+   "ret_isr": "37248.22"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39731.45",
+   "ret_isr": "4656.03"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "39731.45",
+   "ret_isr": "37248.22"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "14899.29",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "59597.15",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "14899.29",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "37088.21",
+   "ret_isr": "34770.18"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "37088.21",
+   "ret_isr": "4346.27"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "37088.21",
+   "ret_isr": "34770.18"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "37088.21",
+   "ret_isr": "34770.18"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "37088.21",
+   "ret_isr": "4346.27"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "37088.21",
+   "ret_isr": "34770.18"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "13908.07",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "55632.28",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "13908.07",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "7531.94",
+   "ret_isr": "7061.19"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "7531.94",
+   "ret_isr": "882.65"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "7531.94",
+   "ret_isr": "7061.19"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "7531.94",
+   "ret_isr": "7061.19"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "7531.94",
+   "ret_isr": "882.65"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "7531.94",
+   "ret_isr": "7061.19"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "2824.48",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "11297.91",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "2824.48",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "28902.70",
+   "ret_isr": "27096.27"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "28902.70",
+   "ret_isr": "3387.03"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "28902.70",
+   "ret_isr": "27096.27"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "28902.70",
+   "ret_isr": "27096.27"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "28902.70",
+   "ret_isr": "3387.03"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "28902.70",
+   "ret_isr": "27096.27"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "10838.51",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "43354.03",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "10838.51",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "31436.33",
+   "ret_isr": "29471.54"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "31436.33",
+   "ret_isr": "3683.94"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "31436.33",
+   "ret_isr": "29471.54"
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "31436.33",
+   "ret_isr": "29471.54"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "626",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "31436.33",
+   "ret_isr": "3683.94"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PF",
+   "regimen": "",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-PF-SERV-REVISAR"
+   ],
+   "ret_iva": "31436.33",
+   "ret_isr": "29471.54"
+  },
+  {
+   "tipo": "arrendamiento",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "11788.62",
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PM",
+   "regimen": "601",
+   "iva": "47154.47",
+   "receptor": "PM",
+   "codigos": [
+    "RET-AUTOTRANSP-REVISAR"
+   ],
+   "ret_iva": "11788.62",
+   "ret_isr": null
+  },
+  {
+   "tipo": "honorarios",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PF",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  },
+  {
+   "tipo": "autotransporte",
+   "emisor": "PF",
+   "regimen": "612",
+   "iva": "1600.00",
+   "receptor": "PF",
+   "codigos": [],
+   "ret_iva": null,
+   "ret_isr": null
+  }
+ ]
+}
