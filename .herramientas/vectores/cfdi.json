@@ -1,0 +1,325 @@
+{
+ "casos": [
+  {
+   "archivo": "01_cfdi40_ingreso.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "6F1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "6F1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "02_cfdi33_ingreso.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "3.3",
+    "uuid": "A1B2C3D4-E5F6-4711-8899-AABBCCDDEEFF",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "A1B2C3D4-E5F6-4711-8899-AABBCCDDEEFF",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "03_pago20_total_cero.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "11111111-2222-4333-8444-555555555555",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "P",
+    "moneda": "XXX",
+    "total": "0.0"
+   },
+   "enlace_producto": {
+    "id": "11111111-2222-4333-8444-555555555555",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "0.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "04_sin_timbre.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": null,
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   }
+  },
+  {
+   "archivo": "05_receptor_con_ampersand.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "22222222-3333-4444-8555-666666666666",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "H&E951128469",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "22222222-3333-4444-8555-666666666666",
+    "re": "EKU9003173C9",
+    "rr": "H&E951128469",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "06_total_sin_decimales.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "33333333-4444-4555-8666-777777777777",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "33333333-4444-4555-8666-777777777777",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "07_total_con_seis_decimales.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "44444444-5555-4666-8777-888888888888",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1234567.891234"
+   },
+   "enlace_producto": {
+    "id": "44444444-5555-4666-8777-888888888888",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1234567.891234",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "08_uuid_minusculas.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "6f1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4e",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "6f1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4e",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "09_con_bom.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "55555555-6666-4777-8888-999999999999",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "55555555-6666-4777-8888-999999999999",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "10_receptor_extranjero_generico.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "66666666-7777-4888-8999-AAAAAAAAAAAA",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XEXX010101000",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "66666666-7777-4888-8999-AAAAAAAAAAAA",
+    "re": "EKU9003173C9",
+    "rr": "XEXX010101000",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "11_enie_en_rfc.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "77777777-8888-4999-8AAA-BBBBBBBBBBBB",
+    "emisor_rfc": "OÑO120726RX3",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "77777777-8888-4999-8AAA-BBBBBBBBBBBB",
+    "re": "OÑO120726RX3",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "12_falta_sello_y_total.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "88888888-9999-4AAA-8BBB-CCCCCCCCCCCC",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "0.0"
+   }
+  },
+  {
+   "archivo": "13_sin_receptor.xml",
+   "producto_lee": false
+  },
+  {
+   "archivo": "14_no_es_cfdi.xml",
+   "producto_lee": false
+  },
+  {
+   "archivo": "15_xml_roto.xml",
+   "producto_lee": false
+  },
+  {
+   "archivo": "16_retenciones.xml",
+   "producto_lee": false
+  },
+  {
+   "archivo": "17_vacio.xml",
+   "producto_lee": false
+  },
+  {
+   "archivo": "18_sello_corto.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "AAAAAAAA-BBBB-4CCC-8DDD-EEEEEEEEEEEE",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "AAAAAAAA-BBBB-4CCC-8DDD-EEEEEEEEEEEE",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "abc"
+   }
+  },
+  {
+   "archivo": "19_atributos_con_comillas_simples.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "BBBBBBBB-CCCC-4DDD-8EEE-FFFFFFFFFFFF",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "BBBBBBBB-CCCC-4DDD-8EEE-FFFFFFFFFFFF",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  },
+  {
+   "archivo": "20_entidad_numerica.xml",
+   "producto_lee": true,
+   "producto": {
+    "version": "4.0",
+    "uuid": "CCCCCCCC-DDDD-4EEE-8FFF-000000000000",
+    "emisor_rfc": "EKU9003173C9",
+    "receptor_rfc": "XIQB891116QE4",
+    "fecha": "2026-10-08T12:30:00",
+    "tipo": "I",
+    "moneda": "MXN",
+    "total": "1160.0"
+   },
+   "enlace_producto": {
+    "id": "CCCCCCCC-DDDD-4EEE-8FFF-000000000000",
+    "re": "EKU9003173C9",
+    "rr": "XIQB891116QE4",
+    "tt": "1160.000000",
+    "fe": "XyZ12345"
+   }
+  }
+ ]
+}
