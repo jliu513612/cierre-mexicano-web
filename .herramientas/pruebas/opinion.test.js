@@ -77,7 +77,7 @@ test('opinion: deben FALLAR el campo trampa relleno y los datos fuera de la list
 test('opinion: los scripts de pagina solo le pasan la herramienta y la clase del resultado', () => {
   // Trinquete sobre el fuente (el sujeto ES el fuente): la prueba de comportamiento esta en prueba_navegador.mjs.
   let llamadas = 0;
-  for (const h of ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones']) {
+  for (const h of ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones', 'calendario-dia-17']) {
     const s = fs.readFileSync(path.join(RAIZ, 'herramientas', h, 'pagina.js'), 'utf8');
     for (const m of s.matchAll(/TCOpinion\.mostrar\(([^;]*)\);/g)) {
       llamadas++;
@@ -87,11 +87,11 @@ test('opinion: los scripts de pagina solo le pasan la herramienta y la clase del
       assert.ok(!/\.value|campo|cantidad|fecha/i.test(args[2]), `el tercer argumento parece lo tecleado: ${m[0]}`);
     }
   }
-  assert.equal(llamadas, 9);
+  assert.equal(llamadas, 10);
 });
 
 test('opinion: el formulario estatico que detecta Netlify tiene los mismos campos que el envio', () => {
-  for (const h of ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones']) {
+  for (const h of ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones', 'calendario-dia-17']) {
     const html = fs.readFileSync(path.join(RAIZ, 'herramientas', h, 'index.html'), 'utf8');
     const f = /<form name="opinion-herramientas"[^>]*>(.*?)<\/form>/s.exec(html);
     assert.ok(f, h);

@@ -74,6 +74,8 @@ const TOMAS = [
   ['retenciones_honorarios', '/herramientas/factura-con-retenciones/', ["(()=>{const e=document.querySelector('#subtotal');e.value='10,000';e.dispatchEvent(new Event('input',{bubbles:true}));})()", envia('#f-ret')]],
   ['retenciones_resico', '/herramientas/factura-con-retenciones/', [escribe('#regimen', '626'), "(()=>{const e=document.querySelector('#subtotal');e.value='10,000';e.dispatchEvent(new Event('input',{bubbles:true}));})()", envia('#f-ret')]],
   ['retenciones_invalido', '/herramientas/factura-con-retenciones/', [escribe('#subtotal', 'diez mil'), envia('#f-ret')]],
+  ['calendario_2026', '/herramientas/calendario-dia-17/', []],
+  ['calendario_2027_rfc', '/herramientas/calendario-dia-17/', [escribe('#anio', '2027'), escribe('#rfc', 'XIQB891116QE4'), envia('#f-cal')]],
   ['factura_pagina_completa', '/herramientas/verificar-factura/', [], { completa: true, archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml'] } }],
 ];
 

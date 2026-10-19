@@ -59,6 +59,18 @@ const SABOTAJES = [
   ['ret: la base sale del subtotal y no del IVA', H('factura-con-retenciones/retenciones.js'), 'var base = divPar(iva * IVA[1], IVA[0]);', 'var base = sub;'],
   ['ret: una persona fisica que paga tambien retiene', H('factura-con-retenciones/retenciones.js'), "if (p.receptor !== 'PM') { r.estado = 'NO_APLICA_RECEPTOR_PF'; r.neto = texto(sub + iva); return r; }", ''],
   ['ret: el IVA deja de rellenarse en la pagina', H('factura-con-retenciones/pagina.js'), "iva.value = v === null ? '' : miles(v);", '', 'nav'],
+  // --- Calendario del dia 17
+  ['cal: el 1 de diciembre de transmision sin el tope de 2018', H('calendario-dia-17/calendario.js'), "if (md === 1201 && f.a <= HASTA && f.a % 6 === HASTA % 6) return 'TRANSMISION';", "if (md === 1201 && f.a % 6 === HASTA % 6) return 'TRANSMISION';"],
+  ['cal: tercer lunes de febrero en vez del primero', H('calendario-dia-17/calendario.js'), "if (f.m === 2 && f.d === nLunes(f.a, 2, 1)) return 'CONSTITUCION';", "if (f.m === 2 && f.d === nLunes(f.a, 2, 3)) return 'CONSTITUCION';"],
+  ['cal: sin el 5 de mayo (lista de la LFT, no del CFF)', H('calendario-dia-17/calendario.js'), "if (md === 505) return 'CINCO_DE_MAYO';", ''],
+  ['cal: la facilidad sin un si explicito', H('calendario-dia-17/calendario.js'), 'return iso(prorroga === true ? masHabiles(base, diasExtraRfc(rfc)) : base);', 'return iso(prorroga ? masHabiles(base, diasExtraRfc(rfc)) : base);'],
+  ['cal: la facilidad tambien a la DIOT', H('calendario-dia-17/calendario.js'), "if (obligacion === 'DIOT') return iso(recorrer(ultimoDia(s.a, s.m)));", "if (obligacion === 'DIOT') return iso(prorroga === true ? masHabiles(recorrer(ultimoDia(s.a, s.m)), diasExtraRfc(rfc)) : recorrer(ultimoDia(s.a, s.m)));"],
+  ['cal: sexto caracter en vez de sexto digito', H('calendario-dia-17/calendario.js'), 'return dig.length < 6 ? 0 : datos.dias_por_digito[dig.charAt(5)];', 'return dig.length < 6 ? 0 : (datos.dias_por_digito[String(rfc).charAt(5)] || 0);'],
+  ['cal: los dias de la facilidad contados naturales', H('calendario-dia-17/calendario.js'), 'while (k > 0) { n += 1; if (!motivo(deDias(n))) k -= 1; }', 'while (k > 0) { n += 1; k -= 1; }'],
+  ['cal: se ofrece un ano sin medir', H('calendario-dia-17/calendario-datos.js'), '"anios": [\n  2026,\n  2027\n ]', '"anios": [\n  2026,\n  2027,\n  2028\n ]'],
+  ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
+  ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
+  ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
   // --- Lista 69-B
   ['69b: el listado responde a nombres heredados de JavaScript', H('lista-69b/lista69b.js'), "(datos && datos.r && Object.prototype.hasOwnProperty.call(datos.r, rfc)) ? datos.r[rfc] : []", "(datos && datos.r && datos.r[rfc]) || []"],
   ['69b: el fallo de actualizacion no se dice', H('lista-69b/lista69b.js'), "return datos.estado === 'NO_SE_PUDO_ACTUALIZAR' ? 'NO_SE_PUDO_ACTUALIZAR' : 'ACTUALIZADO';", "return 'ACTUALIZADO';", 'nav'],
