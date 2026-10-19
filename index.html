@@ -112,6 +112,13 @@
   .why-card ul{list-style:none}
   .why-card li{padding:7px 0 7px 26px;position:relative;font-size:15px;color:#334155}
   .why-card.us li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  /* Al día con la ley */
+  .aldia-lista{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:820px;margin:0 auto}
+  .aldia-lista li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;font-size:15px;color:#334155}
+  .aldia-lista b{display:block;color:var(--ink);margin-bottom:4px;font-size:16px}
+  .aldia-mas{text-align:center;margin-top:22px}
+  .aldia-mas a{color:var(--brand);font-weight:600}
+  @media(max-width:680px){.aldia-lista{grid-template-columns:1fr}}
   .why-card.them li:before{content:"–";position:absolute;left:2px;color:var(--muted);font-weight:800}
   .why-card.us{border:2px solid var(--brand)}
   @media(max-width:680px){.why-grid{grid-template-columns:1fr}}
@@ -317,6 +324,20 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="al-dia" aria-labelledby="al-dia-titulo">
+  <div class="wrap">
+    <h2 class="sec-title" id="al-dia-titulo">Al día con la ley</h2>
+    <p class="sec-sub">Las reglas fiscales cambian. Así sigue el paso Tax Certeza.</p>
+    <ul class="aldia-lista">
+      <li><b>Vigilamos el Diario Oficial</b>Revisamos sus publicaciones para detectar los cambios que tocan a los cálculos del programa.</li>
+      <li><b>El valor de la fecha de cada operación</b>La UMA, el salario mínimo y el subsidio para el empleo se toman con el valor vigente en la fecha de la operación.</li>
+      <li><b>Actualizaciones desde el programa</b>Buscas la versión nueva con «Buscar actualización» y la instalas desde ahí; antes de instalarse se verifica su firma digital.</li>
+      <li><b>Las leyes, a la vista</b>Cada norma que usan los cálculos, con su texto oficial y la fecha de nuestra última revisión.</li>
+    </ul>
+    <p class="aldia-mas"><a href="/ayuda/leyes/">Ver las leyes que usamos</a></p>
   </div>
 </section>
 
