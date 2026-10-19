@@ -1,0 +1,60 @@
+/* GENERADO por .herramientas/construir.py desde .herramientas/datos/retenciones.json. No se edita a mano. */
+(function (raiz, datos) {
+  if (typeof module === 'object' && module.exports) module.exports = datos;
+  else raiz.TCRetencionesDatos = datos;
+})(this, {
+ "producto_commit": "2e984389",
+ "iva_tasa_general": "16",
+ "ret_iva_autotransporte": "4",
+ "ret_iva_pf_pct_del_iva": "66.6667",
+ "ret_isr_pf_servicios": "10",
+ "ret_isr_resico": "1.25",
+ "claves_semilla": {
+  "honorarios": [
+   "801015",
+   "801216",
+   "841115"
+  ],
+  "arrendamiento": [
+   "80131500",
+   "80131501",
+   "80131502",
+   "80131503"
+  ],
+  "autotransporte": [
+   "781018"
+  ]
+ },
+ "fuentes": {
+  "liva-1-a": {
+   "cita": "LIVA, artículo 1o.-A",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 12-11-2021",
+   "verificado": "2026-07-06"
+  },
+  "rliva-3": {
+   "cita": "RLIVA, artículo 3",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LIVA_250914.pdf",
+   "vigencia": "Texto vigente segun la cabecera del propio PDF: «Nuevo Reglamento publicado en el DOF el 4 de diciembre de 2006 -- TEXTO VIGENTE -- Ultima reforma publicada DOF 25-09-2014». Esa es la reforma del DOCUMENTO; la entrada en vigor del articulo 3 no la dice el PDF: no verificada.",
+   "verificado": "2026-09-21"
+  },
+  "lisr-106": {
+   "cita": "LISR, artículo 106",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "vigencia": "Texto vigente — ultima reforma del documento DOF 01-04-2024 (cabecera del PDF). El parrafo de la retencion lleva en el propio PDF la nota «Parrafo reformado DOF 09-12-2019». La entrada en vigor del articulo no la dice la fuente: no verificada.",
+   "verificado": "2026-09-21"
+  },
+  "lisr-116": {
+   "cita": "LISR, artículo 116",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "vigencia": "Texto vigente — ultima reforma del documento DOF 01-04-2024 (cabecera del PDF). El parrafo de la retencion lleva en el propio PDF la nota «Parrafo reformado DOF 09-12-2019». La entrada en vigor del articulo no la dice la fuente: no verificada.",
+   "verificado": "2026-09-21"
+  },
+  "lisr-113-j": {
+   "cita": "LISR, artículo 113-J",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "vigencia": "Texto vigente — última reforma DOF 01-04-2024 (artículo adicionado DOF 12-11-2021; sin reforma posterior)",
+   "verificado": "2026-09-01"
+  }
+ }
+});

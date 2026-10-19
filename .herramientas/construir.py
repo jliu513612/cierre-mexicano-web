@@ -24,6 +24,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "complemento-de-pago": "/herramientas/complemento-de-pago/",
     "verificar-factura": "/herramientas/verificar-factura/",
     "lista-69b": "/herramientas/lista-69b/",
+    "factura-con-retenciones": "/herramientas/factura-con-retenciones/",
 }
 
 
@@ -90,6 +91,26 @@ def leer_plantilla(nombre):
 
 def construir():
     datos_uma, v_uma = variables_uma()
+    _ret = json.loads((AQUI / "datos" / "retenciones.json").read_text(encoding="utf-8"))
+    _que = {"liva-1-a": "quién está obligado a retener el IVA, entre ellos la persona moral que recibe servicios personales independientes, usa o goza bienes de una persona física, o recibe servicios de autotransporte terrestre de bienes",
+            "rliva-3": "retención en cantidad menor: dos terceras partes del IVA (fracción I) y 4 % del valor del flete (fracción II)",
+            "lisr-106": "retención del 10 % que hace la persona moral sobre los servicios profesionales",
+            "lisr-116": "retención del 10 % que hace la persona moral sobre el arrendamiento de inmuebles",
+            "lisr-113-j": "retención del 1.25 % que hace la persona moral a una persona física del RESICO"}
+    _ley = {"LIVA": "Ley del IVA", "RLIVA": "Reglamento de la Ley del IVA", "LISR": "Ley del ISR"}
+
+    def _reforma(v):
+        m = re.search(r"[UuÚú]ltima reforma(?: publicada| del documento)? DOF (\d{2}-\d{2}-\d{4})", v)
+        if not m:
+            raise SystemExit(f"sin fecha de ultima reforma en la vigencia: {v}")
+        return f"Texto vigente, última reforma DOF {m.group(1)}"
+
+    def _cita(c):
+        ley, resto = c.split(", ", 1)
+        return f"{_ley[ley]}, {resto}"
+    v_uma["FUENTES_RET"] = "\n".join(
+        f'      <li><a href="{html.escape(f["url"])}" rel="noopener">{html.escape(_cita(f["cita"]))}</a>: {_que[k]}. {_reforma(f["vigencia"])}.</li>'
+        for k, f in _ret["fuentes"].items())
     base = (AQUI / "plantillas" / "base.html").read_text(encoding="utf-8")
     salidas = {}
     for nombre, ruta in PAGINAS.items():
@@ -134,6 +155,11 @@ def construir():
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/uma.json. No se edita a mano. */\n"
         "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
         "  else raiz.TCUmaDatos = datos;\n})(this, " + json.dumps(limpio, ensure_ascii=False, indent=1) + ");\n")
+    ret = {k: v for k, v in json.loads((AQUI / "datos" / "retenciones.json").read_text(encoding="utf-8")).items() if k != "_nota"}
+    salidas["herramientas/factura-con-retenciones/retenciones-datos.js"] = (
+        "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/retenciones.json. No se edita a mano. */\n"
+        "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
+        "  else raiz.TCRetencionesDatos = datos;\n})(this, " + json.dumps(ret, ensure_ascii=False, indent=1) + ");\n")
     return salidas
 
 

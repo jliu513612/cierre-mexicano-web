@@ -298,6 +298,73 @@ def vectores_69b(prod):
             'rfc_cotejados': len(del_prod), 'muestra': {k: del_prod[k] for k in muestra}}
 
 
+def datos_retenciones(prod):
+    """Tasas de retencion: las de nomina_tablas (las que usa validador_retenciones), con el id de su fuente legal."""
+    import nomina_tablas as T
+    reg = json.loads((prod / 'references' / 'afirmaciones_legales.json').read_text(encoding='utf-8'))['articulos']
+    fuentes = {}
+    for k in ('liva-1-a', 'rliva-3', 'lisr-106', 'lisr-116', 'lisr-113-j'):
+        a = reg[k]
+        fuentes[k] = {'cita': f"{a['ley']}, artículo {a['articulo']}", 'url': a['fuente_url'], 'vigencia': a['vigencia'],
+                      'verificado': a['fecha_verificacion']}
+    commit = subprocess.run(['git', '-C', str(prod), 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
+    return {
+        '_nota': 'GENERADO por .herramientas/extraer_del_producto.py desde nomina_tablas del programa. No se edita a mano.',
+        'producto_commit': commit,
+        # porcentajes TAL CUAL el programa (RET_IVA_PF_PCT_DEL_IVA es 66.6667, no 2/3 exacto)
+        'iva_tasa_general': str(T.IVA_TASA_GENERAL), 'ret_iva_autotransporte': str(T.RET_IVA_AUTOTRANSPORTE),
+        'ret_iva_pf_pct_del_iva': str(T.RET_IVA_PF_PCT_DEL_IVA), 'ret_isr_pf_servicios': str(T.RET_ISR_PF_SERVICIOS),
+        'ret_isr_resico': str(T.RET_ISR_RESICO), 'claves_semilla': {
+            'honorarios': list(__import__('validador_retenciones').CLAVE_HONORARIOS),
+            'arrendamiento': list(__import__('validador_retenciones').CLAVE_ARRENDAMIENTO),
+            'autotransporte': list(__import__('validador_retenciones').CLAVE_AUTOTRANSPORTE_CARGA)},
+        'fuentes': fuentes,
+    }
+
+
+def vectores_retenciones(prod):
+    """Se EJECUTA validador_retenciones.validar_retenciones sobre CFDI sinteticos SIN retencion: el hallazgo trae la
+    retencion esperada. El IVA a partir del subtotal (lo unico que el programa no calcula) usa money.quantize_cents."""
+    import validador_retenciones as VR
+    import nomina_tablas as T
+    from money import quantize_cents
+    tasa = T.IVA_TASA_GENERAL / Decimal(100)
+    clave = {'honorarios': VR.CLAVE_HONORARIOS[0] + '00', 'arrendamiento': VR.CLAVE_ARRENDAMIENTO[0],
+             'autotransporte': VR.CLAVE_AUTOTRANSPORTE_CARGA[0] + '00'}
+    rnd = random.Random(116)
+    subtotales = ['10000', '10000.03', '1234.56', '999.99', '15000', '250.25', '83333.33', '100.00', '7500.5', '12.5']
+    subtotales += [str(Decimal(rnd.randrange(1000, 50000000)) / 100) for _ in range(30)]
+    casos, iva_de = [], []
+    for s in subtotales:
+        iva_de.append({'subtotal': s, 'iva': str(quantize_cents(Decimal(s) * tasa))})
+    def correr(tipo, emisor, regimen, iva, receptor='PM'):
+        rfc_e = 'XIQB891116QE4' if emisor == 'PF' else 'EKU9003173C9'
+        c = {'tipo_comprobante': 'I', 'emisor_rfc': rfc_e, 'emisor_regimen': regimen, 'metodo_pago': 'PUE',
+             'fecha': '2026-10-01T10:00:00', 'subtotal': str(quantize_cents(Decimal(iva) / tasa)), 'iva_total_traslados': iva,
+             'iva_total_retenido': '0', 'isr_total_retenido': '0', 'uuid': 'X',
+             'conceptos': [{'clave_prod_serv': clave[tipo], 'importe': str(quantize_cents(Decimal(iva) / tasa)), 'descuento': '0',
+                            'tasas': [{'tasa': '0.16', 'importe_iva': iva}]}]}
+        h = VR.validar_retenciones([c], None, tipo_persona=receptor)
+        txt = ' '.join(x.get('detalle', '') for x in h if str(x.get('codigo', '')).startswith('RET-'))
+        m_iva = re.search(r'IVA ret\. ≈ \$([\d.]+)', txt)
+        m_isr = re.search(r'ISR ret\. ≈ \$([\d.]+)', txt)
+        m_auto = re.search(r'≈ \$([\d.]+) \(4% de', txt) or re.search(r'reflejar ≈ \$([\d.]+)', txt)
+        return {'codigos': sorted({x.get('codigo') for x in h}),
+                'ret_iva': (m_auto.group(1) if tipo == 'autotransporte' and m_auto else (m_iva.group(1) if m_iva else None)),
+                'ret_isr': m_isr.group(1) if m_isr else None}
+    for x in iva_de:
+        for tipo in ('honorarios', 'arrendamiento', 'autotransporte'):
+            for emisor, regimen in (('PF', '612'), ('PF', '626'), ('PF', ''), ('PM', '601')):
+                if tipo == 'autotransporte' and emisor == 'PF' and regimen != '612':
+                    continue
+                r = correr(tipo, emisor, regimen, x['iva'])
+                casos.append({'tipo': tipo, 'emisor': emisor, 'regimen': regimen, 'iva': x['iva'], 'receptor': 'PM', **r})
+    for tipo in ('honorarios', 'autotransporte'):
+        r = correr(tipo, 'PF', '612', '1600.00', receptor='PF')
+        casos.append({'tipo': tipo, 'emisor': 'PF', 'regimen': '612', 'iva': '1600.00', 'receptor': 'PF', **r})
+    return {'iva_de_subtotal': iva_de, 'casos': casos}
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -312,6 +379,8 @@ def main():
         "vectores/rep.json": vectores_rep(prod),
         "vectores/cfdi.json": vectores_cfdi(prod),
         "vectores/lista69b.json": vectores_69b(prod),
+        "datos/retenciones.json": datos_retenciones(prod),
+        "vectores/retenciones.json": vectores_retenciones(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel

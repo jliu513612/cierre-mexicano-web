@@ -52,6 +52,13 @@ const SABOTAJES = [
   // --- Selector de archivos en español
   ['selector: el estado vuelve a depender del idioma del navegador', H('selector-archivos.js'), "n + ' archivos seleccionados'", "n + ' files selected'", 'nav'],
   ['selector: el input nativo vuelve a verse (la regla deja de aplicarse)', H('herramientas.css'), '.oculto-accesible{position:absolute;', '.oculto-x{position:absolute;', 'nav'],
+  // --- Factura con retenciones
+  ['ret: 2/3 exacto en vez del 0.666667 del programa', H('factura-con-retenciones/retenciones-datos.js'), '"ret_iva_pf_pct_del_iva": "66.6667"', '"ret_iva_pf_pct_del_iva": "66.6666666667"'],
+  ['ret: redondeo medio hacia arriba en vez de medio al par', H('factura-con-retenciones/retenciones.js'), "if (r * 2n > d || (r * 2n === d && q % 2n === 1n)) q += 1n;", "if (r * 2n >= d) q += 1n;"],
+  ['ret: el 1.25 % sin regimen 626 declarado', H('factura-con-retenciones/retenciones.js'), "var esResico = p.regimen === '626';", "var esResico = p.regimen !== 'otro';"],
+  ['ret: la base sale del subtotal y no del IVA', H('factura-con-retenciones/retenciones.js'), 'var base = divPar(iva * IVA[1], IVA[0]);', 'var base = sub;'],
+  ['ret: una persona fisica que paga tambien retiene', H('factura-con-retenciones/retenciones.js'), "if (p.receptor !== 'PM') { r.estado = 'NO_APLICA_RECEPTOR_PF'; r.neto = texto(sub + iva); return r; }", ''],
+  ['ret: el IVA deja de rellenarse en la pagina', H('factura-con-retenciones/pagina.js'), "iva.value = v === null ? '' : miles(v);", '', 'nav'],
   // --- Lista 69-B
   ['69b: el listado responde a nombres heredados de JavaScript', H('lista-69b/lista69b.js'), "(datos && datos.r && Object.prototype.hasOwnProperty.call(datos.r, rfc)) ? datos.r[rfc] : []", "(datos && datos.r && datos.r[rfc]) || []"],
   ['69b: el fallo de actualizacion no se dice', H('lista-69b/lista69b.js'), "return datos.estado === 'NO_SE_PUDO_ACTUALIZAR' ? 'NO_SE_PUDO_ACTUALIZAR' : 'ACTUALIZADO';", "return 'ACTUALIZADO';", 'nav'],
