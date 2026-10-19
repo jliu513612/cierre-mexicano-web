@@ -68,6 +68,9 @@ const TOMAS = [
   ['rep_pagina_completa', '/herramientas/complemento-de-pago/', [escribe('#fecha-pago', '2026-10-08'), envia('#f-plazo')], { completa: true, reloj: '2026-10-13T12:00:00' }],
   ['factura_lote_valido', '/herramientas/verificar-factura/', [], { archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '05_receptor_con_ampersand.xml', '11_enie_en_rfc.xml'] } }],
   ['factura_lote_con_invalidos', '/herramientas/verificar-factura/', [], { archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml', '15_xml_roto.xml', '14_no_es_cfdi.xml'] } }],
+  ['lista69b_aparece', '/herramientas/lista-69b/', [escribe('#rfcs', 'AABL9902181Q7\nEKU9003173C9'), envia('#f-69b')]],
+  ['lista69b_lote_xml_sin_coincidencias', '/herramientas/lista-69b/', [], { archivos: { sel: '#xml69', lista: ['01_cfdi40_ingreso.xml', '11_enie_en_rfc.xml'] } }],
+  ['lista69b_invalido', '/herramientas/lista-69b/', [escribe('#rfcs', 'hola 12345'), envia('#f-69b')]],
   ['factura_pagina_completa', '/herramientas/verificar-factura/', [], { completa: true, archivos: { sel: '#xml', lista: ['01_cfdi40_ingreso.xml', '04_sin_timbre.xml'] } }],
 ];
 

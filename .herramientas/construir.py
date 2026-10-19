@@ -23,6 +23,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "valor-uma": "/herramientas/valor-uma/",
     "complemento-de-pago": "/herramientas/complemento-de-pago/",
     "verificar-factura": "/herramientas/verificar-factura/",
+    "lista-69b": "/herramientas/lista-69b/",
 }
 
 

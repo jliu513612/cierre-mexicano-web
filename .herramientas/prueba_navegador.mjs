@@ -47,6 +47,11 @@ const servidor = http.createServer((req, res) => {
   let ruta = decodeURIComponent(req.url.split('?')[0]);
   if (ruta.endsWith('/')) ruta += 'index.html';
   const archivo = path.join(RAIZ, ruta);
+  if (modo === 'LISTADO_FALLO' && ruta.endsWith('/lista-69b/listado.json')) {
+    const d = JSON.parse(fs.readFileSync(path.join(RAIZ, ruta), 'utf8'));
+    d.estado = 'NO_SE_PUDO_ACTUALIZAR';
+    res.writeHead(200, Object.assign({ 'Content-Type': 'application/json' }, CABECERAS)); res.end(JSON.stringify(d)); return;
+  }
   if ((modo === 'SIN_OPINION' && ruta.endsWith('/opinion.js')) || !archivo.startsWith(RAIZ) || !fs.existsSync(archivo) || fs.statSync(archivo).isDirectory()) { res.writeHead(404); res.end('404'); return; }
   res.writeHead(200, Object.assign({ 'Content-Type': TIPOS[path.extname(archivo)] || 'application/octet-stream', 'Cache-Control': 'no-store' }, CABECERAS));
   res.end(fs.readFileSync(archivo));
@@ -189,6 +194,50 @@ async function main() {
   exige(recibidos.length === 5, `de 9 votos seguidos salen 5, el tope (salieron ${recibidos.length})`);
   await p.cerrar();
 
+  console.log('I. lista 69-B: la consulta se hace en el navegador');
+  {
+    const V69 = JSON.parse(fs.readFileSync(path.join(RAIZ, '.herramientas', 'vectores', 'lista69b.json'), 'utf8'));
+    const DAT = JSON.parse(fs.readFileSync(path.join(RAIZ, 'herramientas', 'lista-69b', 'listado.json'), 'utf8'));
+    const enLista = Object.keys(V69.muestra).find(r => DAT.r[r]) || Object.keys(DAT.r)[0];
+    const fueraDeLista = 'EKU9003173C9';
+    recibidos.length = 0; modo = 'OK';
+    const { targetId } = await cdp('Target.createTarget', { url: 'about:blank' });
+    const { sessionId: s } = await cdp('Target.attachToTarget', { targetId, flatten: true });
+    await cdp('Page.enable', {}, s); await cdp('Runtime.enable', {}, s); await cdp('DOM.enable', {}, s); await cdp('Network.enable', {}, s);
+    await cdp('Page.addScriptToEvaluateOnNewDocument', { source: "window.__csp=[];document.addEventListener('securitypolicyviolation',e=>window.__csp.push(e.violatedDirective))" }, s);
+    const desde = eventos.length;
+    await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}/herramientas/lista-69b/` }, s);
+    for (let i = 0; i < 100 && !eventos.slice(desde).some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
+    await espera(900);
+    const js = async e => (await cdp('Runtime.evaluate', { expression: e, returnByValue: true }, s)).result.value;
+    const fechaLarga = (() => { const [a, m, d] = DAT.fecha_info.split('-'); return `${+d} de ${['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'][+m - 1]} de ${a}`; })();
+    exige((await js("document.querySelector('#estado-listado').innerText")).includes(fechaLarga), `la pagina dice la fecha del listado (${fechaLarga})`);
+    await js(`document.querySelector('#rfcs').focus()`);
+    await cdp('Input.insertText', { text: `${enLista.toLowerCase()}\n${fueraDeLista}` }, s);
+    await js("document.querySelector('#f-69b').requestSubmit()");
+    await espera(600);
+    const t = await js("document.querySelector('#res-69b').innerText");
+    exige(t.includes('1 de 2 RFC aparece'), 'cuenta 1 de 2 en el listado');
+    exige(t.includes(enLista) && t.includes(DAT.r[enLista][0][0] === 'D' ? 'Definitivo' : DAT.r[enLista][0][0] === 'P' ? 'Presunto' : DAT.r[enLista][0][0] === 'V' ? 'Desvirtuado' : 'Sentencia favorable'), 'muestra el RFC listado con su situacion');
+    const { root } = await cdp('DOM.getDocument', {}, s);
+    const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: '#xml69' }, s);
+    await js("document.querySelector('#rfcs').value=''");
+    await cdp('DOM.setFileInputFiles', { nodeId, files: ['01_cfdi40_ingreso.xml', '11_enie_en_rfc.xml'].map(f => path.join(RAIZ, '.herramientas', 'fixtures', 'cfdi', f)) }, s);
+    await espera(800);
+    exige((await js("document.querySelector('#res-69b').innerText")).includes('emisores tomados de 2 XML'), 'toma los emisores de los XML');
+    const fuera = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && !e.params.request.url.startsWith(`http://127.0.0.1:${PUERTO}/`) && !e.params.request.url.startsWith('data:'));
+    const conRfc = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && (e.params.request.url + (e.params.request.postData || '')).toUpperCase().includes(enLista));
+    exige(fuera.length === 0 && recibidos.length === 0 && conRfc.length === 0, `consultar no envia los RFC (${fuera.length} fuera, ${recibidos.length} POST, ${conRfc.length} con el RFC)`);
+    exige((await js("window.__csp.join('|')")) === '', 'cero violaciones de la politica');
+    await cdp('Target.closeTarget', { targetId });
+    modo = 'LISTADO_FALLO';
+    p = await abrir('/herramientas/lista-69b/');
+    await espera(700);
+    exige((await p.texto('#estado-listado')).startsWith('No se pudo actualizar el listado; los datos son al ' + fechaLarga), 'si la actualizacion fallo, la pagina lo dice con la fecha de los datos');
+    await p.cerrar();
+    modo = 'OK';
+  }
+
   console.log('H. verificar factura: XML elegidos en el navegador, nada sale');
   recibidos.length = 0;
   {
@@ -227,7 +276,7 @@ async function main() {
   recibidos.length = 0;
   const articulo = '/blog/' + fs.readdirSync(path.join(RAIZ, 'blog')).filter(d => fs.existsSync(path.join(RAIZ, 'blog', d, 'index.html')))[0] + '/';
   for (const [ruta, pasos] of [
-    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null],
+    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null],
     ['/herramientas/validar-rfc/', async q => { await q.teclea('#rfc', 'EKU9003173C9'); await q.pulsa('#f-rfc button[type=submit]'); await q.pulsa('#res-rfc .op-botones button:nth-child(1)'); }],
     ['/herramientas/valor-uma/', async q => { await q.teclea('#cantidad', '25'); await q.pulsa('#f-uma button[type=submit]'); await q.pulsa('#res-uma .op-botones button:nth-child(1)'); }],
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],

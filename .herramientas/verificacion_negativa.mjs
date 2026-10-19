@@ -49,6 +49,15 @@ const SABOTAJES = [
   ['rep: el aviso de dia no computable desaparece', H('complemento-de-pago/rep.js'), 'limiteNoComputable: diaNoComputable(limite) };', 'limiteNoComputable: null };'],
   ['rep: el 5 de mayo deja de contar como festivo', H('complemento-de-pago/rep.js'), 'md === 505 || ', ''],
   ['rep: el aviso RECORRE la fecha en vez de solo avisar', H('complemento-de-pago/rep.js'), "return f.m === 12 ? aIso(f.a + 1, 1, 5) : aIso(f.a, f.m + 1, 5);", "var l = f.m === 12 ? aIso(f.a + 1, 1, 5) : aIso(f.a, f.m + 1, 5); return diaNoComputable(l) === 'DOMINGO' ? l.slice(0, 8) + '06' : l;"],
+  // --- Lista 69-B
+  ['69b: el listado responde a nombres heredados de JavaScript', H('lista-69b/lista69b.js'), "(datos && datos.r && Object.prototype.hasOwnProperty.call(datos.r, rfc)) ? datos.r[rfc] : []", "(datos && datos.r && datos.r[rfc]) || []"],
+  ['69b: el fallo de actualizacion no se dice', H('lista-69b/lista69b.js'), "return datos.estado === 'NO_SE_PUDO_ACTUALIZAR' ? 'NO_SE_PUDO_ACTUALIZAR' : 'ACTUALIZADO';", "return 'ACTUALIZADO';", 'nav'],
+  ['69b: sin fecha tambien responde', H('lista-69b/lista69b.js'), "!/^\\d{4}-\\d{2}-\\d{2}$/.test(String(datos.fecha_info || '')) || ", ''],
+  ['69b: los RFC repetidos se consultan dos veces', H('lista-69b/lista69b.js'), "if (!vistos[t]) { vistos[t] = true; validos.push(t); }", 'validos.push(t);'],
+  ['69b: la pagina envia los RFC (las pruebas de node no pueden verlo)', H('lista-69b/pagina.js'), "res.className = 'res'; res.textContent = 'Cargando el listado…';", "res.className = 'res'; res.textContent = 'Cargando el listado…'; try { fetch('/', { method: 'POST', body: leidos.validos.join(',') }); } catch (e) {}", 'nav'],
+  ['69b: la cabecera deja de decir la fecha del listado', H('lista-69b/pagina.js'), "'Listado completo del SAT con información al ' + larga(datos.fecha_info) + '. '", "'Listado completo del SAT. '", 'nav'],
+  ['69b: el generador acepta una situacion desconocida', path.join(RAIZ, '.herramientas', 'lista69b.py'), "            raras.add(f[i_sit].strip())\n            continue", "            continue"],
+  ['69b: el generador acepta una fecha mas vieja que la publicada', path.join(RAIZ, '.herramientas', 'lista69b.py'), "if previo.get('fecha_info') and fecha_info < previo['fecha_info']:", "if False:"],
   // --- Verificar factura
   ['cfdi: fe con los PRIMEROS 8 caracteres del sello', H('verificar-factura/cfdi.js'), 'fe: at.Sello.slice(-8)', 'fe: at.Sello.slice(0, 8)'],
   ['cfdi: total con 2 decimales en vez de 6', H('verificar-factura/cfdi.js'), "while (dec.length < 6) dec += '0';", "while (dec.length < 2) dec += '0';"],
@@ -76,6 +85,9 @@ function pruebas(nav) {
   // El segundo candado: lo publicado tiene que ser exactamente lo que sale de las plantillas y los datos.
   const c = spawnSync(process.env.PYTHON || 'python', ['-X', 'utf8', '.herramientas/construir.py', '--comprobar'], { cwd: RAIZ, encoding: 'utf8' });
   if (c.status !== 0) rojas.push('construir.py --comprobar: ' + ((c.stdout || '').match(/^DISTINTO .+$/gm) || ['no se pudo ejecutar']).join(', '));
+  // El tercero: las validaciones del generador del listado 69-B (Python).
+  const l = spawnSync(process.env.PYTHON || 'python', ['-X', 'utf8', '.herramientas/pruebas/test_lista69b.py'], { cwd: RAIZ, encoding: 'utf8', env: Object.assign({}, process.env, { PYTHONDONTWRITEBYTECODE: '1' }) });
+  if (l.status !== 0) rojas.push('test_lista69b.py: ' + String(l.stderr || l.stdout).trim().split('\n').pop());
   let n = { status: 0 };
   if (nav) {
     n = spawnSync(process.execPath, ['.herramientas/prueba_navegador.mjs'], { cwd: RAIZ, encoding: 'utf8', timeout: 120000 });

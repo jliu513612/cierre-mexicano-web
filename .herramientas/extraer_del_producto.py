@@ -272,6 +272,32 @@ def vectores_cfdi(prod):
     return {'casos': casos}
 
 
+def vectores_69b(prod):
+    """Cotejo COMPLETO (todas las filas) del listado de la pagina contra efos_scraper.parsear_csv_efos del programa,
+    leyendo el MISMO CSV con el que se construyo listado.json (se busca por su sha256 en .herramientas/fuentes_locales/)."""
+    import hashlib as _h
+    import efos_scraper
+    sys.path.insert(0, str(AQUI))
+    import lista69b
+    pub = json.loads((AQUI.parent / 'herramientas' / 'lista-69b' / 'listado.json').read_text(encoding='utf-8'))
+    csvs = [p for p in (AQUI / 'fuentes_locales').glob('*.csv') if _h.sha256(p.read_bytes()).hexdigest() == pub['sha256']]
+    assert csvs, 'no encuentro en .herramientas/fuentes_locales/ el CSV con el sha256 de listado.json'
+    crudo = csvs[0].read_bytes()
+    prod_regs = efos_scraper.parsear_csv_efos(crudo)
+    mapa = {'presunto': 'P', 'definitivo': 'D', 'desvirtuado': 'V', 'sentencia_favorable': 'S'}
+    del_prod = {}
+    for r in prod_regs:
+        f = r['fechas_dof']
+        del_prod.setdefault(r['rfc'], []).append([mapa[r['situacion_normalizada']]] +
+                                                  [lista69b._fecha_iso(f.get(k)) for k in ('presunto', 'desvirtuado', 'definitivo', 'sentencia_favorable')])
+    de_pagina = {rfc: [[x[0]] + x[2:] for x in regs] for rfc, regs in pub['r'].items()}
+    assert del_prod == de_pagina, 'el listado de la pagina y el del programa NO coinciden'
+    rnd = random.Random(69)
+    muestra = sorted(rnd.sample(sorted(del_prod), 300)) + sorted(k for k, v in del_prod.items() if len(v) > 1)[:20]
+    return {'sha256_csv': pub['sha256'], 'fecha_info': pub['fecha_info'], 'filas_cotejadas': sum(len(v) for v in del_prod.values()),
+            'rfc_cotejados': len(del_prod), 'muestra': {k: del_prod[k] for k in muestra}}
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -285,6 +311,7 @@ def main():
         "vectores/uma.json": vectores_uma(datos),
         "vectores/rep.json": vectores_rep(prod),
         "vectores/cfdi.json": vectores_cfdi(prod),
+        "vectores/lista69b.json": vectores_69b(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel
