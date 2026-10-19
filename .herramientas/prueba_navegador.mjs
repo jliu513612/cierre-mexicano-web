@@ -98,10 +98,10 @@ const campos = c => Object.fromEntries(new URLSearchParams(c));
 async function main() {
   await new Promise(r => servidor.listen(PUERTO, '127.0.0.1', r));
   const perfil = fs.mkdtempSync(path.join(os.tmpdir(), 'tc-nav-'));
-  const chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${DEPURA}`, `--user-data-dir=${perfil}`, '--no-first-run', '--no-sandbox', '--disable-gpu', '--disable-extensions', 'about:blank'], { stdio: 'ignore' });
+  const chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${DEPURA}`, `--user-data-dir=${perfil}`, '--no-first-run', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--disable-extensions', 'about:blank'], { stdio: 'ignore' });
   let info;
-  for (let i = 0; i < 75 && !info; i++) { await espera(200); try { info = await (await fetch(`http://127.0.0.1:${DEPURA}/json/version`)).json(); } catch { /* aun no arranca */ } }
-  if (!info) throw new Error('Chrome no arranco');
+  for (let i = 0; i < 300 && !info; i++) { await espera(200); try { info = await (await fetch(`http://127.0.0.1:${DEPURA}/json/version`)).json(); } catch { /* aun no arranca */ } }
+  if (!info) throw new Error('Chrome no arranco en 60 s (' + CHROME + ')');
   ws = new WebSocket(info.webSocketDebuggerUrl);
   await new Promise((ok, mal) => { ws.onopen = ok; ws.onerror = mal; });
   ws.onmessage = m => {
