@@ -1,0 +1,38 @@
+{
+ "/herramientas/": {
+  "fecha": "2026-10-19",
+  "huella": "0f86e3c972280e2eb41be238345d7ad4c2102106c7b8224a23243e622f583107"
+ },
+ "/herramientas/calendario-dia-17/": {
+  "fecha": "2026-10-19",
+  "huella": "7da4bcb066a625eb5b03ff8363f448ae428d02ed3622f0ef5b3d4aedd00c3ad4"
+ },
+ "/herramientas/complemento-de-pago/": {
+  "fecha": "2026-10-19",
+  "huella": "415330e614a4305bbca04fee3d866ad3b97dc2b371839bab2508c043bf393420"
+ },
+ "/herramientas/factura-con-retenciones/": {
+  "fecha": "2026-10-19",
+  "huella": "348e2fb451404a81608e8f0b63c9780353bbb97e6fc02efddd5b915c2f02a4fb"
+ },
+ "/herramientas/iva-del-mes/": {
+  "fecha": "2026-10-19",
+  "huella": "9d58b962e4d932f5d6fae7d6eff6d4247b60a31368127e55702969a318353af7"
+ },
+ "/herramientas/lista-69b/": {
+  "fecha": "2026-10-19",
+  "huella": "07dc96a25866a5b5a9d85214717a66357c7f569e15ff4883b9c132a5a63373c3"
+ },
+ "/herramientas/validar-rfc/": {
+  "fecha": "2026-10-15",
+  "huella": "b24325dbc31dacdc67ce86a629b7a2cde5cb5771b8461c77d8457321f5f67304"
+ },
+ "/herramientas/valor-uma/": {
+  "fecha": "2026-10-15",
+  "huella": "59ee86458b12b27ef1998481456cd3e129abe83b1a299abc78096e85bc1f27b2"
+ },
+ "/herramientas/verificar-factura/": {
+  "fecha": "2026-10-19",
+  "huella": "9602cfddfd7451aae113c69511e3049a35307f71813c0ea34b8601f007cab4e3"
+ }
+}

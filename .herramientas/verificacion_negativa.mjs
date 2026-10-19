@@ -71,6 +71,12 @@ const SABOTAJES = [
   ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
+  // --- Sitemap de /herramientas/
+  ['sitemap: falta una herramienta y nombra una que no existe', H('sitemap.xml'), '<loc>https://taxcerteza.mx/herramientas/iva-del-mes/</loc>', '<loc>https://taxcerteza.mx/herramientas/no-existe/</loc>'],
+  ['sitemap: robots.txt no declara el de herramientas', path.join(RAIZ, 'robots.txt'), 'Sitemap: https://taxcerteza.mx/herramientas/sitemap.xml', 'Sitemap: https://taxcerteza.mx/otro/sitemap.xml'],
+  ['sitemap: el blog nombra una herramienta que no existe', path.join(RAIZ, 'sitemap.xml'), '<loc>https://taxcerteza.mx/herramientas/valor-uma/</loc>', '<loc>https://taxcerteza.mx/herramientas/valor-umas/</loc>'],
+  ['sitemap: una pagina cambia y conserva su fecha', path.join(RAIZ, '.herramientas', 'construir.py'), 'fechas[ruta] = {"huella": huella, "fecha": antes["fecha"] if antes.get("huella") == huella else hoy}', 'fechas[ruta] = {"huella": huella, "fecha": antes.get("fecha") or hoy}'],
+  ['sitemap: falta la ultima pagina de PAGINAS', path.join(RAIZ, '.herramientas', 'construir.py'), '        urls.append(f\'  <url><loc>{SITIO}{ruta}</loc><lastmod>', '        if nombre != "iva-del-mes": urls.append(f\'  <url><loc>{SITIO}{ruta}</loc><lastmod>'],
   // --- IVA del mes
   ['iva: lo retenido al proveedor no sale del acreditable (Q-17600)', H('iva-del-mes/iva.js'), 'acr = res(acr, sale);', 'acr = sum(acr, CERO);'],
   ['iva: una PPD emitida causa sin complemento de pago', H('iva-del-mes/iva.js'), 'pendCau.push(c.uuid);', 'cau16 = sum(cau16, c.iva);'],
@@ -128,6 +134,8 @@ function pruebas(nav) {
   // El tercero: las validaciones del generador del listado 69-B (Python).
   const l = spawnSync(process.env.PYTHON || 'python', ['-X', 'utf8', '.herramientas/pruebas/test_lista69b.py'], { cwd: RAIZ, encoding: 'utf8', env: Object.assign({}, process.env, { PYTHONDONTWRITEBYTECODE: '1' }) });
   if (l.status !== 0) rojas.push('test_lista69b.py: ' + String(l.stderr || l.stdout).trim().split('\n').pop());
+  const f = spawnSync(process.env.PYTHON || 'python', ['-X', 'utf8', '.herramientas/pruebas/test_sitemap_fechas.py'], { cwd: RAIZ, encoding: 'utf8', env: Object.assign({}, process.env, { PYTHONDONTWRITEBYTECODE: '1' }) });
+  if (f.status !== 0) rojas.push('test_sitemap_fechas.py: ' + String(f.stderr || f.stdout).trim().split('\n').pop());
   let n = { status: 0 };
   if (nav) {
     n = spawnSync(process.execPath, ['.herramientas/prueba_navegador.mjs'], { cwd: RAIZ, encoding: 'utf8', timeout: 120000 });

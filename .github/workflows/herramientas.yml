@@ -6,7 +6,9 @@
 #   3. el estilo de los textos,
 #   4. la prueba en un navegador: lo que SALE por la red al opinar, y la politica de contenido de _headers,
 #   5. la verificacion en negativo (cada sabotaje tiene que poner algo en rojo).
-# Si el PR NO toca esas rutas (por ejemplo, un articulo del blog), el check termina en verde sin probar nada:
+# SIEMPRE (toque lo que toque el PR, tambien un articulo que edite sitemap.xml) corre la comprobacion de los sitemaps:
+# cada pagina de /herramientas/ en disco esta en herramientas/sitemap.xml, y ningun sitemap nombra una que no existe.
+# Si el PR NO toca esas rutas (por ejemplo, un articulo del blog), lo demas no se prueba:
 # no lleva filtro `paths:` a proposito, porque un check requerido que no corre deja el PR bloqueado para siempre.
 # Usa `pull_request` (no `pull_request_target`): ejecuta codigo del PR, asi que va SIN secretos y solo con lectura.
 name: herramientas
@@ -24,6 +26,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: sitemaps de /herramientas/ (siempre)
+        run: node --test .herramientas/pruebas/sitemap.test.js
       - name: ¿el PR toca las herramientas?
         id: toca
         run: |
@@ -49,6 +53,9 @@ jobs:
       - name: estilo de los textos
         if: steps.toca.outputs.si == '1'
         run: python -X utf8 .herramientas/estilo.py
+      - name: fechas del sitemap de /herramientas/
+        if: steps.toca.outputs.si == '1'
+        run: python -X utf8 .herramientas/pruebas/test_sitemap_fechas.py
       - name: validaciones del listado 69-B
         if: steps.toca.outputs.si == '1'
         run: python -X utf8 .herramientas/pruebas/test_lista69b.py
