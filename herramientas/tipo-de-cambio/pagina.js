@@ -85,7 +85,10 @@
     }
     var info = el('ul');
     var dof = r.dof_del_dia, det = r.determinado_del_dia;
-    if (r.habil === true && dof.valor) info.appendChild(el('li', '', 'Publicado en el DOF ese mismo día (el FIX determinado el ' + larga(dof.determinado) + '): $' + dof.valor + '. Ese aplica a partir del día siguiente.'));
+    // una fecha posterior a hoy (centro de Mexico) todavia no tiene su publicacion: se dice en futuro
+    var futura = fecha > new Date(Date.now() - 6 * 3600000).toISOString().slice(0, 10);
+    if (r.habil === true && dof.valor) info.appendChild(el('li', '', (futura ? 'Se publica en el DOF ese día' : 'Publicado en el DOF ese mismo día') +
+      ' (el FIX determinado el ' + larga(dof.determinado) + '): $' + dof.valor + '. Ese aplica a partir del día siguiente.'));
     if (r.habil === true && det.valor) info.appendChild(el('li', '', 'FIX determinado ese día: $' + det.valor + '. Se publica en el DOF el día hábil siguiente.'));
     if (r.habil === false) info.appendChild(el('li', '', 'Ese día no es hábil bancario: Banco de México no determina FIX.'));
     if (info.childNodes.length) { res.appendChild(el('p', '', 'Solo como información:')); res.appendChild(info); }
