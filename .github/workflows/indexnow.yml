@@ -4,6 +4,7 @@
 #   push a main  -> espera a que el sitio sirva la version nueva y avisa (.github/indexnow/avisar.mjs). Imprime siempre
 #                   una linea LATIDO o ALERTA; si falla, la corrida sale en rojo y GitHub avisa por correo.
 #   pull_request -> pruebas del script y simulacion: dice que URL avisaria, sin esperar ni enviar nada.
+#   a mano       -> reenvia el aviso de un tramo de commits ya desplegado (por ejemplo, si una corrida salio en ALERTA).
 # Solo usa la clave publica del sitio (<clave>.txt en la raiz); no necesita secretos. Google no usa IndexNow: para
 # Google estan los sitemaps.
 name: indexnow
@@ -13,6 +14,14 @@ on:
   pull_request:
     branches: [main]
     paths: ['.github/indexnow/**', '.github/workflows/indexnow.yml']
+  workflow_dispatch:
+    inputs:
+      antes:
+        description: 'sha completo del commit ANTERIOR al tramo'
+        required: true
+      despues:
+        description: 'sha completo del ultimo commit del tramo (ya desplegado)'
+        required: true
 permissions:
   contents: read
 concurrency:
@@ -40,3 +49,9 @@ jobs:
       - name: avisar a IndexNow
         if: github.event_name == 'push'
         run: node .github/indexnow/avisar.mjs "${{ github.event.before }}" "${{ github.sha }}"
+      - name: reenviar el aviso de un tramo (a mano)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          ANTES: ${{ inputs.antes }}
+          DESPUES: ${{ inputs.despues }}
+        run: node .github/indexnow/avisar.mjs "$ANTES" "$DESPUES"

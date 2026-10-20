@@ -56,7 +56,18 @@ export function clave(raiz = RAIZ) {
 
 const git = (...a) => execFileSync('git', a, { cwd: RAIZ, encoding: 'utf8', maxBuffer: 64 << 20 });
 const enCommit = (sha, archivo) => { try { return git('show', `${sha}:${archivo}`); } catch (e) { return ''; } };
-const huella = t => crypto.createHash('sha256').update(String(t).replace(/\r\n/g, '\n').trim()).digest('hex');
+/** Lo que el sitio sirve sin lo que Netlify le INYECTA al servirlo: en produccion anade al HTML su script de medicion
+    (`<script ... id="netlify-rum-container" ...></script>`, medido el 2026-10-20), asi que la pagina servida nunca es
+    byte a byte la del repo. Y en las paginas con formulario, Netlify Forms REESCRIBE la etiqueta `<form ...>` (quita
+    data-netlify, cambia comillas) y anade `<input type='hidden' name='form-name' value='...' />` (medido el mismo dia en
+    /herramientas/). Solo se normalizan esas cosas; cualquier otra diferencia sigue contando. */
+export function sinInyectado(t) {
+  return String(t).replace(/\r\n/g, '\n').replace(/\n*<script\b[^>]*\bid="netlify-rum-container"[^>]*><\/script>/g, '')
+    .replace(/<form\b[^>]*>/g, '<form>').replace(/<input type='hidden' name='form-name' value='[^']*' \/>/g, '')
+    // las lineas en blanco alrededor del script inyectado no son constantes (medido): se comparan sin lineas en blanco
+    .replace(/\n[ \t]*(?=\n)/g, '').trim();
+}
+const huella = t => crypto.createHash('sha256').update(sinInyectado(t)).digest('hex');
 const dormir = ms => new Promise(r => setTimeout(r, ms));
 
 async function traer(url) {
@@ -81,6 +92,7 @@ async function esperarDespliegue(muestra, sha, k) {
 
 async function main(antes, despues) {
   if (!/^[0-9a-f]{40}$/.test(despues || '')) throw new Error('falta el sha del commit desplegado');
+  if (antes && !/^[0-9a-f]{40}$/.test(antes)) throw new Error('el sha anterior no es un sha completo');
   const k = clave();
   const vacio = !antes || /^0+$/.test(antes);
   const cambios = vacio ? [] : git('diff', '--no-renames', '--name-status', antes, despues).trim().split('\n').filter(Boolean)
