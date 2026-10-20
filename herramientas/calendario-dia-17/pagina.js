@@ -85,6 +85,7 @@
       res.appendChild(el('p', 'aviso', 'El RFC escrito no tiene seis dígitos: la página no muestra la fecha con la facilidad del sexto dígito.'));
     }
     res.appendChild(el('p', '', 'Calendario para declaraciones y pagos. Revisa tu caso con tu contador.'));
+    if (conOpinion && window.TCUso) window.TCUso.registrar('calendario-dia-17');
     if (conOpinion && window.TCOpinion) window.TCOpinion.mostrar(res, 'calendario-dia-17', r.sextoDigito !== null ? 'CON_FACILIDAD' : (r.conRfc ? 'RFC_SIN_DIGITO' : 'CALENDARIO'));
   }
 

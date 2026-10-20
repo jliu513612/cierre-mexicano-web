@@ -169,6 +169,7 @@
         grandes.forEach(function (g) { r.ilegibles.push({ nombre: g.name, motivo: 'GRANDE', detalle: '' }); });
       }
       var clase = pintar(r);
+      if (window.TCUso) window.TCUso.registrar('iva-del-mes', arch.length);
       if (window.TCOpinion) window.TCOpinion.mostrar(res, 'iva-del-mes', clase);
     }).catch(function () {
       res.className = 'res bad'; res.textContent = '';
@@ -200,6 +201,7 @@
     filasRes(rman, f);
     if (r.iva_acreditable_retirado_por_retencion !== '0.00') rman.appendChild(el('p', '', 'Del IVA acreditable se quitaron ' + miles(r.iva_acreditable_retirado_por_retencion) + ' que retuviste: esa parte se acredita después de enterarla al SAT.'));
     rman.appendChild(el('p', '', 'Es una estimación con los totales que escribiste. Revisa el resultado con tu contador.'));
+    if (window.TCUso) window.TCUso.registrar('iva-del-mes');
     if (window.TCOpinion) window.TCOpinion.mostrar(rman, 'iva-del-mes', 'MANUAL');
   });
 })();

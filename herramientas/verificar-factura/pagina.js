@@ -93,6 +93,7 @@
       lista.appendChild(li);
     });
     res.appendChild(lista);
+    if (window.TCUso) window.TCUso.registrar('verificar-factura', todos.length);
     if (window.TCOpinion) window.TCOpinion.mostrar(res, 'verificar-factura', n.COMPLETO === todos.length ? 'LOTE_COMPLETO' : 'LOTE_CON_PENDIENTES');
   }
 

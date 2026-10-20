@@ -73,7 +73,13 @@ const SABOTAJES = [
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
   ['descargas: los unicos se encienden sin aviso de privacidad', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'export const UNICOS_ACTIVOS = false;', 'export const UNICOS_ACTIVOS = true;'],
-  ['descargas: el evento guarda la IP', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'bot: esBot(ua, metodo), interno: !!interno };', 'bot: esBot(ua, metodo), interno: !!interno, ip };'],
+  ['descargas: el evento guarda la IP', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };", "metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno, ip };"],
+  // --- Usos de las herramientas
+  ['usos: el envio lleva un dato del usuario', H('uso.js'), '    var c = { herramienta: String(herramienta) };', "    var c = { herramienta: String(herramienta), pagina: (typeof document !== 'undefined' && document.querySelector('input')) ? document.querySelector('input').value : 'x' };", 'nav'],
+  ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  return { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  return Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
+  ['usos: una herramienta sin su evento', H('factura-con-retenciones/pagina.js'), "    if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');\n", '', 'nav'],
+  ['usos: doble conteo (sin dedupe)', H('uso.js'), '    if (antes !== undefined && ahora - antes < VENTANA_MS) return false;\n', '', 'nav'],
+  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'calendario-dia-17', 'iva-del-mes'];", "'calendario-dia-17'];"],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas

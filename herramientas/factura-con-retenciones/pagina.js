@@ -76,6 +76,7 @@
       if (r.supuestoRegimen) res.appendChild(el('p', '', 'No indicaste el régimen del emisor: la página aplica el 10 % de ISR. Si el emisor está en el RESICO (régimen 626), la retención de ISR es del 1.25 %.'));
       res.appendChild(el('p', '', 'La retención se hace al pagar y sobre lo efectivamente pagado. Revisa tu caso con tu contador.'));
     }
+    if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');
     if (window.TCOpinion) window.TCOpinion.mostrar(res, 'factura-con-retenciones', r.estado);
   });
 })();

@@ -88,6 +88,7 @@
     res.appendChild(lista);
     if (consulta.length - hallados.length > 50) res.appendChild(el('p', '', 'Se muestran 50 de los RFC que no aparecen.'));
     if (hallados.length) res.appendChild(el('p', '', 'Qué hacer con un proveedor que aparece depende de su situación y de las fechas de tus operaciones con él. Revísalo con tu contador.'));
+    if (window.TCUso) window.TCUso.registrar('lista-69b', consulta.length);
     if (window.TCOpinion) window.TCOpinion.mostrar(res, 'lista-69b', hallados.length ? 'CONSULTA_CON_COINCIDENCIAS' : 'CONSULTA_SIN_COINCIDENCIAS');
   }
 
