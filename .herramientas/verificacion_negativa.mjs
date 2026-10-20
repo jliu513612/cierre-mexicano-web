@@ -72,6 +72,12 @@ const SABOTAJES = [
   ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
+  // --- Contador de descargas
+  ['descargas: la portada vuelve a enlazar directo a GitHub', path.join(RAIZ, 'index.html'), 'href="/descargar">Descargar para Windows</a>', 'href="https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.47/TaxCerteza_1.0.47.zip">Descargar para Windows</a>'],
+  ['descargas: la huella deja de cambiar cada mes', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '[sal, mesDe(ts), String(ip', '[sal, String(ip'],
+  ['descargas: lo interno cuenta como real', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'const esInterno = e => e.interno || (e.huella && nuestras.has(e.huella));', 'const esInterno = e => false;'],
+  ['descargas: un HEAD cuenta como descarga', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "if (metodo && metodo.toUpperCase() === 'HEAD') return true;", ''],
+  ['descargas: el destino sale de la peticion', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'const clave = archivo && Object.prototype.hasOwnProperty.call(tabla.archivos, archivo) ? archivo : tabla.predeterminado;\n  const d = tabla.archivos[clave];', "const clave = archivo || tabla.predeterminado;\n  const d = tabla.archivos[clave] || { version: '?', url: archivo };"],
   // --- _redirects
   ['redirecciones: el 301 apunta a una pagina que no existe', path.join(RAIZ, '_redirects'), '/ayuda/banco-y-conciliacion/  301', '/ayuda/banco-y-conciliacion-vieja/  301'],
   ['redirecciones: el icono de la ayuda apunta a un fichero que no existe', path.join(RAIZ, '_redirects'), '/favicon.ico  200', '/img/favicon.ico  200'],

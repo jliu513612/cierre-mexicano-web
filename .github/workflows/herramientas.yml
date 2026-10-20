@@ -26,12 +26,12 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: sitemaps de /herramientas/ (siempre)
-        run: node --test .herramientas/pruebas/sitemap.test.js
+      - name: sitemaps y enlaces de descarga (siempre)
+        run: node --test .herramientas/pruebas/sitemap.test.js .herramientas/pruebas/descargas.test.js
       - name: ¿el PR toca las herramientas?
         id: toca
         run: |
-          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/|_headers$|_redirects$|\.github/workflows/(herramientas|lista-69b)\.yml$)'; then
+          if git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep -qE '^(herramientas/|\.herramientas/|_headers$|_redirects$|netlify/|package\.json$|\.github/workflows/(herramientas|lista-69b)\.yml$)'; then
             echo "si=1" >> "$GITHUB_OUTPUT"
           else
             echo "No toca /herramientas/: nada que probar."
