@@ -7,7 +7,6 @@
 - [RESICO: cuándo cuenta como ingreso una factura que todavía no se cobra](https://taxcerteza.mx/blog/resico-ingresos-cobrados-o-facturados/): En el régimen simplificado de confianza el ingreso se considera al cobrarse. Qué dicen los artículos 207 y 113-E de la Ley del ISR y cómo tratar PPD, PUE sin cobrar, anticipos y cheques.
 - [Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores](https://taxcerteza.mx/blog/lista-negra-sat-efos-69b/): Qué es la lista del artículo 69-B del CFF, qué diferencia hay entre presunto y definitivo, el plazo de 30 días para quien recibió las facturas y cómo revisar a todos tus proveedores.
 - [DIOT: cómo se arma, qué se informa y cuándo se presenta](https://taxcerteza.mx/blog/diot-como-se-calcula-y-se-presenta/): Cómo se arma la DIOT a partir de los CFDI recibidos, por proveedor y por tasa, y qué dicen la Ley del IVA y la regla 4.5.1 sobre cuándo se presenta.
-- [Descarga masiva de CFDI del SAT: cómo saber si te faltan XML](https://taxcerteza.mx/blog/descarga-masiva-cfdi-sat/): Qué es la descarga masiva de CFDI, qué necesitas, dónde suele fallar y cómo comprobar contra la metadata del SAT que tienes todos los XML del periodo.
 - [Complemento de pago (REP): cuándo es obligatorio y qué plazo tienes](https://taxcerteza.mx/blog/complemento-de-pago-cuando-es-obligatorio/): El REP se emite por cada pago de una factura PPD, a más tardar el día 5 del mes siguiente. Fundamento, multa y cómo encontrar las facturas que siguen sin complemento.
 
 ## Herramientas gratuitas
