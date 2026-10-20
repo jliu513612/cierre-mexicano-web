@@ -5,6 +5,11 @@
 # mismo es la de la ayuda «Banco y conciliacion» (cruce del banco contra los comprobantes).
 /blog/conciliacion-bancaria-contra-cfdi/  /ayuda/banco-y-conciliacion/  301
 
+# Articulo retirado del blog el 2026-10-20 (decision de June): «Descarga masiva de CFDI del SAT: como saber si te
+# faltan XML». La pagina que responde a lo mismo es la de la ayuda «Descarga del SAT incompleta» (XML en disco contra
+# lo que el SAT informo haber entregado).
+/blog/descarga-masiva-cfdi-sat/  /ayuda/calculos/ope-056/  301
+
 # La ayuda (generada aparte) pide su icono en /ayuda/img/favicon.ico: se sirve el MISMO icono de marca de la raiz,
 # sin copiarlo (si la ayuda se regenera, esta linea sigue valiendo).
 /ayuda/img/favicon.ico  /favicon.ico  200

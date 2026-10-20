@@ -21,5 +21,6 @@ test('redirecciones: el destino existe y el origen no', () => {
     assert.ok(!enDisco(origen), `${origen}: existe en disco, la regla no actuaria`);
   }
   assert.ok(reglas.some(r => r[0] === '/blog/conciliacion-bancaria-contra-cfdi/' && r[2] === '301'));
+  assert.ok(reglas.some(r => r[0] === '/blog/descarga-masiva-cfdi-sat/' && r[1] === '/ayuda/calculos/ope-056/' && r[2] === '301'));
   assert.ok(reglas.some(r => r[0] === '/ayuda/img/favicon.ico' && r[1] === '/favicon.ico' && r[2] === '200'));
 });
