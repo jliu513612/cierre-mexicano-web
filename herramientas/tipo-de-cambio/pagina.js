@@ -78,15 +78,18 @@
     limpiar('ok');
     res.appendChild(el('span', 'etq', 'Para obligaciones del ' + larga(fecha)));
     res.appendChild(el('p', 'grande', '$' + ob.valor + ' pesos por dólar'));
-    res.appendChild(el('p', '', 'Es el FIX que Banco de México determinó el ' + larga(ob.determinado) + ' y publicó en el DOF el ' + larga(ob.publicado_dof) + '.'));
+    // lo que cae despues de hoy (centro de Mexico) todavia no ocurre: se dice en futuro, nunca como ya publicado
+    var hoyMx = new Date(Date.now() - 6 * 3600000).toISOString().slice(0, 10), futura = fecha > hoyMx;
+    var pubFutura = ob.publicado_dof > hoyMx;
+    res.appendChild(el('p', '', 'Es el FIX que Banco de México determinó el ' + larga(ob.determinado) + (pubFutura ?
+      '. Se publica en el DOF el ' + larga(ob.publicado_dof) + ', día hábil bancario siguiente.' : ' y publicó en el DOF el ' + larga(ob.publicado_dof) + '.')));
     var anterior = new Date(Date.parse(fecha + 'T00:00:00Z') - 86400000).toISOString().slice(0, 10);
     if (ob.publicado_dof !== anterior) {
-      res.appendChild(el('p', '', 'El ' + larga(anterior) + ' no hubo publicación del FIX en el DOF, así que aplica la última publicada antes.'));
+      res.appendChild(el('p', '', 'El ' + larga(anterior) + (anterior > hoyMx ? ' no hay' : ' no hubo') +
+        ' publicación del FIX en el DOF, así que aplica la última publicada antes.'));
     }
     var info = el('ul');
     var dof = r.dof_del_dia, det = r.determinado_del_dia;
-    // una fecha posterior a hoy (centro de Mexico) todavia no tiene su publicacion: se dice en futuro
-    var futura = fecha > new Date(Date.now() - 6 * 3600000).toISOString().slice(0, 10);
     if (r.habil === true && dof.valor) info.appendChild(el('li', '', (futura ? 'Se publica en el DOF ese día' : 'Publicado en el DOF ese mismo día') +
       ' (el FIX determinado el ' + larga(dof.determinado) + '): $' + dof.valor + '. Ese aplica a partir del día siguiente.'));
     if (r.habil === true && det.valor) info.appendChild(el('li', '', 'FIX determinado ese día: $' + det.valor + '. Se publica en el DOF el día hábil siguiente.'));
