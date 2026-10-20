@@ -42,6 +42,7 @@
       if (r.motivo === 'FUERA_DE_EJERCICIO') {
         resPlazo.appendChild(el('h3', '', 'La página solo calcula pagos recibidos en 2026'));
         resPlazo.appendChild(el('p', '', 'El plazo que aplica es el de la ' + R32 + '. Para un pago de ' + r.ejercicio + ' consulta la resolución miscelánea de ese ejercicio.'));
+        if (window.TCUso) window.TCUso.registrar('complemento-de-pago');
         if (window.TCOpinion) window.TCOpinion.mostrar(resPlazo, 'complemento-de-pago', 'PLAZO_FUERA_DE_EJERCICIO');
       } else {
         resPlazo.appendChild(el('h3', '', 'Indica la fecha en que se recibió el pago'));
@@ -66,6 +67,7 @@
       resPlazo.appendChild(el('p', 'op-nota-plazo', 'El ' + larga(r.limite) + ' cae ' + cae + '. La página no recorre la fecha porque la regla habla de día natural; si el artículo 12 del CFF permite pasarla al siguiente día hábil es un punto que conviene confirmar con tu contador.'));
     }
     if (r.limiteEnOtroEjercicio) resPlazo.appendChild(el('p', '', 'El día límite cae en ' + r.limite.slice(0, 4) + '. La página aplica la regla de 2026: confirma el plazo en la resolución miscelánea de ' + r.limite.slice(0, 4) + ' cuando se publique.'));
+    if (window.TCUso) window.TCUso.registrar('complemento-de-pago');
     if (window.TCOpinion) window.TCOpinion.mostrar(resPlazo, 'complemento-de-pago', 'PLAZO_' + p.estado);
   });
 
@@ -123,6 +125,7 @@
       t = 'El resultado sale del método de pago. Esta página no evalúa si la clave de forma de pago elegida es compatible con el método PPD: revísalo en la guía de llenado del CFDI.';
       resLleva.appendChild(el('p', '', t));
     }
+    if (window.TCUso) window.TCUso.registrar('complemento-de-pago');
     if (window.TCOpinion) window.TCOpinion.mostrar(resLleva, 'complemento-de-pago', 'LLEVA_' + r.resultado);
   });
 })();

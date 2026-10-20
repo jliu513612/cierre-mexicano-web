@@ -3,6 +3,8 @@
 //   /descargar                 la descarga (el archivo sale de netlify/descargas.json, nunca de la URL)
 //   /descargar/interno?clave=  marca ESTE navegador como interno (demo, VM, equipo): sus descargas no cuentan
 //   /descargar/resumen?clave=  resumen JSON de un periodo (?desde=&hasta=, por omision la semana anterior). No es publico.
+//   /descargar/uso  (POST)     USO de una herramienta: {herramienta, n}; lo manda herramientas/uso.js al ejecutar el calculo.
+//                              Va bajo /descargar para que le llegue la misma cookie de interno (Path=/descargar).
 // UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
 //   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno y de /descargar/resumen (la tienen las mismas personas).
 // Con los unicos encendidos (UNICOS_ACTIVOS, hoy apagado) haria falta ademas DESCARGAS_SAL.
@@ -10,7 +12,7 @@
 // nunca se mezclan con las reales.
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
-import { evento, destino, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
+import { evento, eventoUso, destino, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -61,6 +63,19 @@ export default async (req, context) => {
     return respuesta(JSON.stringify(r, null, 1), 200, { 'Content-Type': 'application/json; charset=utf-8' });
   }
 
+  if (ruta === '/descargar/uso') {
+    if (req.method !== 'POST') return respuesta('No encontrado', 404);
+    let cuerpo = null;
+    try { const txt = await req.text(); if (txt.length <= 512) cuerpo = JSON.parse(txt); } catch (e) { cuerpo = null; }
+    const ts = new Date().toISOString();
+    const ev = eventoUso({ ts, contexto, cuerpo, pais: context.geo && context.geo.country && context.geo.country.code,
+      metodo: req.method, ua: req.headers.get('user-agent'), interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || '') });
+    if (!ev) return respuesta('Uso no valido', 400);
+    try { await store.setJSON(`ev/${ts.slice(0, 10)}/${ts}-u-${Math.random().toString(36).slice(2, 10)}`, ev); }
+    catch (e) { console.error('uso: no se pudo registrar', e && e.message); }
+    return respuesta(null, 204);
+  }
+
   if (ruta !== '/descargar') return respuesta('No encontrado', 404);
   const d = destino(tabla, url.searchParams.get('archivo'));
   if (!d) return respuesta('No hay archivo de descarga configurado', 500);
@@ -80,4 +95,4 @@ export default async (req, context) => {
   return respuesta(null, 302, { Location: d.url });
 };
 
-export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen'] };
+export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso'] };

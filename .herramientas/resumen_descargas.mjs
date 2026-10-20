@@ -18,4 +18,9 @@ console.log(`Descargas del ${x.periodo.desde} al ${x.periodo.hasta} (${x.context
   `${x.descargas_reales} descargas reales (sin bots ni las nuestras); ` +
   `en total ${x.descargas_total} descargas, ${x.descargas_bots} de bots y ${x.descargas_internas} nuestras.` +
   ('unicos_reales' in x ? ` Personas distintas: ${x.unicos_reales}.` : ''));
+if (x.usos) {
+  const lista = Object.entries(x.usos.reales_por_herramienta).sort((a, b) => b[1] - a[1])
+    .map(([h, n]) => `${h} ${n}` + (x.usos.elementos_por_herramienta[h] ? ` (${x.usos.elementos_por_herramienta[h]} elementos)` : '')).join(', ');
+  console.log(`Usos reales por herramienta (sin bots ni los nuestros): ${x.usos.reales} en total; ${lista}.`);
+}
 console.log(JSON.stringify(x, null, 1));

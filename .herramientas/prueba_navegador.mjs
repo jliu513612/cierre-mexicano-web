@@ -32,13 +32,15 @@ if (fs.existsSync(path.join(RAIZ, '_headers'))) {
     if (m) CABECERAS[m[1]] = m[2].replace(/;\s*upgrade-insecure-requests/, '');
   }
 }
-const recibidos = [];           // cuerpos de los POST, tal como llegan
+const recibidos = [];           // cuerpos de los POST de OPINION, tal como llegan
+const usos = [];                // cuerpos de los POST a /descargar/uso (usos de las herramientas), aparte
 let modo = 'OK';                // 'OK' | 'FALLA_500' | 'SIN_OPINION'
 const servidor = http.createServer((req, res) => {
   if (req.method === 'POST') {
     let cuerpo = '';
     req.on('data', d => { cuerpo += d; });
     req.on('end', () => {
+      if (req.url === '/descargar/uso') { usos.push({ cuerpo, ts: Date.now() }); res.writeHead(204); res.end(); return; }
       recibidos.push({ url: req.url, cuerpo, tipo: req.headers['content-type'] });
       res.writeHead(modo === 'FALLA_500' ? 500 : 200); res.end('x');
     });
@@ -375,6 +377,32 @@ async function main() {
     exige((await js('window.__csp.join("|")')) === '', 'cero violaciones de la politica');
     await cdp('Target.closeTarget', { targetId });
     fs.rmSync(dir, { recursive: true, force: true });
+  }
+
+  console.log('M. usos de las herramientas: cuentan al ejecutar, una vez por accion y sin datos');
+  {
+    // en todo lo anterior se ejecutaron todas las herramientas: cada envio de uso lleva SOLO {herramienta, n}
+    const tecleado = /EKU|XIQB|900317|987654|10,000|2026-03-17|XAXX|TCE160101|ana@|<cfdi|1600/i;
+    const malos = usos.filter(u => { let x; try { x = JSON.parse(u.cuerpo); } catch (e) { return true; }
+      return Object.keys(x).some(k => k !== 'herramienta' && k !== 'n') || tecleado.test(u.cuerpo); });
+    exige(usos.length > 0 && malos.length === 0, `los envios de uso llevan solo herramienta y n (${usos.length} envios, ${malos.length} con algo mas)`);
+    const vistas = new Set(usos.map(u => JSON.parse(u.cuerpo).herramienta));
+    const faltan = fs.readdirSync(path.join(RAIZ, 'herramientas'), { withFileTypes: true })
+      .filter(d => d.isDirectory() && fs.existsSync(path.join(RAIZ, 'herramientas', d.name, 'pagina.js'))).map(d => d.name).filter(h => !vistas.has(h));
+    exige(faltan.length === 0, `cada herramienta conto su uso al ejecutarla (faltan: ${faltan.join(', ') || 'ninguna'})`);
+    const antes = usos.length;
+    p = await abrir('/herramientas/valor-uma/');
+    exige(usos.length === antes, 'abrir la pagina no cuenta un uso');
+    await p.teclea('#cantidad', '25'); await p.pulsa('#f-uma button[type=submit]'); await p.pulsa('#f-uma button[type=submit]');
+    for (let i = 0; i < 60 && usos.length < antes + 1; i++) await espera(50);
+    await espera(400);
+    exige(usos.length === antes + 1, `dos calculos seguidos (doble clic) cuentan UNO (contados ${usos.length - antes})`);
+    await espera(2100);
+    await p.pulsa('#f-uma button[type=submit]');
+    for (let i = 0; i < 60 && usos.length < antes + 2; i++) await espera(50);
+    exige(usos.length === antes + 2, `pasados 2 s el siguiente calculo vuelve a contar (contados ${usos.length - antes})`);
+    exige(JSON.parse(usos[usos.length - 1].cuerpo).herramienta === 'valor-uma', 'el uso es de la herramienta que se ejecuto');
+    await p.cerrar();
   }
 
   console.log('G. politica de contenido de _headers');

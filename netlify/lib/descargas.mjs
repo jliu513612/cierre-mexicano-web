@@ -6,6 +6,7 @@
 // LOS UNICOS ESTAN APAGADOS (UNICOS_ACTIVOS = false). El codigo se conserva: la huella seria sha256(sal | mes | IP | UA)
 // recortada, con la sal en una variable de Netlify; se enciende cuando exista el aviso de privacidad.
 import { createHash, timingSafeEqual } from 'node:crypto';
+import { HERRAMIENTAS } from './herramientas.mjs';
 
 /** Unicos (huella de IP + user-agent): APAGADO hasta que exista el aviso de privacidad. */
 export const UNICOS_ACTIVOS = false;
@@ -49,12 +50,25 @@ export function evento({ ts, contexto, version, archivo, pais, metodo, ua, ip, s
   return e;
 }
 
+/** USO de una herramienta (el usuario ejecuto el calculo, el cotejo o la verificacion). Mismo almacen que las descargas
+    y la misma privacidad: herramienta, cuantos elementos (p. ej. XML) y nada de lo que la persona escribio o subio.
+    `cuerpo` es lo que llega del navegador; de el solo se leen `herramienta` y `n`. Devuelve null si no es valido. */
+export const MAX_ELEMENTOS = 1000;
+export function eventoUso({ ts, contexto, cuerpo, pais, metodo, ua, interno }) {
+  const c = cuerpo && typeof cuerpo === 'object' ? cuerpo : {};
+  if (typeof c.herramienta !== 'string' || HERRAMIENTAS.indexOf(c.herramienta) < 0) return null;
+  const n = Number.isInteger(c.n) && c.n > 0 ? Math.min(c.n, MAX_ELEMENTOS) : null;
+  return { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };
+}
+
 /**
  * Resumen de un periodo [desde, hasta] (fechas AAAA-MM-DD, inclusivas) de los eventos de UN contexto.
  * internas: huellas que se sabe que son nuestras (las de las descargas hechas con la cookie de interno).
  */
 export function resumir(eventos, { desde, hasta, contexto = 'production', internas = [], unicos = UNICOS_ACTIVOS } = {}) {
-  const dentro = eventos.filter(e => e.contexto === contexto && e.ts.slice(0, 10) >= desde && e.ts.slice(0, 10) <= hasta);
+  const todos = eventos.filter(e => e.contexto === contexto && e.ts.slice(0, 10) >= desde && e.ts.slice(0, 10) <= hasta);
+  const dentro = todos.filter(e => e.tipo !== 'uso');       // las descargas (los eventos viejos no llevan tipo)
+  const usos = todos.filter(e => e.tipo === 'uso');
   const nuestras = new Set(internas);
   for (const e of dentro) if (e.interno && e.huella) nuestras.add(e.huella);
   const esInterno = e => e.interno || (e.huella && nuestras.has(e.huella));
@@ -74,6 +88,12 @@ export function resumir(eventos, { desde, hasta, contexto = 'production', intern
     por_version: porVersion,
     por_pais: porPais,
   };
+  const usosReales = usos.filter(e => !e.bot && !e.interno);
+  const porHerramienta = {}, elementos = {};
+  for (const h of HERRAMIENTAS) { porHerramienta[h] = 0; elementos[h] = 0; }
+  for (const e of usosReales) { porHerramienta[e.herramienta] += 1; elementos[e.herramienta] += e.n || 0; }
+  r.usos = { total: usos.length, bots: usos.filter(e => e.bot).length, internos: usos.filter(e => !e.bot && e.interno).length,
+             reales: usosReales.length, reales_por_herramienta: porHerramienta, elementos_por_herramienta: elementos };
   if (unicos) Object.assign(r, { unicos_total: cuenta(dentro), unicos_reales: cuenta(reales), sin_huella: dentro.filter(e => !e.huella).length });
   return r;
 }
