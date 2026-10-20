@@ -76,7 +76,8 @@ test('tipo de cambio: la tabla oficial se lee entera o no se lee', async () => {
   assert.deepEqual(filas[filas.length - 1], { fecha: '2026-10-20', determinacion: '18.4200', dof: '18.4253', obligaciones: '18.4930' });
   assert.deepEqual(filas.find(r => r.fecha === '2026-09-06'), { fecha: '2026-09-06', determinacion: null, dof: null, obligaciones: '16.9560' });
   assert.throws(() => leerOficial(RECORTE.replace('Determinaci&oacute;n', 'Cierre')), /cambio de columnas/);
-  assert.throws(() => leerOficial(RECORTE.replace(/<td class="renglonNon">\r\n\t\t\t18\.4930\r\n\t\t<\/td>/, '')), /no se reparten/);
+  assert.throws(() => leerOficial(RECORTE.replace(/<td class="renglon(?:Par|Non)">\s*18\.4930\s*<\/td>/, '')), /no se reparten/);
+  assert.equal((RECORTE.match(/<td class="renglon(?:Par|Non)">\s*18\.4930\s*<\/td>/g) || []).length, 1, 'calibracion: la celda quitada existe y es una');
   assert.throws(() => leerOficial(RECORTE.replace('18.4930', '18,4930')), /forma inesperada/);
 });
 
