@@ -9,14 +9,14 @@ const OP = require(path.join(RAIZ, 'herramientas', 'opinion.js'));
 
 const BASE = { herramienta: 'validar-rfc', clase: 'DIGITO_NO_COINCIDE', voto: 'NO', motivo: 'El resultado no es claro', fecha: '2026-10-13' };
 const con = extra => Object.assign({}, BASE, extra);
-const CLAVES = ['clase', 'correo', 'fecha', 'form-name', 'herramienta', 'motivo', 'voto'];
+const CLAVES = ['clase', 'fecha', 'form-name', 'herramienta', 'motivo', 'voto'];
 
-test('opinion: el envio lleva exactamente siete campos y ninguno mas', () => {
+test('opinion: el envio lleva exactamente seis campos y ninguno mas', () => {
   const e = OP.construir(BASE);
   assert.equal(e.ok, true);
   assert.deepEqual(Object.keys(e.campos).sort(), CLAVES);
   assert.deepEqual(e.campos, { 'form-name': 'opinion-herramientas', herramienta: 'validar-rfc', clase: 'DIGITO_NO_COINCIDE',
-    voto: 'NO', motivo: 'El resultado no es claro', correo: '', fecha: '2026-10-13' });
+    voto: 'NO', motivo: 'El resultado no es claro', fecha: '2026-10-13' });
   assert.deepEqual(new URLSearchParams(e.cuerpo).get('motivo'), 'El resultado no es claro');
   assert.deepEqual([...new URLSearchParams(e.cuerpo).keys()].sort(), CLAVES);
 });
@@ -49,18 +49,19 @@ test('opinion: tope de longitud del motivo y espacios', () => {
   for (const m of [null, undefined, '']) assert.equal(OP.construir(con({ motivo: m })).campos.motivo, '');
 });
 
-test('opinion: el voto positivo no lleva motivo ni correo', () => {
-  const e = OP.construir(con({ voto: 'SI', motivo: 'algo', correo: 'a@b.mx' }));
+test('opinion: el voto positivo no lleva motivo', () => {
+  const e = OP.construir(con({ voto: 'SI', motivo: 'algo' }));
   assert.equal(e.campos.motivo, '');
-  assert.equal(e.campos.correo, '');
 });
 
-test('opinion: el correo es opcional y, si viene, tiene que parecer un correo', () => {
-  assert.equal(OP.construir(con({ correo: ' ana@despacho.mx ' })).campos.correo, 'ana@despacho.mx');
-  assert.equal(OP.construir(con({ correo: '' })).ok, true);
-  for (const c of ['ana', 'ana@', '@x.mx', 'a b@x.mx', 'a@b', 'x'.repeat(120) + '@b.mx']) {
-    assert.deepEqual(OP.construir(con({ correo: c })), { ok: false, motivo: 'CORREO' }, c);
+test('opinion: no se pide ni se envia correo (hasta que exista el aviso de privacidad)', () => {
+  for (const v of ['NO', 'SI']) {
+    const e = OP.construir(con({ voto: v, correo: 'ana@despacho.mx', email: 'ana@despacho.mx' }));
+    assert.equal(e.ok, true);
+    assert.ok(!('correo' in e.campos) && !decodeURIComponent(e.cuerpo).includes('ana@'), v);
   }
+  const fuente = fs.readFileSync(path.join(RAIZ, 'herramientas', 'opinion.js'), 'utf8');
+  assert.ok(!/type\s*=\s*'email'|autocomplete\s*=\s*'email'/.test(fuente), 'el bloque de opinion no crea un campo de correo');
 });
 
 test('opinion: deben FALLAR el campo trampa relleno y los datos fuera de la lista', () => {

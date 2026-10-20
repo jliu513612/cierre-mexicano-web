@@ -72,6 +72,8 @@ const SABOTAJES = [
   ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
+  ['descargas: los unicos se encienden sin aviso de privacidad', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'export const UNICOS_ACTIVOS = false;', 'export const UNICOS_ACTIVOS = true;'],
+  ['descargas: el evento guarda la IP', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'bot: esBot(ua, metodo), interno: !!interno };', 'bot: esBot(ua, metodo), interno: !!interno, ip };'],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas
@@ -132,7 +134,8 @@ const SABOTAJES = [
   ['opinion: el campo trampa deja de mirarse', H('opinion.js'), "if (d.trampa) return { ok: false, motivo: 'TRAMPA' };", '', 'nav'],
   ['opinion: sin tope de envios', H('opinion.js'), "if (envios >= MAX_ENVIOS) { alTerminar('TOPE'); return; }", '', 'nav'],
   ['opinion: se acepta cualquier texto como clase', H('opinion.js'), 'if (!RE_CLASE.test(String(d.clase)))', 'if (false)'],
-  ['opinion: el voto positivo arrastra motivo y correo', H('opinion.js'), "correo: d.voto === 'NO' ? correo : ''", 'correo: correo'],
+  ['opinion: el voto positivo arrastra el motivo', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', fecha: d.fecha };", "motivo: limpiarMotivo(d.motivo), fecha: d.fecha };"],
+  ['opinion: vuelve el correo', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', fecha: d.fecha };", "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', correo: String(d.correo || ''), fecha: d.fecha };"],
   ['opinion: el formulario estatico pierde un campo', path.join(RAIZ, '.herramientas', 'construir.py'), '<input type="hidden" name="motivo">', ''],
 ];
 

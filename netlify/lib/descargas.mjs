@@ -1,10 +1,14 @@
 // Logica del contador de descargas de taxcerteza.mx, separada de Netlify para poder probarla con node --test.
 // La usa netlify/functions/descargar.mjs. Lo que se guarda por descarga, y nada mas:
-//   ts, contexto (production / deploy-preview / ...), version, archivo, pais, metodo, bot, interno, huella.
-// La huella es sha256(sal secreta | mes | IP | user-agent) recortada: sirve para contar descargadores UNICOS sin guardar
-// la IP ni el user-agent en claro. La sal vive en una variable de Netlify y el mes entra en el hash, asi que la misma
-// persona tiene otra huella cada mes (no se puede seguir a nadie de un mes a otro).
+//   ts, contexto (production / deploy-preview / ...), version, archivo, pais, metodo, bot, interno.
+// NADA derivado de la IP (decision de la duena del sitio, 2026-10-20: hasta que exista el aviso de privacidad). El
+// user-agent solo se mira al momento para la marca de bot y no se guarda.
+// LOS UNICOS ESTAN APAGADOS (UNICOS_ACTIVOS = false). El codigo se conserva: la huella seria sha256(sal | mes | IP | UA)
+// recortada, con la sal en una variable de Netlify; se enciende cuando exista el aviso de privacidad.
 import { createHash, timingSafeEqual } from 'node:crypto';
+
+/** Unicos (huella de IP + user-agent): APAGADO hasta que exista el aviso de privacidad. */
+export const UNICOS_ACTIVOS = false;
 
 // Clientes que no son una persona descargando: buscadores, previsualizadores de enlaces y descargas por programa.
 const RE_BOT = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|slack|discord|embedly|preview|curl|wget|python|httpclient|http-client|java\/|go-http|okhttp|axios|node-fetch|libwww|headless|lighthouse|monitor|uptime|pingdom|scan/i;
@@ -37,39 +41,41 @@ export function destino(tabla, archivo) {
   return d ? { archivo: clave, version: d.version, url: d.url } : null;
 }
 
-export function evento({ ts, contexto, version, archivo, pais, metodo, ua, ip, sal, interno }) {
-  return { ts, contexto, version, archivo, pais: pais || null, metodo: metodo || 'GET', bot: esBot(ua, metodo),
-           interno: !!interno, huella: huella(sal, ts, ip, ua) };
+/** El evento que se guarda. `unicos` (por omision UNICOS_ACTIVOS) decide si lleva huella; apagado, ni la IP ni nada
+    derivado de ella entra en el evento. */
+export function evento({ ts, contexto, version, archivo, pais, metodo, ua, ip, sal, interno, unicos = UNICOS_ACTIVOS }) {
+  const e = { ts, contexto, version, archivo, pais: pais || null, metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };
+  if (unicos) e.huella = huella(sal, ts, ip, ua);
+  return e;
 }
 
 /**
  * Resumen de un periodo [desde, hasta] (fechas AAAA-MM-DD, inclusivas) de los eventos de UN contexto.
  * internas: huellas que se sabe que son nuestras (las de las descargas hechas con la cookie de interno).
  */
-export function resumir(eventos, { desde, hasta, contexto = 'production', internas = [] } = {}) {
+export function resumir(eventos, { desde, hasta, contexto = 'production', internas = [], unicos = UNICOS_ACTIVOS } = {}) {
   const dentro = eventos.filter(e => e.contexto === contexto && e.ts.slice(0, 10) >= desde && e.ts.slice(0, 10) <= hasta);
   const nuestras = new Set(internas);
   for (const e of dentro) if (e.interno && e.huella) nuestras.add(e.huella);
   const esInterno = e => e.interno || (e.huella && nuestras.has(e.huella));
-  const unicos = l => new Set(l.filter(e => e.huella).map(e => e.huella)).size;
+  const cuenta = l => new Set(l.filter(e => e.huella).map(e => e.huella)).size;
   const reales = dentro.filter(e => !e.bot && !esInterno(e));
   const porVersion = {}, porPais = {};
   for (const e of reales) {
     porVersion[e.version] = (porVersion[e.version] || 0) + 1;
     porPais[e.pais || '??'] = (porPais[e.pais || '??'] || 0) + 1;
   }
-  return {
+  const r = {
     periodo: { desde, hasta }, contexto,
     descargas_total: dentro.length,
     descargas_bots: dentro.filter(e => e.bot).length,
     descargas_internas: dentro.filter(e => !e.bot && esInterno(e)).length,
     descargas_reales: reales.length,
-    unicos_total: unicos(dentro),
-    unicos_reales: unicos(reales),
-    sin_huella: dentro.filter(e => !e.huella).length,
     por_version: porVersion,
     por_pais: porPais,
   };
+  if (unicos) Object.assign(r, { unicos_total: cuenta(dentro), unicos_reales: cuenta(reales), sin_huella: dentro.filter(e => !e.huella).length });
+  return r;
 }
 
 /** Lunes a domingo de la semana ANTERIOR a `hoy` (AAAA-MM-DD), que es lo que pide el informe del lunes. */

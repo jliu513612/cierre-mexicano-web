@@ -3,15 +3,14 @@
 //   /descargar                 la descarga (el archivo sale de netlify/descargas.json, nunca de la URL)
 //   /descargar/interno?clave=  marca ESTE navegador como interno (demo, VM, equipo): sus descargas no cuentan
 //   /descargar/resumen?clave=  resumen JSON de un periodo (?desde=&hasta=, por omision la semana anterior). No es publico.
-// Variables de Netlify (las crea la duena del sitio; ninguna va en el repo):
-//   DESCARGAS_SAL               sal secreta de la huella. Sin ella se cuenta, pero no se pueden contar unicos.
-//   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno
-//   DESCARGAS_CLAVE_LECTURA     clave de /descargar/resumen en produccion
+// UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
+//   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno y de /descargar/resumen (la tienen las mismas personas).
+// Con los unicos encendidos (UNICOS_ACTIVOS, hoy apagado) haria falta ademas DESCARGAS_SAL.
 // Lo de las vistas previas va a OTRO almacen ('descargas-pruebas') y su resumen se lee sin clave: son descargas de prueba,
 // nunca se mezclan con las reales.
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
-import { evento, destino, claveValida, resumir, semanaAnterior, diasEntre } from '../lib/descargas.mjs';
+import { evento, destino, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -47,7 +46,7 @@ export default async (req, context) => {
   }
 
   if (ruta === '/descargar/resumen') {
-    if (produccion && !claveValida(url.searchParams.get('clave'), env('DESCARGAS_CLAVE_LECTURA'))) return respuesta('No encontrado', 404);
+    if (produccion && !claveValida(url.searchParams.get('clave'), env('DESCARGAS_CLAVE_INTERNA'))) return respuesta('No encontrado', 404);
     const hoy = new Date().toISOString().slice(0, 10);
     let { desde, hasta } = semanaAnterior(hoy);
     if (RE_FECHA.test(url.searchParams.get('desde') || '')) desde = url.searchParams.get('desde');
@@ -57,7 +56,7 @@ export default async (req, context) => {
     const eventos = await leer(store, desde.slice(0, 8) + '01', hasta);
     const internas = eventos.filter(e => e.interno && e.huella).map(e => e.huella);
     const r = resumir(eventos, { desde, hasta, contexto, internas });
-    r.sal_configurada = !!env('DESCARGAS_SAL');
+    r.unicos = UNICOS_ACTIVOS ? (env('DESCARGAS_SAL') ? 'activos' : 'activos sin sal') : 'apagados (sin aviso de privacidad)';
     return respuesta(JSON.stringify(r, null, 1), 200, { 'Content-Type': 'application/json; charset=utf-8' });
   }
 
@@ -67,7 +66,8 @@ export default async (req, context) => {
   const ts = new Date().toISOString();
   const ev = evento({
     ts, contexto, version: d.version, archivo: d.archivo, pais: context.geo && context.geo.country && context.geo.country.code,
-    metodo: req.method, ua: req.headers.get('user-agent'), ip: context.ip, sal: env('DESCARGAS_SAL'),
+    metodo: req.method, ua: req.headers.get('user-agent'),
+    ip: UNICOS_ACTIVOS ? context.ip : undefined, sal: UNICOS_ACTIVOS ? env('DESCARGAS_SAL') : '',
     interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || ''),
   });
   try {

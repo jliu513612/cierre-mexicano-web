@@ -35,7 +35,7 @@ PAGINAS = {  # plantilla -> ruta publicada
 FORMULARIO = (
     '<form name="opinion-herramientas" method="POST" data-netlify="true" netlify-honeypot="sitio" hidden aria-hidden="true">'
     '<input type="hidden" name="herramienta"><input type="hidden" name="clase"><input type="hidden" name="voto">'
-    '<input type="hidden" name="motivo"><input type="hidden" name="correo"><input type="hidden" name="fecha">'
+    '<input type="hidden" name="motivo"><input type="hidden" name="fecha">'
     '<input type="hidden" name="sitio"></form>\n')
 
 

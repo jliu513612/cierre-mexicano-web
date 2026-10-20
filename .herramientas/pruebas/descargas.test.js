@@ -48,8 +48,14 @@ test('descargas: huella, bots y claves', async () => {
   assert.notEqual(huella('sal', '2026-11-01T00:00:00Z', '1.2.3.4', 'Mozilla/5.0'), h1, 'otro mes, otra huella');
   assert.notEqual(huella('otra', '2026-10-20T10:00:00Z', '1.2.3.4', 'Mozilla/5.0'), h1, 'otra sal, otra huella');
   assert.equal(huella('', '2026-10-20T10:00:00Z', '1.2.3.4', 'x'), null, 'sin sal no hay huella');
-  const ev = evento({ ts: '2026-10-20T10:00:00Z', contexto: 'production', version: '1.0.47', archivo: 'windows', pais: 'MX', metodo: 'GET', ua: 'Mozilla/5.0', ip: '1.2.3.4', sal: 's' });
-  assert.ok(!JSON.stringify(ev).includes('1.2.3.4') && !JSON.stringify(ev).includes('Mozilla'), 'ni la IP ni el user-agent se guardan en claro');
+  const base = { ts: '2026-10-20T10:00:00Z', contexto: 'production', version: '1.0.47', archivo: 'windows', pais: 'MX', metodo: 'GET', ua: 'Mozilla/5.0', ip: '1.2.3.4', sal: 's' };
+  const { UNICOS_ACTIVOS } = await L();
+  assert.equal(UNICOS_ACTIVOS, false, 'los unicos estan APAGADOS hasta que exista el aviso de privacidad');
+  const ev = evento(base);
+  assert.deepEqual(Object.keys(ev).sort(), ['archivo', 'bot', 'contexto', 'interno', 'metodo', 'pais', 'ts', 'version'], 'apagado: nada derivado de la IP');
+  const encendido = evento(Object.assign({ unicos: true }, base));
+  assert.match(encendido.huella, /^[0-9a-f]{20}$/, 'el codigo de unicos sigue vivo detras de la bandera');
+  for (const x of [ev, encendido]) assert.ok(!JSON.stringify(x).includes('1.2.3.4') && !JSON.stringify(x).includes('Mozilla'), 'ni la IP ni el user-agent se guardan en claro');
   for (const ua of ['Googlebot/2.1', 'facebookexternalhit/1.1', 'WhatsApp/2.23', 'curl/8.4', 'python-requests/2.31', '', 'Mozilla/5.0 HeadlessChrome/120']) assert.equal(esBot(ua, 'GET'), true, ua);
   assert.equal(esBot('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/130.0 Safari/537.36', 'GET'), false);
   assert.equal(esBot('Mozilla/5.0 (Windows NT 10.0) Chrome/130', 'HEAD'), true, 'un HEAD no baja el archivo');
@@ -59,9 +65,9 @@ test('descargas: huella, bots y claves', async () => {
   assert.equal(claveValida(null, 'abc'), false);
 });
 
-test('descargas: el resumen separa bots e internos y cuenta unicos', async () => {
+for (const unicos of [false, true]) test(`descargas: el resumen separa bots e internos (unicos ${unicos ? 'encendidos' : 'APAGADOS, como hoy'})`, async () => {
   const { evento, resumir, semanaAnterior } = await L();
-  const e = (dia, ip, ua, extra = {}) => evento(Object.assign({ ts: `2026-10-${dia}T12:00:00Z`, contexto: 'production', version: '1.0.47', archivo: 'windows', pais: 'MX', metodo: 'GET', ua, ip, sal: 's' }, extra));
+  const e = (dia, ip, ua, extra = {}) => evento(Object.assign({ ts: `2026-10-${dia}T12:00:00Z`, contexto: 'production', version: '1.0.47', archivo: 'windows', pais: 'MX', metodo: 'GET', ua, ip, sal: 's', unicos }, extra));
   const PC = 'Mozilla/5.0 (Windows NT 10.0) Chrome/130';
   const eventos = [
     e('13', '1.1.1.1', PC), e('13', '1.1.1.1', PC),               // la misma persona dos veces
@@ -72,14 +78,23 @@ test('descargas: el resumen separa bots e internos y cuenta unicos', async () =>
     e('17', '4.4.4.4', PC, { contexto: 'deploy-preview' }),         // vista previa: otro contexto
     e('20', '5.5.5.5', PC),                                         // fuera del periodo
   ];
-  const r = resumir(eventos, { desde: '2026-10-12', hasta: '2026-10-18' });
+  const r = resumir(eventos, { desde: '2026-10-12', hasta: '2026-10-18', unicos });
   assert.equal(r.descargas_total, 6);
   assert.equal(r.descargas_bots, 1);
-  assert.equal(r.descargas_internas, 2);
-  assert.equal(r.descargas_reales, 3);
-  assert.equal(r.unicos_total, 4);
-  assert.equal(r.unicos_reales, 2);
-  assert.deepEqual(r.por_version, { '1.0.47': 3 });
+  if (unicos) {
+    // la huella del mes reconoce a «nosotros» tambien sin la cookie
+    assert.equal(r.descargas_internas, 2);
+    assert.equal(r.descargas_reales, 3);
+    assert.equal(r.unicos_total, 4);
+    assert.equal(r.unicos_reales, 2);
+    assert.deepEqual(r.por_version, { '1.0.47': 3 });
+  } else {
+    // sin huella, lo interno es SOLO lo que trae la cookie; y no hay ningun campo de unicos
+    assert.equal(r.descargas_internas, 1);
+    assert.equal(r.descargas_reales, 4);
+    assert.ok(!('unicos_total' in r) && !('unicos_reales' in r) && !('sin_huella' in r), 'apagado: no hay unicos en el resumen');
+    assert.deepEqual(r.por_version, { '1.0.47': 4 });
+  }
   assert.deepEqual(semanaAnterior('2026-10-19'), { desde: '2026-10-12', hasta: '2026-10-18' });
   assert.deepEqual(semanaAnterior('2026-10-25'), { desde: '2026-10-12', hasta: '2026-10-18' });
   assert.deepEqual(semanaAnterior('2026-10-26'), { desde: '2026-10-19', hasta: '2026-10-25' });

@@ -131,7 +131,7 @@ async function main() {
   exige(recibidos.length === 0, 'calcular no envia nada');
   await p.pulsa('#res-rfc .op-botones button:nth-child(2)');
   await p.teclea('#res-rfc .op-forma textarea', `mi RFC ${RFC} si es correcto, y tambien eku-900317-3c8`);
-  await p.teclea('#res-rfc .op-forma input[type=email]', 'ana@despacho.mx');
+  exige((await p.js("document.querySelectorAll('#res-rfc .op-forma input[type=email], #res-rfc .op-forma input:not(.op-trampa)').length")) === 0, 'el bloque de opinion no pide correo');
   await p.pulsa('#res-rfc .op-enviar'); await esperaEnvios(1);
   exige(recibidos.length === 1, `sale exactamente una peticion (salieron ${recibidos.length})`);
   let c = recibidos[0] ? campos(recibidos[0].cuerpo) : {};
@@ -139,8 +139,8 @@ async function main() {
   exige(!/EKU9003173C8|900317|3C8/i.test(crudo), 'el cuerpo enviado NO contiene el RFC tecleado ni sus partes');
   exige(c.herramienta === 'validar-rfc' && c.clase === 'DIGITO_NO_COINCIDE' && c.voto === 'NO', `lleva herramienta, clase y voto (${c.herramienta}, ${c.clase}, ${c.voto})`);
   exige(c.motivo === 'mi RFC [RFC omitido] si es correcto, y tambien [RFC omitido]', `el motivo llega con el RFC omitido («${c.motivo}»)`);
-  exige(c.correo === 'ana@despacho.mx' && /^\d{4}-\d{2}-\d{2}$/.test(c.fecha || ''), 'lleva el correo opcional y la fecha');
-  exige(Object.keys(c).sort().join() === 'clase,correo,fecha,form-name,herramienta,motivo,voto', `solo los siete campos (${Object.keys(c).sort().join()})`);
+  exige(!('correo' in c) && /^\d{4}-\d{2}-\d{2}$/.test(c.fecha || ''), 'lleva la fecha y ningun correo');
+  exige(Object.keys(c).sort().join() === 'clase,fecha,form-name,herramienta,motivo,voto', `solo los seis campos (${Object.keys(c).sort().join()})`);
   exige(recibidos[0] && recibidos[0].url === '/' && /x-www-form-urlencoded/.test(recibidos[0].tipo), 'va a la raiz del propio sitio, como formulario');
   exige((await esperaTexto(p, '#res-rfc .op-estado', x => x.startsWith('Gracias'))).startsWith('Gracias'), 'la pagina da las gracias');
   await p.cerrar();

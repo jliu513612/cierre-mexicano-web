@@ -4,35 +4,35 @@
   "huella": "0f86e3c972280e2eb41be238345d7ad4c2102106c7b8224a23243e622f583107"
  },
  "/herramientas/calendario-dia-17/": {
-  "fecha": "2026-10-19",
-  "huella": "7da4bcb066a625eb5b03ff8363f448ae428d02ed3622f0ef5b3d4aedd00c3ad4"
+  "fecha": "2026-10-20",
+  "huella": "c168d1eb2e15bf35db096cbde98df393f8e840d9099fd6ee3c1324fd9aef3b68"
  },
  "/herramientas/complemento-de-pago/": {
-  "fecha": "2026-10-19",
-  "huella": "164727daca929a56f06e2832ded47fa90a8ad209eeb0c41624cc21131a0b3c11"
+  "fecha": "2026-10-20",
+  "huella": "cbbd5c6181cb3e0586e0e834c76e78f2ec842589ef0573b93b6ac2961b3215dd"
  },
  "/herramientas/factura-con-retenciones/": {
-  "fecha": "2026-10-19",
-  "huella": "348e2fb451404a81608e8f0b63c9780353bbb97e6fc02efddd5b915c2f02a4fb"
+  "fecha": "2026-10-20",
+  "huella": "1200519960339ab1e23e0294e05b70fbc8db63b621d5876a7df11b1596cc288c"
  },
  "/herramientas/iva-del-mes/": {
-  "fecha": "2026-10-19",
-  "huella": "9d58b962e4d932f5d6fae7d6eff6d4247b60a31368127e55702969a318353af7"
+  "fecha": "2026-10-20",
+  "huella": "706227dbb23179e1050312413a7815881061fe4fbf3a66ec395a4bceb8eaf117"
  },
  "/herramientas/lista-69b/": {
-  "fecha": "2026-10-19",
-  "huella": "07dc96a25866a5b5a9d85214717a66357c7f569e15ff4883b9c132a5a63373c3"
+  "fecha": "2026-10-20",
+  "huella": "d7237d86952a441be0d8cf720b3362e00c7611ffdc1141d4b1b70d981d19a978"
  },
  "/herramientas/validar-rfc/": {
-  "fecha": "2026-10-15",
-  "huella": "b24325dbc31dacdc67ce86a629b7a2cde5cb5771b8461c77d8457321f5f67304"
+  "fecha": "2026-10-20",
+  "huella": "b572bae50353964d43f11340435d0acaca836b2bc668b6f30896ccf81862d434"
  },
  "/herramientas/valor-uma/": {
-  "fecha": "2026-10-15",
-  "huella": "59ee86458b12b27ef1998481456cd3e129abe83b1a299abc78096e85bc1f27b2"
+  "fecha": "2026-10-20",
+  "huella": "66f474055aeb8f3c26228e10d94375d5674e656f9ed2902f75df3f6a3b1bbe89"
  },
  "/herramientas/verificar-factura/": {
-  "fecha": "2026-10-19",
-  "huella": "9602cfddfd7451aae113c69511e3049a35307f71813c0ea34b8601f007cab4e3"
+  "fecha": "2026-10-20",
+  "huella": "3894775aed9c0be1a48e3965f0817b6692f8cea7bed630b969dd9553d4334619"
  }
 }
