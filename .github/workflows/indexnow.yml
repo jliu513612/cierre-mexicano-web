@@ -1,0 +1,42 @@
+# Aviso a IndexNow (Bing y los buscadores que lo comparten) de las paginas nuevas, cambiadas o borradas en cada
+# despliegue de produccion. Netlify despliega produccion con cada push a main; este flujo corre con el mismo push.
+#
+#   push a main  -> espera a que el sitio sirva la version nueva y avisa (.github/indexnow/avisar.mjs). Imprime siempre
+#                   una linea LATIDO o ALERTA; si falla, la corrida sale en rojo y GitHub avisa por correo.
+#   pull_request -> pruebas del script y simulacion: dice que URL avisaria, sin esperar ni enviar nada.
+# Solo usa la clave publica del sitio (<clave>.txt en la raiz); no necesita secretos. Google no usa IndexNow: para
+# Google estan los sitemaps.
+name: indexnow
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    paths: ['.github/indexnow/**', '.github/workflows/indexnow.yml']
+permissions:
+  contents: read
+concurrency:
+  group: indexnow-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: pruebas del aviso
+        run: node --test .github/indexnow/avisar.test.mjs
+      - name: simulacion (que URL avisaria este PR)
+        if: github.event_name == 'pull_request'
+        env:
+          INDEXNOW_SIMULAR: '1'
+        run: node .github/indexnow/avisar.mjs "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
+      - name: avisar a IndexNow
+        if: github.event_name == 'push'
+        run: node .github/indexnow/avisar.mjs "${{ github.event.before }}" "${{ github.sha }}"
