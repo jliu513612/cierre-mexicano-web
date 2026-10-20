@@ -446,6 +446,16 @@
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (párrafo de acreditamiento reformado DOF 07-06-2005)",
    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-4": {
+   "cita": "Ley del IVA, artículo 4o.",
+   "etiqueta": "Ley del IVA, artículo 4o. (impuesto acreditable)",
+   "cifras": [
+    "4o."
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (artículo reformado por última vez DOF 07-06-2005; el párrafo del 15-D del CFF, fuera de esta entrada, adicionado DOF 23-04-2021)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
   }
  }
 }
