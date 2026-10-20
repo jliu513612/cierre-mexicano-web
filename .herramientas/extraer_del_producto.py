@@ -559,6 +559,52 @@ def vectores_calendario(prod):
             'transmision': {'anios_elegibles': list(ANIOS_CALENDARIO), 'anios_que_se_mueven': movidos}}
 
 
+def datos_tipo_cambio(prod):
+    """Tipo de cambio: la serie, el calendario de dias inhabiles bancarios (CNBV) por ano y las fuentes, LEIDOS de
+    banxico_fix del programa y de su registro de afirmaciones legales."""
+    import banxico_fix as B
+    reg = json.loads((prod / 'references' / 'afirmaciones_legales.json').read_text(encoding='utf-8'))['articulos']
+    fuentes = {}
+    for k in ['cff-20'] + ['cnbv-dias-inhabiles-%d' % a for a in sorted(B.CALENDARIOS_BANXICO)]:
+        a = reg[k]
+        fuentes[k] = {'ley': a['ley'], 'articulo': a['articulo'], 'url': a['fuente_url'], 'vigencia': a['vigencia'],
+                      'norma_corta': a.get('norma_corta'), 'verificado': a['fecha_verificacion']}
+    commit = subprocess.run(['git', '-C', str(prod), 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
+    return {'_nota': 'GENERADO por .herramientas/extraer_del_producto.py desde banxico_fix del programa. No se edita a mano.',
+            'producto_commit': commit, 'serie': B.SERIE_FIX_USD_MXN,
+            'calendarios': {str(a): sorted(d) for a, d in sorted(B.CALENDARIOS_BANXICO.items())},
+            'fuentes': fuentes}
+
+
+def vectores_tipo_cambio(prod):
+    """Se EJECUTAN las fechas de banxico_fix para CADA dia del ano anterior al primero cargado hasta el siguiente al
+    ultimo: dia habil, el FIX que aplica a una obligacion (fecha_determinacion_para, que usa tc_para_obligaciones), el
+    publicado en el DOF ese dia (fecha_fix_publicado_en_dof) y el determinado (dia_habil_o_anterior, que usa
+    tc_fix_determinado). Donde el programa NO responde (CalendarioNoCubierto) el vector lo dice."""
+    import banxico_fix as B
+    anios = sorted(B.CALENDARIOS_BANXICO)
+    d, fin = dt.date(anios[0] - 1, 12, 20), dt.date(anios[-1] + 1, 1, 15)
+    dias = []
+
+    def o(f):
+        try:
+            return f().isoformat()
+        except B.CalendarioNoCubierto:
+            return 'NO_CUBIERTO'
+    while d <= fin:
+        try:
+            habil = B.es_dia_habil(d)
+        except B.CalendarioNoCubierto:
+            habil = 'NO_CUBIERTO'
+        dias.append({'fecha': d.isoformat(), 'habil': habil,
+                     'obligaciones': o(lambda: B.fecha_determinacion_para(d)),
+                     'publicacion_que_aplica': o(lambda: B.fecha_dof_que_aplica_a(d)),
+                     'dof_del_dia': o(lambda: B.fecha_fix_publicado_en_dof(d)),
+                     'determinado': o(lambda: B.dia_habil_o_anterior(d))})
+        d += dt.timedelta(days=1)
+    return {'dias': dias}
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -579,6 +625,8 @@ def main():
         "vectores/calendario.json": vectores_calendario(prod),
         "datos/iva.json": datos_iva(prod),
         "vectores/iva.json": vectores_iva(prod),
+        "datos/tipo-cambio.json": datos_tipo_cambio(prod),
+        "vectores/tipo-cambio.json": vectores_tipo_cambio(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel

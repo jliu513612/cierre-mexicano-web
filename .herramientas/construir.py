@@ -27,6 +27,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "factura-con-retenciones": "/herramientas/factura-con-retenciones/",
     "calendario-dia-17": "/herramientas/calendario-dia-17/",
     "iva-del-mes": "/herramientas/iva-del-mes/",
+    "tipo-de-cambio": "/herramientas/tipo-de-cambio/",
 }
 
 
@@ -148,6 +149,23 @@ def construir():
     v_uma["FUENTES_IVA"] = "\n".join(
         f'      <li><a href="{html.escape(_iva["fuentes"][k]["url"])}" rel="noopener">{_nombre_iva[_iva["fuentes"][k]["ley"]]}, artículo {_iva["fuentes"][k]["articulo"]}</a>: {_que_iva[k]}. {_reforma(_iva["fuentes"][k]["vigencia"])}.</li>'
         for k in _que_iva)
+    _tc = json.loads((AQUI / "datos" / "tipo-cambio.json").read_text(encoding="utf-8"))
+    _anios_tc = sorted(_tc["calendarios"])
+    v_uma["TC_ANIOS"] = ", ".join(_anios_tc[:-1]) + " y " + _anios_tc[-1] if len(_anios_tc) > 1 else _anios_tc[0]
+    v_uma["TC_OPCIONES"] = "\n".join(f'          <option value="{x}">{x}</option>' for x in reversed(_anios_tc))
+    _f = _tc["fuentes"]
+    v_uma["FUENTES_TC"] = "\n".join(
+        [f'      <li><a href="{html.escape(_f["cff-20"]["url"])}" rel="noopener">Código Fiscal de la Federación, artículo 20</a>: '
+         "las contribuciones se determinan con el tipo de cambio al que se haya adquirido la moneda extranjera; si no hubo "
+         "adquisición, con el que Banco de México publique en el DOF el día anterior a aquél en que se causen, y si ese día no "
+         f'hubo publicación, con el último publicado antes. {_reforma(_f["cff-20"]["vigencia"])}.</li>']
+        + [f'      <li><a href="{html.escape(_f[k]["url"])}" rel="noopener">Disposiciones de la CNBV publicadas en el DOF el '
+           f'{_f[k]["vigencia"].split(",")[0].replace("DOF ", "")}</a>: días de {k[-4:]} en que las entidades financieras cierran '
+           "y suspenden operaciones.</li>" for k in sorted(_f) if k.startswith("cnbv-dias-inhabiles-")]
+        + ['      <li><a href="https://www.banxico.org.mx/tipcamb/tipCamIHAction.do?idioma=sp" rel="noopener">Banco de México, '
+           "tipo de cambio para solventar obligaciones denominadas en dólares</a>: tabla oficial con las columnas de "
+           f'determinación, publicación en el DOF y para solventar obligaciones. Serie {_tc["serie"]} del Sistema de '
+           "Información Económica.</li>"])
     base = (AQUI / "plantillas" / "base.html").read_text(encoding="utf-8")
     salidas = {}
     for nombre, ruta in PAGINAS.items():
@@ -207,6 +225,11 @@ def construir():
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/iva.json. No se edita a mano. */\n"
         "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
         "  else raiz.TCIvaDatos = datos;\n})(this, " + json.dumps(iva, ensure_ascii=False, indent=1) + ");\n")
+    tcam = {k: v for k, v in json.loads((AQUI / "datos" / "tipo-cambio.json").read_text(encoding="utf-8")).items() if k != "_nota"}
+    salidas["herramientas/tipo-de-cambio/tipo-cambio-datos.js"] = (
+        "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/tipo-cambio.json. No se edita a mano. */\n"
+        "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
+        "  else raiz.TCTipoCambioDatos = datos;\n})(this, " + json.dumps(tcam, ensure_ascii=False, indent=1) + ");\n")
     return salidas
 
 

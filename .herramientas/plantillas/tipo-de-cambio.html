@@ -1,0 +1,118 @@
+@@TITULO
+Tipo de cambio del dólar para efectos fiscales (FIX de Banxico) | Tax Certeza
+@@TITULO_CORTO
+Tipo de cambio para efectos fiscales
+@@MIGA
+Tipo de cambio
+@@DESCRIPCION
+Qué tipo de cambio del dólar usar para una factura, un pago o una declaración: el FIX que Banco de México publica en el DOF, con la regla del artículo 20 del Código Fiscal y los días inhábiles bancarios.
+@@SCRIPTS
+<script src="/herramientas/tipo-de-cambio/tipo-cambio-datos.js" defer></script>
+<script src="/herramientas/tipo-de-cambio/tc.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/uso.js" defer></script>
+<script src="/herramientas/tipo-de-cambio/pagina.js" defer></script>
+@@FAQ
+P: ¿Qué tipo de cambio se usa para pagar impuestos en dólares?
+R: El artículo 20 del Código Fiscal toma el tipo de cambio al que se adquirió la moneda. Si no hubo adquisición, toma el que Banco de México publica en el Diario Oficial de la Federación el día anterior a aquél en que se causan las contribuciones; si ese día no hubo publicación, el último publicado antes. Revisa con tu contador cuál aplica a tu operación.
+P: ¿Por qué el tipo de cambio de un lunes es el del jueves anterior?
+R: Banco de México determina el FIX un día hábil bancario y lo publica en el DOF el día hábil siguiente; esa publicación aplica desde el día natural siguiente. Para un lunes, la última publicación anterior es la del viernes, y lo que se publicó el viernes es el FIX determinado el jueves.
+P: ¿Qué pasa en sábado, domingo o día festivo?
+R: Esos días no hay FIX ni publicación en el DOF. Aplica la última publicación anterior, así que el sábado, el domingo y el lunes siguientes comparten el mismo tipo de cambio cuando el viernes fue día hábil.
+P: ¿Qué días son inhábiles para los bancos?
+R: Los que la Comisión Nacional Bancaria y de Valores publica cada año en el DOF, además de los sábados y domingos. La página los toma de esa publicación para {{TC_ANIOS}}; para otro año no responde.
+P: ¿Es el mismo dato que la tabla de Banxico?
+R: Sí. Es la serie SF43718 de Banxico, y cada día se coteja contra la columna «Para solventar obligaciones» de la tabla oficial de los últimos 30 días.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Tipo de cambio del dólar para efectos fiscales</h1>
+  <p class="lead">¿Qué tipo de cambio uso para esta factura, este pago o esta declaración? Elige la fecha de la operación y la página muestra el FIX de Banco de México que corresponde a esa fecha, cuándo se determinó y cuándo se publicó en el DOF.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-tc">
+  <h2 id="t-tc">Consultar el tipo de cambio</h2>
+  <form id="f-tc" novalidate>
+    <fieldset class="campo">
+      <legend>Fecha de la operación</legend>
+      <div class="fila-mes">
+        <select id="tc-d" name="tc-d" aria-label="Día"></select>
+        <select id="tc-m" name="tc-m" aria-label="Mes">
+          <option value="01">enero</option>
+          <option value="02">febrero</option>
+          <option value="03">marzo</option>
+          <option value="04">abril</option>
+          <option value="05">mayo</option>
+          <option value="06">junio</option>
+          <option value="07">julio</option>
+          <option value="08">agosto</option>
+          <option value="09">septiembre</option>
+          <option value="10">octubre</option>
+          <option value="11">noviembre</option>
+          <option value="12">diciembre</option>
+        </select>
+        <select id="tc-a" name="tc-a" aria-label="Año">
+{{TC_OPCIONES}}
+        </select>
+      </div>
+    </fieldset>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Ver tipo de cambio</button>
+    </div>
+  </form>
+  <div class="res" id="res-tc" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para buscar el tipo de cambio en tu navegador.</p></noscript>
+  <p class="privado"><b>La fecha que eliges no sale de tu equipo.</b> La página descarga la serie completa del FIX desde este mismo sitio y busca la fecha en tu navegador. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Da el FIX del dólar que Banco de México publicó en el DOF y que aplica a una fecha, con el día en que se determinó y el día en que se publicó.</li>
+        <li>Salta sábados, domingos y los días inhábiles bancarios que la CNBV publica en el DOF.</li>
+        <li>Muestra aparte, como información, el FIX publicado en el DOF ese mismo día y el determinado ese día.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No decide si la moneda se adquirió: en ese caso el artículo 20 del Código Fiscal toma el tipo de cambio de la adquisición, no este.</li>
+        <li>No da tipos de cambio de otras monedas ni equivalencias de monedas distintas del dólar.</li>
+        <li>No responde para años sin calendario de días inhábiles bancarios cargado ({{TC_ANIOS}} sí lo tienen).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se calcula</h2>
+  <p>Banco de México determina el FIX cada día hábil bancario y lo publica en el DOF el día hábil siguiente. Esa publicación aplica desde el día natural siguiente. Para una operación de una fecha, la página toma la última publicación del DOF anterior a esa fecha y muestra el FIX que esa publicación trae.</p>
+  <p>Ejemplo: para una operación del martes 10 de marzo de 2026, la última publicación anterior es la del lunes 9, que trae el FIX determinado el viernes 6 de marzo. Para el sábado 7 y el domingo 8 aplica la publicación del viernes 6, que trae el FIX del jueves 5.</p>
+  <p>La herramienta aplica la misma regla y la misma serie que el programa Tax Certeza. Los datos se descargan del Sistema de Información Económica de Banxico (serie SF43718) y cada día se cotejan contra la columna «Para solventar obligaciones» de la tabla oficial de Banxico en los últimos 30 días. Si el cotejo no cuadra, los datos no se actualizan.</p>
+
+  <h3>Si la moneda se adquirió</h3>
+  <p>El artículo 20 del Código Fiscal dice que se considera el tipo de cambio al que se haya adquirido la moneda extranjera, y solo si no hubo adquisición, el que Banco de México publica en el DOF. Si tu operación tuvo una compra de dólares, el tipo de cambio de esa compra es el que la ley toma en cuenta. Revisa con tu contador cuál aplica a tu caso.</p>
+
+  <h2>Fundamento legal</h2>
+  <div class="fundamento">
+    <ul>
+{{FUENTES_TC}}
+    </ul>
+  </div>
+
+  <h2>Límites</h2>
+  <p>Solo dólar de los Estados Unidos. Calendario de días inhábiles bancarios para {{TC_ANIOS}}. Los datos se actualizan una vez al día, después de que Banxico publica el FIX; la página dice la fecha del último dato. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Para saber cuándo vence el pago mensual está el <a href="/herramientas/calendario-dia-17/">calendario del día 17</a>, y para el complemento de un pago recibido, la <a href="/herramientas/complemento-de-pago/">fecha límite del REP</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza toma el tipo de cambio para obligaciones con esta misma regla de fechas y esta misma serie de Banxico.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>
