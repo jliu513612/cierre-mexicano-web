@@ -13,7 +13,7 @@
   'use strict';
 
   var FORMULARIO = 'opinion-herramientas';
-  var HERRAMIENTAS = ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones', 'calendario-dia-17', 'iva-del-mes'];
+  var HERRAMIENTAS = ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones', 'calendario-dia-17', 'iva-del-mes', 'tipo-de-cambio'];
   var RE_CLASE = /^[A-Z][A-Z_]{1,39}$/;
   // Algo con forma de RFC dentro del motivo se quita antes de enviar, aunque la persona lo haya escrito.
   var RE_RFC = /[A-ZÑ&]{3,4}[ -]?\d{6}[ -]?[A-Z0-9]{3}/gi;

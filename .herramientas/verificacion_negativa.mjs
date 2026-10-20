@@ -79,7 +79,28 @@ const SABOTAJES = [
   ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  return { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  return Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
   ['usos: una herramienta sin su evento', H('factura-con-retenciones/pagina.js'), "    if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');\n", '', 'nav'],
   ['usos: doble conteo (sin dedupe)', H('uso.js'), '    if (antes !== undefined && ahora - antes < VENTANA_MS) return false;\n', '', 'nav'],
-  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'calendario-dia-17', 'iva-del-mes'];", "'calendario-dia-17'];"],
+  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'iva-del-mes', 'tipo-de-cambio'];", "'iva-del-mes'];"],
+  // --- Tipo de cambio
+  ['tc: la publicacion que aplica es la del mismo dia (C en vez de C-1)', H('tipo-de-cambio/tc.js'), 'var pub = habilOAnterior(c - 1); exigir(pub, c - 1); return pub;', 'var pub = habilOAnterior(c); exigir(pub, c); return pub;'],
+  ['tc: lo determinado es la publicacion misma (un dia habil de menos)', H('tipo-de-cambio/tc.js'), 'var pub = publicacionQueAplica(c), det = habilAnterior(pub);', 'var pub = publicacionQueAplica(c), det = pub;'],
+  ['tc: sabado y domingo cuentan como habiles', H('tipo-de-cambio/tc.js'), '      if (s === 0 || s === 6) return false;\n', ''],
+  ['tc: un ano sin calendario de la CNBV se responde igual (falla abierto)', H('tipo-de-cambio/tc.js'), '      if (!cal[a]) throw new NoCubierto([+a]);', '      if (!cal[a]) cal[a] = {};'],
+  ['tc: sin dato se da un valor', H('tipo-de-cambio/tc.js'), "        else if (!serie || !Object.prototype.hasOwnProperty.call(serie, det)) b.motivo = 'SIN_DATO';\n", '', 'nav'],
+  ['tc: un inhabil de la CNBV cambiado a mano en los datos publicados', H('tipo-de-cambio/tipo-cambio-datos.js'), '"2026-09-16"', '"2026-09-15"'],
+  ['tc: el cotejo deja de mirar la columna para solventar obligaciones', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '    if (!igual(serie[det], r.obligaciones)) {', '    if (false) {'],
+  ['tc: el cotejo deja de mirar si el dia es habil', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '    if (habil !== (r.determinacion !== null)) {', '    if (false) {'],
+  ['tc: el cotejo acepta una tabla oficial corta', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '  if (filas.length < minimo) dif.push(', '  if (false) dif.push('],
+  ['tc: una respuesta del SIE sin serie declarada pasa', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '  if (id !== SERIE) throw', '  if (id && id !== SERIE) throw'],
+  ['tc: se publica una serie con el cotejo fallido', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), "  if (!cotejo.ok) throw new Error('no se publica una serie cuyo cotejo con la tabla oficial fallo');\n", ''],
+  ['tc: la pagina usa datos sin cotejo en verde', H('tipo-de-cambio/pagina.js'), ' || !j.cotejo || j.cotejo.ok !== true)', ')', 'nav'],
+  ['tc: la pagina deja de decir la regla de la moneda adquirida', H('tipo-de-cambio/pagina.js'), "    res.appendChild(el('p', 'aviso', 'Si la moneda se adquirió, el artículo 20 del Código Fiscal toma el tipo de cambio al que se adquirió y no este. Revisa con tu contador cuál aplica a tu operación.'));\n", '', 'nav'],
+    ['tc: la pagina no avisa de datos atrasados', H('tipo-de-cambio/pagina.js'), '    } else if (!(j.ultimo_dato >= esperado)) {', '    } else if (false) {', 'nav'],
+  ['tc: un dato que falta y ya existe se presenta como futuro', H('tipo-de-cambio/pagina.js'), "      var futuro = despues && esperado !== 'NO_CUBIERTO' && ob.determinado > esperado;", '      var futuro = despues;', 'nav'],
+  ['tc: el dato esperado ignora la hora de publicacion', H('tipo-de-cambio/tc.js'), '      if (h && mx.getUTCHours() >= HORA_ESPERADA) return hoy;', '      if (h) return hoy;'],
+  ['tc: un intento fallido pisa los datos publicados', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio-servidor.mjs'), "    if (r.ok) await store.set('fix.json', JSON.stringify(r.datos) + '\\n');", "    await store.set('fix.json', JSON.stringify(r.datos || null) + '\\n');"],
+  ['tc: la vigilancia no mira la frescura', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '  else if (!(pub.ultimo_dato >= esperado)) problemas.push(', '  else if (false) problemas.push('],
+  ['tc: la actualizacion publica aunque el cotejo falle', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '    if (!c.ok) return { ok: false, texto: `el cotejo', '    if (false) return { ok: false, texto: `el cotejo'],
+  ['tc: la pagina no cuenta su uso', H('tipo-de-cambio/pagina.js'), "      if (window.TCUso) window.TCUso.registrar('tipo-de-cambio');\n      if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);", "      if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);", 'nav'],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas
@@ -159,7 +180,7 @@ function pruebas(nav) {
   if (f.status !== 0) rojas.push('test_sitemap_fechas.py: ' + String(f.stderr || f.stdout).trim().split('\n').pop());
   let n = { status: 0 };
   if (nav) {
-    n = spawnSync(process.execPath, ['.herramientas/prueba_navegador.mjs'], { cwd: RAIZ, encoding: 'utf8', timeout: 120000 });
+    n = spawnSync(process.execPath, ['.herramientas/prueba_navegador.mjs'], { cwd: RAIZ, encoding: 'utf8', timeout: 300000 });
     for (const m of (n.stdout || '').matchAll(/^  FALLA (.+)$/gm)) rojas.push('navegador: ' + m[1]);
     if (n.status !== 0 && !/FALLA/.test(n.stdout || '')) rojas.push('navegador: la prueba no termino (' + String(n.stderr || n.error || n.status).slice(0, 200) + ')');
   }

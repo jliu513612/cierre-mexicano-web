@@ -1,0 +1,49 @@
+# Vigilancia del tipo de cambio de /herramientas/tipo-de-cambio/ (decision de la duena del sitio, 2026-10-20).
+#
+# Los datos los actualiza la funcion programada de Netlify (netlify/functions/tipo-cambio-diario.mjs). Este flujo los
+# vigila POR FUERA, de lunes a viernes a las 14:45 de la Ciudad de Mexico, con lo publicado en el sitio:
+#   - frescura: el ultimo FIX publicado tiene que ser el que ya debe existir a esa hora (el de hoy, si hoy es habil
+#     bancario; si no, el del ultimo dia habil);
+#   - cotejo independiente: los ultimos 30 dias contra la tabla oficial de Banxico («Para solventar obligaciones»,
+#     determinacion y publicacion en el DOF), con su propia descarga.
+# Siempre deja una linea LATIDO o ALERTA. Con ALERTA la corrida sale roja y abre un aviso (issue), o comenta en el que ya
+# este abierto. No usa secretos: lee lo publicado, que es publico, y la tabla oficial, que tambien lo es.
+name: tipo-cambio
+on:
+  schedule:
+    - cron: '45 20 * * 1-5'   # 14:45 en la Ciudad de Mexico
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: frescura y cotejo con la tabla oficial
+        id: vigilar
+        run: |
+          set -o pipefail
+          node .herramientas/tipo_cambio.mjs --vigilar https://taxcerteza.mx/herramientas/tipo-de-cambio/fix.json | tee salida.txt
+      - name: aviso si algo falla
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cuerpo="$(cat salida.txt 2>/dev/null || echo 'la vigilancia no llego a imprimir nada')"
+          cuerpo="$cuerpo
+
+          Corrida: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          abierto=$(gh issue list --repo "${{ github.repository }}" --state open --search 'in:title "Tipo de cambio: ALERTA"' --json number --jq '.[0].number')
+          if [ -n "$abierto" ]; then
+            gh issue comment "$abierto" --repo "${{ github.repository }}" --body "$cuerpo"
+          else
+            gh issue create --repo "${{ github.repository }}" --title "Tipo de cambio: ALERTA de la vigilancia diaria" --body "$cuerpo"
+          fi

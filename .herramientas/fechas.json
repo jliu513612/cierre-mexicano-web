@@ -1,7 +1,7 @@
 {
  "/herramientas/": {
-  "fecha": "2026-10-19",
-  "huella": "0f86e3c972280e2eb41be238345d7ad4c2102106c7b8224a23243e622f583107"
+  "fecha": "2026-10-20",
+  "huella": "f11eefffd2b2bc4bf99b66337d6bbf30f5548afaccf739db226569742ddb70a8"
  },
  "/herramientas/calendario-dia-17/": {
   "fecha": "2026-10-20",
@@ -22,6 +22,10 @@
  "/herramientas/lista-69b/": {
   "fecha": "2026-10-20",
   "huella": "2735695d639f4e1f9263138d923c4ece3e9d590da482d3eb48f32b4b3c37de2b"
+ },
+ "/herramientas/tipo-de-cambio/": {
+  "fecha": "2026-10-20",
+  "huella": "1523559f7d21f89c0ff4eaa627c34329dc07b02b932a647c4d7dffc7c0cfc84c"
  },
  "/herramientas/validar-rfc/": {
   "fecha": "2026-10-20",

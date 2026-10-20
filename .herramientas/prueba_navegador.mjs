@@ -16,12 +16,15 @@ import path from 'node:path';
 import os from 'node:os';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 const RAIZ = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CANDIDATOS = [process.env.CHROME, 'C:/Program Files/Google/Chrome/Application/chrome.exe', '/usr/bin/google-chrome', '/usr/bin/chromium-browser', '/usr/bin/chromium'];
 const CHROME = CANDIDATOS.find(c => c && fs.existsSync(c));
 if (!CHROME) { console.error('no encuentro Chrome: indica la ruta en CHROME'); process.exit(2); }
 const PUERTO = 8751, DEPURA = 9381;
+const requerir = createRequire(import.meta.url);
+const TC = requerir(path.join(RAIZ, 'herramientas', 'tipo-de-cambio', 'tc.js')).crear(requerir(path.join(RAIZ, 'herramientas', 'tipo-de-cambio', 'tipo-cambio-datos.js')));
 const TIPOS = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon' };
 
 // Cabeceras de `_headers` (bloque `/*`), las mismas que Netlify aplicara a todas las rutas.
@@ -52,6 +55,27 @@ const servidor = http.createServer((req, res) => {
   if (modo === 'LISTADO_FALLO' && ruta.endsWith('/lista-69b/listado.json')) {
     const d = JSON.parse(fs.readFileSync(path.join(RAIZ, ruta), 'utf8'));
     d.estado = 'NO_SE_PUDO_ACTUALIZAR';
+    res.writeHead(200, Object.assign({ 'Content-Type': 'application/json' }, CABECERAS)); res.end(JSON.stringify(d)); return;
+  }
+  // Datos del tipo de cambio: en el sitio los sirve el actualizador diario; aqui, el recorte fijo de la tabla oficial.
+  if (ruta === '/herramientas/tipo-de-cambio/fix.json' && !fs.existsSync(archivo)) {
+    if (modo === 'TC_FALLA') { res.writeHead(503); res.end('x'); return; }
+    const d = JSON.parse(fs.readFileSync(path.join(RAIZ, '.herramientas', 'fixtures', 'tipo-cambio', 'fix.json'), 'utf8'));
+    if (modo === 'TC_SIN_COTEJO') d.cotejo.ok = false;
+    if (modo === 'TC_VIEJO') {
+      // se quitan los ultimos tres dias del recorte: los datos quedan atrasados respecto de cualquier fecha real
+      for (const f of ['2026-10-16', '2026-10-19', '2026-10-20']) delete d.valores[f];
+      d.ultimo_dato = '2026-10-15';
+    } else {
+      // al dia: desde el recorte hasta el dato que ya debe existir hoy se rellena con un valor FALSO (20.0000) que solo
+      // vive en esta prueba; las fechas calibradas son anteriores y salen del recorte oficial
+      const esperado = TC.ultimoEsperado(Date.now());
+      for (let x = Date.parse(d.ultimo_dato + 'T00:00:00Z') + 86400000; esperado !== 'NO_CUBIERTO' && x <= Date.parse(esperado + 'T00:00:00Z'); x += 86400000) {
+        const f = new Date(x).toISOString().slice(0, 10);
+        if (TC.esHabil(f) === true) { d.valores[f] = '20.0000'; d.ultimo_dato = f; }
+      }
+    }
+    d.generado = new Date().toISOString();
     res.writeHead(200, Object.assign({ 'Content-Type': 'application/json' }, CABECERAS)); res.end(JSON.stringify(d)); return;
   }
   if ((modo === 'SIN_OPINION' && ruta.endsWith('/opinion.js')) || !archivo.startsWith(RAIZ) || !fs.existsSync(archivo) || fs.statSync(archivo).isDirectory()) { res.writeHead(404); res.end('404'); return; }
@@ -377,6 +401,61 @@ async function main() {
     exige((await js('window.__csp.join("|")')) === '', 'cero violaciones de la politica');
     await cdp('Target.closeTarget', { targetId });
     fs.rmSync(dir, { recursive: true, force: true });
+  }
+
+  console.log('N. tipo de cambio: el FIX que aplica a la fecha, falla cerrado y lo dice');
+  {
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    const consulta = async (f, espera = 'Para obligaciones') => {
+      const [a, m, d] = f.split('-');
+      await p.pon('#tc-a', a); await p.pon('#tc-m', m); await p.pon('#tc-d', d);
+      await p.pulsa('#f-tc button[type=submit]');
+      return esperaTexto(p, '#res-tc', x => !/Cargando/.test(x) && x.length > 0 && (espera === null || x.includes(espera)));
+    };
+    exige((await p.js("document.querySelector('#tc-d').value.length")) === 2, 'calibracion: los selectores de fecha se llenan');
+    const usosAntes = usos.length;
+    let x = await consulta('2026-03-10');
+    for (let i = 0; i < 60 && usos.length === usosAntes; i++) await espera(50);
+    exige(usos.slice(usosAntes).some(u => JSON.parse(u.cuerpo).herramienta === 'tipo-de-cambio'), 'el resultado con valor cuenta su uso');
+    exige(x.includes('$17.7962'), `martes 10 de marzo de 2026: $17.7962, el valor de la tabla oficial (${x.slice(0, 80)})`);
+    exige(x.includes('determinó el viernes 6 de marzo de 2026') && x.includes('DOF el lunes 9 de marzo de 2026'), 'dice cuando se determino y cuando se publico');
+    exige(x.includes('$17.7687') && x.includes('$17.5037'), 'como informacion: lo publicado ese dia y lo determinado ese dia');
+    exige(/se adquirió/.test(x) && /Revisa con tu contador/.test(x), 'dice la regla de la moneda adquirida y no decide por el contador');
+    exige(/Cotejados con la tabla oficial/.test(x) && !/no están al día/.test(x), 'dice de donde salen los datos; al dia, no avisa');
+    x = await consulta('2026-03-09');
+    exige(x.includes('$17.6770') && /domingo 8 de marzo de 2026 no hubo publicación/.test(x), 'lunes 9 de marzo: $17.6770 (tabla oficial), la publicacion del viernes, y lo explica');
+    x = await consulta('2026-09-06');
+    exige(x.includes('$16.9560') && /no es hábil bancario/.test(x), 'domingo 6 de septiembre: $16.9560 y dice que no es habil');
+    x = await consulta('2026-09-16');
+    exige(x.includes('$17.1277'), '16 de septiembre (inhabil bancario): $17.1277');
+    x = await consulta('2026-12-31', null);
+    exige(/Todavía no hay FIX/.test(x) && !/pesos por dólar/.test(x), 'una fecha sin dato todavia: lo dice y no da un valor');
+    x = await consulta('2024-01-02', null);
+    exige(/no responde/.test(x) && /CNBV/.test(x) && !/pesos por dólar/.test(x), '2 de enero de 2024 (el FIX cae en 2023, sin calendario de la CNBV): no responde y dice por que');
+    x = await consulta('2026-02-30', null);
+    exige(/no existe/.test(x), 'una fecha que no existe');
+    exige(usos.some(u => JSON.parse(u.cuerpo).herramienta === 'tipo-de-cambio'), 'cuenta su uso');
+    exige((await p.violaciones()) === '' && p.excepciones() === 0, 'sin violaciones de la politica de contenido ni errores');
+    await p.cerrar();
+    modo = 'TC_VIEJO';
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    x = await consulta('2026-03-10');
+    exige(/no están al día/.test(x) && x.includes('$17.7962'), 'datos atrasados: una fecha pasada da su valor (no cambia) y avisa que no estan al dia');
+    x = await consulta('2026-10-21', null);
+    exige(/no están al día para el miércoles 21 de octubre de 2026/.test(x) && !/pesos por dólar/.test(x) && !/Todavía no hay/.test(x),
+      'datos atrasados: la fecha que falta dice que no estan al dia, sin dar el ultimo valor como si fuera el suyo');
+    await p.cerrar();
+    modo = 'TC_SIN_COTEJO';
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    x = await consulta('2026-03-10', null);
+    exige(/No se pudieron cargar/.test(x) && !/pesos por dólar/.test(x), 'datos sin cotejo en verde: no se usan');
+    await p.cerrar();
+    modo = 'TC_FALLA';
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    x = await consulta('2026-03-10', null);
+    exige(/No se pudieron cargar/.test(x) && !/pesos por dólar/.test(x), 'sin datos: lo dice y no inventa');
+    await p.cerrar();
+    modo = 'OK';
   }
 
   console.log('M. usos de las herramientas: cuentan al ejecutar, una vez por accion y sin datos');
