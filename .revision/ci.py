@@ -12,6 +12,7 @@ Reglas:
    hecho sobre ESE texto (huella), con puntaje >= minimo y sin hallazgos graves ni medios.
 4. Como mucho un articulo NUEVO por PR, y como mucho <tope> articulos nuevos en main en los ultimos 7 dias.
 """
+import datetime
 import hashlib
 import json
 import os
@@ -90,11 +91,15 @@ def main(base, pr, lista):
     if nuevos > reglas["nuevos_por_pr"]:
         fallos.append(f"{nuevos} articulos nuevos en un PR (tope {reglas['nuevos_por_pr']})")
     if nuevos:
-        r = subprocess.run(["git", "-C", str(base), "log", "--since=7 days ago", "--diff-filter=A", "--name-only", "--format=", "--", "blog/*/index.html"],
+        # Semana CALENDARIO, de lunes 00:00 hora de la Ciudad de Mexico (UTC-6, sin horario de verano): con
+        # lunes, miercoles y viernes, una ventana movil de 7 dias contaba el articulo del miercoles anterior.
+        ahora = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-6)))
+        lunes = (ahora - datetime.timedelta(days=ahora.weekday())).replace(hour=0, minute=0, second=0, microsecond=0)
+        r = subprocess.run(["git", "-C", str(base), "log", f"--since={lunes.isoformat()}", "--diff-filter=A", "--name-only", "--format=", "--", "blog/*/index.html"],
                            capture_output=True, text=True)
         recientes = {x for x in r.stdout.split() if x.endswith("/index.html")}
         if len(recientes) + nuevos > reglas["nuevos_por_semana"]:
-            fallos.append(f"tope semanal: {len(recientes)} articulos nuevos en 7 dias + {nuevos} (tope {reglas['nuevos_por_semana']})")
+            fallos.append(f"tope semanal: {len(recientes)} articulos nuevos desde el lunes {lunes:%Y-%m-%d} + {nuevos} (tope {reglas['nuevos_por_semana']})")
 
     for a in avisos:
         print("AVISO:", a)
