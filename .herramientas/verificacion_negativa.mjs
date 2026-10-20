@@ -72,6 +72,8 @@ const SABOTAJES = [
   ['cal: el dia inhabil en fin de semana se nombra por el dia de la semana', H('calendario-dia-17/pagina.js'), 'INHABIL[cal.festivo(f)]', 'INHABIL[cal.motivo(f)]', 'nav'],
   ['cal: el aviso de la facilidad sale sin RFC', H('calendario-dia-17/pagina.js'), '} else if (r.conRfc) {', '} else if (true) {', 'nav'],
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
+  // --- Recursos locales de cada pagina
+  ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas
   ['descargas: la portada vuelve a enlazar directo a GitHub', path.join(RAIZ, 'index.html'), 'href="/descargar">Descargar para Windows</a>', 'href="https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.47/TaxCerteza_1.0.47.zip">Descargar para Windows</a>'],
   ['descargas: la huella deja de cambiar cada mes', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '[sal, mesDe(ts), String(ip', '[sal, String(ip'],
