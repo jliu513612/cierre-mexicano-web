@@ -56,6 +56,7 @@ export default async (req, context) => {
     const eventos = await leer(store, desde.slice(0, 8) + '01', hasta);
     const internas = eventos.filter(e => e.interno && e.huella).map(e => e.huella);
     const r = resumir(eventos, { desde, hasta, contexto, internas });
+    r.clave_interna_configurada = !!env('DESCARGAS_CLAVE_INTERNA');   // solo si existe; jamas el valor
     r.unicos = UNICOS_ACTIVOS ? (env('DESCARGAS_SAL') ? 'activos' : 'activos sin sal') : 'apagados (sin aviso de privacidad)';
     return respuesta(JSON.stringify(r, null, 1), 200, { 'Content-Type': 'application/json; charset=utf-8' });
   }
