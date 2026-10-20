@@ -1,7 +1,8 @@
 /* «¿Te sirvió este resultado?» de las herramientas de taxcerteza.mx.
 
    QUE SE ENVIA, y nada mas: la herramienta, la CLASE del resultado (por ejemplo «DIGITO_NO_COINCIDE»), el voto,
-   el motivo que la persona escriba, su correo si lo da y la fecha. Lo que se tecleo en la herramienta (un RFC, una
+   el motivo que la persona escriba y la fecha. NO se pide correo ni ningun dato de contacto (decision de la duena del
+   sitio, 2026-10-20: hasta que exista el aviso de privacidad). Lo que se tecleo en la herramienta (un RFC, una
    cantidad, una fecha) NO se envia: `construir` no lo recibe, asi que no puede mandarlo.
    Si el envio falla, la herramienta sigue funcionando igual; este archivo puede incluso no cargar.
    Pruebas: .herramientas/pruebas/opinion.test.js y .herramientas/prueba_navegador.mjs (mira lo que SALE por la red). */
@@ -14,10 +15,9 @@
   var FORMULARIO = 'opinion-herramientas';
   var HERRAMIENTAS = ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b', 'factura-con-retenciones', 'calendario-dia-17', 'iva-del-mes'];
   var RE_CLASE = /^[A-Z][A-Z_]{1,39}$/;
-  var RE_CORREO = /^[^\s@]{1,64}@[^\s@]{1,80}\.[^\s@]{2,20}$/;
   // Algo con forma de RFC dentro del motivo se quita antes de enviar, aunque la persona lo haya escrito.
   var RE_RFC = /[A-ZÑ&]{3,4}[ -]?\d{6}[ -]?[A-Z0-9]{3}/gi;
-  var MAX_MOTIVO = 500, MAX_CORREO = 120, MAX_ENVIOS = 5;
+  var MAX_MOTIVO = 500, MAX_ENVIOS = 5;
 
   function limpiarMotivo(texto) {
     var t = String(texto === null || texto === undefined ? '' : texto).replace(/\s+/g, ' ').trim();
@@ -33,10 +33,8 @@
     if (!RE_CLASE.test(String(d.clase))) return { ok: false, motivo: 'CLASE' };
     if (d.voto !== 'SI' && d.voto !== 'NO') return { ok: false, motivo: 'VOTO' };
     if (!/^\d{4}-\d{2}-\d{2}$/.test(String(d.fecha))) return { ok: false, motivo: 'FECHA' };
-    var correo = String(d.correo === null || d.correo === undefined ? '' : d.correo).trim();
-    if (correo && (correo.length > MAX_CORREO || !RE_CORREO.test(correo))) return { ok: false, motivo: 'CORREO' };
     var campos = { 'form-name': FORMULARIO, herramienta: d.herramienta, clase: d.clase, voto: d.voto,
-                   motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', correo: d.voto === 'NO' ? correo : '', fecha: d.fecha };
+                   motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', fecha: d.fecha };
     var pares = [];
     for (var k in campos) pares.push(encodeURIComponent(k) + '=' + encodeURIComponent(campos[k]));
     return { ok: true, campos: campos, cuerpo: pares.join('&') };
@@ -97,21 +95,17 @@
       motivo.id = id + '-m'; lm.htmlFor = motivo.id; motivo.maxLength = MAX_MOTIVO; motivo.rows = 3;
       var aviso = el('p', 'op-nota', 'No escribas RFC, nombres ni otros datos personales. No se envía lo que tecleaste en la herramienta: solo tu voto, el tipo de resultado y este comentario.');
       aviso.id = id + '-a'; motivo.setAttribute('aria-describedby', aviso.id);
-      var lc = el('label', '', 'Correo, solo si quieres que te respondamos (opcional)');
-      var correo = el('input');
-      correo.type = 'email'; correo.id = id + '-c'; lc.htmlFor = correo.id; correo.maxLength = MAX_CORREO; correo.autocomplete = 'email';
       var trampa = el('input', 'op-trampa');  // campo trampa: fuera de la vista y del orden de tabulacion
       trampa.type = 'text'; trampa.tabIndex = -1; trampa.autocomplete = 'off'; trampa.setAttribute('aria-hidden', 'true');
       var mandar = el('button', 'btn btn-ghost op-enviar', 'Enviar comentario');
       mandar.type = 'button';
-      [lm, motivo, aviso, lc, correo, trampa, mandar].forEach(function (n) { forma.appendChild(n); });
+      [lm, motivo, aviso, trampa, mandar].forEach(function (n) { forma.appendChild(n); });
       b.appendChild(forma); b.appendChild(estado);
       caja.appendChild(b);
 
       var fin = function (r) {
         botones.hidden = true; forma.hidden = true; pregunta.hidden = true;
         if (r === 'OK') estado.textContent = 'Gracias. Tu opinión quedó registrada.';
-        else if (r === 'CORREO') { forma.hidden = false; estado.textContent = 'Revisa el correo: no parece una dirección válida. Puedes dejarlo vacío.'; }
         else estado.textContent = 'No se pudo enviar tu opinión. El resultado de arriba no cambia.';
       };
       si.addEventListener('click', function () {
@@ -123,7 +117,7 @@
       });
       mandar.addEventListener('click', function () {
         mandar.disabled = true;
-        enviar({ herramienta: herramienta, clase: clase, voto: 'NO', motivo: motivo.value, correo: correo.value, trampa: trampa.value, fecha: hoy() },
+        enviar({ herramienta: herramienta, clase: clase, voto: 'NO', motivo: motivo.value, trampa: trampa.value, fecha: hoy() },
           function (r) { mandar.disabled = false; fin(r); });
       });
     } catch (x) { /* la opinion nunca rompe la herramienta */ }

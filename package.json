@@ -1,0 +1,8 @@
+{
+  "name": "taxcerteza-sitio",
+  "private": true,
+  "description": "Sitio estatico de taxcerteza.mx. La unica dependencia es la de la funcion /descargar (netlify/functions).",
+  "dependencies": {
+    "@netlify/blobs": "10.0.2"
+  }
+}
