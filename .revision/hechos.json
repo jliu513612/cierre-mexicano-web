@@ -425,6 +425,27 @@
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma de la ley DOF 01-04-2024 (artículo adicionado DOF 12-11-2021)",
    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "liva-1-a": {
+   "cita": "Ley del IVA, artículo 1o.-A",
+   "etiqueta": "Ley del IVA, artículo 1o.-A (retención del IVA)",
+   "cifras": [
+    "1o.-A",
+    "17"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (artículo adicionado DOF 31-12-1998; párrafo de entero reformado DOF 11-12-2013)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-28": {
+   "cita": "Ley del IVA, artículo 28",
+   "etiqueta": "Ley del IVA, artículo 28 (pago del IVA en la importación)",
+   "cifras": [
+    "28"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (párrafo de acreditamiento reformado DOF 07-06-2005)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
   }
  }
 }
