@@ -200,6 +200,10 @@ test('tipo de cambio: el almacen guarda los datos solo en verde, el estado siemp
 
   const seguido = await actualizarEn(store, { token: TOKEN, origen: 'a mano', contexto: 'production', ahora: new Date(despues.getTime() + 5000), traer: redSimulada().traer });
   assert.ok(!seguido.ok && /menos de un minuto/.test(seguido.texto), 'a mano: un intento por minuto');
+  const primera = await actualizarEn(store, { token: TOKEN, origen: 'primera carga', contexto: 'production', ahora: new Date(despues.getTime() + 9000), traer: redSimulada().traer });
+  assert.ok(!primera.ok && /menos de un minuto/.test(primera.texto), 'la primera carga que dispara una visita: tambien un intento por minuto');
+  const prog = await actualizarEn(store, { token: TOKEN, origen: 'programada', contexto: 'production', ahora: new Date(despues.getTime() + 12000), traer: redSimulada().traer });
+  assert.ok(prog.ok, 'la programada no espera');
 });
 
 test('tipo de cambio: que dato debe estar cargado a cada hora', () => {

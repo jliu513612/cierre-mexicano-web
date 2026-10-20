@@ -101,6 +101,7 @@ const SABOTAJES = [
   ['tc: la vigilancia no mira la frescura', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '  else if (!(pub.ultimo_dato >= esperado)) problemas.push(', '  else if (false) problemas.push('],
   ['tc: la actualizacion publica aunque el cotejo falle', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '    if (!c.ok) return { ok: false, texto: `el cotejo', '    if (false) return { ok: false, texto: `el cotejo'],
   ['tc: la pagina no cuenta su uso', H('tipo-de-cambio/pagina.js'), "      if (window.TCUso) window.TCUso.registrar('tipo-de-cambio');\n      if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);", "      if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);", 'nav'],
+  ['tc: la primera carga desde una visita no tiene limite de intentos', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio-servidor.mjs'), "  if (origen !== 'programada' && antes", "  if (origen === 'a mano' && antes"],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas

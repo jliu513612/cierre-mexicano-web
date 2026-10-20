@@ -1,5 +1,7 @@
 // /herramientas/tipo-de-cambio/ en el servidor: sirve los datos del FIX y los actualiza. Rutas:
-//   /herramientas/tipo-de-cambio/fix.json      los datos que lee la pagina (de Netlify Blobs). Sin datos: 404.
+//   /herramientas/tipo-de-cambio/fix.json      los datos que lee la pagina (de Netlify Blobs). Si el almacen esta VACIO
+//                                              (primer despliegue), ejecuta una vez la misma actualizacion (un intento
+//                                              por minuto como mucho); si tampoco hay datos: 404.
 //   /herramientas/tipo-de-cambio/estado?clave= estado del ultimo intento y de la configuracion. No es publico.
 //   /herramientas/tipo-de-cambio/actualizar?clave=  ejecuta la MISMA actualizacion que la funcion programada
 //                                              (tipo-cambio-diario.mjs): primera carga y reintentos a mano.
@@ -27,7 +29,11 @@ export default async (req, context) => {
   const conClave = () => !produccion || claveValida(url.searchParams.get('clave'), env('DESCARGAS_CLAVE_INTERNA'));
 
   if (ruta === '/herramientas/tipo-de-cambio/fix.json') {
-    const datos = await store.get('fix.json', { type: 'text' });
+    let datos = await store.get('fix.json', { type: 'text' });
+    if (!datos) {
+      await actualizarEn(store, { token: env('BANXICO_TOKEN'), origen: 'primera carga', contexto });
+      datos = await store.get('fix.json', { type: 'text' });
+    }
     if (!datos) return json({ error: 'sin datos todavia' }, 404);
     // el navegador revalida siempre; la CDN guarda 5 minutos
     return respuesta(datos, 200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=0, must-revalidate',

@@ -13,7 +13,8 @@ const ESPERA_ENTRE_INTENTOS_MS = 60000;
     siempre. Devuelve {ok, texto} y deja una linea LATIDO o ALERTA en el log. El token jamas sale de aqui. */
 export async function actualizarEn(store, { token, origen, contexto, ahora = new Date(), traer } = {}) {
   const antes = await store.get('estado.json', { type: 'json' }).catch(() => null);
-  if (origen === 'a mano' && antes && ahora - Date.parse(antes.ts) < ESPERA_ENTRE_INTENTOS_MS) {
+  // fuera de la programada (a mano, o la primera carga que dispara una visita con el almacen vacio): un intento por minuto
+  if (origen !== 'programada' && antes && ahora - Date.parse(antes.ts) < ESPERA_ENTRE_INTENTOS_MS) {
     return { ok: false, texto: 'hubo un intento hace menos de un minuto; espera y vuelve a intentarlo' };
   }
   let r;
