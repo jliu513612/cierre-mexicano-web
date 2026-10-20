@@ -344,6 +344,87 @@
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma DOF 09-04-2026 (quinto y último párrafos reformado y adicionado DOF 12-11-2021)",
    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "liva-11": {
+   "cita": "Ley del IVA, artículo 11",
+   "etiqueta": "Ley del IVA, artículo 11 (momento de la enajenación)",
+   "cifras": [
+    "11"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (artículo reformado DOF 30-12-2002)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-17": {
+   "cita": "Ley del IVA, artículo 17",
+   "etiqueta": "Ley del IVA, artículo 17 (momento en servicios)",
+   "cifras": [
+    "17",
+    "18-A"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (artículo reformado DOF 30-12-2002; segundo párrafo reformado DOF 09-12-2019)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "liva-22": {
+   "cita": "Ley del IVA, artículo 22",
+   "etiqueta": "Ley del IVA, artículo 22 (momento en el uso o goce temporal)",
+   "cifras": [
+    "22"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (artículo reformado DOF 30-12-2002)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "rliva-3": {
+   "cita": "Reglamento de la Ley del IVA, artículo 3",
+   "etiqueta": "Reglamento de la Ley del IVA, artículo 3 (retención menor)",
+   "cifras": [
+    "3",
+    "4",
+    "1o.-A"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma DOF 25-09-2014",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LIVA_250914.pdf"
+  },
+  "lisr-106-retencion": {
+   "cita": "Ley del ISR, artículo 106",
+   "etiqueta": "Ley del ISR, artículo 106 (retención por servicios profesionales)",
+   "cifras": [
+    "106",
+    "10",
+    "17",
+    "96"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 01-04-2024 (párrafo de retención reformado DOF 09-12-2019; párrafo del CFDI de la persona física reformado DOF 12-11-2021)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "lisr-116-retencion": {
+   "cita": "Ley del ISR, artículo 116",
+   "etiqueta": "Ley del ISR, artículo 116 (retención por arrendamiento)",
+   "cifras": [
+    "116",
+    "10",
+    "96"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 01-04-2024 (párrafo de retención reformado DOF 09-12-2019)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
+  },
+  "lisr-113-j": {
+   "cita": "Ley del ISR, artículo 113-J",
+   "etiqueta": "Ley del ISR, artículo 113-J (retención en el RESICO)",
+   "cifras": [
+    "113-J",
+    "113-E",
+    "1.25",
+    "17"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma de la ley DOF 01-04-2024 (artículo adicionado DOF 12-11-2021)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf"
   }
  }
 }
