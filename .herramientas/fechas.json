@@ -5,38 +5,38 @@
  },
  "/herramientas/calendario-dia-17/": {
   "fecha": "2026-10-21",
-  "huella": "d790a3cb7a9c4931fba5c38a28a3d9167c65a8ccce7c92de91b40a1c7b12e4d9"
+  "huella": "25bf586979bb1bf2f46a985f4a888c212cd6f008bf9ea9d7da1897d33d3374b0"
  },
  "/herramientas/complemento-de-pago/": {
   "fecha": "2026-10-21",
-  "huella": "f59e89204bddcb98bed4812eb991e0b23e62ade1226a5484c602733d39c74f2a"
+  "huella": "f97406a022045ae452e46c296099fe5579d7fe33f115ab4957f0d8708cafa3a2"
  },
  "/herramientas/factura-con-retenciones/": {
   "fecha": "2026-10-21",
-  "huella": "7eba858e0703e01a69c5055dc4fcf3cc07e58b878b70cfc9c0351c90e8be46c8"
+  "huella": "372458cb7915e4327c25c88ff135f846d0f2d304ecd18d75d21c1c0643f0c2f9"
  },
  "/herramientas/iva-del-mes/": {
   "fecha": "2026-10-21",
-  "huella": "d7b5875edfe4511f53e7a87b1786df929c8b80d6f885b8f04f55f13c7a425d3f"
+  "huella": "3dec42477d25cd171020875f38a8349d49000f301fab749f9a17526acb177312"
  },
  "/herramientas/lista-69b/": {
   "fecha": "2026-10-21",
-  "huella": "d049703d16a7a75540f3d4baa03b6477395964c2761e22e01d278e2287c58328"
+  "huella": "d215c4fc14997f37de2e908500fcc4f35806940e44f1b081c2d237252550d045"
  },
  "/herramientas/tipo-de-cambio/": {
   "fecha": "2026-10-21",
-  "huella": "800471c8c53406626ccbcf56cbb8a3cb1e518dcf0a504d14c9ff45ea7aeb4369"
+  "huella": "ca857743bee0f4d3cbd6e881897123a3f18980a37913a1ae896aa4c3d554287e"
  },
  "/herramientas/validar-rfc/": {
   "fecha": "2026-10-21",
-  "huella": "d36bb7887b424b8461d240a42820880ff78418d3c2dc239ef80f2a719621a420"
+  "huella": "f960727d5409401d16d556360d210b7993b6597538d52ce0611f74b7874678b3"
  },
  "/herramientas/valor-uma/": {
   "fecha": "2026-10-21",
-  "huella": "7f61fad78333bd9601455dd149efb7eaaf1350f8f857fa19018795ca6b47a155"
+  "huella": "af5bb4b301b4dd60739fe4b71ec6a4e3455c04a5605bb98a8bd2485943464cc9"
  },
  "/herramientas/verificar-factura/": {
   "fecha": "2026-10-21",
-  "huella": "4ab79f5e421f64552bcf766242ef011c6bad64de0b70cb8bd5573accfa60e435"
+  "huella": "bb07f6308e16a23401ae4855338e1049f467e94cfc7f94885303d967650232d1"
  }
 }

@@ -470,6 +470,48 @@ async function main() {
     modo = 'OK';
   }
 
+  console.log('Q. tipo de cambio: descarga de un rango para Excel, armada en el navegador');
+  {
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    await p.js("window.__blobs = []; const o = URL.createObjectURL; URL.createObjectURL = b => { window.__blobs.push(b); return o.call(URL, b); }; true");
+    const rango = async (d, h) => {
+      for (const [pre, f] of [['rd', d], ['rh', h]]) { const [a1, m1, d1] = f.split('-'); await p.pon(`#${pre}-a`, a1); await p.pon(`#${pre}-m`, m1); await p.pon(`#${pre}-d`, d1); }
+      await p.pulsa('#f-rango button[type=submit]');
+      return esperaTexto(p, '#res-rango', x => x.length > 0 && !/Cargando/.test(x));
+    };
+    const antes = usos.length;
+    let x = await rango('2026-03-05', '2026-03-10');
+    // Blob.text() QUITA el BOM al decodificar: el BOM se mira en los bytes
+    const bytes = await p.js("window.__blobs.length ? window.__blobs[window.__blobs.length - 1].arrayBuffer().then(b => [...new Uint8Array(b).slice(0, 3)].join()) : ''");
+    exige(bytes === '239,187,191', `el archivo empieza con BOM, y Excel lo abre como UTF-8 (${bytes})`);
+    const csv = await p.js("window.__blobs[window.__blobs.length - 1].text()");
+    const lineas = csv.split('\r\n');
+    exige(lineas[0] === 'Fecha de la obligación,Publicación en el DOF,Fecha de determinación,FIX (MXN por USD),Estado,Fuente' && lineas.length === 8,
+      `encabezado y una fila por dia, inhabiles incluidos (${lineas.length - 2} filas)`);
+    const fix = Object.fromEntries(lineas.slice(1, -1).map(l => l.split(',')).map(c => [c[0], c[3]]));
+    exige(fix['2026-03-05'] === '17.7228' && fix['2026-03-07'] === '17.6770' && fix['2026-03-08'] === '17.6770' && fix['2026-03-10'] === '17.7962',
+      `calibracion: los valores son los de la columna oficial (${JSON.stringify(fix)})`);
+    exige(/Archivo descargado: 6 días/.test(x), `dice que lo descargo (${x.slice(0, 60)})`);
+    for (let i = 0; i < 60 && usos.length === antes; i++) await espera(50);
+    const u = usos.slice(antes).map(v => v.cuerpo);
+    exige(u.length === 1 && JSON.stringify(JSON.parse(u[0])) === JSON.stringify({ herramienta: 'tipo-de-cambio', n: 6, accion: 'descarga_rango' }),
+      `cuenta la descarga con cuantos dias y sin las fechas (${u.join(' | ')})`);
+    let n0 = await p.js('window.__blobs.length');
+    x = await rango('2026-12-27', '2026-12-31');
+    const csv2 = (await p.js('window.__blobs.length')) > n0 ? await p.js("window.__blobs[window.__blobs.length - 1].text()") : '';
+    exige(/\r\n2026-12-31,2026-12-30,2026-12-29,,Banxico todavía no lo publica,/.test(csv2), 'una fecha futura va con su motivo y sin numero');
+    exige(/sin dato, con su motivo/.test(x), `y la pagina lo dice (${x.slice(0, 80)})`);
+    n0 = await p.js('window.__blobs.length');
+    await rango('2024-01-01', '2024-01-05');
+    const csv3 = (await p.js('window.__blobs.length')) > n0 ? await p.js("window.__blobs[window.__blobs.length - 1].text()") : '';
+    exige(/\r\n2024-01-02,,,,sin calendario de la CNBV para esa fecha,/.test(csv3), 'fuera del calendario de la CNBV: su motivo, sin fechas ni numero');
+    const nBlobs = await p.js('window.__blobs.length');
+    x = await rango('2025-01-01', '2026-01-02');
+    exige(/más de 366 días/.test(x) && (await p.js('window.__blobs.length')) === nBlobs, 'mas de 366 dias: lo dice y no descarga nada');
+    exige((await p.violaciones()) === '' && p.excepciones() === 0, 'sin violaciones de la politica de contenido ni errores');
+    await p.cerrar();
+  }
+
   console.log('O. pasos del embudo: las herramientas los llevan por la ruta que cuenta, con su pagina de origen');
   {
     const antes = clics.length;
@@ -537,8 +579,9 @@ async function main() {
     // en todo lo anterior se ejecutaron todas las herramientas: cada envio de uso lleva SOLO {herramienta, n}
     const tecleado = /EKU|XIQB|900317|987654|10,000|2026-03-17|XAXX|TCE160101|ana@|<cfdi|1600/i;
     const malos = usos.filter(u => { let x; try { x = JSON.parse(u.cuerpo); } catch (e) { return true; }
-      return Object.keys(x).some(k => k !== 'herramienta' && k !== 'n') || tecleado.test(u.cuerpo); });
-    exige(usos.length > 0 && malos.length === 0, `los envios de uso llevan solo herramienta y n (${usos.length} envios, ${malos.length} con algo mas)`);
+      // solo herramienta, n y, si es una accion aparte, su nombre de la lista cerrada; nada tecleado
+      return Object.keys(x).some(k => k !== 'herramienta' && k !== 'n' && !(k === 'accion' && x.accion === 'descarga_rango')) || tecleado.test(u.cuerpo); });
+    exige(usos.length > 0 && malos.length === 0, `los envios de uso llevan solo herramienta, n y la accion de la lista (${usos.length} envios, ${malos.length} con algo mas)`);
     const vistas = new Set(usos.map(u => JSON.parse(u.cuerpo).herramienta));
     const faltan = fs.readdirSync(path.join(RAIZ, 'herramientas'), { withFileTypes: true })
       .filter(d => d.isDirectory() && fs.existsSync(path.join(RAIZ, 'herramientas', d.name, 'pagina.js'))).map(d => d.name).filter(h => !vistas.has(h));

@@ -232,3 +232,69 @@ test('tipo de cambio: la vigilancia diaria se pone roja con datos atrasados o qu
   assert.ok(!vigilarPublicado({ pub: sin, filas, ahora }).ok, 'lo publicado sin cotejo en verde');
   assert.ok(!vigilarPublicado({ pub, filas, ahora: new Date('2027-01-05T21:00:00Z') }).ok, 'sin calendario no se da por bueno');
 });
+
+// --- Descarga de un rango (tc.rango + tc.csv): la misma regla que la consulta, sin numeros inventados.
+test('tipo de cambio: el rango da, dia por dia, las fechas del programa (vectores ejecutados)', () => {
+  const j = { valores: {}, ultimo_dato: '2030-01-01' };   // sin valores: aqui se miran solo las fechas
+  let n = 0;
+  for (let a = Date.parse(V.dias[0].fecha + 'T00:00:00Z'), fin = Date.parse(V.dias[V.dias.length - 1].fecha + 'T00:00:00Z'); a <= fin; a += 366 * 86400000) {
+    const d = new Date(a).toISOString().slice(0, 10), h = new Date(Math.min(a + 365 * 86400000, fin)).toISOString().slice(0, 10);
+    for (const f of tc.rango(d, h, j, 0).filas) {
+      const v = V.dias.find(x => x.fecha === f.fecha);
+      if (v.obligaciones === 'NO_CUBIERTO') assert.deepEqual([f.estado, f.determinado, f.publicado_dof, f.valor], ['SIN_CALENDARIO', null, null, null], f.fecha);
+      else assert.deepEqual([f.determinado, f.publicado_dof], [v.obligaciones, v.publicacion_que_aplica], f.fecha);
+      n++;
+    }
+  }
+  assert.equal(n, V.dias.length, 'cada dia de los vectores, una vez');
+});
+
+test('tipo de cambio: el rango cuadra con la columna oficial «Para solventar obligaciones»', async () => {
+  const { leerOficial } = await imp('netlify/lib/tipo-cambio.mjs');
+  const oficial = Object.fromEntries(leerOficial(RECORTE).map(r => [r.fecha, r.obligaciones]));
+  const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'fixtures', 'tipo-cambio', 'fix.json'), 'utf8'));
+  const r = tc.rango('2026-03-01', '2026-10-20', j, Date.parse('2026-10-20T21:00:00Z'));
+  const con = r.filas.filter(f => f.estado === 'CON_VALOR');
+  assert.ok(con.length >= 220, `calibracion: casi todo el recorte tiene valor (${con.length})`);
+  for (const f of con) assert.equal(f.valor, oficial[f.fecha], f.fecha);
+  // los primeros dias de marzo necesitan FIX de febrero, que el recorte no trae: van sin numero
+  assert.deepEqual(r.filas.filter(f => f.estado !== 'CON_VALOR').map(f => [f.fecha, f.estado, f.valor]),
+    [['2026-03-01', 'SIN_DATO', null], ['2026-03-02', 'SIN_DATO', null], ['2026-03-03', 'SIN_DATO', null]]);
+});
+
+test('tipo de cambio: las filas sin valor llevan su motivo y ningun numero (regla #14)', () => {
+  const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'fixtures', 'tipo-cambio', 'fix.json'), 'utf8'));
+  delete j.valores['2026-06-15'];   // un hueco en la serie, anterior a lo cargado
+  const ms = Date.parse('2026-10-22T21:00:00Z');   // a esta hora ya existe el FIX del 22, y los datos llegan al 20
+  const r = tc.rango('2026-06-15', '2027-01-02', j, ms).filas;
+  const de = f => r.find(x => x.fecha === f);
+  assert.equal(de('2026-06-17').estado, 'SIN_DATO', 'su FIX es el del 15, que falta');
+  assert.equal(de('2026-10-23').estado, 'NO_AL_DIA', 'el del 21 ya existe y no esta cargado');
+  assert.equal(de('2026-12-31').estado, 'AUN_SIN_PUBLICAR');
+  assert.equal(de('2027-01-02').estado, 'SIN_CALENDARIO');
+  for (const x of r) if (x.estado !== 'CON_VALOR') assert.equal(x.valor, null, x.fecha);
+  const csv = tc.csv(r);
+  const lineas = csv.split('\r\n');
+  assert.equal(lineas[0], 'Fecha de la obligación,Publicación en el DOF,Fecha de determinación,FIX (MXN por USD),Estado,Fuente');
+  assert.equal(lineas.length, r.length + 2, 'encabezado, una linea por dia y el final de linea');
+  assert.ok(csv.endsWith('\r\n') && !/\n(?!$)/.test(csv.replace(/\r\n/g, '')), 'fin de linea CRLF');
+  for (const [i, x] of r.entries()) {
+    const c = lineas[i + 1].split(',');
+    assert.equal(c.length, 6, `${x.fecha}: seis columnas, sin comas sueltas`);
+    assert.equal(c[0], x.fecha);
+    if (x.estado === 'CON_VALOR') assert.match(c[3], /^\d+\.\d{4}$/, x.fecha);
+    else assert.equal(c[3], '', `${x.fecha}: sin numero`);
+    assert.equal(c[5], 'Banco de México SIE serie SF43718 (FIX); CFF artículo 20');
+  }
+  assert.ok(lineas.some(l => /^2026-06-17,.*,,la serie cargada no lo trae,/.test(l)));
+});
+
+test('tipo de cambio: limites del rango', () => {
+  const j = { valores: {}, ultimo_dato: '2026-10-20' };
+  assert.equal(tc.rango('2025-01-01', '2026-01-01', j, 0).filas.length, 366, 'hasta 366 dias');
+  assert.equal(tc.rango('2025-01-01', '2026-01-02', j, 0).motivo, 'LARGO');
+  assert.equal(tc.rango('2026-03-10', '2026-03-09', j, 0).motivo, 'ORDEN');
+  assert.equal(tc.rango('2026-02-30', '2026-03-09', j, 0).motivo, 'FECHA');
+  const html = fs.readFileSync(path.join(RAIZ, 'herramientas', 'tipo-de-cambio', 'index.html'), 'utf8');
+  assert.ok(html.includes(`Hasta ${tc.MAX_DIAS_RANGO} días por archivo`), 'la pagina dice el mismo tope que el codigo');
+});

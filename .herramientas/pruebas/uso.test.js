@@ -39,7 +39,11 @@ test('usos: el navegador envia solo {herramienta, n}', () => {
   for (const n of [0, -3, NaN, 'EKU9003173C9', '120', null, { rfc: 'x' }]) {
     assert.deepEqual(JSON.parse(USO.cuerpo('valor-uma', n)), { herramienta: 'valor-uma' }, String(n));
   }
-  assert.equal(USO.cuerpo.length, 2, 'cuerpo() no recibe nada mas que la herramienta y n');
+  assert.equal(USO.cuerpo.length, 3, 'cuerpo() no recibe nada mas que la herramienta, n y el nombre de la accion');
+  assert.deepEqual(JSON.parse(USO.cuerpo('tipo-de-cambio', 31, 'descarga_rango')), { herramienta: 'tipo-de-cambio', n: 31, accion: 'descarga_rango' });
+  // por el nombre de la accion no cabe nada de la persona: fechas, RFC, texto libre
+  for (const a of ['2026-03-01', '2026-03-01_2026-03-31', 'EKU9003173C9', 'descarga rango', 'x'.repeat(31), { f: 1 }, 7])
+    assert.deepEqual(JSON.parse(USO.cuerpo('tipo-de-cambio', 31, a)), { herramienta: 'tipo-de-cambio', n: 31 }, String(a));
   assert.equal(USO.RUTA, '/descargar/uso', 'va bajo /descargar: le llega la cookie de interno');
 });
 
@@ -64,6 +68,25 @@ test('usos: el servidor guarda solo lo permitido y rechaza lo que no es una herr
   assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'valor-uma', n: 99999 } }, base)).n, 1000);
   assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'valor-uma', n: '5' } }, base)).n, null);
   assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'valor-uma' }, ua: 'Googlebot/2.1' }, base)).bot, false, 'calibracion: el ua de base no es bot');
+  // la accion: solo de la lista cerrada de esa herramienta; cualquier otra invalida el evento
+  const a = eventoUso(Object.assign({ cuerpo: { herramienta: 'tipo-de-cambio', n: 31, accion: 'descarga_rango', desde: '2026-03-01' } }, base));
+  assert.deepEqual(Object.keys(a).sort(), ['accion', 'bot', 'contexto', 'herramienta', 'interno', 'n', 'pais', 'tipo', 'ts']);
+  assert.ok(!JSON.stringify(a).includes('2026-03-01'), 'ni las fechas del rango');
+  for (const malo of ['otra', '2026-03-01', '', null])
+    assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'tipo-de-cambio', accion: malo } }, base)), null, String(malo));
+  assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'valor-uma', accion: 'descarga_rango' } }, base)), null, 'la accion es de UNA herramienta');
+});
+
+test('usos: el resumen cuenta aparte las acciones de la lista cerrada', async () => {
+  const { eventoUso, resumir } = await imp('netlify/lib/descargas.mjs');
+  const b = { ts: '2026-10-14T12:00:00Z', contexto: 'production', metodo: 'POST', ua: 'Mozilla/5.0 (Windows NT 10.0) Chrome/130' };
+  const ev = [eventoUso(Object.assign({ cuerpo: { herramienta: 'tipo-de-cambio', n: 31, accion: 'descarga_rango' } }, b)),
+              eventoUso(Object.assign({ cuerpo: { herramienta: 'tipo-de-cambio' } }, b)),
+              eventoUso(Object.assign({}, b, { cuerpo: { herramienta: 'tipo-de-cambio', accion: 'descarga_rango' }, ua: 'curl/8' }))];
+  assert.equal(ev[2].bot, true, 'calibracion: el tercero es de un bot');
+  const r = resumir(ev, { desde: '2026-10-12', hasta: '2026-10-18' });
+  assert.deepEqual(r.usos.reales_por_accion, { 'tipo-de-cambio:descarga_rango': 1 });
+  assert.equal(r.usos.reales_por_herramienta['tipo-de-cambio'], 2, 'la descarga tambien es un uso de la herramienta');
 });
 
 test('usos: el resumen cuenta usos reales por herramienta y no toca las descargas', async () => {

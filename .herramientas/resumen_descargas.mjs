@@ -22,6 +22,9 @@ if (x.usos) {
   const lista = Object.entries(x.usos.reales_por_herramienta).sort((a, b) => b[1] - a[1])
     .map(([h, n]) => `${h} ${n}` + (x.usos.elementos_por_herramienta[h] ? ` (${x.usos.elementos_por_herramienta[h]} elementos)` : '')).join(', ');
   console.log(`Usos reales por herramienta (sin bots ni los nuestros): ${x.usos.reales} en total; ${lista}.`);
+  if (x.usos.reales_por_accion) {
+    console.log('De esos, acciones aparte: ' + Object.entries(x.usos.reales_por_accion).map(([a, n]) => `${a} ${n}`).join(', ') + '.');
+  }
 }
 if (x.clics) {
   const destinos = Object.entries(x.clics.reales_por_destino).map(([d, n]) => `${d} ${n}`).join(', ');
