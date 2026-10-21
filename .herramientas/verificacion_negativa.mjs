@@ -124,6 +124,9 @@ const SABOTAJES = [
   ['pie: pierde el aviso de que no es un servicio del SAT', path.join(RAIZ, '.herramientas', 'construir.py'), "'    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\\n'", "'    <p>Es una herramienta informativa.</p>\\n'"],
   ['pie: una herramienta sin normas declaradas', path.join(RAIZ, '.herramientas', 'normas_por_herramienta.json'), '  "lista-69b": ["cff-69-b"],\n', ''],
   ['cta: el hueco de las condiciones se rellena con texto supuesto', H('cta.js'), "  var CONDICIONES_PRUEBA = '';", "  var CONDICIONES_PRUEBA = 'Prueba gratis 30 dias.';"],
+  // --- Bloque del tipo de cambio (solo dolares, solo con valor)
+  ['cta tipo de cambio: el bloque sale tambien sin valor', H('tipo-de-cambio/pagina.js'), "      if (clase === 'TC_PARA_OBLIGACIONES' && window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');", "      if (window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');", 'nav'],
+  ['cta tipo de cambio: promete otras monedas', H('cta.js'), 'tipo de cambio de las facturas en dólares de cada cliente', 'tipo de cambio de las facturas en moneda extranjera de cada cliente'],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas

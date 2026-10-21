@@ -137,6 +137,7 @@
       pie(j);
       if (window.TCUso) window.TCUso.registrar('tipo-de-cambio');
       if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);
+      if (clase === 'TC_PARA_OBLIGACIONES' && window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');   // solo con un valor
     }, function () {
       limpiar('bad');
       res.appendChild(el('h3', '', 'No se pudieron cargar los datos de Banxico'));

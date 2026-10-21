@@ -12,7 +12,6 @@ const CTA = require(path.join(RAIZ, 'herramientas', 'cta.js'));
 
 // Herramientas SIN frase, con su razon (se quitan de aqui cuando tengan una frase honesta)
 const SIN_FRASE = {
-  'tipo-de-cambio': 'funciones.json del blog (1.0.47) no tiene ninguna entrada sobre el tipo de cambio: no hay capacidad publicada que nombrar',
 };
 
 const enDisco = () => fs.readdirSync(path.join(RAIZ, 'herramientas'), { withFileTypes: true })
@@ -43,6 +42,11 @@ test('cta: las que tienen frase la muestran tras el resultado y cargan cta.js; l
       assert.ok(!llama && !carga, `${h}: sin frase, sin bloque`);
     }
   }
+});
+
+test('cta: el tipo de cambio solo promete dolares (funciones.json, tc-facturas-dolares: «solo dolares»)', () => {
+  const f = CTA.TEXTOS['tipo-de-cambio'].join(' ');
+  assert.ok(/facturas en dólares/.test(f) && !/moneda extranjera|otras monedas|euros?\b/i.test(f), f);
 });
 
 test('cta: las frases cumplen la vara', () => {
