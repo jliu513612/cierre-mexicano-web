@@ -102,6 +102,15 @@ const SABOTAJES = [
   ['tc: la actualizacion publica aunque el cotejo falle', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '    if (!c.ok) return { ok: false, texto: `el cotejo', '    if (false) return { ok: false, texto: `el cotejo'],
   ['tc: la pagina no cuenta su uso', H('tipo-de-cambio/pagina.js'), "      if (window.TCUso) window.TCUso.registrar('tipo-de-cambio');\n      if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);", "      if (window.TCOpinion) window.TCOpinion.mostrar(res, 'tipo-de-cambio', clase);", 'nav'],
   ['tc: la primera carga desde una visita no tiene limite de intentos', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio-servidor.mjs'), "  if (origen !== 'programada' && antes", "  if (origen === 'a mano' && antes"],
+  // --- Pasos del embudo (clics por destino y pagina de origen)
+  ['embudo: el origen se atribuye aunque el Referer sea de otro sitio', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  if (!host || u.host !== host) return 'sin_origen';\n", ''],
+  ['embudo: un destino fuera de la tabla pasa (redireccion abierta)', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  if (typeof d !== 'string' || !Object.prototype.hasOwnProperty.call(tabla, d)) return null;", "  if (typeof d !== 'string' || !(d in tabla)) return null;", 'nav'],
+  ['embudo: el destino de la redireccion sale de la URL', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  return ev ? { evento: ev, location: tabla[ev.destino] } : null;', '  return ev ? { evento: ev, location: ruta.slice(PREFIJO_IR.length) } : null;', 'nav'],
+  ['embudo: los clics y los usos cuentan como descargas', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  const dentro = todos.filter(e => !e.tipo);', "  const dentro = todos.filter(e => e.tipo !== 'uso');"],
+  ['embudo: los bots entran en los clics reales', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  const clicsReales = clics.filter(e => !e.bot && !e.interno);', '  const clicsReales = clics.filter(e => !e.interno);'],
+  ['embudo: la descarga deja de guardar su pagina de origen', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "origen: origen || 'sin_origen', pais: pais || null, metodo:", 'pais: pais || null, metodo:'],
+  ['embudo: una herramienta vuelve a enlazar Descargar sin contar', H('valor-uma/index.html'), 'href="/descargar/ir/descargar"', 'href="/#descargar"'],
+  ['embudo: la plantilla vuelve a enlazar WhatsApp directo', path.join(RAIZ, '.herramientas', 'plantillas', 'base.html'), '<a href="/descargar/ir/whatsapp" rel="nofollow">', '<a href="https://wa.me/528125834137">', 'nav'],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas

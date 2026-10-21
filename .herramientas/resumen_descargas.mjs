@@ -23,4 +23,16 @@ if (x.usos) {
     .map(([h, n]) => `${h} ${n}` + (x.usos.elementos_por_herramienta[h] ? ` (${x.usos.elementos_por_herramienta[h]} elementos)` : '')).join(', ');
   console.log(`Usos reales por herramienta (sin bots ni los nuestros): ${x.usos.reales} en total; ${lista}.`);
 }
+if (x.clics) {
+  const destinos = Object.entries(x.clics.reales_por_destino).map(([d, n]) => `${d} ${n}`).join(', ');
+  const origenes = Object.entries(x.clics.reales_por_origen)
+    .map(([o, ds]) => [o, Object.values(ds).reduce((a, b) => a + b, 0), ds]).sort((a, b) => b[1] - a[1])
+    .map(([o, n, ds]) => `${o} ${n} (` + Object.entries(ds).map(([d, k]) => `${d} ${k}`).join(', ') + ')').join('; ');
+  console.log(`Clics del embudo (sin bots ni los nuestros): ${x.clics.reales} en total. Por destino: ${destinos}. ` +
+    `Por pagina de origen: ${origenes || 'ninguno'}.`);
+}
+if (x.descargas_reales_por_origen) {
+  console.log('Descargas reales por pagina de origen: ' +
+    (Object.entries(x.descargas_reales_por_origen).sort((a, b) => b[1] - a[1]).map(([o, n]) => `${o} ${n}`).join(', ') || 'ninguna') + '.');
+}
 console.log(JSON.stringify(x, null, 1));
