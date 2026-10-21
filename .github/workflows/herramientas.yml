@@ -26,8 +26,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: sitemaps, enlaces de descarga y recursos de cada pagina (siempre)
-        run: node --test .herramientas/pruebas/sitemap.test.js .herramientas/pruebas/descargas.test.js .herramientas/pruebas/recursos.test.js
+      - name: sitemaps, enlaces de descarga, recursos de cada pagina y paginas huerfanas de /ayuda/ (siempre)
+        run: node --test .herramientas/pruebas/sitemap.test.js .herramientas/pruebas/descargas.test.js .herramientas/pruebas/recursos.test.js .herramientas/pruebas/huerfanas.test.js
       - name: ¿el PR toca las herramientas?
         id: toca
         run: |
