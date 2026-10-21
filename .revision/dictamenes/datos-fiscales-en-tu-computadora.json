@@ -1,0 +1,36 @@
+{
+ "slug": "datos-fiscales-en-tu-computadora",
+ "huella": "3d6884b1be99a00a907b9f18152b9e6edd81b411c2bddbd3b28de155fffd6794",
+ "fecha": "2026-10-16",
+ "puntajes": [
+  66,
+  70
+ ],
+ "puntaje": 68.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   90,
+   90,
+   82,
+   86,
+   88,
+   84
+  ],
+  "maquina": [
+   12,
+   25,
+   10,
+   12
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 3,
+ "leves_pendientes": [
+  "«Antes esa carpeta era de papel y vivía en un archivero; ahora vive en un disco...»: tras citar CFF 28 deja entrever que el contador custodia la contabilidad del cliente (atenuado por la remisión a revisarlo).",
+  "Caja final de la plantilla («calcula IVA e ISR provisional y arma la DIOT...») sin límite de régimen (cierre-mensual cubre 601, 626, 612 y 606).",
+  "«cuando falla el disco lo que no se respaldó ya no se recupera desde el programa»: limitación que no consta en ningún no_hace."
+ ],
+ "nota": "revisar.py NO PASA solo por 'termino prohibido: en red', que sale del pie de la plantilla (aria-label 'Tax Certeza en redes sociales'), no del artículo. Las páginas vivas en main del sitio fallan igual."
+}
