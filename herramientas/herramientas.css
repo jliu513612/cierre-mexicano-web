@@ -232,3 +232,15 @@ footer .enl a{color:var(--brand);font-weight:600}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 /* iconos de redes del pie (fragmento unico) */
 .redes{display:flex;gap:14px;align-items:center;margin-top:12px}.redes a{display:inline-flex;line-height:0;color:#2563EB;border-radius:4px}.redes a:hover,.redes a:focus-visible{color:#1E40AF}.redes svg{width:22px;height:22px;fill:currentColor}
+/* llamada a la accion despues del resultado (cta.js) */
+.cta{margin-top:18px;padding:16px 18px;border-radius:12px;background:var(--light);border:1px solid #BFDBFE}
+.res .cta-texto{margin:0;font-size:15.5px;color:var(--ink)}
+.res .cta-acciones{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin:12px 0 0}
+.cta-video{font-weight:700;color:var(--brand)}
+.res .cta-nota{font-size:13px;color:var(--muted);margin:8px 0 0}
+/* pie «Fundamento y revision» de cada herramienta (construir.py) */
+.pie-herramienta{margin:34px 0 8px;padding-top:18px;border-top:1px solid var(--line)}
+.pie-herramienta h2{font-size:17px;margin:0 0 6px}
+.pie-herramienta ul{margin:6px 0 10px 18px}
+.pie-herramienta li,.pie-herramienta p{font-size:14px;color:var(--muted)}
+.pie-herramienta p{margin-top:6px}

@@ -57,7 +57,7 @@ const servidor = http.createServer((req, res) => {
   if (ruta.startsWith('/descargar/ir/')) {
     const c = clicDe({ ruta, tabla: embudo, referer: req.headers.referer, host: req.headers.host, ts: new Date().toISOString(),
       contexto: 'prueba', metodo: req.method, ua: req.headers['user-agent'] });
-    clics.push({ ruta, referer: req.headers.referer || '', evento: c && c.evento });
+    clics.push({ ruta, referer: req.headers.referer || '', evento: c && c.evento, location: c && c.location });
     if (!c) { res.writeHead(404); res.end('404'); return; }
     if (c.location.startsWith('/')) { res.writeHead(302, Object.assign({ Location: c.location }, CABECERAS)); res.end(); return; }
     res.writeHead(204); res.end(); return;
@@ -490,8 +490,40 @@ async function main() {
     const w = clics[antes2] || {};
     exige(w.evento && w.evento.destino === 'whatsapp' && w.evento.origen === 'herramientas', `WhatsApp desde el indice de herramientas (${w.evento && w.evento.origen})`);
     exige(w.evento && Object.keys(w.evento).sort().join() === 'bot,contexto,destino,interno,origen,pais,tipo,ts', 'el clic no guarda nada mas');
+    exige(decodeURIComponent(w.location || '') === 'https://wa.me/528125834137?text=Hola, vengo de las herramientas gratuitas de taxcerteza.mx y quiero probar el programa.',
+      `el WhatsApp se abre con el texto de la pagina de origen y nada mas (${decodeURIComponent(w.location || '')})`);
     const st = await p.js("fetch('/descargar/ir/https:%2F%2Fevil.example').then(r => r.status)");
     exige(st === 404, `un destino fuera de la tabla da 404, sin redirigir (${st})`);
+    await p.cerrar();
+  }
+
+  console.log('P. llamada a la accion: aparece DESPUES del resultado y sus enlaces cuentan el clic');
+  {
+    p = await abrir('/herramientas/valor-uma/');
+    exige((await p.js("document.querySelectorAll('.cta').length")) === 0, 'antes del resultado no hay bloque');
+    await p.teclea('#cantidad', '3'); await p.pulsa('#f-uma button[type=submit]');
+    for (let i = 0; i < 60 && !(await p.js("!!document.querySelector('#res-uma .cta')")); i++) await espera(50);
+    const pos = await p.js(`(() => { const r = document.querySelector('#res-uma'), c = r.querySelector('.cta'), o = r.querySelector('.opinion');
+      return { hay: !!c, ultimo: r.lastElementChild === c, trasOpinion: !!o && !!(o.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING),
+               texto: c ? c.innerText.replace(/\\s+/g, ' ').trim() : '', video: c && c.querySelector('a.cta-video').getAttribute('href'),
+               boton: c && c.querySelector('a.cta-boton').getAttribute('href'), n: document.querySelectorAll('.cta').length }; })()`);
+    exige(pos.hay && pos.ultimo && pos.trasOpinion, `el bloque va al final del resultado, despues de la opinion (${JSON.stringify(pos).slice(0, 120)})`);
+    exige(/^Aquí convertiste veces UMA a pesos\. El programa trae la UMA/.test(pos.texto) && /Descargar y probar/.test(pos.texto) && /Ver el video de 3 minutos/.test(pos.texto),
+      `dice lo de esta herramienta y lleva video y descarga (${pos.texto.slice(0, 90)})`);
+    exige(pos.video === '/descargar/ir/video' && pos.boton === '/descargar/ir/descargar', 'sus enlaces pasan por la ruta que cuenta');
+    await p.pulsa('#f-uma button[type=submit]');
+    await espera(300);
+    exige((await p.js("document.querySelectorAll('.cta').length")) === 1, 'calcular otra vez no duplica el bloque');
+    const antes = clics.length;
+    await p.pulsa('#res-uma a.cta-video');
+    for (let i = 0; i < 100 && clics.length === antes; i++) await espera(50);
+    const c = clics[antes] || {};
+    exige(c.evento && c.evento.destino === 'video' && c.evento.origen === 'herramienta:valor-uma', `el clic al video cuenta con su herramienta de origen (${c.evento && c.evento.origen})`);
+    await p.cerrar();
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    await p.pulsa('#f-tc button[type=submit]');
+    await esperaTexto(p, '#res-tc', x => x.length > 0 && !/Cargando/.test(x));
+    exige((await p.js("document.querySelectorAll('.cta').length")) === 0, 'una herramienta sin frase honesta no lleva bloque (tipo de cambio)');
     await p.cerrar();
   }
 

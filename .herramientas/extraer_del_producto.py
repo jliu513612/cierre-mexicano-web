@@ -605,6 +605,32 @@ def vectores_tipo_cambio(prod):
     return {'dias': dias}
 
 
+def datos_normas(prod):
+    """Pie «Fundamento y revision» de cada herramienta: por cada norma de normas_por_herramienta.json, la URL oficial y
+    la FECHA DE REVISION leidas del registro de afirmaciones legales del programa. Una norma fuera del registro lleva la
+    lectura propia declarada en ese mismo archivo (con la huella del documento leido); una que no este en ninguno de
+    los dos para la extraccion (falla cerrado: no se publica una norma sin fecha de revision)."""
+    reg = json.loads((prod / 'references' / 'afirmaciones_legales.json').read_text(encoding='utf-8'))['articulos']
+    cfg = json.loads((AQUI / 'normas_por_herramienta.json').read_text(encoding='utf-8'))
+    normas = {}
+    for ids in cfg['herramientas'].values():
+        for k in ids:
+            if k in normas:
+                continue
+            if k in reg:
+                a = reg[k]
+                normas[k] = {'cita': cfg['citas'][k], 'url': a['fuente_url'], 'revisado': a['fecha_verificacion'], 'en_registro': True}
+            elif k in cfg['fuera_del_registro']:
+                f = cfg['fuera_del_registro'][k]
+                normas[k] = {'cita': cfg['citas'][k], 'url': f['url'], 'revisado': f['revisado'], 'en_registro': False}
+            else:
+                raise SystemExit(f'norma sin registro ni lectura propia: {k}')
+    commit = subprocess.run(['git', '-C', str(prod), 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True).stdout.strip()
+    return {'_nota': 'GENERADO por .herramientas/extraer_del_producto.py desde el registro de afirmaciones legales del programa y '
+                     'normas_por_herramienta.json. No se edita a mano.',
+            'producto_commit': commit, 'herramientas': cfg['herramientas'], 'normas': normas}
+
+
 def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
@@ -627,6 +653,7 @@ def main():
         "vectores/iva.json": vectores_iva(prod),
         "datos/tipo-cambio.json": datos_tipo_cambio(prod),
         "vectores/tipo-cambio.json": vectores_tipo_cambio(prod),
+        "datos/normas.json": datos_normas(prod),
     }
     for rel, obj in salidas.items():
         p = AQUI / rel

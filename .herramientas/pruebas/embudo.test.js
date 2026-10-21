@@ -25,11 +25,34 @@ test('embudo: la ruta /descargar/ir/<destino> redirige solo a la tabla y 404 a l
   const { clicDe } = await imp('netlify/lib/descargas.mjs');
   const base = { tabla: embudo, host: HOST, ts: '2026-10-20T10:00:00Z', contexto: 'production', ua: 'Mozilla/5.0' };
   const r = clicDe(Object.assign({ ruta: '/descargar/ir/whatsapp', referer: 'https://taxcerteza.mx/herramientas/valor-uma/' }, base));
-  assert.equal(r.location, 'https://wa.me/528125834137');
+  assert.equal(r.location, 'https://wa.me/528125834137?text=' +
+    encodeURIComponent('Hola, vengo de la herramienta «Valor de la UMA y conversor» de taxcerteza.mx y quiero probar el programa.'));
   assert.deepEqual([r.evento.destino, r.evento.origen], ['whatsapp', 'herramienta:valor-uma']);
+  assert.equal(clicDe(Object.assign({ ruta: '/descargar/ir/whatsapp' }, base)).location, 'https://wa.me/528125834137', 'sin origen, sin texto');
+  assert.equal(clicDe(Object.assign({ ruta: '/descargar/ir/demo', referer: 'https://taxcerteza.mx/blog/' }, base)).location, embudo.demo, 'la demo lleva su propio texto');
   assert.equal(clicDe(Object.assign({ ruta: '/descargar/ir/descargar' }, base)).location, '/#descargar');
   for (const ruta of ['/descargar/ir/', '/descargar/ir/https://evil.example', '/descargar/ir/whatsapp/x', '/descargar/ir/__proto__', '/descargar', '/otra/ir/whatsapp'])
     assert.equal(clicDe(Object.assign({ ruta }, base)), null, ruta);
+});
+
+test('embudo: el WhatsApp prellenado dice solo de que pagina viene, nada de la persona', async () => {
+  const { default: embudo } = await imp('netlify/embudo.mjs');
+  const { clicDe, textoWhatsapp } = await imp('netlify/lib/descargas.mjs');
+  const { HERRAMIENTAS, NOMBRES } = await imp('netlify/lib/herramientas.mjs');
+  // los nombres son los titulos cortos de las plantillas, uno por herramienta
+  assert.deepEqual(Object.keys(NOMBRES).sort(), [...HERRAMIENTAS].sort());
+  for (const h of HERRAMIENTAS) {
+    const pl = fs.readFileSync(path.join(RAIZ, '.herramientas', 'plantillas', h + '.html'), 'utf8');
+    assert.equal(NOMBRES[h], /^@@TITULO_CORTO\r?\n(.+)$/m.exec(pl)[1].trim(), h);
+    assert.match(textoWhatsapp('herramienta:' + h), /^Hola, vengo de la herramienta «[^»]+» de taxcerteza\.mx y quiero probar el programa\.$/);
+  }
+  for (const o of ['otra', 'sin_origen', 'herramienta:no-existe', 'herramienta:', '', undefined]) assert.equal(textoWhatsapp(o), '', String(o));
+  // lo que venga en la URL de la pagina (por ejemplo un RFC en la consulta) jamas llega al texto
+  const base = { tabla: embudo, host: HOST, ts: 't', contexto: 'production', ua: 'Mozilla/5.0' };
+  const r = clicDe(Object.assign({ ruta: '/descargar/ir/whatsapp', referer: 'https://taxcerteza.mx/herramientas/lista-69b/?rfc=XAXX010101000&x=<b>' }, base));
+  const texto = decodeURIComponent(r.location.split('?text=')[1]);
+  assert.equal(texto, 'Hola, vengo de la herramienta «Consulta de la lista 69-B (EFOS)» de taxcerteza.mx y quiero probar el programa.');
+  assert.ok(!r.location.includes('XAXX') && !r.location.includes('%3Cb'));
 });
 
 test('embudo: la pagina de origen sale del Referer del propio sitio, en una lista cerrada', async () => {

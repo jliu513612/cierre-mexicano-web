@@ -1,0 +1,199 @@
+{
+ "_nota": "GENERADO por .herramientas/extraer_del_producto.py desde el registro de afirmaciones legales del programa y normas_por_herramienta.json. No se edita a mano.",
+ "producto_commit": "2e984389",
+ "herramientas": {
+  "validar-rfc": [
+   "cff-29-a"
+  ],
+  "valor-uma": [
+   "leyuma-5",
+   "uma-2026"
+  ],
+  "complemento-de-pago": [
+   "rmf-2026-2-7-1-32",
+   "cff-29-a",
+   "rmf-2026-2-7-1-39"
+  ],
+  "verificar-factura": [
+   "cff-29-a"
+  ],
+  "lista-69b": [
+   "cff-69-b"
+  ],
+  "factura-con-retenciones": [
+   "liva-1-a",
+   "rliva-3",
+   "lisr-106",
+   "lisr-116",
+   "lisr-113-j"
+  ],
+  "calendario-dia-17": [
+   "lisr-14",
+   "liva-5-d",
+   "cff-12",
+   "rmf-2026-4-5-1",
+   "rmf-2026-2-1-6",
+   "dec-compila-2013-5.1"
+  ],
+  "iva-del-mes": [
+   "liva-1-b",
+   "liva-5",
+   "liva-5-d",
+   "liva-1-a",
+   "lisr-27",
+   "cff-69-b"
+  ],
+  "tipo-de-cambio": [
+   "cff-20",
+   "cnbv-dias-inhabiles-2024",
+   "cnbv-dias-inhabiles-2025",
+   "cnbv-dias-inhabiles-2026"
+  ]
+ },
+ "normas": {
+  "cff-29-a": {
+   "cita": "Código Fiscal de la Federación, artículo 29-A",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "leyuma-5": {
+   "cita": "Ley para Determinar el Valor de la Unidad de Medida y Actualización, artículo 5",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LDVUMA_301216.pdf",
+   "revisado": "2026-07-07",
+   "en_registro": true
+  },
+  "uma-2026": {
+   "cita": "Valores de la UMA 2026 publicados por el INEGI en el DOF",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5778072&fecha=09/01/2026",
+   "revisado": "2026-07-07",
+   "en_registro": true
+  },
+  "rmf-2026-2-7-1-32": {
+   "cita": "Resolución Miscelánea Fiscal para 2026, regla 2.7.1.32",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf",
+   "revisado": "2026-10-21",
+   "en_registro": false
+  },
+  "rmf-2026-2-7-1-39": {
+   "cita": "Resolución Miscelánea Fiscal para 2026, regla 2.7.1.39",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf",
+   "revisado": "2026-09-16",
+   "en_registro": true
+  },
+  "cff-69-b": {
+   "cita": "Código Fiscal de la Federación, artículo 69-B",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "liva-1-a": {
+   "cita": "Ley del IVA, artículo 1o.-A",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "rliva-3": {
+   "cita": "Reglamento de la Ley del IVA, artículo 3",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LIVA_250914.pdf",
+   "revisado": "2026-09-21",
+   "en_registro": true
+  },
+  "lisr-106": {
+   "cita": "Ley del ISR, artículo 106",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "revisado": "2026-09-21",
+   "en_registro": true
+  },
+  "lisr-116": {
+   "cita": "Ley del ISR, artículo 116",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "revisado": "2026-09-21",
+   "en_registro": true
+  },
+  "lisr-113-j": {
+   "cita": "Ley del ISR, artículo 113-J",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "revisado": "2026-09-01",
+   "en_registro": true
+  },
+  "lisr-14": {
+   "cita": "Ley del ISR, artículo 14",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "liva-5-d": {
+   "cita": "Ley del IVA, artículo 5o.-D",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "revisado": "2026-09-05",
+   "en_registro": true
+  },
+  "cff-12": {
+   "cita": "Código Fiscal de la Federación, artículo 12",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+   "revisado": "2026-10-15",
+   "en_registro": true
+  },
+  "rmf-2026-4-5-1": {
+   "cita": "Resolución Miscelánea Fiscal para 2026, regla 4.5.1",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf",
+   "revisado": "2026-10-19",
+   "en_registro": false
+  },
+  "rmf-2026-2-1-6": {
+   "cita": "Resolución Miscelánea Fiscal para 2026, regla 2.1.6",
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf",
+   "revisado": "2026-10-15",
+   "en_registro": true
+  },
+  "dec-compila-2013-5.1": {
+   "cita": "Decreto que compila diversos beneficios fiscales, artículo 5.1",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5328028&fecha=26/12/2013&print=true",
+   "revisado": "2026-09-29",
+   "en_registro": true
+  },
+  "liva-1-b": {
+   "cita": "Ley del IVA, artículo 1o.-B",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "liva-5": {
+   "cita": "Ley del IVA, artículo 5o.",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "lisr-27": {
+   "cita": "Ley del ISR, artículo 27",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+   "revisado": "2026-07-28",
+   "en_registro": true
+  },
+  "cff-20": {
+   "cita": "Código Fiscal de la Federación, artículo 20",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+   "revisado": "2026-07-06",
+   "en_registro": true
+  },
+  "cnbv-dias-inhabiles-2024": {
+   "cita": "Días inhábiles bancarios de 2024 (CNBV, DOF 12-12-2023)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5711052&fecha=12/12/2023",
+   "revisado": "2026-09-17",
+   "en_registro": true
+  },
+  "cnbv-dias-inhabiles-2025": {
+   "cita": "Días inhábiles bancarios de 2025 (CNBV, DOF 27-12-2024)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5746258&fecha=27%2F12%2F2024",
+   "revisado": "2026-09-17",
+   "en_registro": true
+  },
+  "cnbv-dias-inhabiles-2026": {
+   "cita": "Días inhábiles bancarios de 2026 (CNBV, DOF 10-12-2025)",
+   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5775684&fecha=10%2F12%2F2025",
+   "revisado": "2026-09-17",
+   "en_registro": true
+  }
+ }
+}

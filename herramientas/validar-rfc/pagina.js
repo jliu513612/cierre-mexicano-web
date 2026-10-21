@@ -94,6 +94,7 @@
   function opinion(clase) {
     if (clase !== 'VACIO' && window.TCUso) window.TCUso.registrar('validar-rfc');
     if (clase !== 'VACIO' && window.TCOpinion) window.TCOpinion.mostrar(res, 'validar-rfc', clase);
+    if (clase !== 'VACIO' && window.TCCta) window.TCCta.mostrar(res, 'validar-rfc');
   }
 
   form.addEventListener('submit', function (e) {

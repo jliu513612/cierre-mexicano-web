@@ -87,6 +87,7 @@
     res.appendChild(el('p', '', 'Calendario para declaraciones y pagos. Revisa tu caso con tu contador.'));
     if (conOpinion && window.TCUso) window.TCUso.registrar('calendario-dia-17');
     if (conOpinion && window.TCOpinion) window.TCOpinion.mostrar(res, 'calendario-dia-17', r.sextoDigito !== null ? 'CON_FACILIDAD' : (r.conRfc ? 'RFC_SIN_DIGITO' : 'CALENDARIO'));
+    if (conOpinion && window.TCCta) window.TCCta.mostrar(res, 'calendario-dia-17');
   }
 
   form.addEventListener('submit', function (e) { e.preventDefault(); pintar(true); });

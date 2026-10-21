@@ -78,5 +78,6 @@
     }
     if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');
     if (window.TCOpinion) window.TCOpinion.mostrar(res, 'factura-con-retenciones', r.estado);
+    if (window.TCCta) window.TCCta.mostrar(res, 'factura-con-retenciones');
   });
 })();

@@ -99,5 +99,6 @@
     res.appendChild(fuente);
     if (window.TCUso) window.TCUso.registrar('valor-uma');
     if (window.TCOpinion) window.TCOpinion.mostrar(res, 'valor-uma', r.sentido);
+    if (window.TCCta) window.TCCta.mostrar(res, 'valor-uma');
   });
 })();
