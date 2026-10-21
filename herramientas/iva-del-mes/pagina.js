@@ -171,6 +171,7 @@
       var clase = pintar(r);
       if (window.TCUso) window.TCUso.registrar('iva-del-mes', arch.length);
       if (window.TCOpinion) window.TCOpinion.mostrar(res, 'iva-del-mes', clase);
+      if (window.TCCta) window.TCCta.mostrar(res, 'iva-del-mes');
     }).catch(function () {
       res.className = 'res bad'; res.textContent = '';
       res.appendChild(el('h3', '', 'No se pudo cargar el listado 69-B'));
@@ -203,5 +204,6 @@
     rman.appendChild(el('p', '', 'Es una estimación con los totales que escribiste. Revisa el resultado con tu contador.'));
     if (window.TCUso) window.TCUso.registrar('iva-del-mes');
     if (window.TCOpinion) window.TCOpinion.mostrar(rman, 'iva-del-mes', 'MANUAL');
+    if (window.TCCta) window.TCCta.mostrar(rman, 'iva-del-mes');
   });
 })();

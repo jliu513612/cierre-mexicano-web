@@ -495,6 +495,36 @@ async function main() {
     await p.cerrar();
   }
 
+  console.log('P. llamada a la accion: aparece DESPUES del resultado y sus enlaces cuentan el clic');
+  {
+    p = await abrir('/herramientas/valor-uma/');
+    exige((await p.js("document.querySelectorAll('.cta').length")) === 0, 'antes del resultado no hay bloque');
+    await p.teclea('#cantidad', '3'); await p.pulsa('#f-uma button[type=submit]');
+    for (let i = 0; i < 60 && !(await p.js("!!document.querySelector('#res-uma .cta')")); i++) await espera(50);
+    const pos = await p.js(`(() => { const r = document.querySelector('#res-uma'), c = r.querySelector('.cta'), o = r.querySelector('.opinion');
+      return { hay: !!c, ultimo: r.lastElementChild === c, trasOpinion: !!o && !!(o.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING),
+               texto: c ? c.innerText.replace(/\\s+/g, ' ').trim() : '', video: c && c.querySelector('a.cta-video').getAttribute('href'),
+               boton: c && c.querySelector('a.cta-boton').getAttribute('href'), n: document.querySelectorAll('.cta').length }; })()`);
+    exige(pos.hay && pos.ultimo && pos.trasOpinion, `el bloque va al final del resultado, despues de la opinion (${JSON.stringify(pos).slice(0, 120)})`);
+    exige(/^Aquí convertiste veces UMA a pesos\. El programa trae la UMA/.test(pos.texto) && /Descargar y probar/.test(pos.texto) && /Ver el video de 3 minutos/.test(pos.texto),
+      `dice lo de esta herramienta y lleva video y descarga (${pos.texto.slice(0, 90)})`);
+    exige(pos.video === '/descargar/ir/video' && pos.boton === '/descargar/ir/descargar', 'sus enlaces pasan por la ruta que cuenta');
+    await p.pulsa('#f-uma button[type=submit]');
+    await espera(300);
+    exige((await p.js("document.querySelectorAll('.cta').length")) === 1, 'calcular otra vez no duplica el bloque');
+    const antes = clics.length;
+    await p.pulsa('#res-uma a.cta-video');
+    for (let i = 0; i < 100 && clics.length === antes; i++) await espera(50);
+    const c = clics[antes] || {};
+    exige(c.evento && c.evento.destino === 'video' && c.evento.origen === 'herramienta:valor-uma', `el clic al video cuenta con su herramienta de origen (${c.evento && c.evento.origen})`);
+    await p.cerrar();
+    p = await abrir('/herramientas/tipo-de-cambio/');
+    await p.pulsa('#f-tc button[type=submit]');
+    await esperaTexto(p, '#res-tc', x => x.length > 0 && !/Cargando/.test(x));
+    exige((await p.js("document.querySelectorAll('.cta').length")) === 0, 'una herramienta sin frase honesta no lleva bloque (tipo de cambio)');
+    await p.cerrar();
+  }
+
   console.log('M. usos de las herramientas: cuentan al ejecutar, una vez por accion y sin datos');
   {
     // en todo lo anterior se ejecutaron todas las herramientas: cada envio de uso lleva SOLO {herramienta, n}

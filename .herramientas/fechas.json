@@ -5,23 +5,23 @@
  },
  "/herramientas/calendario-dia-17/": {
   "fecha": "2026-10-20",
-  "huella": "fd492351f38528803e3bf6046b36eda023512ed55fc67f536f4b0880594cdaaf"
+  "huella": "b43115dbeb77ff78ee7274af3010c2e1d4ab33ce0ab7f1212d711ebf430401ea"
  },
  "/herramientas/complemento-de-pago/": {
   "fecha": "2026-10-20",
-  "huella": "fd189312ca3f4d8c418be948c1bb8b057a2bd854f81c2418ca94a56c0ff3f299"
+  "huella": "276450410ec923cbfed9e6ea0ac9ba0b72fd4cc98565d714c8508153aa962414"
  },
  "/herramientas/factura-con-retenciones/": {
   "fecha": "2026-10-20",
-  "huella": "196e792e0d3460a0321193c99c2410ff1b840bece37c5dbd7413b48b9a6af37a"
+  "huella": "ff6ccaca710d917056704169874c061156a2dfe8be6d38817e81724e3391491e"
  },
  "/herramientas/iva-del-mes/": {
   "fecha": "2026-10-20",
-  "huella": "a86d698714814cedb16e8cc4f3871ea79407cf0b869fd9a4100c7820fdd1b1b4"
+  "huella": "58168ff7d43fe80e40e1132e404bf0c3e169966a7c8bcc6db39599c9a07c82c1"
  },
  "/herramientas/lista-69b/": {
   "fecha": "2026-10-20",
-  "huella": "2c207580314b602d52876c3570344ca6a2ac2f096ffcda27e6b66dc499934c85"
+  "huella": "e032d91d43f52e715cadbee24ae3b52785860f9c697a951b4647642df6550855"
  },
  "/herramientas/tipo-de-cambio/": {
   "fecha": "2026-10-20",
@@ -29,14 +29,14 @@
  },
  "/herramientas/validar-rfc/": {
   "fecha": "2026-10-20",
-  "huella": "e42349aced0a7a5b27cb4cc9e13cba85b1788ab42dea976f6cad9603dced32e5"
+  "huella": "7c66dc52e1e708c4ba8babc56bb335a58402c5f18bb8543cbf8c2d77248b18d2"
  },
  "/herramientas/valor-uma/": {
   "fecha": "2026-10-20",
-  "huella": "fe3af167972ff52b9565fe2c4e3fc04c88e71818a7369ad61d2bded51a25513a"
+  "huella": "0fba662e3b427200e63685963ac7a899012b54af947e2c3c239d8e5e3bc3e151"
  },
  "/herramientas/verificar-factura/": {
   "fecha": "2026-10-20",
-  "huella": "0fe813c09a0db7c1d8fa9e7470bb92b87a222484c95bf016d38206f03cda0133"
+  "huella": "a2fea4d40f3392fac71252bbda7dae5dedf5ed68e21a916ae4ddd061a381b0b0"
  }
 }

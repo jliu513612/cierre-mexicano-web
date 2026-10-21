@@ -90,6 +90,7 @@
     if (hallados.length) res.appendChild(el('p', '', 'Qué hacer con un proveedor que aparece depende de su situación y de las fechas de tus operaciones con él. Revísalo con tu contador.'));
     if (window.TCUso) window.TCUso.registrar('lista-69b', consulta.length);
     if (window.TCOpinion) window.TCOpinion.mostrar(res, 'lista-69b', hallados.length ? 'CONSULTA_CON_COINCIDENCIAS' : 'CONSULTA_SIN_COINCIDENCIAS');
+    if (window.TCCta) window.TCCta.mostrar(res, 'lista-69b');
   }
 
   function error(t) { res.className = 'res bad'; res.textContent = ''; res.appendChild(el('h3', '', t)); }

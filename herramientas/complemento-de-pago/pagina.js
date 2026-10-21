@@ -69,6 +69,7 @@
     if (r.limiteEnOtroEjercicio) resPlazo.appendChild(el('p', '', 'El día límite cae en ' + r.limite.slice(0, 4) + '. La página aplica la regla de 2026: confirma el plazo en la resolución miscelánea de ' + r.limite.slice(0, 4) + ' cuando se publique.'));
     if (window.TCUso) window.TCUso.registrar('complemento-de-pago');
     if (window.TCOpinion) window.TCOpinion.mostrar(resPlazo, 'complemento-de-pago', 'PLAZO_' + p.estado);
+    if (window.TCCta) window.TCCta.mostrar(resPlazo, 'complemento-de-pago');
   });
 
   function valor(nombre) {
@@ -127,5 +128,6 @@
     }
     if (window.TCUso) window.TCUso.registrar('complemento-de-pago');
     if (window.TCOpinion) window.TCOpinion.mostrar(resLleva, 'complemento-de-pago', 'LLEVA_' + r.resultado);
+    if (window.TCCta) window.TCCta.mostrar(resLleva, 'complemento-de-pago');
   });
 })();

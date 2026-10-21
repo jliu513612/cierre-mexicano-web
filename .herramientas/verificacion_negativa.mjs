@@ -111,6 +111,12 @@ const SABOTAJES = [
   ['embudo: la descarga deja de guardar su pagina de origen', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "origen: origen || 'sin_origen', pais: pais || null, metodo:", 'pais: pais || null, metodo:'],
   ['embudo: una herramienta vuelve a enlazar Descargar sin contar', H('valor-uma/index.html'), 'href="/descargar/ir/descargar"', 'href="/#descargar"'],
   ['embudo: la plantilla vuelve a enlazar WhatsApp directo', path.join(RAIZ, '.herramientas', 'plantillas', 'base.html'), '<a href="/descargar/ir/whatsapp" rel="nofollow">', '<a href="https://wa.me/528125834137">', 'nav'],
+  // --- Llamada a la accion despues del resultado
+  ['cta: una herramienta con frase deja de mostrarla', H('valor-uma/pagina.js'), "    if (window.TCCta) window.TCCta.mostrar(res, 'valor-uma');\n", '', 'nav'],
+  ['cta: una frase promete algo fuera de la vara', H('cta.js'), "'El programa trae la UMA, el salario mínimo, las tarifas y el subsidio con su fuente en el DOF y su vigencia.'", "'El programa trae gratis la UMA, el salario mínimo, las tarifas y el subsidio con su fuente en el DOF y su vigencia.'"],
+  ['cta: el boton lleva directo, sin contar el clic', H('cta.js'), "    boton.href = '/descargar/ir/descargar';", "    boton.href = '/#descargar';", 'nav'],
+  ['cta: el bloque se pone ANTES del resultado', H('cta.js'), '    caja.appendChild(b);', '    caja.insertBefore(b, caja.firstChild);', 'nav'],
+  ['cta: una herramienta nueva sin decidir su frase', H('cta.js'), "    'valor-uma': ['Aquí convertiste veces UMA a pesos.',", "    'valor-umaX': ['Aquí convertiste veces UMA a pesos.',"],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas
