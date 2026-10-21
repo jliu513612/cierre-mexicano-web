@@ -52,7 +52,8 @@ test('descargas: huella, bots y claves', async () => {
   const { UNICOS_ACTIVOS } = await L();
   assert.equal(UNICOS_ACTIVOS, false, 'los unicos estan APAGADOS hasta que exista el aviso de privacidad');
   const ev = evento(base);
-  assert.deepEqual(Object.keys(ev).sort(), ['archivo', 'bot', 'contexto', 'interno', 'metodo', 'pais', 'ts', 'version'], 'apagado: nada derivado de la IP');
+  assert.deepEqual(Object.keys(ev).sort(), ['archivo', 'bot', 'contexto', 'interno', 'metodo', 'origen', 'pais', 'ts', 'version'], 'apagado: nada derivado de la IP');
+  assert.equal(ev.origen, 'sin_origen', 'sin Referer la descarga no se atribuye a ninguna pagina');
   const encendido = evento(Object.assign({ unicos: true }, base));
   assert.match(encendido.huella, /^[0-9a-f]{20}$/, 'el codigo de unicos sigue vivo detras de la bandera');
   for (const x of [ev, encendido]) assert.ok(!JSON.stringify(x).includes('1.2.3.4') && !JSON.stringify(x).includes('Mozilla'), 'ni la IP ni el user-agent se guardan en claro');

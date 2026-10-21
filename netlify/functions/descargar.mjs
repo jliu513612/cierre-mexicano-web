@@ -5,6 +5,10 @@
 //   /descargar/resumen?clave=  resumen JSON de un periodo (?desde=&hasta=, por omision la semana anterior). No es publico.
 //   /descargar/uso  (POST)     USO de una herramienta: {herramienta, n}; lo manda herramientas/uso.js al ejecutar el calculo.
 //                              Va bajo /descargar para que le llegue la misma cookie de interno (Path=/descargar).
+//   /descargar/ir/<destino>    CLIC en un paso del embudo (whatsapp, demo, descargar, video): lo cuenta con la pagina de
+//                              origen (cabecera Referer del propio sitio) y redirige (302) al destino de netlify/embudo.mjs.
+//                              Un destino que no esta en esa tabla da 404: no hay redireccion abierta.
+// La descarga (/descargar) tambien guarda su pagina de origen, igual.
 // UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
 //   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno y de /descargar/resumen (la tienen las mismas personas).
 // Con los unicos encendidos (UNICOS_ACTIVOS, hoy apagado) haria falta ademas DESCARGAS_SAL.
@@ -12,7 +16,8 @@
 // nunca se mezclan con las reales.
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
-import { evento, eventoUso, destino, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
+import embudo from '../embudo.mjs';
+import { evento, eventoUso, clicDe, PREFIJO_IR, origenDe, destino, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -76,12 +81,25 @@ export default async (req, context) => {
     return respuesta(null, 204);
   }
 
+  const origen = origenDe(req.headers.get('referer'), url.host);
+  if (ruta.startsWith(PREFIJO_IR)) {
+    const ts = new Date().toISOString();
+    const c = clicDe({ ruta, tabla: embudo, referer: req.headers.get('referer'), host: url.host, ts, contexto,
+      pais: context.geo && context.geo.country && context.geo.country.code, metodo: req.method, ua: req.headers.get('user-agent'),
+      interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || '') });
+    if (!c) return respuesta('No encontrado', 404);
+    // el clic NUNCA se bloquea por el registro: si el almacen falla, se redirige igual y queda en el log
+    try { await store.setJSON(`ev/${ts.slice(0, 10)}/${ts}-c-${Math.random().toString(36).slice(2, 10)}`, c.evento); }
+    catch (e) { console.error('clic: no se pudo registrar', e && e.message); }
+    return respuesta(null, 302, { Location: c.location });
+  }
+
   if (ruta !== '/descargar') return respuesta('No encontrado', 404);
   const d = destino(tabla, url.searchParams.get('archivo'));
   if (!d) return respuesta('No hay archivo de descarga configurado', 500);
   const ts = new Date().toISOString();
   const ev = evento({
-    ts, contexto, version: d.version, archivo: d.archivo, pais: context.geo && context.geo.country && context.geo.country.code,
+    ts, contexto, version: d.version, archivo: d.archivo, origen, pais: context.geo && context.geo.country && context.geo.country.code,
     metodo: req.method, ua: req.headers.get('user-agent'),
     ip: UNICOS_ACTIVOS ? context.ip : undefined, sal: UNICOS_ACTIVOS ? env('DESCARGAS_SAL') : '',
     interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || ''),
@@ -95,4 +113,4 @@ export default async (req, context) => {
   return respuesta(null, 302, { Location: d.url });
 };
 
-export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso'] };
+export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso', '/descargar/ir/*'] };

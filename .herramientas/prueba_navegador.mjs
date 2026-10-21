@@ -17,6 +17,8 @@ import os from 'node:os';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { clicDe } from '../netlify/lib/descargas.mjs';
+import embudo from '../netlify/embudo.mjs';
 
 const RAIZ = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CANDIDATOS = [process.env.CHROME, 'C:/Program Files/Google/Chrome/Application/chrome.exe', '/usr/bin/google-chrome', '/usr/bin/chromium-browser', '/usr/bin/chromium'];
@@ -37,6 +39,7 @@ if (fs.existsSync(path.join(RAIZ, '_headers'))) {
 }
 const recibidos = [];           // cuerpos de los POST de OPINION, tal como llegan
 const usos = [];                // cuerpos de los POST a /descargar/uso (usos de las herramientas), aparte
+const clics = [];               // pasos del embudo (/descargar/ir/<destino>): ruta, Referer y el evento que se guardaria
 let modo = 'OK';                // 'OK' | 'FALLA_500' | 'SIN_OPINION'
 const servidor = http.createServer((req, res) => {
   if (req.method === 'POST') {
@@ -50,6 +53,15 @@ const servidor = http.createServer((req, res) => {
     return;
   }
   let ruta = decodeURIComponent(req.url.split('?')[0]);
+  // la MISMA logica que la funcion /descargar (clicDe); un destino externo no se sigue en la prueba (204 en vez de 302)
+  if (ruta.startsWith('/descargar/ir/')) {
+    const c = clicDe({ ruta, tabla: embudo, referer: req.headers.referer, host: req.headers.host, ts: new Date().toISOString(),
+      contexto: 'prueba', metodo: req.method, ua: req.headers['user-agent'] });
+    clics.push({ ruta, referer: req.headers.referer || '', evento: c && c.evento });
+    if (!c) { res.writeHead(404); res.end('404'); return; }
+    if (c.location.startsWith('/')) { res.writeHead(302, Object.assign({ Location: c.location }, CABECERAS)); res.end(); return; }
+    res.writeHead(204); res.end(); return;
+  }
   if (ruta.endsWith('/')) ruta += 'index.html';
   const archivo = path.join(RAIZ, ruta);
   if (modo === 'LISTADO_FALLO' && ruta.endsWith('/lista-69b/listado.json')) {
@@ -456,6 +468,31 @@ async function main() {
     exige(/No se pudieron cargar/.test(x) && !/pesos por dólar/.test(x), 'sin datos: lo dice y no inventa');
     await p.cerrar();
     modo = 'OK';
+  }
+
+  console.log('O. pasos del embudo: las herramientas los llevan por la ruta que cuenta, con su pagina de origen');
+  {
+    const antes = clics.length;
+    p = await abrir('/herramientas/verificar-factura/');
+    await p.pulsa('a.nav-cta');
+    for (let i = 0; i < 100 && clics.length === antes; i++) await espera(50);
+    const c = clics[antes] || {};
+    exige(c.ruta === '/descargar/ir/descargar' && c.evento && c.evento.destino === 'descargar', `«Descargar» pasa por /descargar/ir/descargar (${c.ruta})`);
+    exige(c.evento && c.evento.origen === 'herramienta:verificar-factura', `con su pagina de origen por el Referer (${c.evento && c.evento.origen}; Referer ${c.referer})`);
+    let llego = '';
+    for (let i = 0; i < 100; i++) { try { llego = await p.js('location.pathname + location.hash'); } catch (e) { llego = ''; } if (llego === '/#descargar') break; await espera(50); }
+    exige(llego === '/#descargar', `y termina en la seccion de descarga de la portada (${llego})`);
+    await p.cerrar();
+    p = await abrir('/herramientas/');
+    const antes2 = clics.length;
+    await p.pulsa('a[href="/descargar/ir/whatsapp"]');
+    for (let i = 0; i < 100 && clics.length === antes2; i++) await espera(50);
+    const w = clics[antes2] || {};
+    exige(w.evento && w.evento.destino === 'whatsapp' && w.evento.origen === 'herramientas', `WhatsApp desde el indice de herramientas (${w.evento && w.evento.origen})`);
+    exige(w.evento && Object.keys(w.evento).sort().join() === 'bot,contexto,destino,interno,origen,pais,tipo,ts', 'el clic no guarda nada mas');
+    const st = await p.js("fetch('/descargar/ir/https:%2F%2Fevil.example').then(r => r.status)");
+    exige(st === 404, `un destino fuera de la tabla da 404, sin redirigir (${st})`);
+    await p.cerrar();
   }
 
   console.log('M. usos de las herramientas: cuentan al ejecutar, una vez por accion y sin datos');
