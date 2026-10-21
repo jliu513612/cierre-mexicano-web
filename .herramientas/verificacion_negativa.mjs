@@ -129,7 +129,10 @@ const SABOTAJES = [
   ['cta tipo de cambio: promete otras monedas', H('cta.js'), 'tipo de cambio de las facturas en dólares de cada cliente', 'tipo de cambio de las facturas en moneda extranjera de cada cliente'],
   // --- Tipo de cambio: descarga de un rango
   ['rango: un dia sin dato se rellena con el ultimo valor', H('tipo-de-cambio/tc.js'), "valor: e === 'CON_VALOR' ? ob.valor : null, estado: e });", "valor: e === 'CON_VALOR' ? ob.valor : (j.valores[j.ultimo_dato] || null), estado: e });"],
-  ['rango: el tope de dias se ignora', H('tipo-de-cambio/tc.js'), "      if (b - a + 1 > api.MAX_DIAS_RANGO) return { ok: false, motivo: 'LARGO' };\n", ''],
+  ['rango: vuelve a cortar los rangos largos', H('tipo-de-cambio/tc.js'), '      var invertido = b < a;\n', "      if (b - a + 1 > 366) return { ok: false, motivo: 'LARGO' };\n      var invertido = b < a;\n"],
+  ['rango: las fechas al reves paran con un error', H('tipo-de-cambio/tc.js'), '      if (invertido) { var x = a; a = b; b = x; }', "      if (invertido) return { ok: false, motivo: 'ORDEN' };"],
+  ['rango: el aviso de desde cuando hay datos no sale', H('tipo-de-cambio/pagina.js'), '      aviso.hidden = !fuera;', '      aviso.hidden = true;', 'nav'],
+  ['rango: un dia que no existe en el mes deja de ajustarse', H('tipo-de-cambio/pagina.js'), 'ajustada = d > ultimo;', 'ajustada = false;', 'nav'],
   ['rango: el archivo sale sin BOM', H('tipo-de-cambio/pagina.js'), "new Blob(['\\ufeff' + tc.csv(r.filas)]", 'new Blob([tc.csv(r.filas)]', 'nav'],
   ['rango: el uso se cuenta con las fechas', H('tipo-de-cambio/pagina.js'), "window.TCUso.registrar('tipo-de-cambio', r.filas.length, 'descarga_rango');", "window.TCUso.registrar('tipo-de-cambio', r.filas.length, desde);", 'nav'],
   ['usos: el servidor acepta cualquier accion', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  if (c.accion !== undefined && (ACCIONES[c.herramienta] || []).indexOf(c.accion) < 0) return null;\n', ''],

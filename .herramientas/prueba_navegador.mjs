@@ -505,9 +505,29 @@ async function main() {
     await rango('2024-01-01', '2024-01-05');
     const csv3 = (await p.js('window.__blobs.length')) > n0 ? await p.js("window.__blobs[window.__blobs.length - 1].text()") : '';
     exige(/\r\n2024-01-02,,,,sin calendario de la CNBV para esa fecha,/.test(csv3), 'fuera del calendario de la CNBV: su motivo, sin fechas ni numero');
-    const nBlobs = await p.js('window.__blobs.length');
-    x = await rango('2025-01-01', '2026-01-02');
-    exige(/más de 366 días/.test(x) && (await p.js('window.__blobs.length')) === nBlobs, 'mas de 366 dias: lo dice y no descarga nada');
+    // el rango que probo June: 01-10-2025 a 21-10-2026, 386 dias, sin tope y en UN solo archivo
+    for (const [pre, f] of [['rd', '2025-10-01'], ['rh', '2026-10-21']]) { const [a1, m1, d1] = f.split('-'); await p.pon(`#${pre}-a`, a1); await p.pon(`#${pre}-m`, m1); await p.pon(`#${pre}-d`, d1); }
+    let av = '';
+    for (let i = 0; i < 60; i++) { av = await p.js("(() => { const e = document.querySelector('#rango-aviso'); return e.hidden ? '' : e.innerText; })()"); if (av) break; await espera(50); }
+    exige(/^Hay tipo de cambio del .+ al .+; los días fuera de ese tramo salen en el archivo con su motivo y sin número\.$/.test(av),
+      `antes de descargar, UNA linea encima del boton dice desde cuando hay datos (${av})`);
+    n0 = await p.js('window.__blobs.length');
+    x = await rango('2025-10-01', '2026-10-21');
+    const csvJ = (await p.js('window.__blobs.length')) > n0 ? await p.js("window.__blobs[window.__blobs.length - 1].text()") : '';
+    const filasJ = csvJ.split('\r\n').slice(1, -1);
+    exige(filasJ.length === 386 && /Archivo descargado: 386 días/.test(x) && !/No se pudo/.test(x), `386 dias en un archivo, sin error (${filasJ.length}; ${x.slice(0, 60)})`);
+    exige(filasJ.find(l => l.startsWith('2026-03-10,')).split(',')[3] === '17.7962' && filasJ.find(l => l.startsWith('2025-10-01,')).split(',')[3] === '',
+      'con su valor oficial donde hay dato, y vacio con su motivo donde no');
+    // al reves: el mismo archivo, en orden, y lo dice
+    n0 = await p.js('window.__blobs.length');
+    x = await rango('2026-03-10', '2026-03-05');
+    const csvI = (await p.js('window.__blobs.length')) > n0 ? await p.js("window.__blobs[window.__blobs.length - 1].text()") : '';
+    exige(csvI.split('\r\n')[1].startsWith('2026-03-05,') && /Las fechas venían al revés: el archivo va del jueves 5 de marzo de 2026 al martes 10 de marzo de 2026\./.test(x),
+      `fechas al reves: se toman en orden y se dice (${x.slice(0, 120)})`);
+    // un dia que no existe en el mes: el ultimo dia de ese mes, y se dice
+    x = await rango('2026-02-31', '2026-03-02');
+    exige(/El día 31 no existe en ese mes: tomé el sábado 28 de febrero de 2026\./.test(x) && /Archivo descargado: 3 días/.test(x),
+      `31 de febrero: toma el 28 y lo dice (${x.slice(0, 120)})`);
     exige((await p.violaciones()) === '' && p.excepciones() === 0, 'sin violaciones de la politica de contenido ni errores');
     await p.cerrar();
   }

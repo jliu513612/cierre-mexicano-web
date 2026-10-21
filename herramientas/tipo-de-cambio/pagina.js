@@ -159,22 +159,35 @@
     if ([].some.call(selA.options, function (x) { return x.value === h[0]; })) { sel('rd-a').value = h[0]; sel('rh-a').value = h[0]; }
   })();
   function rLimpiar(clase) { resRango.textContent = ''; resRango.className = 'res' + (clase ? ' ' + clase : ''); }
-  var MOTIVO = { FECHA: 'Una de las dos fechas no existe en el calendario.', ORDEN: 'La fecha final es anterior a la inicial.',
-                 LARGO: 'El rango tiene más de ' + tc.MAX_DIAS_RANGO + ' días. Divídelo en varios archivos.' };
+  /* La fecha elegida en los tres selectores. Un dia que no existe en ese mes (31 de abril, 30 de febrero) se toma como
+     el ultimo dia de ese mes y se dice: nunca un error que pare. */
+  function fechaDe(p) {
+    var a = +sel(p + '-a').value, m = +sel(p + '-m').value, d = +sel(p + '-d').value;
+    var ultimo = new Date(Date.UTC(a, m, 0)).getUTCDate(), ajustada = d > ultimo;
+    return { iso: a + '-' + dos(m) + '-' + dos(ajustada ? ultimo : d), ajustada: ajustada, pedido: d };
+  }
+  // Aviso de UNA linea encima del boton, solo cuando el rango se sale de las fechas con dato
+  var aviso = document.getElementById('rango-aviso');
+  function actualizarAviso() {
+    if (!aviso) return;
+    cargar().then(function (j) {
+      var c = tc.cobertura(j), d = fechaDe('rd').iso, h = fechaDe('rh').iso;
+      if (d > h) { var x = d; d = h; h = x; }
+      var fuera = !c || d < c.desde || h > c.hasta;
+      aviso.hidden = !fuera;
+      aviso.textContent = !fuera ? '' : (c ? 'Hay tipo de cambio del ' + larga(c.desde) + ' al ' + larga(c.hasta) +
+        '; los días fuera de ese tramo salen en el archivo con su motivo y sin número.' : 'Todavía no hay datos cargados.');
+    }, function () {});
+  }
+  ['rd-d', 'rd-m', 'rd-a', 'rh-d', 'rh-m', 'rh-a'].forEach(function (id) { sel(id).addEventListener('change', actualizarAviso); });
   fRango.addEventListener('submit', function (e) {
     e.preventDefault();
-    var desde = sel('rd-a').value + '-' + sel('rd-m').value + '-' + sel('rd-d').value;
-    var hasta = sel('rh-a').value + '-' + sel('rh-m').value + '-' + sel('rh-d').value;
+    var fd = fechaDe('rd'), fh = fechaDe('rh'), desde = fd.iso, hasta = fh.iso;
     rLimpiar();
     resRango.appendChild(el('p', '', 'Cargando los datos de Banxico...'));
     cargar().then(function (j) {
       var r = tc.rango(desde, hasta, j, Date.now());
-      if (!r.ok) {
-        rLimpiar('bad');
-        resRango.appendChild(el('h3', '', 'No se pudo armar el archivo'));
-        resRango.appendChild(el('p', '', MOTIVO[r.motivo]));
-        return;
-      }
+      desde = r.desde; hasta = r.hasta;
       var con = r.filas.filter(function (x) { return x.estado === 'CON_VALOR'; }).length;
       var blob = new Blob(['\ufeff' + tc.csv(r.filas)], { type: 'text/csv;charset=utf-8' });
       var a = document.createElement('a');
@@ -186,6 +199,10 @@
       resRango.appendChild(el('h3', '', 'Archivo descargado: ' + r.filas.length + (r.filas.length === 1 ? ' día' : ' días')));
       resRango.appendChild(el('p', '', con + ' con tipo de cambio' + (con === r.filas.length ? '.' :
         '; ' + (r.filas.length - con) + ' sin dato, con su motivo en la columna «Estado» y sin ningún número.')));
+      var notas = [];
+      [fd, fh].forEach(function (f) { if (f.ajustada) notas.push('El día ' + f.pedido + ' no existe en ese mes: tomé el ' + larga(f.iso) + '.'); });
+      if (r.invertido) notas.push('Las fechas venían al revés: el archivo va del ' + larga(desde) + ' al ' + larga(hasta) + '.');
+      notas.forEach(function (n) { resRango.appendChild(el('p', '', n)); });
       pie(j, resRango);
       if (window.TCUso) window.TCUso.registrar('tipo-de-cambio', r.filas.length, 'descarga_rango');
     }, function () {

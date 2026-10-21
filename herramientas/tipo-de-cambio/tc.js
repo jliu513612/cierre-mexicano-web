@@ -111,20 +111,31 @@
     };
 
     /* Las obligaciones de cada dia del rango [desde, hasta] (inclusivo, dias inhabiles incluidos), con la MISMA regla que
-       una consulta. A lo mas MAX_DIAS_RANGO dias. Una fila sin valor lleva su estado y ningun numero. */
-    api.MAX_DIAS_RANGO = 366;
+       una consulta. SIN tope de dias: lo que no tiene dato sale en su fila con su estado y ningun numero, nunca un
+       error que pare. Si las fechas vienen al reves se toman en orden y se dice (invertido: true). */
     api.rango = function (desde, hasta, j, ms) {
       var a = aDia(desde), b = aDia(hasta);
       if (a === null || b === null) return { ok: false, motivo: 'FECHA' };
-      if (b < a) return { ok: false, motivo: 'ORDEN' };
-      if (b - a + 1 > api.MAX_DIAS_RANGO) return { ok: false, motivo: 'LARGO' };
+      var invertido = b < a;
+      if (invertido) { var x = a; a = b; b = x; }
       var filas = [];
       for (var n = a; n <= b; n++) {
         var f = iso(n), ob = api.consultar(f, j.valores).obligaciones, e = api.estado(ob, j, ms);
         filas.push({ fecha: f, publicado_dof: e === 'SIN_CALENDARIO' ? null : ob.publicado_dof,
                      determinado: e === 'SIN_CALENDARIO' ? null : ob.determinado, valor: e === 'CON_VALOR' ? ob.valor : null, estado: e });
       }
-      return { ok: true, filas: filas };
+      return { ok: true, filas: filas, invertido: invertido, desde: iso(a), hasta: iso(b) };
+    };
+
+    /* Del primer al ultimo dia de obligacion que tienen valor con los datos cargados `j`, dentro de los anos con
+       calendario de la CNBV. null si ninguno. Sirve para avisar, ENCIMA del boton, desde que fecha hay datos. */
+    api.cobertura = function (j) {
+      var ini = aDia(api.anios[0] + '-01-01'), fin = aDia(api.anios[api.anios.length - 1] + '-12-31'), d = null, h = null;
+      for (var n = ini; n <= fin; n++) {
+        var det = api.paraObligaciones(iso(n));
+        if (det !== 'NO_CUBIERTO' && j.valores && Object.prototype.hasOwnProperty.call(j.valores, det)) { if (d === null) d = iso(n); h = iso(n); }
+      }
+      return d === null ? null : { desde: d, hasta: h };
     };
 
     /* El CSV de las filas (sin BOM; quien lo descarga lo antepone): coma, punto decimal, fechas ISO y fin de linea
