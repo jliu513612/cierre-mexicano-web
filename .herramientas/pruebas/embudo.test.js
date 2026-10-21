@@ -120,3 +120,14 @@ test('embudo: las herramientas enlazan sus pasos del embudo por la ruta que cuen
     assert.ok(h.includes('href="/descargar/ir/descargar"') && h.includes('href="/descargar/ir/whatsapp"'), `${rel}: lleva los pasos por la ruta`);
   }
 });
+
+test('embudo: la portada lleva la demo y el WhatsApp por la ruta que cuenta', () => {
+  const h = fs.readFileSync(path.join(RAIZ, 'index.html'), 'utf8');
+  assert.equal((h.match(/href="\/descargar\/ir\/demo"/g) || []).length, 2, 'los dos botones de la demo');
+  assert.equal((h.match(/href="\/descargar\/ir\/whatsapp"/g) || []).length, 1, 'el WhatsApp del pie');
+  assert.ok(!/href="https:\/\/wa\.me\/528125834137"/.test(h), 'ningun WhatsApp directo sin contar');
+  assert.ok(!/href="https:\/\/wa\.me\/[^"]*demo/.test(h), 'ninguna demo directa sin contar');
+  // se quedan directos, a proposito: el soporte de activacion (no es paso del embudo) y los anclajes internos de la
+  // propia portada (#descargar), que llevarlos por la ruta recargaria la pagina; la descarga misma se cuenta en /descargar
+  assert.equal((h.match(/href="https:\/\/wa\.me\/528125834137\?text=Hola,%20quiero%20activar/g) || []).length, 2);
+});
