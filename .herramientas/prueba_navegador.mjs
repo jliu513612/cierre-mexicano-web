@@ -521,9 +521,14 @@ async function main() {
     exige(c.evento && c.evento.destino === 'video' && c.evento.origen === 'herramienta:valor-uma', `el clic al video cuenta con su herramienta de origen (${c.evento && c.evento.origen})`);
     await p.cerrar();
     p = await abrir('/herramientas/tipo-de-cambio/');
-    await p.pulsa('#f-tc button[type=submit]');
-    await esperaTexto(p, '#res-tc', x => x.length > 0 && !/Cargando/.test(x));
-    exige((await p.js("document.querySelectorAll('.cta').length")) === 0, 'una herramienta sin frase honesta no lleva bloque (tipo de cambio)');
+    const tc = async f => { const [a, m, d] = f.split('-'); await p.pon('#tc-a', a); await p.pon('#tc-m', m); await p.pon('#tc-d', d);
+      await p.pulsa('#f-tc button[type=submit]'); await esperaTexto(p, '#res-tc', x => x.length > 0 && !/Cargando/.test(x)); await espera(200); };
+    await tc('2026-03-10');
+    const t1 = await p.js("(document.querySelector('#res-tc .cta') || {innerText: ''}).innerText");
+    exige(/^Aquí consultaste el tipo de cambio de una fecha\. El programa coteja en el cierre el tipo de cambio de las facturas en dólares/.test(t1.replace(/\s+/g, ' ')),
+      `tipo de cambio: con un valor, el bloque habla de las facturas en dolares (${t1.replace(/\s+/g, ' ').slice(0, 80)})`);
+    await tc('2026-12-31');
+    exige((await p.js("document.querySelectorAll('#res-tc .cta').length")) === 0, 'tipo de cambio: sin valor (todavia no hay FIX) no hay bloque');
     await p.cerrar();
   }
 

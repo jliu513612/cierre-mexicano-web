@@ -30,6 +30,8 @@
       'El programa deja calculados el IVA y el ISR provisional del mes de cada cliente, con su memoria de cálculo en Excel.'],   // [cierre-mensual]
     'iva-del-mes': ['Aquí estimaste el IVA de un mes.',
       'El programa lo calcula cada mes para cada cliente con sus facturas y complementos de pago, y exporta la memoria de cálculo a Excel.'],   // [cierre-mensual, iva-flujo]
+    'tipo-de-cambio': ['Aquí consultaste el tipo de cambio de una fecha.',
+      'El programa coteja en el cierre el tipo de cambio de las facturas en dólares de cada cliente contra el FIX del DOF.'],   // [tc-facturas-dolares] solo dolares
   };
 
   // HUECO para las condiciones de la prueba (cuantos dias, que pide y que no). VACIO a proposito: dependen del diseno de
