@@ -7,7 +7,7 @@
 // LOS UNICOS ESTAN APAGADOS (UNICOS_ACTIVOS = false). El codigo se conserva: la huella seria sha256(sal | mes | IP | UA)
 // recortada, con la sal en una variable de Netlify; se enciende cuando exista el aviso de privacidad.
 import { createHash, timingSafeEqual } from 'node:crypto';
-import { HERRAMIENTAS, NOMBRES } from './herramientas.mjs';
+import { HERRAMIENTAS, NOMBRES, ACCIONES } from './herramientas.mjs';
 import embudo from '../embudo.mjs';
 
 const DESTINOS = Object.keys(embudo);
@@ -56,13 +56,17 @@ export function evento({ ts, contexto, version, archivo, pais, metodo, ua, ip, s
 
 /** USO de una herramienta (el usuario ejecuto el calculo, el cotejo o la verificacion). Mismo almacen que las descargas
     y la misma privacidad: herramienta, cuantos elementos (p. ej. XML) y nada de lo que la persona escribio o subio.
-    `cuerpo` es lo que llega del navegador; de el solo se leen `herramienta` y `n`. Devuelve null si no es valido. */
+    `cuerpo` es lo que llega del navegador; de el solo se leen `herramienta`, `n` y, si viene, `accion` (de la lista
+    cerrada ACCIONES; una accion desconocida invalida el evento). Devuelve null si no es valido. */
 export const MAX_ELEMENTOS = 1000;
 export function eventoUso({ ts, contexto, cuerpo, pais, metodo, ua, interno }) {
   const c = cuerpo && typeof cuerpo === 'object' ? cuerpo : {};
   if (typeof c.herramienta !== 'string' || HERRAMIENTAS.indexOf(c.herramienta) < 0) return null;
+  if (c.accion !== undefined && (ACCIONES[c.herramienta] || []).indexOf(c.accion) < 0) return null;
   const n = Number.isInteger(c.n) && c.n > 0 ? Math.min(c.n, MAX_ELEMENTOS) : null;
-  return { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };
+  const e = { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };
+  if (c.accion !== undefined) e.accion = c.accion;
+  return e;
 }
 
 /** De que pagina del PROPIO sitio viene un clic, por la cabecera Referer (la ruta, nunca nada de la persona). Solo una
@@ -149,6 +153,11 @@ export function resumir(eventos, { desde, hasta, contexto = 'production', intern
   for (const e of usosReales) { porHerramienta[e.herramienta] += 1; elementos[e.herramienta] += e.n || 0; }
   r.usos = { total: usos.length, bots: usos.filter(e => e.bot).length, internos: usos.filter(e => !e.bot && e.interno).length,
              reales: usosReales.length, reales_por_herramienta: porHerramienta, elementos_por_herramienta: elementos };
+  // las acciones de la lista cerrada, aparte (p. ej. «tipo-de-cambio:descarga_rango»); cuentan tambien como uso
+  const porAccion = {};
+  for (const [h, as] of Object.entries(ACCIONES)) for (const a of as) porAccion[h + ':' + a] = 0;
+  for (const e of usosReales) if (e.accion) porAccion[e.herramienta + ':' + e.accion] += 1;
+  r.usos.reales_por_accion = porAccion;
   // Embudo: los clics reales por destino y por pagina de origen, y de que pagina venian las descargas reales.
   const clics = todos.filter(e => e.tipo === 'clic');
   const clicsReales = clics.filter(e => !e.bot && !e.interno);

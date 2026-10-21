@@ -109,7 +109,7 @@ def pie_herramienta(nombre):
         '    <ul>\n' + items + '\n    </ul>\n'
         '    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\n'
         '    <p>Sin registro: no pide cuenta ni datos de contacto, y esta página no guarda lo que escribes o subes. Al obtener '
-        'un resultado solo se cuenta que se usó la herramienta y, si revisó varios archivos o RFC, cuántos. Si pulsas '
+        'un resultado solo se cuenta que se usó la herramienta y, si procesó varios elementos (archivos, RFC o días), cuántos. Si pulsas '
         'Descargar, WhatsApp o el video, se cuenta el clic con esta página como origen. Si opinas, se guardan tu voto y tu '
         'comentario.</p>\n'
         '  </div>\n')
@@ -176,6 +176,7 @@ def construir():
     _anios_tc = sorted(_tc["calendarios"])
     v_uma["TC_ANIOS"] = ", ".join(_anios_tc[:-1]) + " y " + _anios_tc[-1] if len(_anios_tc) > 1 else _anios_tc[0]
     v_uma["TC_OPCIONES"] = "\n".join(f'          <option value="{x}">{x}</option>' for x in reversed(_anios_tc))
+    v_uma["TC_MAX_DIAS"] = "366"   # = tc.js MAX_DIAS_RANGO (la prueba exige que coincidan)
     _f = _tc["fuentes"]
     v_uma["FUENTES_TC"] = "\n".join(
         [f'      <li><a href="{html.escape(_f["cff-20"]["url"])}" rel="noopener">Código Fiscal de la Federación, artículo 20</a>: '

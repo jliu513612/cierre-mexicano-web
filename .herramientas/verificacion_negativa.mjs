@@ -76,7 +76,7 @@ const SABOTAJES = [
   ['descargas: el evento guarda la IP', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };", "metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno, ip };"],
   // --- Usos de las herramientas
   ['usos: el envio lleva un dato del usuario', H('uso.js'), '    var c = { herramienta: String(herramienta) };', "    var c = { herramienta: String(herramienta), pagina: (typeof document !== 'undefined' && document.querySelector('input')) ? document.querySelector('input').value : 'x' };", 'nav'],
-  ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  return { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  return Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
+  ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  const e = { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  const e = Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
   ['usos: una herramienta sin su evento', H('factura-con-retenciones/pagina.js'), "    if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');\n", '', 'nav'],
   ['usos: doble conteo (sin dedupe)', H('uso.js'), '    if (antes !== undefined && ahora - antes < VENTANA_MS) return false;\n', '', 'nav'],
   ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'iva-del-mes', 'tipo-de-cambio'];", "'iva-del-mes'];"],
@@ -95,7 +95,7 @@ const SABOTAJES = [
   ['tc: la pagina usa datos sin cotejo en verde', H('tipo-de-cambio/pagina.js'), ' || !j.cotejo || j.cotejo.ok !== true)', ')', 'nav'],
   ['tc: la pagina deja de decir la regla de la moneda adquirida', H('tipo-de-cambio/pagina.js'), "    res.appendChild(el('p', 'aviso', 'Si la moneda se adquirió, el artículo 20 del Código Fiscal toma el tipo de cambio al que se adquirió y no este. Revisa con tu contador cuál aplica a tu operación.'));\n", '', 'nav'],
     ['tc: la pagina no avisa de datos atrasados', H('tipo-de-cambio/pagina.js'), '    } else if (!(j.ultimo_dato >= esperado)) {', '    } else if (false) {', 'nav'],
-  ['tc: un dato que falta y ya existe se presenta como futuro', H('tipo-de-cambio/pagina.js'), "      var futuro = despues && esperado !== 'NO_CUBIERTO' && ob.determinado > esperado;", '      var futuro = despues;', 'nav'],
+  ['tc: un dato que falta y ya existe se presenta como futuro', H('tipo-de-cambio/tc.js'), "      return esperado !== 'NO_CUBIERTO' && ob.determinado > esperado ? 'AUN_SIN_PUBLICAR' : 'NO_AL_DIA';", "      return 'AUN_SIN_PUBLICAR';", 'nav'],
   ['tc: el dato esperado ignora la hora de publicacion', H('tipo-de-cambio/tc.js'), '      if (h && mx.getUTCHours() >= HORA_ESPERADA) return hoy;', '      if (h) return hoy;'],
   ['tc: un intento fallido pisa los datos publicados', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio-servidor.mjs'), "    if (r.ok) await store.set('fix.json', JSON.stringify(r.datos) + '\\n');", "    await store.set('fix.json', JSON.stringify(r.datos || null) + '\\n');"],
   ['tc: la vigilancia no mira la frescura', path.join(RAIZ, 'netlify', 'lib', 'tipo-cambio.mjs'), '  else if (!(pub.ultimo_dato >= esperado)) problemas.push(', '  else if (false) problemas.push('],
@@ -127,6 +127,12 @@ const SABOTAJES = [
   // --- Bloque del tipo de cambio (solo dolares, solo con valor)
   ['cta tipo de cambio: el bloque sale tambien sin valor', H('tipo-de-cambio/pagina.js'), "      if (clase === 'TC_PARA_OBLIGACIONES' && window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');", "      if (window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');", 'nav'],
   ['cta tipo de cambio: promete otras monedas', H('cta.js'), 'tipo de cambio de las facturas en dólares de cada cliente', 'tipo de cambio de las facturas en moneda extranjera de cada cliente'],
+  // --- Tipo de cambio: descarga de un rango
+  ['rango: un dia sin dato se rellena con el ultimo valor', H('tipo-de-cambio/tc.js'), "valor: e === 'CON_VALOR' ? ob.valor : null, estado: e });", "valor: e === 'CON_VALOR' ? ob.valor : (j.valores[j.ultimo_dato] || null), estado: e });"],
+  ['rango: el tope de dias se ignora', H('tipo-de-cambio/tc.js'), "      if (b - a + 1 > api.MAX_DIAS_RANGO) return { ok: false, motivo: 'LARGO' };\n", ''],
+  ['rango: el archivo sale sin BOM', H('tipo-de-cambio/pagina.js'), "new Blob(['\\ufeff' + tc.csv(r.filas)]", 'new Blob([tc.csv(r.filas)]', 'nav'],
+  ['rango: el uso se cuenta con las fechas', H('tipo-de-cambio/pagina.js'), "window.TCUso.registrar('tipo-de-cambio', r.filas.length, 'descarga_rango');", "window.TCUso.registrar('tipo-de-cambio', r.filas.length, desde);", 'nav'],
+  ['usos: el servidor acepta cualquier accion', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  if (c.accion !== undefined && (ACCIONES[c.herramienta] || []).indexOf(c.accion) < 0) return null;\n', ''],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas

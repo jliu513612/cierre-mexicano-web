@@ -3,6 +3,12 @@
 export const HERRAMIENTAS = ['validar-rfc', 'valor-uma', 'complemento-de-pago', 'verificar-factura', 'lista-69b',
   'factura-con-retenciones', 'calendario-dia-17', 'iva-del-mes', 'tipo-de-cambio'];
 
+// Acciones de una herramienta que se cuentan aparte de su uso normal (lista cerrada; una accion fuera de aqui no se
+// guarda). Solo el nombre de la accion: nada de lo que la persona eligio (fechas, rangos).
+export const ACCIONES = {
+  'tipo-de-cambio': ['descarga_rango'],
+};
+
 // El nombre que la persona ve de cada una (el titulo corto de su plantilla; la prueba exige que coincidan). Lo usa el
 // texto que se prellena en WhatsApp para decir de que pagina viene.
 export const NOMBRES = {

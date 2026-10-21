@@ -81,6 +81,36 @@
   <p class="privado"><b>La fecha que eliges no sale de tu equipo.</b> La página descarga la serie completa del FIX desde este mismo sitio y busca la fecha en tu navegador. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
 </section>
 
+<section class="tool" aria-labelledby="t-rango">
+  <h2 id="t-rango">Descargar los tipos de un rango de fechas</h2>
+  <p>Un archivo con una fila por día del rango, días inhábiles incluidos, con la misma regla que la consulta: fecha de la obligación, publicación en el DOF, fecha de determinación y FIX. Se abre en Excel. Hasta 366 días por archivo.</p>
+  <form id="f-rango" novalidate>
+    <div class="fila">
+      <fieldset class="campo">
+        <legend>Desde</legend>
+        <div class="fila-mes">
+          <select id="rd-d" aria-label="Día inicial"></select>
+          <select id="rd-m" aria-label="Mes inicial"></select>
+          <select id="rd-a" aria-label="Año inicial"></select>
+        </div>
+      </fieldset>
+      <fieldset class="campo">
+        <legend>Hasta</legend>
+        <div class="fila-mes">
+          <select id="rh-d" aria-label="Día final"></select>
+          <select id="rh-m" aria-label="Mes final"></select>
+          <select id="rh-a" aria-label="Año final"></select>
+        </div>
+      </fieldset>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Descargar archivo para Excel</button>
+    </div>
+  </form>
+  <div class="res" id="res-rango" role="status" aria-live="polite"></div>
+  <p class="privado"><b>Las fechas que eliges no salen de tu equipo.</b> El archivo se arma en tu navegador con la serie que la página ya descargó; solo se cuenta que se descargó un rango y cuántos días tiene. Un día sin dato lleva su motivo en la columna «Estado» y ningún número.</p>
+</section>
+
 <section class="txt">
   <h2>Qué hace y qué no</h2>
   <div class="dos">
@@ -154,7 +184,7 @@
       <li><a href="https://dof.gob.mx/nota_detalle.php?codigo=5775684&amp;fecha=10%2F12%2F2025" rel="noopener">Días inhábiles bancarios de 2026 (CNBV, DOF 10-12-2025)</a>: revisada el 17 de septiembre de 2026.</li>
     </ul>
     <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>
-    <p>Sin registro: no pide cuenta ni datos de contacto, y esta página no guarda lo que escribes o subes. Al obtener un resultado solo se cuenta que se usó la herramienta y, si revisó varios archivos o RFC, cuántos. Si pulsas Descargar, WhatsApp o el video, se cuenta el clic con esta página como origen. Si opinas, se guardan tu voto y tu comentario.</p>
+    <p>Sin registro: no pide cuenta ni datos de contacto, y esta página no guarda lo que escribes o subes. Al obtener un resultado solo se cuenta que se usó la herramienta y, si procesó varios elementos (archivos, RFC o días), cuántos. Si pulsas Descargar, WhatsApp o el video, se cuenta el clic con esta página como origen. Si opinas, se guardan tu voto y tu comentario.</p>
   </div>
 </section>
 </div>

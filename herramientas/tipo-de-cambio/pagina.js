@@ -62,11 +62,8 @@
     if (ob.motivo === 'SIN_DATO') {
       limpiar('warn');
       res.appendChild(el('span', 'etq', 'Sin dato'));
-      var esperado = tc.ultimoEsperado(Date.now());
-      var despues = j.ultimo_dato && ob.determinado > j.ultimo_dato;
-      // despues de lo cargado: o Banxico aun no lo determina (futuro), o ya lo determino y los datos no estan al dia
-      var futuro = despues && esperado !== 'NO_CUBIERTO' && ob.determinado > esperado;
-      var clase = !despues ? 'TC_SIN_DATO' : (futuro ? 'TC_AUN_SIN_DATO' : 'TC_NO_AL_DIA');
+      // la misma regla que la descarga del rango: o Banxico aun no lo determina, o los datos no estan al dia, o no esta
+      var clase = { AUN_SIN_PUBLICAR: 'TC_AUN_SIN_DATO', NO_AL_DIA: 'TC_NO_AL_DIA', SIN_DATO: 'TC_SIN_DATO' }[tc.estado(ob, j, Date.now())];
       res.appendChild(el('h3', '', clase === 'TC_AUN_SIN_DATO' ? 'Todavía no hay FIX para el ' + larga(fecha) :
         clase === 'TC_NO_AL_DIA' ? 'Los datos de esta página no están al día para el ' + larga(fecha) : 'No hay dato del FIX para el ' + larga(fecha)));
       res.appendChild(el('p', '', 'A esa fecha le corresponde el FIX determinado el ' + larga(ob.determinado) + ' y publicado en el DOF el ' +
@@ -99,17 +96,18 @@
     return 'TC_PARA_OBLIGACIONES';
   }
 
-  function pie(j) {
+  function pie(j, caja) {
+    caja = caja || res;
     var p = el('p', 'ayuda', 'Datos: Banco de México, serie ' + j.serie + ', hasta el ' + larga(j.ultimo_dato) +
       '. Cotejados con la tabla oficial de Banxico del ' + larga(j.cotejo.desde) + ' al ' + larga(j.cotejo.hasta) + '.');
-    res.appendChild(p);
+    caja.appendChild(p);
     // Frescura: el ultimo FIX que ya debe estar a esta hora. Un valor de una fecha pasada no cambia, pero si faltan
     // los recientes se dice; nunca se muestra el ultimo valor como si fuera el de hoy.
     var esperado = tc.ultimoEsperado(Date.now());
     if (esperado === 'NO_CUBIERTO') {
-      res.appendChild(el('p', 'aviso', 'No se puede comprobar si los datos están al día: falta el calendario de días inhábiles bancarios de este año. Para fechas recientes consulta la tabla oficial de Banxico.'));
+      caja.appendChild(el('p', 'aviso', 'No se puede comprobar si los datos están al día: falta el calendario de días inhábiles bancarios de este año. Para fechas recientes consulta la tabla oficial de Banxico.'));
     } else if (!(j.ultimo_dato >= esperado)) {
-      res.appendChild(el('p', 'aviso', 'Los datos de esta página no están al día: el último FIX cargado es el determinado el ' + larga(j.ultimo_dato) +
+      caja.appendChild(el('p', 'aviso', 'Los datos de esta página no están al día: el último FIX cargado es el determinado el ' + larga(j.ultimo_dato) +
         ' y Banco de México ya determinó el del ' + larga(esperado) + '. Para fechas recientes consulta la tabla oficial de Banxico.'));
     }
   }
@@ -142,6 +140,58 @@
       limpiar('bad');
       res.appendChild(el('h3', '', 'No se pudieron cargar los datos de Banxico'));
       res.appendChild(el('p', '', 'Vuelve a intentarlo en un momento. Mientras tanto, el dato está en la tabla oficial de Banxico.'));
+    });
+  });
+
+  /* Descarga de un rango: el archivo se arma aqui con la serie ya cargada (tc.rango y tc.csv, la misma regla que la
+     consulta). Al servidor solo va el uso «descarga_rango» y cuantos dias, nunca las fechas. */
+  var fRango = document.getElementById('f-rango'), resRango = document.getElementById('res-rango');
+  if (!fRango || !resRango) return;
+  var sel = function (id) { return document.getElementById(id); };
+  ['rd', 'rh'].forEach(function (p) {
+    for (var d = 1; d <= 31; d++) { var o = document.createElement('option'); o.value = dos(d); o.textContent = String(d); sel(p + '-d').appendChild(o); }
+    sel(p + '-m').innerHTML = selM.innerHTML;
+    sel(p + '-a').innerHTML = selA.innerHTML;
+  });
+  (function () {   // de entrada: del primer dia del mes a hoy
+    var h = hoyIso().split('-');
+    sel('rd-d').value = '01'; sel('rd-m').value = h[1]; sel('rh-d').value = h[2]; sel('rh-m').value = h[1];
+    if ([].some.call(selA.options, function (x) { return x.value === h[0]; })) { sel('rd-a').value = h[0]; sel('rh-a').value = h[0]; }
+  })();
+  function rLimpiar(clase) { resRango.textContent = ''; resRango.className = 'res' + (clase ? ' ' + clase : ''); }
+  var MOTIVO = { FECHA: 'Una de las dos fechas no existe en el calendario.', ORDEN: 'La fecha final es anterior a la inicial.',
+                 LARGO: 'El rango tiene más de ' + tc.MAX_DIAS_RANGO + ' días. Divídelo en varios archivos.' };
+  fRango.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var desde = sel('rd-a').value + '-' + sel('rd-m').value + '-' + sel('rd-d').value;
+    var hasta = sel('rh-a').value + '-' + sel('rh-m').value + '-' + sel('rh-d').value;
+    rLimpiar();
+    resRango.appendChild(el('p', '', 'Cargando los datos de Banxico...'));
+    cargar().then(function (j) {
+      var r = tc.rango(desde, hasta, j, Date.now());
+      if (!r.ok) {
+        rLimpiar('bad');
+        resRango.appendChild(el('h3', '', 'No se pudo armar el archivo'));
+        resRango.appendChild(el('p', '', MOTIVO[r.motivo]));
+        return;
+      }
+      var con = r.filas.filter(function (x) { return x.estado === 'CON_VALOR'; }).length;
+      var blob = new Blob(['\ufeff' + tc.csv(r.filas)], { type: 'text/csv;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'tipo-de-cambio_' + desde + '_' + hasta + '.csv';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 60000);
+      rLimpiar(con === r.filas.length ? 'ok' : 'warn');
+      resRango.appendChild(el('h3', '', 'Archivo descargado: ' + r.filas.length + (r.filas.length === 1 ? ' día' : ' días')));
+      resRango.appendChild(el('p', '', con + ' con tipo de cambio' + (con === r.filas.length ? '.' :
+        '; ' + (r.filas.length - con) + ' sin dato, con su motivo en la columna «Estado» y sin ningún número.')));
+      pie(j, resRango);
+      if (window.TCUso) window.TCUso.registrar('tipo-de-cambio', r.filas.length, 'descarga_rango');
+    }, function () {
+      rLimpiar('bad');
+      resRango.appendChild(el('h3', '', 'No se pudieron cargar los datos de Banxico'));
+      resRango.appendChild(el('p', '', 'Vuelve a intentarlo en un momento.'));
     });
   });
 })();

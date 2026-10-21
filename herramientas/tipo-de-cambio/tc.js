@@ -97,6 +97,50 @@
         determinado_del_dia: bloque(api.determinado(f))
       };
     };
+
+    /* Estado de la obligacion de una fecha con los datos cargados `j` ({valores, ultimo_dato}) en el instante `ms`:
+       'CON_VALOR', 'SIN_CALENDARIO' (falta el calendario de la CNBV), 'AUN_SIN_PUBLICAR' (Banxico todavia no lo
+       determina), 'NO_AL_DIA' (ya existe y los datos no lo traen) o 'SIN_DATO' (anterior a lo cargado y la serie no lo
+       trae). UNA sola regla para la pagina y para la descarga del rango. */
+    api.estado = function (ob, j, ms) {
+      if (ob.motivo === 'NO_CUBIERTO') return 'SIN_CALENDARIO';
+      if (ob.motivo !== 'SIN_DATO') return 'CON_VALOR';
+      if (!(j.ultimo_dato && ob.determinado > j.ultimo_dato)) return 'SIN_DATO';
+      var esperado = api.ultimoEsperado(ms);
+      return esperado !== 'NO_CUBIERTO' && ob.determinado > esperado ? 'AUN_SIN_PUBLICAR' : 'NO_AL_DIA';
+    };
+
+    /* Las obligaciones de cada dia del rango [desde, hasta] (inclusivo, dias inhabiles incluidos), con la MISMA regla que
+       una consulta. A lo mas MAX_DIAS_RANGO dias. Una fila sin valor lleva su estado y ningun numero. */
+    api.MAX_DIAS_RANGO = 366;
+    api.rango = function (desde, hasta, j, ms) {
+      var a = aDia(desde), b = aDia(hasta);
+      if (a === null || b === null) return { ok: false, motivo: 'FECHA' };
+      if (b < a) return { ok: false, motivo: 'ORDEN' };
+      if (b - a + 1 > api.MAX_DIAS_RANGO) return { ok: false, motivo: 'LARGO' };
+      var filas = [];
+      for (var n = a; n <= b; n++) {
+        var f = iso(n), ob = api.consultar(f, j.valores).obligaciones, e = api.estado(ob, j, ms);
+        filas.push({ fecha: f, publicado_dof: e === 'SIN_CALENDARIO' ? null : ob.publicado_dof,
+                     determinado: e === 'SIN_CALENDARIO' ? null : ob.determinado, valor: e === 'CON_VALOR' ? ob.valor : null, estado: e });
+      }
+      return { ok: true, filas: filas };
+    };
+
+    /* El CSV de las filas (sin BOM; quien lo descarga lo antepone): coma, punto decimal, fechas ISO y fin de linea
+       CRLF, que es lo que abre bien Excel en espanol de Mexico. Ninguna celda lleva texto de la persona. */
+    var ESTADOS = { CON_VALOR: 'con valor', SIN_CALENDARIO: 'sin calendario de la CNBV para esa fecha',
+                    AUN_SIN_PUBLICAR: 'Banxico todavía no lo publica', NO_AL_DIA: 'datos de esta página no al día',
+                    SIN_DATO: 'la serie cargada no lo trae' };
+    api.FUENTE_CSV = 'Banco de México SIE serie ' + datos.serie + ' (FIX); CFF artículo 20';
+    api.csv = function (filas) {
+      var lineas = ['Fecha de la obligación,Publicación en el DOF,Fecha de determinación,FIX (MXN por USD),Estado,Fuente'];
+      filas.forEach(function (x) {
+        lineas.push([x.fecha, x.publicado_dof || '', x.determinado || '', x.valor ? Number(x.valor).toFixed(4) : '',
+                     ESTADOS[x.estado], api.FUENTE_CSV].join(','));
+      });
+      return lineas.join('\r\n') + '\r\n';
+    };
     return api;
   }
 
