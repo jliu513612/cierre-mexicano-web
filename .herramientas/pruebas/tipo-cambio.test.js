@@ -289,12 +289,33 @@ test('tipo de cambio: las filas sin valor llevan su motivo y ningun numero (regl
   assert.ok(lineas.some(l => /^2026-06-17,.*,,la serie cargada no lo trae,/.test(l)));
 });
 
-test('tipo de cambio: limites del rango', () => {
-  const j = { valores: {}, ultimo_dato: '2026-10-20' };
-  assert.equal(tc.rango('2025-01-01', '2026-01-01', j, 0).filas.length, 366, 'hasta 366 dias');
-  assert.equal(tc.rango('2025-01-01', '2026-01-02', j, 0).motivo, 'LARGO');
-  assert.equal(tc.rango('2026-03-10', '2026-03-09', j, 0).motivo, 'ORDEN');
-  assert.equal(tc.rango('2026-02-30', '2026-03-09', j, 0).motivo, 'FECHA');
+test('tipo de cambio: el rango no tiene tope, y al reves se toma en orden (el de June: 01-10-2025 a 21-10-2026)', () => {
+  const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'fixtures', 'tipo-cambio', 'fix.json'), 'utf8'));
+  const ms = Date.parse('2026-10-21T21:00:00Z');
+  const r = tc.rango('2025-10-01', '2026-10-21', j, ms);
+  assert.ok(r.ok && !r.invertido, 'sin error que pare');
+  assert.equal(r.filas.length, 386, 'los 386 dias que pidio June, en un solo archivo');
+  assert.deepEqual([r.filas[0].fecha, r.filas[385].fecha], ['2025-10-01', '2026-10-21']);
+  // el recorte de prueba tiene valores desde marzo de 2026: lo anterior sale con su motivo y sin numero
+  for (const f of r.filas) assert.equal(f.valor === null, f.estado !== 'CON_VALOR', f.fecha);
+  assert.equal(r.filas.find(f => f.fecha === '2026-03-10').valor, '17.7962');
+  assert.equal(r.filas.find(f => f.fecha === '2025-10-01').estado, 'SIN_DATO');
+  // los tres anos con calendario de la CNBV de una vez, y mas alla tambien: cada fila con su motivo
+  const todo = tc.rango('2023-12-01', '2027-02-01', j, ms);
+  assert.ok(todo.ok && todo.filas.length === 1159, `${todo.filas.length}`);
+  assert.equal(todo.filas.filter(f => f.estado === 'SIN_CALENDARIO').length > 0, true);
+  // al reves: el mismo archivo, en orden, y se dice
+  const inv = tc.rango('2026-10-21', '2025-10-01', j, ms);
+  assert.ok(inv.ok && inv.invertido && inv.desde === '2025-10-01' && inv.hasta === '2026-10-21');
+  assert.deepEqual(inv.filas, r.filas);
+  assert.equal(tc.rango('2026-02-30', '2026-03-09', j, ms).motivo, 'FECHA', 'una fecha que no existe no se inventa (la pagina la ajusta antes)');
   const html = fs.readFileSync(path.join(RAIZ, 'herramientas', 'tipo-de-cambio', 'index.html'), 'utf8');
-  assert.ok(html.includes(`Hasta ${tc.MAX_DIAS_RANGO} días por archivo`), 'la pagina dice el mismo tope que el codigo');
+  assert.ok(!/días por archivo/.test(html), 'la pagina ya no anuncia un tope');
+  assert.ok(html.includes('<p class="ayuda" id="rango-aviso" hidden></p>'), 'el aviso de una linea, encima del boton, oculto de entrada');
+});
+
+test('tipo de cambio: la cobertura dice desde y hasta que fecha hay tipo de cambio', () => {
+  const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'fixtures', 'tipo-cambio', 'fix.json'), 'utf8'));
+  assert.deepEqual(tc.cobertura(j), { desde: '2026-03-04', hasta: '2026-10-22' });
+  assert.equal(tc.cobertura({ valores: {} }), null);
 });

@@ -176,7 +176,6 @@ def construir():
     _anios_tc = sorted(_tc["calendarios"])
     v_uma["TC_ANIOS"] = ", ".join(_anios_tc[:-1]) + " y " + _anios_tc[-1] if len(_anios_tc) > 1 else _anios_tc[0]
     v_uma["TC_OPCIONES"] = "\n".join(f'          <option value="{x}">{x}</option>' for x in reversed(_anios_tc))
-    v_uma["TC_MAX_DIAS"] = "366"   # = tc.js MAX_DIAS_RANGO (la prueba exige que coincidan)
     _f = _tc["fuentes"]
     v_uma["FUENTES_TC"] = "\n".join(
         [f'      <li><a href="{html.escape(_f["cff-20"]["url"])}" rel="noopener">Código Fiscal de la Federación, artículo 20</a>: '
