@@ -92,6 +92,29 @@ def leer_plantilla(nombre):
     return {partes[i]: partes[i + 1].strip("\n") for i in range(1, len(partes), 2)}
 
 
+def pie_herramienta(nombre):
+    """Pie comun de cada herramienta: la norma que la sustenta con su fecha de revision (del registro del programa, via
+    datos/normas.json), el aviso de que es informativa y no del SAT, y lo que se guarda y lo que no. Una herramienta sin
+    normas declaradas no se construye (falla cerrado)."""
+    d = json.loads((AQUI / "datos" / "normas.json").read_text(encoding="utf-8"))
+    if nombre not in d["herramientas"]:
+        raise SystemExit(f"{nombre}: sin normas en normas_por_herramienta.json")
+    items = "\n".join(
+        f'      <li><a href="{html.escape(d["normas"][k]["url"])}" rel="noopener">{html.escape(d["normas"][k]["cita"])}</a>: '
+        f'revisada el {fecha_larga(d["normas"][k]["revisado"])}.</li>'
+        for k in d["herramientas"][nombre])
+    return (
+        '\n  <div class="pie-herramienta">\n'
+        '    <h2>Fundamento y revisión</h2>\n'
+        '    <ul>\n' + items + '\n    </ul>\n'
+        '    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\n'
+        '    <p>Sin registro: no pide cuenta ni datos de contacto, y esta página no guarda lo que escribes o subes. Al obtener '
+        'un resultado solo se cuenta que se usó la herramienta y, si revisó varios archivos o RFC, cuántos. Si pulsas '
+        'Descargar, WhatsApp o el video, se cuenta el clic con esta página como origen. Si opinas, se guardan tu voto y tu '
+        'comentario.</p>\n'
+        '  </div>\n')
+
+
 def construir():
     datos_uma, v_uma = variables_uma()
     _ret = json.loads((AQUI / "datos" / "retenciones.json").read_text(encoding="utf-8"))
@@ -196,6 +219,12 @@ def construir():
             f'<li><a href="{r}">{n}</a></li>' if i < len(migas) - 1 else f'<li aria-current="page">{n}</li>'
             for i, (n, r) in enumerate(migas)) + "</ol></nav>"
         cuerpo = s["CUERPO"].replace("[[FAQ]]", faq_html).replace("[[MIGAS]]", miga_html)
+        if nombre != "indice":
+            # el pie «Fundamento y revision», igual en todas: va dentro de la ultima seccion, al final de la pagina
+            i = cuerpo.rfind("</section>")
+            if i < 0:
+                raise SystemExit(f"{nombre}: sin seccion donde poner el pie")
+            cuerpo = cuerpo[:i] + pie_herramienta(nombre) + cuerpo[i:]
         pagina = rellenar(base, {
             "TITULO": html.escape(s["TITULO"], quote=True), "DESCRIPCION": html.escape(s["DESCRIPCION"], quote=True), "RUTA": ruta,
             "JSONLD": json.dumps({"@context": "https://schema.org", "@graph": grafo}, ensure_ascii=False).replace("</", "<\\/"),

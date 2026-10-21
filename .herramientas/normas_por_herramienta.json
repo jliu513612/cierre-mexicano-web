@@ -1,0 +1,52 @@
+{
+ "_nota": "Que norma sustenta cada herramienta, para el pie «Fundamento y revision» de cada pagina. La cita es el texto que ve la persona; la URL y la fecha de revision las pone extraer_del_producto.py desde el registro de afirmaciones legales del programa (datos/normas.json). Una norma que no esta en ese registro lleva su lectura propia en fuera_del_registro, con la huella del documento oficial leido. Toda herramienta publicada tiene que estar aqui (la prueba lo exige).",
+ "herramientas": {
+  "validar-rfc": ["cff-29-a"],
+  "valor-uma": ["leyuma-5", "uma-2026"],
+  "complemento-de-pago": ["rmf-2026-2-7-1-32", "cff-29-a", "rmf-2026-2-7-1-39"],
+  "verificar-factura": ["cff-29-a"],
+  "lista-69b": ["cff-69-b"],
+  "factura-con-retenciones": ["liva-1-a", "rliva-3", "lisr-106", "lisr-116", "lisr-113-j"],
+  "calendario-dia-17": ["lisr-14", "liva-5-d", "cff-12", "rmf-2026-4-5-1", "rmf-2026-2-1-6", "dec-compila-2013-5.1"],
+  "iva-del-mes": ["liva-1-b", "liva-5", "liva-5-d", "liva-1-a", "lisr-27", "cff-69-b"],
+  "tipo-de-cambio": ["cff-20", "cnbv-dias-inhabiles-2024", "cnbv-dias-inhabiles-2025", "cnbv-dias-inhabiles-2026"]
+ },
+ "citas": {
+  "cff-12": "Código Fiscal de la Federación, artículo 12",
+  "cff-20": "Código Fiscal de la Federación, artículo 20",
+  "cff-29-a": "Código Fiscal de la Federación, artículo 29-A",
+  "cff-69-b": "Código Fiscal de la Federación, artículo 69-B",
+  "liva-1-a": "Ley del IVA, artículo 1o.-A",
+  "liva-1-b": "Ley del IVA, artículo 1o.-B",
+  "liva-5": "Ley del IVA, artículo 5o.",
+  "liva-5-d": "Ley del IVA, artículo 5o.-D",
+  "rliva-3": "Reglamento de la Ley del IVA, artículo 3",
+  "lisr-14": "Ley del ISR, artículo 14",
+  "lisr-27": "Ley del ISR, artículo 27",
+  "lisr-106": "Ley del ISR, artículo 106",
+  "lisr-113-j": "Ley del ISR, artículo 113-J",
+  "lisr-116": "Ley del ISR, artículo 116",
+  "leyuma-5": "Ley para Determinar el Valor de la Unidad de Medida y Actualización, artículo 5",
+  "uma-2026": "Valores de la UMA 2026 publicados por el INEGI en el DOF",
+  "rmf-2026-2-1-6": "Resolución Miscelánea Fiscal para 2026, regla 2.1.6",
+  "rmf-2026-2-7-1-32": "Resolución Miscelánea Fiscal para 2026, regla 2.7.1.32",
+  "rmf-2026-2-7-1-39": "Resolución Miscelánea Fiscal para 2026, regla 2.7.1.39",
+  "rmf-2026-4-5-1": "Resolución Miscelánea Fiscal para 2026, regla 4.5.1",
+  "dec-compila-2013-5.1": "Decreto que compila diversos beneficios fiscales, artículo 5.1",
+  "cnbv-dias-inhabiles-2024": "Días inhábiles bancarios de 2024 (CNBV, DOF 12-12-2023)",
+  "cnbv-dias-inhabiles-2025": "Días inhábiles bancarios de 2025 (CNBV, DOF 27-12-2024)",
+  "cnbv-dias-inhabiles-2026": "Días inhábiles bancarios de 2026 (CNBV, DOF 10-12-2025)"
+ },
+ "fuera_del_registro": {
+  "rmf-2026-2-7-1-32": {
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf",
+   "revisado": "2026-10-21",
+   "lectura": "leida del PDF oficial de la RMF 2026 (sha256 6f71ce0cccf430171fe858c5d244b1c321fa68306f962d44ec4977858a52919a), cuerpo de la regla 2.7.1.32, justo antes de la 2.7.1.33: «El CFDI con \"Complemento para recepción de Pagos\", deberá emitirse a más tardar al quinto día natural del mes inmediato siguiente al que corresponda el o los pagos recibidos»"
+  },
+  "rmf-2026-4-5-1": {
+   "url": "https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf",
+   "revisado": "2026-10-19",
+   "lectura": "la misma lectura que datos/calendario.json (fuentes.rmf-2026-4-5-1): PDF oficial con sha256 6f71ce0cccf430171fe858c5d244b1c321fa68306f962d44ec4977858a52919a, «durante el mes inmediato posterior al que corresponda dicha información»"
+  }
+ }
+}

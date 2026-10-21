@@ -105,7 +105,7 @@ const SABOTAJES = [
   // --- Pasos del embudo (clics por destino y pagina de origen)
   ['embudo: el origen se atribuye aunque el Referer sea de otro sitio', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  if (!host || u.host !== host) return 'sin_origen';\n", ''],
   ['embudo: un destino fuera de la tabla pasa (redireccion abierta)', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  if (typeof d !== 'string' || !Object.prototype.hasOwnProperty.call(tabla, d)) return null;", "  if (typeof d !== 'string' || !(d in tabla)) return null;", 'nav'],
-  ['embudo: el destino de la redireccion sale de la URL', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  return ev ? { evento: ev, location: tabla[ev.destino] } : null;', '  return ev ? { evento: ev, location: ruta.slice(PREFIJO_IR.length) } : null;', 'nav'],
+  ['embudo: el destino de la redireccion sale de la URL', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  let location = tabla[ev.destino];', '  let location = ruta.slice(PREFIJO_IR.length);', 'nav'],
   ['embudo: los clics y los usos cuentan como descargas', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  const dentro = todos.filter(e => !e.tipo);', "  const dentro = todos.filter(e => e.tipo !== 'uso');"],
   ['embudo: los bots entran en los clics reales', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  const clicsReales = clics.filter(e => !e.bot && !e.interno);', '  const clicsReales = clics.filter(e => !e.interno);'],
   ['embudo: la descarga deja de guardar su pagina de origen', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "origen: origen || 'sin_origen', pais: pais || null, metodo:", 'pais: pais || null, metodo:'],
@@ -117,6 +117,13 @@ const SABOTAJES = [
   ['cta: el boton lleva directo, sin contar el clic', H('cta.js'), "    boton.href = '/descargar/ir/descargar';", "    boton.href = '/#descargar';", 'nav'],
   ['cta: el bloque se pone ANTES del resultado', H('cta.js'), '    caja.appendChild(b);', '    caja.insertBefore(b, caja.firstChild);', 'nav'],
   ['cta: una herramienta nueva sin decidir su frase', H('cta.js'), "    'valor-uma': ['Aquí convertiste veces UMA a pesos.',", "    'valor-umaX': ['Aquí convertiste veces UMA a pesos.',"],
+  // --- WhatsApp con su pagina de origen, pie de fundamento y revision, hueco de condiciones
+  ['whatsapp: el texto prellenado arrastra la URL de la pagina', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  const texto = ev.destino === 'whatsapp' ? textoWhatsapp(ev.origen) : '';", "  const texto = ev.destino === 'whatsapp' ? textoWhatsapp(ev.origen) + ' ' + (referer || '') : '';"],
+  ['whatsapp: deja de prellenar la pagina de origen', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  if (texto) location += '?text=' + encodeURIComponent(texto);", "  if (false) location += '?text=' + encodeURIComponent(texto);", 'nav'],
+  ['pie: una fecha de revision cambiada a mano en los datos', path.join(RAIZ, '.herramientas', 'datos', 'normas.json'), '"revisado": "2026-10-21"', '"revisado": "2026-10-20"'],
+  ['pie: pierde el aviso de que no es un servicio del SAT', path.join(RAIZ, '.herramientas', 'construir.py'), "'    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\\n'", "'    <p>Es una herramienta informativa.</p>\\n'"],
+  ['pie: una herramienta sin normas declaradas', path.join(RAIZ, '.herramientas', 'normas_por_herramienta.json'), '  "lista-69b": ["cff-69-b"],\n', ''],
+  ['cta: el hueco de las condiciones se rellena con texto supuesto', H('cta.js'), "  var CONDICIONES_PRUEBA = '';", "  var CONDICIONES_PRUEBA = 'Prueba gratis 30 dias.';"],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas

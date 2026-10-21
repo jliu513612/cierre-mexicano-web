@@ -7,7 +7,7 @@
 // LOS UNICOS ESTAN APAGADOS (UNICOS_ACTIVOS = false). El codigo se conserva: la huella seria sha256(sal | mes | IP | UA)
 // recortada, con la sal en una variable de Netlify; se enciende cuando exista el aviso de privacidad.
 import { createHash, timingSafeEqual } from 'node:crypto';
-import { HERRAMIENTAS } from './herramientas.mjs';
+import { HERRAMIENTAS, NOMBRES } from './herramientas.mjs';
 import embudo from '../embudo.mjs';
 
 const DESTINOS = Object.keys(embudo);
@@ -96,7 +96,24 @@ export const PREFIJO_IR = '/descargar/ir/';
 export function clicDe({ ruta, tabla, referer, host, ts, contexto, pais, metodo, ua, interno }) {
   if (typeof ruta !== 'string' || !ruta.startsWith(PREFIJO_IR)) return null;
   const ev = eventoClic({ ts, contexto, destino: ruta.slice(PREFIJO_IR.length), tabla, origen: origenDe(referer, host), pais, metodo, ua, interno });
-  return ev ? { evento: ev, location: tabla[ev.destino] } : null;
+  if (!ev) return null;
+  let location = tabla[ev.destino];
+  // WhatsApp: el texto que se prellena dice de que pagina viene. Sale SOLO de la lista cerrada del origen (nunca de la
+  // URL ni de nada que la persona escribio) y es la persona quien decide si lo envia.
+  const texto = ev.destino === 'whatsapp' ? textoWhatsapp(ev.origen) : '';
+  if (texto) location += '?text=' + encodeURIComponent(texto);
+  return { evento: ev, location };
+}
+
+/** El texto prellenado de WhatsApp para una pagina de origen de la lista cerrada; '' si no se sabe de donde viene. */
+export function textoWhatsapp(origen) {
+  const lugar = origen === 'portada' ? 'la página de inicio'
+    : origen === 'herramientas' ? 'las herramientas gratuitas'
+    : origen === 'blog' ? 'el blog'
+    : origen === 'ayuda' ? 'la ayuda'
+    : /^herramienta:/.test(origen) && NOMBRES[origen.slice('herramienta:'.length)] ? `la herramienta «${NOMBRES[origen.slice('herramienta:'.length)]}»`
+    : '';
+  return lugar ? `Hola, vengo de ${lugar} de taxcerteza.mx y quiero probar el programa.` : '';
 }
 
 /**

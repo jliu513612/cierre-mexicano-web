@@ -57,7 +57,7 @@ const servidor = http.createServer((req, res) => {
   if (ruta.startsWith('/descargar/ir/')) {
     const c = clicDe({ ruta, tabla: embudo, referer: req.headers.referer, host: req.headers.host, ts: new Date().toISOString(),
       contexto: 'prueba', metodo: req.method, ua: req.headers['user-agent'] });
-    clics.push({ ruta, referer: req.headers.referer || '', evento: c && c.evento });
+    clics.push({ ruta, referer: req.headers.referer || '', evento: c && c.evento, location: c && c.location });
     if (!c) { res.writeHead(404); res.end('404'); return; }
     if (c.location.startsWith('/')) { res.writeHead(302, Object.assign({ Location: c.location }, CABECERAS)); res.end(); return; }
     res.writeHead(204); res.end(); return;
@@ -490,6 +490,8 @@ async function main() {
     const w = clics[antes2] || {};
     exige(w.evento && w.evento.destino === 'whatsapp' && w.evento.origen === 'herramientas', `WhatsApp desde el indice de herramientas (${w.evento && w.evento.origen})`);
     exige(w.evento && Object.keys(w.evento).sort().join() === 'bot,contexto,destino,interno,origen,pais,tipo,ts', 'el clic no guarda nada mas');
+    exige(decodeURIComponent(w.location || '') === 'https://wa.me/528125834137?text=Hola, vengo de las herramientas gratuitas de taxcerteza.mx y quiero probar el programa.',
+      `el WhatsApp se abre con el texto de la pagina de origen y nada mas (${decodeURIComponent(w.location || '')})`);
     const st = await p.js("fetch('/descargar/ir/https:%2F%2Fevil.example').then(r => r.status)");
     exige(st === 404, `un destino fuera de la tabla da 404, sin redirigir (${st})`);
     await p.cerrar();

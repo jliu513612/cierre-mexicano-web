@@ -32,6 +32,10 @@
       'El programa lo calcula cada mes para cada cliente con sus facturas y complementos de pago, y exporta la memoria de cálculo a Excel.'],   // [cierre-mensual, iva-flujo]
   };
 
+  // HUECO para las condiciones de la prueba (cuantos dias, que pide y que no). VACIO a proposito: dependen del diseno de
+  // la prueba integrada, que esta en medicion. Mientras este vacio no se pinta nada; no se rellena con texto supuesto.
+  var CONDICIONES_PRUEBA = '';
+
   function el(etiqueta, clase, t) {
     var n = document.createElement(etiqueta);
     if (clase) n.className = clase;
@@ -57,10 +61,11 @@
     acciones.appendChild(boton);
     acciones.appendChild(video);
     b.appendChild(acciones);
+    if (CONDICIONES_PRUEBA) b.appendChild(el('p', 'cta-condiciones', CONDICIONES_PRUEBA));
     b.appendChild(el('p', 'cta-nota', 'Para Windows 10 y 11.'));
     caja.appendChild(b);
     return b;
   }
 
-  return { TEXTOS: TEXTOS, mostrar: mostrar };
+  return { TEXTOS: TEXTOS, CONDICIONES_PRUEBA: CONDICIONES_PRUEBA, mostrar: mostrar };
 });
