@@ -456,6 +456,16 @@
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma de la ley DOF 12-11-2021 (artículo reformado por última vez DOF 07-06-2005; el párrafo del 15-D del CFF, fuera de esta entrada, adicionado DOF 23-04-2021)",
    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf"
+  },
+  "cff-20": {
+   "cita": "Código Fiscal de la Federación, artículo 20, tercer párrafo",
+   "etiqueta": "CFF, artículo 20, tercer párrafo (tipo de cambio para contribuciones)",
+   "cifras": [
+    "20"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Texto vigente, última reforma del Código DOF 09-04-2026 (el tercer párrafo no lleva nota de reforma en el texto compilado)",
+   "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
   }
  }
 }
