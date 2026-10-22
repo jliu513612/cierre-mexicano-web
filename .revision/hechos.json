@@ -466,6 +466,110 @@
    "estado": "aprobado",
    "vigencia": "Texto vigente, última reforma del Código DOF 09-04-2026 (el tercer párrafo no lleva nota de reforma en el texto compilado)",
    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf"
+  },
+  "reforma-2027-estado": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027 (Gaceta Parlamentaria, 8 de septiembre de 2026, anexo E) y su tramite legislativo",
+   "etiqueta": "Reforma a la Ley del ISR para 2027: estado legislativo al 22 de octubre de 2026",
+   "cifras": [
+    "2026",
+    "2027",
+    "8",
+    "13",
+    "21",
+    "22",
+    "1",
+    "349",
+    "118",
+    "10",
+    "5",
+    "6"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en tramite: aprobada por la Camara de Diputados (13-10-2026) y por comisiones del Senado (21-10-2026); sin votacion del Pleno del Senado ni publicacion en el DOF al 22-10-2026",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
+  },
+  "reforma-2027-limite-deducciones": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027, artículos 78-A y 78-B propuestos",
+   "etiqueta": "Iniciativa 2027, artículos 78-A y 78-B (límite de deducciones)",
+   "cifras": [
+    "78-A",
+    "78-B",
+    "50",
+    "0.9667",
+    "0.9900",
+    "96.67",
+    "99"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en trámite al 22 de octubre de 2026 (ver el estado legislativo); el texto aprobado por la Cámara de Diputados el 13 de octubre de 2026 mantiene estas reglas y cifras",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
+  },
+  "reforma-2027-perdidas": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027, artículos 78-C y 78-D propuestos y artículo segundo transitorio, fracción II",
+   "etiqueta": "Iniciativa 2027, artículos 78-C y 78-D (pérdidas fiscales)",
+   "cifras": [
+    "78-C",
+    "78-D",
+    "0.5000",
+    "50",
+    "14"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en trámite al 22 de octubre de 2026 (ver el estado legislativo); el texto aprobado por la Cámara de Diputados el 13 de octubre de 2026 mantiene estas reglas y cifras",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
+  },
+  "reforma-2027-exclusiones": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027, artículo 78-E propuesto",
+   "etiqueta": "Iniciativa 2027, artículo 78-E (quién no aplicaría el límite)",
+   "cifras": [
+    "78-E",
+    "182"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en trámite al 22 de octubre de 2026 (ver el estado legislativo); el texto aprobado por la Cámara de Diputados el 13 de octubre de 2026 mantiene estas reglas y cifras",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
+  },
+  "reforma-2027-pagos-provisionales": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027, artículo segundo transitorio, fracción I",
+   "etiqueta": "Iniciativa 2027, transitorio de los pagos provisionales de 2027",
+   "cifras": [
+    "14",
+    "50",
+    "1.0658",
+    "2.6162",
+    "0.9667",
+    "0.5000",
+    "2027"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en trámite al 22 de octubre de 2026 (ver el estado legislativo); el texto aprobado por la Cámara de Diputados el 13 de octubre de 2026 mantiene estas reglas y cifras",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
+  },
+  "reforma-2027-grupos": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027, artículo primero (deroga el Capítulo VI del Título II) y artículo segundo transitorio, fracción V",
+   "etiqueta": "Iniciativa 2027, derogación del régimen opcional para grupos de sociedades",
+   "cifras": [
+    "59",
+    "71",
+    "31",
+    "2026",
+    "1",
+    "2027"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en trámite al 22 de octubre de 2026 (ver el estado legislativo); el texto aprobado por la Cámara de Diputados el 13 de octubre de 2026 mantiene estas reglas y cifras",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
+  },
+  "reforma-2027-resico": {
+   "cita": "Iniciativa de reforma a la Ley del ISR para 2027, artículos 113-E y 206 propuestos",
+   "etiqueta": "Iniciativa 2027, artículos 113-E y 206 (límites de ingresos del RESICO)",
+   "cifras": [
+    "113-E",
+    "206"
+   ],
+   "estado": "aprobado",
+   "vigencia": "Iniciativa en trámite al 22 de octubre de 2026 (ver el estado legislativo); el texto aprobado por la Cámara de Diputados el 13 de octubre de 2026 mantiene estas reglas y cifras",
+   "url": "https://gaceta.diputados.gob.mx/PDF/66/2026/sep/20260908-E.pdf"
   }
  }
 }

@@ -80,6 +80,26 @@
   "estado-comercial": {
    "nombre": "Estado del producto",
    "confianza": "manual"
+  },
+  "isr-coeficiente": {
+   "nombre": "ISR provisional con coeficiente de utilidad y PTU",
+   "confianza": "codigo"
+  },
+  "cotejo-libros": {
+   "nombre": "Cotejo de los libros del cliente contra CFDI",
+   "confianza": "codigo"
+  },
+  "tc-facturas-dolares": {
+   "nombre": "Cotejo del tipo de cambio de facturas en dólares",
+   "confianza": "codigo"
+  },
+  "monitor-dof": {
+   "nombre": "Vigilancia diaria del DOF",
+   "confianza": "codigo"
+  },
+  "preparacion-reforma-2027": {
+   "nombre": "Preparacion para la reforma 2027",
+   "confianza": "manual"
   }
  }
 }
