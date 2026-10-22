@@ -4,6 +4,7 @@
 
 ## Recursos fiscales
 
+- [Reforma fiscal 2027: qué propone la iniciativa del ISR y cómo prepararte](https://taxcerteza.mx/blog/reforma-fiscal-2027-que-propone-isr/): Iniciativa del ISR 2027: límite de deducciones con factor 0.9667 para personas morales con más de 50 millones, pérdidas al 50 % y RESICO. Estado al 22-10-2026.
 - [Dónde quedan los datos de tus clientes y su e.firma cuando usas Tax Certeza](https://taxcerteza.mx/blog/datos-fiscales-en-tu-computadora/): Los CFDI descargados, los datos de tus clientes y la e.firma se guardan en tu computadora. Qué usa internet el programa y qué cuidados quedan de tu lado.
 - [RESICO: cuándo cuenta como ingreso una factura que todavía no se cobra](https://taxcerteza.mx/blog/resico-ingresos-cobrados-o-facturados/): En el régimen simplificado de confianza el ingreso se considera al cobrarse. Qué dicen los artículos 207 y 113-E de la Ley del ISR y cómo tratar PPD, PUE sin cobrar, anticipos y cheques.
 - [Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores](https://taxcerteza.mx/blog/lista-negra-sat-efos-69b/): Qué es la lista del artículo 69-B del CFF, qué diferencia hay entre presunto y definitivo, el plazo de 30 días para quien recibió las facturas y cómo revisar a todos tus proveedores.
