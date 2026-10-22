@@ -136,6 +136,9 @@ const SABOTAJES = [
   ['rango: el archivo sale sin BOM', H('tipo-de-cambio/pagina.js'), "new Blob(['\\ufeff' + tc.csv(r.filas)]", 'new Blob([tc.csv(r.filas)]', 'nav'],
   ['rango: el uso se cuenta con las fechas', H('tipo-de-cambio/pagina.js'), "window.TCUso.registrar('tipo-de-cambio', r.filas.length, 'descarga_rango');", "window.TCUso.registrar('tipo-de-cambio', r.filas.length, desde);", 'nav'],
   ['usos: el servidor acepta cualquier accion', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  if (c.accion !== undefined && (ACCIONES[c.herramienta] || []).indexOf(c.accion) < 0) return null;\n', ''],
+  // --- Descarga con URL firmada que caduca
+  ['descargas: se entrega cualquier redireccion, no solo las firmadas de GitHub', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "    if (!u || u.protocol !== 'https:' || HOSTS_FIRMADOS.indexOf(u.host) < 0) {", '    if (!u) {'],
+  ['descargas: un fallo al pedir la URL firmada bloquea la descarga', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '    return { url: d.url, temporal: false, motivo: `no se pudo pedir la URL firmada: ${e && e.name}` };', "    return { url: '', temporal: false, motivo: `no se pudo pedir la URL firmada: ${e && e.name}` };"],
   // --- Recursos locales de cada pagina
   ['recursos: el icono de la ayuda deja de servirse', path.join(RAIZ, '_redirects'), '/ayuda/img/favicon.ico  /favicon.ico  200', ''],
   // --- Contador de descargas
