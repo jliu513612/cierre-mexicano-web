@@ -100,3 +100,36 @@ for (const unicos of [false, true]) test(`descargas: el resumen separa bots e in
   assert.deepEqual(semanaAnterior('2026-10-25'), { desde: '2026-10-12', hasta: '2026-10-18' });
   assert.deepEqual(semanaAnterior('2026-10-26'), { desde: '2026-10-19', hasta: '2026-10-25' });
 });
+
+test('descargas: se entrega una URL firmada de GitHub que caduca, y nunca se bloquea la descarga', async () => {
+  const { destino, enlaceTemporal } = await L();
+  const { default: tabla } = await T();
+  const d = destino(tabla, 'windows');
+  const pedidos = [];
+  const red = (status, location) => async (url, op) => { pedidos.push({ url, op }); return new Response(null, { status, headers: location ? { location } : {} }); };
+  const firmada = 'https://release-assets.githubusercontent.com/github-production-release-asset/1/x?se=2026-10-22T14%3A36%3A38Z&sig=abc';
+  // enlace publico: se resuelve la redireccion de GitHub y se entrega la firmada
+  let r = await enlaceTemporal(d, { traer: red(302, firmada) });
+  assert.deepEqual([r.url, r.temporal], [firmada, true]);
+  assert.equal(pedidos[0].url, d.url);
+  assert.equal(pedidos[0].op.method, 'HEAD');
+  assert.equal(pedidos[0].op.redirect, 'manual', 'no se baja el archivo: solo se pide la redireccion');
+  // un host que no es de GitHub, una respuesta sin redireccion o un fallo de red: el enlace de siempre
+  for (const traer of [red(302, 'https://evil.example/x.zip'), red(302, 'http://release-assets.githubusercontent.com/x'), red(200), red(404),
+                       async () => { throw Object.assign(new Error('x'), { name: 'TimeoutError' }); }]) {
+    r = await enlaceTemporal(d, { traer });
+    assert.deepEqual([r.url, r.temporal], [d.url, false], r.motivo);
+  }
+  // repo privado: con el token de solo lectura se pide a la API, y el token no sale en el enlace
+  pedidos.length = 0;
+  r = await enlaceTemporal(Object.assign({}, d, { privado: { repo: 'jliu513612/taxcerteza-dist', asset: 123 } }), { traer: red(302, firmada), token: 'tok-secreto' });
+  assert.deepEqual([r.url, r.temporal, r.motivo], [firmada, true, 'repo privado']);
+  assert.equal(pedidos[0].url, 'https://api.github.com/repos/jliu513612/taxcerteza-dist/releases/assets/123');
+  assert.equal(pedidos[0].op.headers.Authorization, 'Bearer tok-secreto');
+  assert.equal(pedidos[0].op.headers.Accept, 'application/octet-stream');
+  assert.ok(!r.url.includes('tok-secreto'));
+  // repo privado SIN token: no se intenta la API; se usa el enlace de la tabla
+  pedidos.length = 0;
+  r = await enlaceTemporal(Object.assign({}, d, { privado: { repo: 'x/y', asset: 1 } }), { traer: red(302, firmada) });
+  assert.equal(pedidos[0].url, d.url);
+});

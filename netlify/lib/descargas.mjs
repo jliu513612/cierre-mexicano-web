@@ -43,7 +43,37 @@ export function claveValida(dada, esperada) {
 export function destino(tabla, archivo) {
   const clave = archivo && Object.prototype.hasOwnProperty.call(tabla.archivos, archivo) ? archivo : tabla.predeterminado;
   const d = tabla.archivos[clave];
-  return d ? { archivo: clave, version: d.version, url: d.url } : null;
+  return d ? { archivo: clave, version: d.version, url: d.url, privado: d.privado || null } : null;
+}
+
+// Hosts donde GitHub sirve los archivos con URL FIRMADA que caduca (lista cerrada: otro host no se entrega).
+const HOSTS_FIRMADOS = ['release-assets.githubusercontent.com', 'objects.githubusercontent.com'];
+
+/** El enlace que se le da a la persona: una URL FIRMADA de GitHub que caduca, en vez del enlace permanente.
+    - Con el archivo en un repo PRIVADO (`d.privado` = {repo, asset} y `token` de solo lectura): la pide a la API.
+    - Si no, resuelve aqui la redireccion del enlace publico, que GitHub firma con caducidad.
+    Si algo falla o el destino no es un host firmado conocido, devuelve el enlace permanente: la descarga NUNCA se
+    bloquea por esto. Devuelve {url, temporal, motivo}. El token jamas sale de aqui. */
+export async function enlaceTemporal(d, { traer = fetch, token = '' } = {}) {
+  try {
+    let r;
+    if (d.privado && token) {
+      r = await traer(`https://api.github.com/repos/${d.privado.repo}/releases/assets/${d.privado.asset}`, {
+        method: 'GET', redirect: 'manual', signal: AbortSignal.timeout(10000),
+        headers: { Authorization: `Bearer ${token}`, Accept: 'application/octet-stream', 'User-Agent': 'taxcerteza-descargar', 'X-GitHub-Api-Version': '2022-11-28' } });
+    } else {
+      r = await traer(d.url, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(10000), headers: { 'User-Agent': 'taxcerteza-descargar' } });
+    }
+    const loc = r.status >= 300 && r.status < 400 ? r.headers.get('location') : null;
+    let u = null;
+    try { u = loc ? new URL(loc) : null; } catch (e) { u = null; }
+    if (!u || u.protocol !== 'https:' || HOSTS_FIRMADOS.indexOf(u.host) < 0) {
+      return { url: d.url, temporal: false, motivo: `GitHub no dio una URL firmada (HTTP ${r.status})` };
+    }
+    return { url: u.href, temporal: true, motivo: d.privado && token ? 'repo privado' : 'enlace publico firmado' };
+  } catch (e) {
+    return { url: d.url, temporal: false, motivo: `no se pudo pedir la URL firmada: ${e && e.name}` };
+  }
 }
 
 /** El evento que se guarda. `unicos` (por omision UNICOS_ACTIVOS) decide si lleva huella; apagado, ni la IP ni nada

@@ -12,12 +12,14 @@
 // UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
 //   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno y de /descargar/resumen (la tienen las mismas personas).
 // Con los unicos encendidos (UNICOS_ACTIVOS, hoy apagado) haria falta ademas DESCARGAS_SAL.
+// La descarga entrega una URL FIRMADA de GitHub que caduca (enlaceTemporal), no el enlace permanente. Si el archivo pasa a
+// un repo PRIVADO (tabla: `privado: {repo, asset}`), hace falta ademas GITHUB_DIST_TOKEN: token de SOLO LECTURA de ese repo.
 // Lo de las vistas previas va a OTRO almacen ('descargas-pruebas') y su resumen se lee sin clave: son descargas de prueba,
 // nunca se mezclan con las reales.
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
 import embudo from '../embudo.mjs';
-import { evento, eventoUso, clicDe, PREFIJO_IR, origenDe, destino, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
+import { evento, eventoUso, clicDe, PREFIJO_IR, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -110,7 +112,10 @@ export default async (req, context) => {
   } catch (e) {
     console.error('descargar: no se pudo registrar el evento', e && e.message);
   }
-  return respuesta(null, 302, { Location: d.url });
+  // una URL firmada que caduca; si GitHub no la da, el enlace de siempre (la descarga nunca se bloquea) y queda en el log
+  const enlace = await enlaceTemporal(d, { token: env('GITHUB_DIST_TOKEN') });
+  if (!enlace.temporal) console.error('descargar: se entrego el enlace permanente:', enlace.motivo);
+  return respuesta(null, 302, { Location: enlace.url });
 };
 
 export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso', '/descargar/ir/*'] };
