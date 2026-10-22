@@ -72,6 +72,8 @@ def puertas_de_base(slug, art, fallos, m):
         if not any(f["confianza"] == "manual" for f in fs):
             fallos.append("todas las funciones citadas son de confianza 'codigo' (sin comprobar en el programa)")
         for f in fs:
+            if f.get("pendiente_cotejo"):
+                fallos.append(f"funcion pendiente de cotejo, no se publica: {f['nombre']} ({f['pendiente_cotejo']})")
             if f.get("obliga_a_decir") and f["obliga_a_decir"] not in texto(art).lower():
                 fallos.append(f"falta decir '{f['obliga_a_decir']}' ({f['nombre']})")
     # Un bloque <div class="ejemplo"> puede llevar cifras ilustrativas, pero tiene que decir que son inventadas.
@@ -165,7 +167,7 @@ def revisar(ruta, solo_estilo=False):
         fallos.append(f"citas sin fundamento listado: {faltan}")
     m["citas"] = len(citas)
     for u in set(re.findall(r'href="(https?://[^"]+)"', art.split('class="cta"')[0])):
-        if not re.match(r"https://(www\.)?(sat\.gob\.mx|dof\.gob\.mx|diputados\.gob\.mx)/.+", u):
+        if not re.match(r"https://((www\.)?(sat\.gob\.mx|dof\.gob\.mx|diputados\.gob\.mx)|gaceta\.diputados\.gob\.mx)/.+", u):
             fallos.append(f"enlace externo no oficial o a una portada sin documento: {u}")
     if not solo_estilo:
         puertas_de_base(Path(ruta).resolve().parent.name, art, fallos, m)
