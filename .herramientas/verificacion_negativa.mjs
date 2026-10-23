@@ -123,7 +123,8 @@ const SABOTAJES = [
   ['pie: una fecha de revision cambiada a mano en los datos', path.join(RAIZ, '.herramientas', 'datos', 'normas.json'), '"revisado": "2026-10-21"', '"revisado": "2026-10-20"'],
   ['pie: pierde el aviso de que no es un servicio del SAT', path.join(RAIZ, '.herramientas', 'construir.py'), "'    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\\n'", "'    <p>Es una herramienta informativa.</p>\\n'"],
   ['pie: una herramienta sin normas declaradas', path.join(RAIZ, '.herramientas', 'normas_por_herramienta.json'), '  "lista-69b": ["cff-69-b"],\n', ''],
-  ['cta: el hueco de las condiciones se rellena con texto supuesto', H('cta.js'), "  var CONDICIONES_PRUEBA = '';", "  var CONDICIONES_PRUEBA = 'Prueba gratis 30 dias.';"],
+  ['cta: las condiciones de la prueba prometen algo no medido', H('cta.js'), "Pruébalo 30 días gratis, sin registro. Tus datos", "Pruébalo 30 días gratis, sin registro y para siempre. Tus datos"],
+  ['cta: el pie de una herramienta deja de decir la prueba', H('valor-uma/index.html'), 'Se prueba 30 días gratis y sin registro;', 'Se activa;'],
   // --- Diagnostico del mes: compone las tres herramientas, no calcula; y lo que el usuario sube no sale del navegador
   ['diagnostico: las facturas de un proveedor del 69-B se pierden por el camino', H('diagnostico-del-mes/diagnostico.js'), "facturas: porEmisor[a.rfc] || [] };", "facturas: [] };"],
   ['diagnostico: el total de una factura del 69-B sale de otro campo', H('iva-del-mes/iva.js'), "metodo: x.metodo,\n               total: Dm.texto(Dm.centavos(x.total)),", "metodo: x.metodo,\n               total: Dm.texto(Dm.centavos(x.iva)),"],
