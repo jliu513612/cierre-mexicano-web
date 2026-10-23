@@ -1,0 +1,38 @@
+{
+ "slug": "cierre-fiscal-mensual-sin-dejar-tu-sistema-contable",
+ "huella": "c342208d404b8ea74233669533429ad0cd5495b38d079c0181f88e797bd90d5a",
+ "fecha": "2026-10-16",
+ "puntajes": [
+  70,
+  70
+ ],
+ "puntaje": 70.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   90,
+   84,
+   88,
+   92,
+   85,
+   90
+  ],
+  "maquina": [
+   28,
+   12,
+   18,
+   12
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 5,
+ "leves_pendientes": [
+  "«de ella se disminuye ... la PTU pagada en el ejercicio, en partes iguales en los pagos de mayo a diciembre»: omite «de manera acumulativa» del permite de lisr-14.",
+  "«Si el pago real fue en noviembre, el acreditamiento corresponde a noviembre»: conclusión cerrada; no menciona que el PUE no cobrado en el mes debió sustituirse por PPD con REP.",
+  "Respuesta inicial y caja final de la plantilla: «calcula IVA e ISR provisional y arma la DIOT» sin el límite de regímenes (el cuerpo sí lo da).",
+  "«No importa por ti: el archivo lo llevas tú a CONTPAQi»: insinúa compatibilidad del Excel con CONTPAQi; polizas-excel solo dice 'sistema contable del despacho'.",
+  "«Ninguna declaración sale del programa»: absoluto que choca a la letra con el archivo de texto de la DIOT; quiso decir que no presenta ninguna."
+ ],
+ "nota": "Revisores ciegos: muestra_e (candidato) 70 y 70; senales comunes: frases-titular ('En el IVA manda el flujo'), remates de una linea, negaciones en serie. Leves para la siguiente correccion (cualquier cambio exige revision nueva)."
+}
