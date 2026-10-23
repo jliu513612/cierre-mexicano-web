@@ -244,3 +244,19 @@ footer .enl a{color:var(--brand);font-weight:600}
 .pie-herramienta ul{margin:6px 0 10px 18px}
 .pie-herramienta li,.pie-herramienta p{font-size:14px;color:var(--muted)}
 .pie-herramienta p{margin-top:6px}
+
+/* Diagnostico del mes: tres resultados dentro de una sola caja de resultado */
+.res.diag{background:#fff}
+.res .diag-titulo{font-size:20px;color:var(--ink)}
+.diag-bloque{margin-top:16px;border-radius:12px;padding:16px 18px;border:1.5px solid var(--line);background:#fff}
+.diag-bloque.ok{background:var(--ok-bg);border-color:var(--ok-line)} .diag-bloque.ok h3,.diag-bloque.ok .etq{color:var(--ok)}
+.diag-bloque.warn{background:var(--warn-bg);border-color:var(--warn-line)} .diag-bloque.warn h3,.diag-bloque.warn .etq{color:var(--warn)}
+.diag-bloque.bad{background:var(--bad-bg);border-color:var(--bad-line)} .diag-bloque.bad h3,.diag-bloque.bad .etq{color:var(--bad)}
+.diag-que{margin-top:12px;font-size:15px}
+.diag-que dt{font-weight:800;color:var(--ink);margin-top:8px}
+.diag-que dd{margin:2px 0 0;color:var(--text)}
+.diag-fund ul{margin:4px 0 0 18px;font-size:14.5px;color:var(--text)}
+.diag-fund a{color:var(--brand-d)}
+.diag-bloque .lista-plana,.diag-fuera .lista-plana{overflow-wrap:anywhere}
+/* telefono: margen lateral de 16 px, el estandar del sitio, y la tarjeta de la herramienta con menos relleno */
+@media(max-width:480px){.wrap,.h-wrap{padding-left:16px;padding-right:16px}.tool{padding:18px 14px}.diag-bloque{padding:14px 12px}}

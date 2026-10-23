@@ -79,7 +79,7 @@ const SABOTAJES = [
   ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  const e = { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  const e = Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
   ['usos: una herramienta sin su evento', H('factura-con-retenciones/pagina.js'), "    if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');\n", '', 'nav'],
   ['usos: doble conteo (sin dedupe)', H('uso.js'), '    if (antes !== undefined && ahora - antes < VENTANA_MS) return false;\n', '', 'nav'],
-  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'iva-del-mes', 'tipo-de-cambio'];", "'iva-del-mes'];"],
+  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'tipo-de-cambio', 'diagnostico-del-mes'];", "'tipo-de-cambio'];"],
   // --- Tipo de cambio
   ['tc: la publicacion que aplica es la del mismo dia (C en vez de C-1)', H('tipo-de-cambio/tc.js'), 'var pub = habilOAnterior(c - 1); exigir(pub, c - 1); return pub;', 'var pub = habilOAnterior(c); exigir(pub, c); return pub;'],
   ['tc: lo determinado es la publicacion misma (un dia habil de menos)', H('tipo-de-cambio/tc.js'), 'var pub = publicacionQueAplica(c), det = habilAnterior(pub);', 'var pub = publicacionQueAplica(c), det = pub;'],
@@ -123,7 +123,16 @@ const SABOTAJES = [
   ['pie: una fecha de revision cambiada a mano en los datos', path.join(RAIZ, '.herramientas', 'datos', 'normas.json'), '"revisado": "2026-10-21"', '"revisado": "2026-10-20"'],
   ['pie: pierde el aviso de que no es un servicio del SAT', path.join(RAIZ, '.herramientas', 'construir.py'), "'    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\\n'", "'    <p>Es una herramienta informativa.</p>\\n'"],
   ['pie: una herramienta sin normas declaradas', path.join(RAIZ, '.herramientas', 'normas_por_herramienta.json'), '  "lista-69b": ["cff-69-b"],\n', ''],
-  ['cta: el hueco de las condiciones se rellena con texto supuesto', H('cta.js'), "  var CONDICIONES_PRUEBA = '';", "  var CONDICIONES_PRUEBA = 'Prueba gratis 30 dias.';"],
+  ['cta: las condiciones de la prueba prometen algo no medido', H('cta.js'), "Pruébalo 30 días gratis, sin registro. Tus datos", "Pruébalo 30 días gratis, sin registro y para siempre. Tus datos"],
+  ['cta: el pie de una herramienta deja de decir la prueba', H('valor-uma/index.html'), 'Se prueba 30 días gratis y sin registro;', 'Se activa;'],
+  // --- Diagnostico del mes: compone las tres herramientas, no calcula; y lo que el usuario sube no sale del navegador
+  ['diagnostico: las facturas de un proveedor del 69-B se pierden por el camino', H('diagnostico-del-mes/diagnostico.js'), "facturas: porEmisor[a.rfc] || [] };", "facturas: [] };"],
+  ['diagnostico: el total de una factura del 69-B sale de otro campo', H('iva-del-mes/iva.js'), "metodo: x.metodo,\n               total: Dm.texto(Dm.centavos(x.total)),", "metodo: x.metodo,\n               total: Dm.texto(Dm.centavos(x.iva)),"],
+  ['diagnostico: con un empate se adivina el RFC en vez de preguntarlo', H('diagnostico-del-mes/diagnostico.js'), "return { valor: empate.length === 1 ? ks[0] : null,", "return { valor: ks[0],"],
+  ['diagnostico: el fundamento del REP no es el de la herramienta del REP', H('diagnostico-del-mes/diagnostico.js'), "var lleva = Rep.llevaRep({ metodo: 'PPD', forma: '99' });", "var lleva = Rep.llevaRep({ metodo: 'PUE', forma: 'OTRA', cobro: 'COBRADA' });"],
+  ['diagnostico: el ejemplo pasa a otro caso de los vectores', path.join(RAIZ, '.herramientas', 'construir.py'), 'CASO_EJEMPLO = 60', 'CASO_EJEMPLO = 0'],
+  ['diagnostico: la pagina lee los XML por su cuenta', H('diagnostico-del-mes/pagina.js'), "var DG = window.TCDiagnostico(IVA, L, R);", "var DG = window.TCDiagnostico(IVA, L, R), _p = new DOMParser();"],
+  ['diagnostico: el nombre de un archivo sale por la red', H('diagnostico-del-mes/pagina.js'), "var clase = pintar(d);", "var clase = pintar(d); fetch('/herramientas/?f=' + encodeURIComponent(arch[0].nombre));", 'nav'],
   // --- Bloque del tipo de cambio (solo dolares, solo con valor)
   ['cta tipo de cambio: el bloque sale tambien sin valor', H('tipo-de-cambio/pagina.js'), "      if (clase === 'TC_PARA_OBLIGACIONES' && window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');", "      if (window.TCCta) window.TCCta.mostrar(res, 'tipo-de-cambio');", 'nav'],
   ['cta tipo de cambio: promete otras monedas', H('cta.js'), 'tipo de cambio de las facturas en dólares de cada cliente', 'tipo de cambio de las facturas en moneda extranjera de cada cliente'],

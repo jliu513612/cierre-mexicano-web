@@ -9,6 +9,7 @@
   "factura-con-retenciones": ["liva-1-a", "rliva-3", "lisr-106", "lisr-116", "lisr-113-j"],
   "calendario-dia-17": ["lisr-14", "liva-5-d", "cff-12", "rmf-2026-4-5-1", "rmf-2026-2-1-6", "dec-compila-2013-5.1"],
   "iva-del-mes": ["liva-1-b", "liva-5", "liva-5-d", "liva-1-a", "lisr-27", "cff-69-b"],
+  "diagnostico-del-mes": ["liva-1-b", "liva-5", "cff-69-b", "cff-29-a", "rmf-2026-2-7-1-32"],
   "tipo-de-cambio": ["cff-20", "cnbv-dias-inhabiles-2024", "cnbv-dias-inhabiles-2025", "cnbv-dias-inhabiles-2026"]
  },
  "citas": {

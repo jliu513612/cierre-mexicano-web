@@ -616,10 +616,15 @@
                                 fechas: { presunto: efos.fila[2], desvirtuado: efos.fila[3], definitivo: efos.fila[4], sentencia_favorable: efos.fila[5] } });
         }
       }
-      cfdis.push({ c: cargar(m, dir, efos), nombre: a.nombre, total: m.total, iva: m.iva_total_traslados,
+      cfdis.push({ c: cargar(m, dir, efos), nombre: a.nombre, total: m.total, iva: m.iva_total_traslados, dir: dir,
                    contraparte: dir === 'emitido' ? rc : em, fecha: m.fecha, metodo: m.metodo_pago });
     });
     out.usados = cfdis.length;
+    // las facturas recibidas de cada emisor que aparece en el listado 69-B (se enumeran aunque no haya cifra)
+    out.facturas_69b = cfdis.filter(function (x) { return x.dir === 'recibido' && avisados[x.contraparte]; }).map(function (x) {
+      return { uuid: x.c.uuid, nombre: x.nombre, emisor: x.contraparte, fecha: x.fecha, metodo: x.metodo,
+               total: Dm.texto(Dm.centavos(x.total)), iva: Dm.texto(Dm.centavos(x.iva)) };
+    });
     if (out.no_soportados.length || out.ilegibles.length) { out.cerrado = true; return out; }
     out.resultado = calcular(cfdis.map(function (x) { return x.c; }), periodo);
     var porUuid = {};

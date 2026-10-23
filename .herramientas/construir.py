@@ -28,6 +28,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "calendario-dia-17": "/herramientas/calendario-dia-17/",
     "iva-del-mes": "/herramientas/iva-del-mes/",
     "tipo-de-cambio": "/herramientas/tipo-de-cambio/",
+    "diagnostico-del-mes": "/herramientas/diagnostico-del-mes/",
 }
 
 
@@ -115,6 +116,33 @@ def pie_herramienta(nombre):
         '  </div>\n')
 
 
+# Datos de EJEMPLO del diagnostico del mes: un caso de los vectores INVENTADOS del IVA del mes (generados ejecutando la
+# cadena del programa con RFC inventados; ver extraer_del_producto.vectores_iva). Elegido porque tiene IVA a cargo, PPD
+# emitidas y recibidas sin complemento y pagos, y porque ninguna de sus contrapartes aparece en el listado 69-B real
+# (lo comprueba diagnostico.test.js): el ejemplo no senala a ningun contribuyente de verdad.
+CASO_EJEMPLO = 60
+
+
+def ejemplo_diagnostico():
+    import base64
+    import gzip
+    v = json.loads((AQUI / "vectores" / "iva.json").read_text(encoding="utf-8"))
+    caso = json.loads(gzip.decompress(base64.b64decode(v["casos_gz"])).decode("utf-8"))[CASO_EJEMPLO]
+    cuenta, archivos = {}, []
+    for x in caso["xml"]:
+        if "pago20:Pagos" in x or 'TipoDeComprobante="P"' in x:
+            tipo = "pago"
+        elif f'Emisor Rfc="{v["propio"]}"' in x:
+            tipo = "emitida"
+        else:
+            tipo = "recibida"
+        cuenta[tipo] = cuenta.get(tipo, 0) + 1
+        archivos.append({"nombre": f"{tipo}-{cuenta[tipo]:02d}.xml", "texto": x})
+    return json.dumps({"_nota": "GENERADO por .herramientas/construir.py: XML INVENTADOS (RFC y contrapartes ficticios) para probar "
+                                "el diagnostico. No son de ningun contribuyente.",
+                       "rfc": v["propio"], "periodo": v["periodo"], "archivos": archivos}, ensure_ascii=False, indent=1) + "\n"
+
+
 def construir():
     datos_uma, v_uma = variables_uma()
     _ret = json.loads((AQUI / "datos" / "retenciones.json").read_text(encoding="utf-8"))
@@ -172,6 +200,21 @@ def construir():
     v_uma["FUENTES_IVA"] = "\n".join(
         f'      <li><a href="{html.escape(_iva["fuentes"][k]["url"])}" rel="noopener">{_nombre_iva[_iva["fuentes"][k]["ley"]]}, artículo {_iva["fuentes"][k]["articulo"]}</a>: {_que_iva[k]}. {_reforma(_iva["fuentes"][k]["vigencia"])}.</li>'
         for k in _que_iva)
+    # Diagnostico del mes: cada resultado cita el MISMO articulo que la herramienta de la que sale (IVA del mes, lista
+    # 69-B y complemento de pago), con el mismo texto; nada propio.
+    _nor = json.loads((AQUI / "datos" / "normas.json").read_text(encoding="utf-8"))["normas"]
+
+    def _li_iva(k):
+        return (f'<li><a href="{html.escape(_iva["fuentes"][k]["url"])}" rel="noopener">{_nombre_iva[_iva["fuentes"][k]["ley"]]}, '
+                f'artículo {_iva["fuentes"][k]["articulo"]}</a>: {_que_iva[k]}. Revisada el {fecha_larga(_nor[k]["revisado"])}.</li>')
+    _que_rep = {"cff-29-a": "en la fracción VII, inciso b), una factura pagada en parcialidades o después lleva un CFDI por cada pago",
+                "rmf-2026-2-7-1-32": "plazo para emitir el complemento de pago"}
+    v_uma["DIAG_FUND_IVA"] = "".join(_li_iva(k) for k in ("liva-1-b", "liva-5"))
+    v_uma["DIAG_FUND_EFOS"] = _li_iva("cff-69-b")
+    v_uma["DIAG_FUND_REP"] = "".join(
+        f'<li><a href="{html.escape(_nor[k]["url"])}" rel="noopener">{html.escape(_nor[k]["cita"])}</a>: {_que_rep[k]}. '
+        f'Revisada el {fecha_larga(_nor[k]["revisado"])}.</li>'
+        for k in _que_rep)
     _tc = json.loads((AQUI / "datos" / "tipo-cambio.json").read_text(encoding="utf-8"))
     _anios_tc = sorted(_tc["calendarios"])
     v_uma["TC_ANIOS"] = ", ".join(_anios_tc[:-1]) + " y " + _anios_tc[-1] if len(_anios_tc) > 1 else _anios_tc[0]
@@ -254,6 +297,7 @@ def construir():
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/iva.json. No se edita a mano. */\n"
         "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
         "  else raiz.TCIvaDatos = datos;\n})(this, " + json.dumps(iva, ensure_ascii=False, indent=1) + ");\n")
+    salidas["herramientas/diagnostico-del-mes/ejemplo.json"] = ejemplo_diagnostico()
     tcam = {k: v for k, v in json.loads((AQUI / "datos" / "tipo-cambio.json").read_text(encoding="utf-8")).items() if k != "_nota"}
     salidas["herramientas/tipo-de-cambio/tipo-cambio-datos.js"] = (
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/tipo-cambio.json. No se edita a mano. */\n"
