@@ -1,7 +1,7 @@
 {
  "/herramientas/": {
-  "fecha": "2026-10-20",
-  "huella": "5fa365479fa2ca837753e10df69ee745b3c76c75082906d63b77f1305439aaa7"
+  "fecha": "2026-10-23",
+  "huella": "5612722a233553188b1c61f68e73460127a33622b73e190caf9620a5fe8f0a62"
  },
  "/herramientas/calendario-dia-17/": {
   "fecha": "2026-10-21",
@@ -10,6 +10,10 @@
  "/herramientas/complemento-de-pago/": {
   "fecha": "2026-10-21",
   "huella": "f97406a022045ae452e46c296099fe5579d7fe33f115ab4957f0d8708cafa3a2"
+ },
+ "/herramientas/diagnostico-del-mes/": {
+  "fecha": "2026-10-23",
+  "huella": "40b30c2608e38ffdee314097f53df78eb091cf6224f1665d57ffb2c46789aa70"
  },
  "/herramientas/factura-con-retenciones/": {
   "fecha": "2026-10-21",

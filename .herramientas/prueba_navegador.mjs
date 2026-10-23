@@ -415,6 +415,83 @@ async function main() {
     fs.rmSync(dir, { recursive: true, force: true });
   }
 
+  console.log('R. diagnostico del mes: los XML no salen del navegador, las cifras son las del programa, y se ve en movil');
+  {
+    // los XML del ejemplo publicado (vectores INVENTADOS), guardados con nombres reconocibles: si un nombre, el RFC o un
+    // UUID aparece en CUALQUIER peticion (URL, cuerpo o cabeceras), el contenido salio del navegador
+    const zlib = await import('node:zlib');
+    const VI = JSON.parse(fs.readFileSync(path.join(RAIZ, '.herramientas', 'vectores', 'iva.json'), 'utf8'));
+    const CASOS_IVA = JSON.parse(zlib.gunzipSync(Buffer.from(VI.casos_gz, 'base64')).toString('utf8'));
+    const EJ = JSON.parse(fs.readFileSync(path.join(RAIZ, 'herramientas', 'diagnostico-del-mes', 'ejemplo.json'), 'utf8'));
+    const caso = CASOS_IVA.find(c => c.xml.length === EJ.archivos.length && c.xml.every((x, i) => x === EJ.archivos[i].texto));
+    exige(!!caso, 'calibracion: el ejemplo es un caso de los vectores, con la salida del programa');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'tc-diag-'));
+    const rutas = EJ.archivos.map((a, i) => { const f = path.join(dir, `marca-secreta-${i}-${a.nombre}`); fs.writeFileSync(f, a.texto); return f; });
+    const roto = path.join(dir, 'marca-secreta-roto.xml');
+    fs.writeFileSync(roto, '<cfdi:Comprobante');
+    const marcas = ['marca-secreta', EJ.rfc].concat(EJ.archivos.map(a => (/UUID="([^"]+)"/.exec(a.texto) || [])[1]).filter(Boolean));
+    exige(marcas.length >= 2 + EJ.archivos.length, `calibracion: cada XML aporta su UUID como marca (${marcas.length})`);
+    const { targetId } = await cdp('Target.createTarget', { url: 'about:blank' });
+    const { sessionId: s } = await cdp('Target.attachToTarget', { targetId, flatten: true });
+    await cdp('Page.enable', {}, s); await cdp('Runtime.enable', {}, s); await cdp('DOM.enable', {}, s); await cdp('Network.enable', {}, s);
+    await cdp('Page.addScriptToEvaluateOnNewDocument', { source: "window.__csp=[];document.addEventListener('securitypolicyviolation',e=>window.__csp.push(e.violatedDirective))" }, s);
+    await cdp('Emulation.setDeviceMetricsOverride', { width: 375, height: 800, deviceScaleFactor: 2, mobile: true }, s);
+    const desde = eventos.length, usos0 = usos.length;
+    await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}/herramientas/diagnostico-del-mes/` }, s);
+    for (let i = 0; i < 100 && !eventos.slice(desde).some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
+    await espera(300);
+    const js = async e => (await cdp('Runtime.evaluate', { expression: e, returnByValue: true }, s)).result.value;
+    const subir = async files => {
+      const { root } = await cdp('DOM.getDocument', {}, s);
+      const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: '#xml' }, s);
+      await cdp('DOM.setFileInputFiles', { nodeId, files }, s);
+    };
+    const titulo = () => js("(document.querySelector('#res-diag .diag-titulo')||{}).textContent||''");
+    // sin escribir RFC ni mes: se deducen de los XML y el diagnostico sale solo al elegir los archivos
+    await subir(rutas);
+    for (let i = 0; i < 80 && !(await titulo()); i++) await espera(100);
+    exige((await titulo()) === `Diagnóstico de mayo de 2026 para ${EJ.rfc}`, `el RFC y el mes salen de los XML: «${await titulo()}»`);
+    const bloques = await js("[...document.querySelectorAll('#res-diag .diag-bloque')].map(b=>({h:b.querySelector('h3').textContent,t:b.innerText}))");
+    const miles = t => '$' + t.split('.')[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + t.split('.')[1];
+    exige(bloques.length === 3, `tres resultados (${bloques.length})`);
+    exige(bloques[0].h === 'IVA a cargo: ' + miles(caso.salida.iva_neto), `IVA: la cifra del programa («${bloques[0].h}», programa ${caso.salida.iva_neto})`);
+    exige(/Ningún proveedor/.test(bloques[1].h) && /información al \d+ de [a-z]+ de \d{4}/.test(bloques[1].t), `69-B: sin coincidencias y con la fecha del listado («${bloques[1].h}»)`);
+    const nPpd = caso.salida.pendiente_causado.length + caso.salida.pendiente_acreditable.length;
+    exige(bloques[2].h.startsWith(nPpd + (nPpd === 1 ? ' factura PPD' : ' facturas PPD')), `PPD sin complemento: ${nPpd} («${bloques[2].h}»)`);
+    exige(bloques.every(b => /Qué significa/.test(b.t) && /Qué revisar/.test(b.t) && /Fundamento/.test(b.t) && /Revisada el/.test(b.t)), 'cada resultado: que significa, que revisar, fundamento con fecha');
+    exige(!/\b(debes|tienes que|corrige|presenta|declara)\b/i.test(bloques.map(b => b.t).join(' ')), 'sin imperativos que decidan por el contador');
+    exige(!!(await js("document.querySelector('#res-diag .cta a[href=\"/descargar/ir/descargar\"]')")), 'la llamada a la accion va al final, por la ruta que cuenta el clic');
+    // movil: sin scroll horizontal y con margen lateral de al menos 16 px
+    const m = await js("(()=>{const r=document.querySelector('#res-diag').getBoundingClientRect();return {w:innerWidth,sw:document.documentElement.scrollWidth,l:r.left,r:innerWidth-r.right}})()");
+    exige(m.w === 375 && m.sw <= 375 && m.l >= 16 && m.r >= 16, `movil 375 px: sin scroll horizontal y margenes ${m.l}/${m.r} px (scroll ${m.sw})`);
+    // un XML ilegible: se cuenta y se dice, y el IVA queda sin cifra (pasada la ventana de 2 s en que un uso no se repite)
+    await espera(2100);
+    await subir(rutas.concat([roto]));
+    for (let i = 0; i < 80 && !/sin cifra/.test(await js("(document.querySelector('#res-diag .diag-bloque h3')||{}).textContent||''")); i++) await espera(100);
+    const t2 = await js("document.querySelector('#res-diag').innerText");
+    exige(/IVA del mes: sin cifra/.test(t2) && t2.includes('marca-secreta-roto.xml: el XML está mal formado') && t2.includes('Leídos ' + (rutas.length + 1) + ' archivos'), 'el ilegible se cuenta, se nombra y deja el IVA sin cifra');
+    // los datos de ejemplo: se piden al propio sitio y cuentan aparte
+    await js("document.querySelector('#ejemplo').click()");
+    for (let i = 0; i < 80 && !/datos de ejemplo inventados/.test(await js("document.querySelector('#res-diag').innerText")); i++) await espera(100);
+    exige(/datos de ejemplo inventados/.test(await js("document.querySelector('#res-diag').innerText")), 'el ejemplo dice que es inventado');
+    // LO QUE SALIO POR LA RED, peticion por peticion
+    const pedidos = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent').map(e => e.params.request);
+    const fuera = pedidos.filter(r => !r.url.startsWith(`http://127.0.0.1:${PUERTO}/`) && !r.url.startsWith('data:'));
+    const conMarca = pedidos.filter(r => marcas.some(k => (r.url + ' ' + (r.postData || '') + ' ' + JSON.stringify(r.headers || {})).includes(k)));
+    const conCuerpo = pedidos.filter(r => r.postData !== undefined || r.hasPostData);
+    console.log('   peticiones del diagnostico:', [...new Set(pedidos.map(r => r.method + ' ' + r.url.replace(`http://127.0.0.1:${PUERTO}`, '')))].join(' | '));
+    exige(fuera.length === 0, `ninguna peticion sale del sitio (${fuera.length})`);
+    exige(conMarca.length === 0, `ninguna peticion lleva nombres, RFC ni UUID de los XML (${conMarca.length})`);
+    exige(conCuerpo.length > 0 && conCuerpo.every(r => r.method === 'POST' && r.url.endsWith('/descargar/uso')), `lo unico con cuerpo es el conteo de uso (${conCuerpo.map(r => r.url).join(', ')})`);
+    const mios = usos.slice(usos0).map(u => JSON.parse(u.cuerpo));
+    exige(mios.every(c => Object.keys(c).every(k => ['herramienta', 'n', 'accion'].includes(k)) && c.herramienta === 'diagnostico-del-mes'), `el uso solo lleva herramienta, n y accion (${JSON.stringify(mios)})`);
+    exige(mios.filter(c => c.accion === 'diagnostico_ejecutado').length === 2 && mios.filter(c => c.accion === 'ejemplo_ejecutado').length === 1, `cuenta dos diagnosticos y un ejemplo (${mios.map(c => c.accion).join(',')})`);
+    exige(mios.some(c => c.n === rutas.length), `y cuantos archivos (${mios.map(c => c.n).join(',')})`);
+    exige((await js('window.__csp.join("|")')) === '', 'cero violaciones de la politica');
+    await cdp('Target.closeTarget', { targetId });
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+
   console.log('N. tipo de cambio: el FIX que aplica a la fecha, falla cerrado y lo dice');
   {
     p = await abrir('/herramientas/tipo-de-cambio/');
