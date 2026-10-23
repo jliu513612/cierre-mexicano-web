@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de tu mes con tus XML: IVA, lista 69-B y complementos de pago | Tax Certeza</title>
+<meta name="description" content="Arrastra los XML de un mes y obtén en tu navegador el IVA del mes, las facturas de proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago. Tus archivos no salen de tu computadora.">
+<link rel="canonical" href="https://taxcerteza.mx/herramientas/diagnostico-del-mes/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diagnóstico de tu mes con tus XML: IVA, lista 69-B y complementos de pago | Tax Certeza">
+<meta property="og:description" content="Arrastra los XML de un mes y obtén en tu navegador el IVA del mes, las facturas de proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago. Tus archivos no salen de tu computadora.">
+<meta property="og:url" content="https://taxcerteza.mx/herramientas/diagnostico-del-mes/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Tax Certeza">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/herramientas/herramientas.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Diagnóstico del mes", "url": "https://taxcerteza.mx/herramientas/diagnostico-del-mes/", "description": "Arrastra los XML de un mes y obtén en tu navegador el IVA del mes, las facturas de proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago. Tus archivos no salen de tu computadora.", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "browserRequirements": "Requiere JavaScript", "inLanguage": "es-MX", "isAccessibleForFree": true, "publisher": {"@type": "Organization", "name": "Tax Certeza", "url": "https://taxcerteza.mx", "logo": "https://taxcerteza.mx/apple-touch-icon.png"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Mis XML se suben a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. La página lee los archivos en tu navegador y no los envía a ningún servidor ni consulta al SAT. Para la lista 69-B descarga el listado completo del propio sitio y coteja en tu equipo. Al obtener el resultado solo se cuenta que se usó el diagnóstico y cuántos archivos procesó, nunca su contenido ni sus nombres."}}, {"@type": "Question", "name": "¿De dónde salen las cifras?", "acceptedAnswer": {"@type": "Answer", "text": "De las mismas reglas que las herramientas IVA del mes, consulta de la lista 69-B y complemento de pago, que a su vez aplican las reglas del programa Tax Certeza. Con los mismos XML, el diagnóstico y esas herramientas dan las mismas cifras."}}, {"@type": "Question", "name": "¿Por qué me pregunta el RFC o el mes?", "acceptedAnswer": {"@type": "Answer", "text": "La página deduce tu RFC y el mes de los propios XML: tu RFC es el que aparece en todos tus comprobantes y el mes es el de la mayoría. Si dos RFC o dos meses empatan, te pide que elijas en lugar de adivinar."}}, {"@type": "Question", "name": "¿Qué pasa con un XML que no se puede leer o que es de otro mes?", "acceptedAnswer": {"@type": "Answer", "text": "No desaparece: el diagnóstico dice cuántos archivos leyó, cuántos usó y por qué dejó fuera cada uno. Si un archivo no se puede leer o es de un tipo que la página todavía no calcula, el IVA queda sin cifra, porque una cifra sin ese comprobante sería equivocada."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://taxcerteza.mx/"}, {"@type": "ListItem", "position": 2, "name": "Herramientas", "item": "https://taxcerteza.mx/herramientas/"}, {"@type": "ListItem", "position": 3, "name": "Diagnóstico del mes", "item": "https://taxcerteza.mx/herramientas/diagnostico-del-mes/"}]}]}</script>
+</head>
+<body>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<nav aria-label="Principal">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/assets/logo-tax-certeza.svg" alt="Tax Certeza" width="194" height="36"></a>
+    <div class="nav-links">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/#funciones">Funciones</a>
+      <a href="/blog/">Recursos</a>
+      <a href="/herramientas/">Herramientas</a>
+      <a href="/ayuda/">Ayuda</a>
+      <a class="btn btn-primary nav-cta" href="/descargar/ir/descargar" rel="nofollow">Descargar</a>
+      <!--menu-movil: fragmento unico, E:/tmp/kb_ayuda/menu/hacer_menu.py--><details class="menu-movil"><summary aria-label="Menú" title="Menú"><svg class="abrir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="cerrar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></summary><div class="menu-movil-panel"><a href="/herramientas/">Herramientas</a><a href="/blog/">Blog</a><a href="/ayuda/">Ayuda</a></div></details><!--/menu-movil-->
+    </div>
+  </div>
+</nav>
+
+<main id="contenido">
+<div class="h-wrap">
+<nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/herramientas/">Herramientas</a></li><li aria-current="page">Diagnóstico del mes</li></ol></nav>
+<header class="cab">
+  <h1>Diagnóstico de tu mes en 1 minuto</h1>
+  <p class="lead">Arrastra los XML de un mes, emitidos y recibidos, con sus complementos de pago. La página te muestra el IVA del mes, las facturas de proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago, con su fundamento y qué revisar. Revisa el resultado con tu contador.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-diag">
+  <h2 id="t-diag">Tus XML del mes</h2>
+  <form id="f-diag" novalidate>
+    <div class="campo">
+      <label for="xml" id="l-xml">Archivos XML del mes</label>
+      <div class="soltar" id="soltar">
+        <p>Arrastra aquí los XML o</p>
+        <div class="selector">
+          <input type="file" id="xml" name="xml" class="oculto-accesible" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml-estado xml-ayuda">
+          <label for="xml" class="btn btn-ghost sel-boton">Seleccionar archivos</label>
+          <span class="sel-estado" id="xml-estado" aria-live="polite">Ningún archivo seleccionado</span>
+        </div>
+      </div>
+      <p class="ayuda" id="xml-ayuda">Facturas emitidas y recibidas y complementos de pago de un mes. Hasta 500 archivos de hasta 2 MB cada uno.</p>
+    </div>
+    <div class="fila" id="ajustes" hidden>
+      <div class="campo">
+        <label for="rfc">Tu RFC</label>
+        <input type="text" id="rfc" name="rfc" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="13" aria-describedby="rfc-ayuda">
+        <p class="ayuda" id="rfc-ayuda">Sirve para saber qué facturas emitiste y cuáles recibiste.</p>
+      </div>
+      <div class="campo">
+        <label for="mes">Mes</label>
+        <input type="month" id="mes" name="mes" min="2022-01">
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Diagnosticar mi mes</button>
+      <button class="btn btn-ghost" type="button" id="ejemplo">Probar con datos de ejemplo</button>
+    </div>
+  </form>
+  <div class="res" id="res-diag" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para leer los archivos en tu navegador.</p></noscript>
+  <p class="privado"><b>Tus archivos no salen de tu computadora.</b> Se leen en tu navegador; esta página no los sube a ningún servidor ni consulta al SAT. Para la lista 69-B descarga el listado completo del propio sitio. Al obtener el resultado solo se cuenta que se usó el diagnóstico y cuántos archivos procesó.</p>
+</section>
+
+<template id="fund-iva"><ul><li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf" rel="noopener">Ley del IVA, artículo 1o.-B</a>: el IVA se causa cuando la contraprestación se cobra efectivamente. Revisada el 6 de julio de 2026.</li><li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf" rel="noopener">Ley del IVA, artículo 5o.</a>: requisitos para acreditar el IVA, entre ellos que corresponda a gastos efectivamente pagados. Revisada el 6 de julio de 2026.</li></ul></template>
+<template id="fund-69b"><ul><li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">Código Fiscal de la Federación, artículo 69-B</a>: contribuyentes publicados por operaciones presuntamente inexistentes (lista 69-B). Revisada el 6 de julio de 2026.</li></ul></template>
+<template id="fund-rep"><ul><li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">Código Fiscal de la Federación, artículo 29-A</a>: en la fracción VII, inciso b), una factura pagada en parcialidades o después lleva un CFDI por cada pago. Revisada el 6 de julio de 2026.</li><li><a href="https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf" rel="noopener">Resolución Miscelánea Fiscal para 2026, regla 2.7.1.32</a>: plazo para emitir el complemento de pago. Revisada el 21 de octubre de 2026.</li></ul></template>
+
+<section class="txt">
+  <h2>Qué revisa</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Estima el IVA del mes con las reglas de la herramienta <a href="/herramientas/iva-del-mes/">IVA del mes</a>: trasladado cobrado, acreditable pagado, retenciones y total a pagar.</li>
+        <li>Coteja a los emisores de tus facturas recibidas contra el listado 69-B del SAT, como la <a href="/herramientas/lista-69b/">consulta de la lista 69-B</a>, y lista sus facturas del mes.</li>
+        <li>Lista las facturas PPD del mes que no tienen su complemento de pago entre los XML que subiste. La fecha límite de cada complemento está en la <a href="/herramientas/complemento-de-pago/">calculadora del complemento de pago</a>.</li>
+        <li>Dice cuántos archivos leyó y cuántos usó, y por qué dejó fuera cada uno.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No sabe si una PPD ya se cobró o se pagó: solo ve si su complemento está entre tus XML.</li>
+        <li>No aplica la proporción de acreditamiento ni toma en cuenta saldos a favor anteriores o complementarias.</li>
+        <li>No comprueba con el SAT si las facturas están vigentes o canceladas; para eso está <a href="/herramientas/verificar-factura/">verificar factura</a>.</li>
+        <li>Todavía no calcula notas de crédito, sustituciones, nómina, IEPS, CFDI 3.3 ni pagos con vales o intermediario de pagos: si llegan, el IVA queda sin cifra y te dice qué archivo es.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Límites</h2>
+  <p>Es un diagnóstico con los XML que subes: da por pagadas las facturas recibidas PUE y no revisa cancelaciones. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Mis XML se suben a algún servidor?</summary>
+<p>No. La página lee los archivos en tu navegador y no los envía a ningún servidor ni consulta al SAT. Para la lista 69-B descarga el listado completo del propio sitio y coteja en tu equipo. Al obtener el resultado solo se cuenta que se usó el diagnóstico y cuántos archivos procesó, nunca su contenido ni sus nombres.</p></details>
+<details><summary>¿De dónde salen las cifras?</summary>
+<p>De las mismas reglas que las herramientas IVA del mes, consulta de la lista 69-B y complemento de pago, que a su vez aplican las reglas del programa Tax Certeza. Con los mismos XML, el diagnóstico y esas herramientas dan las mismas cifras.</p></details>
+<details><summary>¿Por qué me pregunta el RFC o el mes?</summary>
+<p>La página deduce tu RFC y el mes de los propios XML: tu RFC es el que aparece en todos tus comprobantes y el mes es el de la mayoría. Si dos RFC o dos meses empatan, te pide que elijas en lugar de adivinar.</p></details>
+<details><summary>¿Qué pasa con un XML que no se puede leer o que es de otro mes?</summary>
+<p>No desaparece: el diagnóstico dice cuántos archivos leyó, cuántos usó y por qué dejó fuera cada uno. Si un archivo no se puede leer o es de un tipo que la página todavía no calcula, el IVA queda sin cifra, porque una cifra sin ese comprobante sería equivocada.</p></details>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza hace estas revisiones cada mes para cada cliente, con los CFDI que descarga del SAT, y además concilia contra el banco y prepara la DIOT.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+
+  <div class="pie-herramienta">
+    <h2>Fundamento y revisión</h2>
+    <ul>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf" rel="noopener">Ley del IVA, artículo 1o.-B</a>: revisada el 6 de julio de 2026.</li>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf" rel="noopener">Ley del IVA, artículo 5o.</a>: revisada el 6 de julio de 2026.</li>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">Código Fiscal de la Federación, artículo 69-B</a>: revisada el 6 de julio de 2026.</li>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf" rel="noopener">Código Fiscal de la Federación, artículo 29-A</a>: revisada el 6 de julio de 2026.</li>
+      <li><a href="https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/documentos2026/rmf/rmf/RMF_2026-DOF-28122025.pdf" rel="noopener">Resolución Miscelánea Fiscal para 2026, regla 2.7.1.32</a>: revisada el 21 de octubre de 2026.</li>
+    </ul>
+    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>
+    <p>Sin registro: no pide cuenta ni datos de contacto, y esta página no guarda lo que escribes o subes. Al obtener un resultado solo se cuenta que se usó la herramienta y, si procesó varios elementos (archivos, RFC o días), cuántos. Si pulsas Descargar, WhatsApp o el video, se cuenta el clic con esta página como origen. Si opinas, se guardan tu voto y tu comentario.</p>
+  </div>
+</section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="enl">
+      <a href="/descargar/ir/whatsapp" rel="nofollow">WhatsApp: +52 81 2583 4137</a><br>
+      <a href="mailto:support@taxcerteza.mx">support@taxcerteza.mx</a><br>
+      <a href="/ayuda/">Centro de ayuda</a>
+      <!--redes: fragmento unico, E:/tmp/kb_ayuda/redes/hacer_fragmento.py--><div class="redes" role="list" aria-label="Tax Certeza en redes sociales"><span role="listitem"><a href="https://www.facebook.com/profile.php?id=61595089575092" target="_blank" rel="noopener" aria-label="Tax Certeza en Facebook" title="Tax Certeza en Facebook"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a></span><span role="listitem"><a href="https://www.instagram.com/taxcerteza/" target="_blank" rel="noopener" aria-label="Tax Certeza en Instagram" title="Tax Certeza en Instagram"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a></span><span role="listitem"><a href="https://x.com/TaxCerteza" target="_blank" rel="noopener" aria-label="Tax Certeza en X" title="Tax Certeza en X"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a></span><span role="listitem"><a href="https://www.youtube.com/@TaxCerteza" target="_blank" rel="noopener" aria-label="Tax Certeza en YouTube" title="Tax Certeza en YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></span></div><!--/redes-->
+    </div>
+    <div class="nota">
+      <b>Nota:</b> Tax Certeza 1.0.47 funciona en Windows y se activa con una licencia por equipo.
+      El software no sustituye el criterio profesional del contador.
+    </div>
+  </div>
+</footer>
+<form name="opinion-herramientas" method="POST" data-netlify="true" netlify-honeypot="sitio" hidden aria-hidden="true"><input type="hidden" name="herramienta"><input type="hidden" name="clase"><input type="hidden" name="voto"><input type="hidden" name="motivo"><input type="hidden" name="fecha"><input type="hidden" name="sitio"></form>
+<script src="/herramientas/iva-del-mes/decimal.js" defer></script>
+<script src="/herramientas/verificar-factura/cfdi.js" defer></script>
+<script src="/herramientas/iva-del-mes/iva-datos.js" defer></script>
+<script src="/herramientas/iva-del-mes/iva.js" defer></script>
+<script src="/herramientas/lista-69b/lista69b.js" defer></script>
+<script src="/herramientas/calendario-dia-17/calendario-datos.js" defer></script>
+<script src="/herramientas/calendario-dia-17/calendario.js" defer></script>
+<script src="/herramientas/complemento-de-pago/rep.js" defer></script>
+<script src="/herramientas/diagnostico-del-mes/diagnostico.js" defer></script>
+<script src="/herramientas/selector-archivos.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/uso.js" defer></script>
+<script src="/herramientas/cta.js" defer></script>
+<script src="/herramientas/diagnostico-del-mes/pagina.js" defer></script>
+</body>
+</html>
