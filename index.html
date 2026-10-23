@@ -102,6 +102,11 @@
   .herr-todas a{color:var(--brand);font-weight:600}
   @media(max-width:900px){.herr-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:480px){.herr-grid{grid-template-columns:1fr}}
+  /* Diagnostico del mes: una banda corta bajo la cabecera, hacia la herramienta */
+  #diagnostico{padding:8px 0 0}
+  .diag-band{background:var(--light);border:1px solid #DBEAFE;border-radius:14px;padding:22px 20px;text-align:center}
+  .diag-band h2{font-size:22px;line-height:1.3;color:var(--ink);margin:0 0 8px}
+  .diag-band p{max-width:680px;margin:0 auto 14px;color:var(--text);font-size:15.5px}
 
   /* Why (compare) */
   .why{background:var(--bg)}
@@ -203,6 +208,16 @@
     <small><b>El programa se descarga libremente</b> y se activa con una licencia por equipo. <b>La demo se ve en el navegador</b>, sin instalar nada y con datos de una empresa de demostración; está abierta de lunes a viernes, de 11:00 a 12:00 y de 16:00 a 17:00 h (hora de la Ciudad de México). El acceso se entrega por WhatsApp (lunes a sábado, 8:00 a 21:00, hora del centro de México).</small>
   </div>
 </header>
+
+<section id="diagnostico" aria-labelledby="diag-titulo">
+  <div class="wrap">
+    <div class="diag-band">
+      <h2 id="diag-titulo">Diagnóstico de tu mes en 1 minuto</h2>
+      <p>Arrastra los XML de un mes y mira, con tus propios datos, el IVA del mes, los proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago. <b>Tus archivos no salen de tu computadora.</b></p>
+      <a class="btn btn-primary" href="/herramientas/diagnostico-del-mes/">Diagnosticar mi mes</a>
+    </div>
+  </div>
+</section>
 
 <section id="video" aria-label="Video de presentación">
   <div class="wrap">

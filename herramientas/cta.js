@@ -32,6 +32,8 @@
       'El programa lo calcula cada mes para cada cliente con sus facturas y complementos de pago, y exporta la memoria de cálculo a Excel.'],   // [cierre-mensual, iva-flujo]
     'tipo-de-cambio': ['Aquí consultaste el tipo de cambio de una fecha.',
       'El programa coteja en el cierre el tipo de cambio de las facturas en dólares de cada cliente contra el FIX del DOF.'],   // [tc-facturas-dolares] solo dolares
+    'diagnostico-del-mes': ['Aquí revisaste un mes con tus XML.',
+      'El programa hace estas revisiones cada mes para cada cliente, con los CFDI que descarga del SAT.'],   // [descarga-sat, cierre-mensual, efos, pagado-rep]
   };
 
   // HUECO para las condiciones de la prueba (cuantos dias, que pide y que no). VACIO a proposito: dependen del diseno de

@@ -1,0 +1,114 @@
+@@TITULO
+Diagnóstico de tu mes con tus XML: IVA, lista 69-B y complementos de pago | Tax Certeza
+@@TITULO_CORTO
+Diagnóstico del mes
+@@MIGA
+Diagnóstico del mes
+@@DESCRIPCION
+Arrastra los XML de un mes y obtén en tu navegador el IVA del mes, las facturas de proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago. Tus archivos no salen de tu computadora.
+@@SCRIPTS
+<script src="/herramientas/iva-del-mes/decimal.js" defer></script>
+<script src="/herramientas/verificar-factura/cfdi.js" defer></script>
+<script src="/herramientas/iva-del-mes/iva-datos.js" defer></script>
+<script src="/herramientas/iva-del-mes/iva.js" defer></script>
+<script src="/herramientas/lista-69b/lista69b.js" defer></script>
+<script src="/herramientas/calendario-dia-17/calendario-datos.js" defer></script>
+<script src="/herramientas/calendario-dia-17/calendario.js" defer></script>
+<script src="/herramientas/complemento-de-pago/rep.js" defer></script>
+<script src="/herramientas/diagnostico-del-mes/diagnostico.js" defer></script>
+<script src="/herramientas/selector-archivos.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/uso.js" defer></script>
+<script src="/herramientas/cta.js" defer></script>
+<script src="/herramientas/diagnostico-del-mes/pagina.js" defer></script>
+@@FAQ
+P: ¿Mis XML se suben a algún servidor?
+R: No. La página lee los archivos en tu navegador y no los envía a ningún servidor ni consulta al SAT. Para la lista 69-B descarga el listado completo del propio sitio y coteja en tu equipo. Al obtener el resultado solo se cuenta que se usó el diagnóstico y cuántos archivos procesó, nunca su contenido ni sus nombres.
+P: ¿De dónde salen las cifras?
+R: De las mismas reglas que las herramientas IVA del mes, consulta de la lista 69-B y complemento de pago, que a su vez aplican las reglas del programa Tax Certeza. Con los mismos XML, el diagnóstico y esas herramientas dan las mismas cifras.
+P: ¿Por qué me pregunta el RFC o el mes?
+R: La página deduce tu RFC y el mes de los propios XML: tu RFC es el que aparece en todos tus comprobantes y el mes es el de la mayoría. Si dos RFC o dos meses empatan, te pide que elijas en lugar de adivinar.
+P: ¿Qué pasa con un XML que no se puede leer o que es de otro mes?
+R: No desaparece: el diagnóstico dice cuántos archivos leyó, cuántos usó y por qué dejó fuera cada uno. Si un archivo no se puede leer o es de un tipo que la página todavía no calcula, el IVA queda sin cifra, porque una cifra sin ese comprobante sería equivocada.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Diagnóstico de tu mes en 1 minuto</h1>
+  <p class="lead">Arrastra los XML de un mes, emitidos y recibidos, con sus complementos de pago. La página te muestra el IVA del mes, las facturas de proveedores que aparecen en la lista 69-B y las facturas PPD sin complemento de pago, con su fundamento y qué revisar. Revisa el resultado con tu contador.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-diag">
+  <h2 id="t-diag">Tus XML del mes</h2>
+  <form id="f-diag" novalidate>
+    <div class="campo">
+      <label for="xml" id="l-xml">Archivos XML del mes</label>
+      <div class="soltar" id="soltar">
+        <p>Arrastra aquí los XML o</p>
+        <div class="selector">
+          <input type="file" id="xml" name="xml" class="oculto-accesible" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml-estado xml-ayuda">
+          <label for="xml" class="btn btn-ghost sel-boton">Seleccionar archivos</label>
+          <span class="sel-estado" id="xml-estado" aria-live="polite">Ningún archivo seleccionado</span>
+        </div>
+      </div>
+      <p class="ayuda" id="xml-ayuda">Facturas emitidas y recibidas y complementos de pago de un mes. Hasta 500 archivos de hasta 2 MB cada uno.</p>
+    </div>
+    <div class="fila" id="ajustes" hidden>
+      <div class="campo">
+        <label for="rfc">Tu RFC</label>
+        <input type="text" id="rfc" name="rfc" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="13" aria-describedby="rfc-ayuda">
+        <p class="ayuda" id="rfc-ayuda">Sirve para saber qué facturas emitiste y cuáles recibiste.</p>
+      </div>
+      <div class="campo">
+        <label for="mes">Mes</label>
+        <input type="month" id="mes" name="mes" min="2022-01">
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-primary" type="submit">Diagnosticar mi mes</button>
+      <button class="btn btn-ghost" type="button" id="ejemplo">Probar con datos de ejemplo</button>
+    </div>
+  </form>
+  <div class="res" id="res-diag" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para leer los archivos en tu navegador.</p></noscript>
+  <p class="privado"><b>Tus archivos no salen de tu computadora.</b> Se leen en tu navegador; esta página no los sube a ningún servidor ni consulta al SAT. Para la lista 69-B descarga el listado completo del propio sitio. Al obtener el resultado solo se cuenta que se usó el diagnóstico y cuántos archivos procesó.</p>
+</section>
+
+<template id="fund-iva"><ul>{{DIAG_FUND_IVA}}</ul></template>
+<template id="fund-69b"><ul>{{DIAG_FUND_EFOS}}</ul></template>
+<template id="fund-rep"><ul>{{DIAG_FUND_REP}}</ul></template>
+
+<section class="txt">
+  <h2>Qué revisa</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Estima el IVA del mes con las reglas de la herramienta <a href="/herramientas/iva-del-mes/">IVA del mes</a>: trasladado cobrado, acreditable pagado, retenciones y total a pagar.</li>
+        <li>Coteja a los emisores de tus facturas recibidas contra el listado 69-B del SAT, como la <a href="/herramientas/lista-69b/">consulta de la lista 69-B</a>, y lista sus facturas del mes.</li>
+        <li>Lista las facturas PPD del mes que no tienen su complemento de pago entre los XML que subiste. La fecha límite de cada complemento está en la <a href="/herramientas/complemento-de-pago/">calculadora del complemento de pago</a>.</li>
+        <li>Dice cuántos archivos leyó y cuántos usó, y por qué dejó fuera cada uno.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No sabe si una PPD ya se cobró o se pagó: solo ve si su complemento está entre tus XML.</li>
+        <li>No aplica la proporción de acreditamiento ni toma en cuenta saldos a favor anteriores o complementarias.</li>
+        <li>No comprueba con el SAT si las facturas están vigentes o canceladas; para eso está <a href="/herramientas/verificar-factura/">verificar factura</a>.</li>
+        <li>Todavía no calcula notas de crédito, sustituciones, nómina, IEPS, CFDI 3.3 ni pagos con vales o intermediario de pagos: si llegan, el IVA queda sin cifra y te dice qué archivo es.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Límites</h2>
+  <p>Es un diagnóstico con los XML que subes: da por pagadas las facturas recibidas PUE y no revisa cancelaciones. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza hace estas revisiones cada mes para cada cliente, con los CFDI que descarga del SAT, y además concilia contra el banco y prepara la DIOT.</p>
+    <a class="btn btn-primary" href="/">Conocer Tax Certeza</a>
+  </div>
+</section>
