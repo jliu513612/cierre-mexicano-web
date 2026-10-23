@@ -36,9 +36,11 @@
       'El programa hace estas revisiones cada mes para cada cliente, con los CFDI que descarga del SAT.'],   // [descarga-sat, cierre-mensual, efos, pagado-rep]
   };
 
-  // HUECO para las condiciones de la prueba (cuantos dias, que pide y que no). VACIO a proposito: dependen del diseno de
-  // la prueba integrada, que esta en medicion. Mientras este vacio no se pinta nada; no se rellena con texto supuesto.
-  var CONDICIONES_PRUEBA = '';
+  // Condiciones de la prueba integrada de 1.0.48, MEDIDAS en el programa (license_gate.PRUEBA_DIAS = 30; entra sola al
+  // primer arranque sin licencia, sin servidor ni datos personales; al terminar, los datos siguen en el equipo). Solo
+  // lo que es verdad, nada que la prueba no sea (lo vigila normas.test.js). Va al sitio vivo el dia del lanzamiento de
+  // 1.0.48: antes seria falso, 1.0.47 no tiene prueba.
+  var CONDICIONES_PRUEBA = 'Pruébalo 30 días gratis, sin registro. Tus datos se quedan en tu equipo.';
 
   function el(etiqueta, clase, t) {
     var n = document.createElement(etiqueta);
