@@ -258,3 +258,5 @@ footer .enl a{color:var(--brand);font-weight:600}
 .diag-fund ul{margin:4px 0 0 18px;font-size:14.5px;color:var(--text)}
 .diag-fund a{color:var(--brand-d)}
 .diag-bloque .lista-plana,.diag-fuera .lista-plana{overflow-wrap:anywhere}
+/* telefono: margen lateral de 16 px, el estandar del sitio, y la tarjeta de la herramienta con menos relleno */
+@media(max-width:480px){.wrap,.h-wrap{padding-left:16px;padding-right:16px}.tool{padding:18px 14px}.diag-bloque{padding:14px 12px}}

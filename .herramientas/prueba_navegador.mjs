@@ -18,6 +18,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { clicDe } from '../netlify/lib/descargas.mjs';
+import { ACCIONES } from '../netlify/lib/herramientas.mjs';
 import embudo from '../netlify/embudo.mjs';
 
 const RAIZ = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -462,8 +463,8 @@ async function main() {
     exige(!/\b(debes|tienes que|corrige|presenta|declara)\b/i.test(bloques.map(b => b.t).join(' ')), 'sin imperativos que decidan por el contador');
     exige(!!(await js("document.querySelector('#res-diag .cta a[href=\"/descargar/ir/descargar\"]')")), 'la llamada a la accion va al final, por la ruta que cuenta el clic');
     // movil: sin scroll horizontal y con margen lateral de al menos 16 px
-    const m = await js("(()=>{const r=document.querySelector('#res-diag').getBoundingClientRect();return {w:innerWidth,sw:document.documentElement.scrollWidth,l:r.left,r:innerWidth-r.right}})()");
-    exige(m.w === 375 && m.sw <= 375 && m.l >= 16 && m.r >= 16, `movil 375 px: sin scroll horizontal y margenes ${m.l}/${m.r} px (scroll ${m.sw})`);
+    const m = await js("(()=>{const r=document.querySelector('#res-diag').getBoundingClientRect(),w=document.querySelector('#f-diag').closest('.h-wrap'),c=w.getBoundingClientRect(),s=getComputedStyle(w);return {w:innerWidth,sw:document.documentElement.scrollWidth,l:r.left,r:innerWidth-r.right,g:c.left+parseFloat(s.paddingLeft)}})()");
+    exige(m.w === 375 && m.sw <= 375 && m.g === 16 && m.l >= 16 && m.r >= 16, `movil 375 px: sin scroll horizontal, margen de pagina ${m.g} px y resultado a ${m.l}/${m.r} px (scroll ${m.sw})`);
     // un XML ilegible: se cuenta y se dice, y el IVA queda sin cifra (pasada la ventana de 2 s en que un uso no se repite)
     await espera(2100);
     await subir(rutas.concat([roto]));
@@ -676,8 +677,8 @@ async function main() {
     // en todo lo anterior se ejecutaron todas las herramientas: cada envio de uso lleva SOLO {herramienta, n}
     const tecleado = /EKU|XIQB|900317|987654|10,000|2026-03-17|XAXX|TCE160101|ana@|<cfdi|1600/i;
     const malos = usos.filter(u => { let x; try { x = JSON.parse(u.cuerpo); } catch (e) { return true; }
-      // solo herramienta, n y, si es una accion aparte, su nombre de la lista cerrada; nada tecleado
-      return Object.keys(x).some(k => k !== 'herramienta' && k !== 'n' && !(k === 'accion' && x.accion === 'descarga_rango')) || tecleado.test(u.cuerpo); });
+      // solo herramienta, n y, si es una accion aparte, su nombre de la lista cerrada (la UNICA: netlify/lib/herramientas.mjs); nada tecleado
+      return Object.keys(x).some(k => k !== 'herramienta' && k !== 'n' && !(k === 'accion' && (ACCIONES[x.herramienta] || []).includes(x.accion))) || tecleado.test(u.cuerpo); });
     exige(usos.length > 0 && malos.length === 0, `los envios de uso llevan solo herramienta, n y la accion de la lista (${usos.length} envios, ${malos.length} con algo mas)`);
     const vistas = new Set(usos.map(u => JSON.parse(u.cuerpo).herramienta));
     const faltan = fs.readdirSync(path.join(RAIZ, 'herramientas'), { withFileTypes: true })
