@@ -82,10 +82,13 @@ test('usos: el resumen cuenta aparte las acciones de la lista cerrada', async ()
   const b = { ts: '2026-10-14T12:00:00Z', contexto: 'production', metodo: 'POST', ua: 'Mozilla/5.0 (Windows NT 10.0) Chrome/130' };
   const ev = [eventoUso(Object.assign({ cuerpo: { herramienta: 'tipo-de-cambio', n: 31, accion: 'descarga_rango' } }, b)),
               eventoUso(Object.assign({ cuerpo: { herramienta: 'tipo-de-cambio' } }, b)),
-              eventoUso(Object.assign({}, b, { cuerpo: { herramienta: 'tipo-de-cambio', accion: 'descarga_rango' }, ua: 'curl/8' }))];
+              eventoUso(Object.assign({}, b, { cuerpo: { herramienta: 'tipo-de-cambio', accion: 'descarga_rango' }, ua: 'curl/8' })),
+              eventoUso(Object.assign({ cuerpo: { herramienta: 'diagnostico-del-mes', n: 10, accion: 'diagnostico_ejecutado' } }, b))];
   assert.equal(ev[2].bot, true, 'calibracion: el tercero es de un bot');
+  assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'diagnostico-del-mes', accion: 'descarga_rango' } }, b)), null, 'una accion de otra herramienta no vale');
   const r = resumir(ev, { desde: '2026-10-12', hasta: '2026-10-18' });
-  assert.deepEqual(r.usos.reales_por_accion, { 'tipo-de-cambio:descarga_rango': 1 });
+  assert.deepEqual(r.usos.reales_por_accion, { 'tipo-de-cambio:descarga_rango': 1,
+    'diagnostico-del-mes:diagnostico_ejecutado': 1, 'diagnostico-del-mes:ejemplo_ejecutado': 0 });
   assert.equal(r.usos.reales_por_herramienta['tipo-de-cambio'], 2, 'la descarga tambien es un uso de la herramienta');
 });
 
