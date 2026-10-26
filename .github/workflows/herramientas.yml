@@ -20,7 +20,9 @@ permissions:
 jobs:
   herramientas:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # La verificacion en negativo sola tarda 52-58 min (medido 2026-10-23/25) y crece con cada
+    # herramienta nueva; con 60 el job se CANCELA a mitad (run 40156294089) aunque todo lo demas pase.
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with:
