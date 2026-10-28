@@ -162,6 +162,9 @@ const SABOTAJES = [
   ['sitemap: falta una herramienta y nombra una que no existe', H('sitemap.xml'), '<loc>https://taxcerteza.mx/herramientas/iva-del-mes/</loc>', '<loc>https://taxcerteza.mx/herramientas/no-existe/</loc>'],
   ['sitemap: robots.txt no declara el de herramientas', path.join(RAIZ, 'robots.txt'), 'Sitemap: https://taxcerteza.mx/herramientas/sitemap.xml', 'Sitemap: https://taxcerteza.mx/otro/sitemap.xml'],
   ['sitemap: el blog nombra una herramienta que no existe', path.join(RAIZ, 'sitemap.xml'), '<loc>https://taxcerteza.mx/ayuda/</loc>', '<loc>https://taxcerteza.mx/herramientas/no-existe/</loc>'],
+  ['sitemap: el raiz vuelve a repetir una herramienta que existe', path.join(RAIZ, 'sitemap.xml'), '<loc>https://taxcerteza.mx/ayuda/</loc>', '<loc>https://taxcerteza.mx/herramientas/iva-del-mes/</loc>'],
+  ['llms: falta una herramienta', path.join(RAIZ, 'llms.txt'), '](https://taxcerteza.mx/herramientas/diagnostico-del-mes/)', '](https://taxcerteza.mx/blog/diagnostico-del-mes/)'],
+  ['llms: nombra una herramienta que no existe', path.join(RAIZ, 'llms.txt'), '](https://taxcerteza.mx/blog/):', '](https://taxcerteza.mx/herramientas/no-existe/):'],
   ['sitemap: una pagina cambia y conserva su fecha', path.join(RAIZ, '.herramientas', 'construir.py'), 'fechas[ruta] = {"huella": huella, "fecha": antes["fecha"] if antes.get("huella") == huella else hoy}', 'fechas[ruta] = {"huella": huella, "fecha": antes.get("fecha") or hoy}'],
   ['sitemap: falta la ultima pagina de PAGINAS', path.join(RAIZ, '.herramientas', 'construir.py'), '        urls.append(f\'  <url><loc>{SITIO}{ruta}</loc><lastmod>', '        if nombre != "iva-del-mes": urls.append(f\'  <url><loc>{SITIO}{ruta}</loc><lastmod>'],
   // --- Registro de busqueda de cada titulo (Google Trends)
