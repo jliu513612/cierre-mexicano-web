@@ -2,8 +2,9 @@
 // La usa netlify/functions/descargar.mjs. Lo que se guarda por descarga, y nada mas:
 //   ts, contexto (production / deploy-preview / ...), version, archivo, origen (pagina del propio sitio, ver origenDe),
 //   pais, metodo, bot, interno. Los usos de las herramientas y los clics del embudo van al mismo almacen con su `tipo`.
-// NADA derivado de la IP (decision de la duena del sitio, 2026-10-20: hasta que exista el aviso de privacidad). El
-// user-agent solo se mira al momento para la marca de bot y no se guarda.
+// La IP NO se guarda, ni nada calculado con ella (decision de la duena del sitio, 2026-10-20). Lo unico que sale de la
+// conexion es `pais`: Netlify lo deduce de la IP (context.geo) y aqui solo se guarda su codigo de dos letras; el aviso de
+// privacidad (/privacidad/) lo dice asi. El user-agent solo se mira al momento para la marca de bot y no se guarda.
 // LOS UNICOS ESTAN APAGADOS (UNICOS_ACTIVOS = false). El codigo se conserva: la huella seria sha256(sal | mes | IP | UA)
 // recortada, con la sal en una variable de Netlify; se enciende cuando exista el aviso de privacidad.
 import { createHash, timingSafeEqual } from 'node:crypto';
@@ -77,7 +78,7 @@ export async function enlaceTemporal(d, { traer = fetch, token = '' } = {}) {
 }
 
 /** El evento que se guarda. `unicos` (por omision UNICOS_ACTIVOS) decide si lleva huella; apagado, ni la IP ni nada
-    derivado de ella entra en el evento. */
+    calculado con ella entra en el evento (el codigo de pais, que deduce Netlify, si). */
 export function evento({ ts, contexto, version, archivo, pais, metodo, ua, ip, sal, interno, origen, unicos = UNICOS_ACTIVOS }) {
   const e = { ts, contexto, version, archivo, origen: origen || 'sin_origen', pais: pais || null, metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };
   if (unicos) e.huella = huella(sal, ts, ip, ua);
@@ -117,7 +118,7 @@ export function origenDe(referer, host) {
 }
 
 /** CLIC en un paso del embudo (/descargar/ir/<destino>): destino de la tabla y pagina de origen. Misma privacidad que
-    las descargas: nada derivado de la IP. Devuelve null si el destino no esta en la tabla. */
+    las descargas: ni la IP ni nada calculado con ella; solo el codigo de pais. Devuelve null si el destino no esta en la tabla. */
 export function eventoClic({ ts, contexto, destino: d, tabla, origen, pais, metodo, ua, interno }) {
   if (typeof d !== 'string' || !Object.prototype.hasOwnProperty.call(tabla, d)) return null;
   return { tipo: 'clic', ts, contexto, destino: d, origen: origen || 'sin_origen', pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };
