@@ -1,0 +1,38 @@
+{
+ "slug": "cuando-vence-la-declaracion-mensual-dia-17",
+ "huella": "c9659beed7bf026916956f7ee35340bbb397386798ac18f991e00b3ddc4426b3",
+ "fecha": "2026-10-20",
+ "puntajes": [
+  68,
+  66
+ ],
+ "puntaje": 67.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   88,
+   92,
+   82,
+   85,
+   88,
+   90
+  ],
+  "maquina": [
+   22,
+   18,
+   12,
+   10
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 5,
+ "leves_pendientes": [
+  "«Tres pagos comparten la fecha» se lee como lista completa (omite 612 y 606).",
+  "«Los complementos de pago tienen su propio plazo, que se cuenta en días naturales»: la 2.7.1.32 fija «quinto día natural»; cff-12 lo deja sin resolver.",
+  "La lista de días que no se cuentan es para plazos en días; para fecha determinada se computan todos (prórroga solo si el último día es inhábil).",
+  "«La información de proveedores tiene el suyo»: liva-32-viii fija el 17; la 4.5.1 da otra lectura.",
+  "La herramienta del calendario no está en funciones.json."
+ ],
+ "nota": "Ronda anterior (mismo dia) anulada: un ancla humana (humano_3) quedo por debajo de 80 con dos revisores distintos (78 y 76). El texto se mejoro solo en estilo y con los tres matices leves de contenido de esa ronda, y se reviso entero de nuevo con paquete nuevo."
+}
