@@ -1,0 +1,32 @@
+{
+  "theme.SearchBar.label": {
+    "message": "Buscar"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Sin resultados"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Ver todos los resultados"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Ver resultados fuera de «{context}»"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Ver todos los resultados en «{context}»"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Resultados de «{query}»"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Buscar en la ayuda"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 página encontrada|{count} páginas encontradas"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No se encontró ninguna página"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "En toda la ayuda"
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "_doc": [
+    "INVENTARIO DE PUBLICABILIDAD de «key documents» (June 2026-07-19).",
+    "",
+    "Sustituye el criterio de una persona por una regla declarada. Antes, lo que",
+    "salía al cliente dependía de que alguien mirara cada documento y decidiera;",
+    "eso no escala, no es auditable y no sobrevive a quien lo hacía.",
+    "",
+    "TRES REGLAS, todas fail-closed:",
+    "  1. Lo que no está declarado NO se publica. Un documento nuevo que nadie",
+    "     clasificó hace fallar el gate: obliga a decidir, no se cuela por olvido.",
+    "  2. Yo (Claude) puedo PROPONER una clase; no puedo activarla. Mientras",
+    "     'decidido_por' sea 'propuesta', el generador NO lee ese documento.",
+    "     Publicar es un acto comercial y legal — lo firma June, no la máquina.",
+    "  3. 'parcial' obliga a declarar QUÉ parte sale. Nunca 'el documento menos",
+    "     lo malo' (eso es una lista negra y las listas negras se quedan cortas):",
+    "     siempre 'solo esto', lista blanca explícita.",
+    "",
+    "clases: publico | parcial | interno",
+    "decidido_por: june | propuesta   ('propuesta' = esperando a June, no se usa)"
+  ],
+  "documentos": {
+    "INDICE.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "índice de la carpeta interna; revela la estructura de trabajo"
+    },
+    "registros/FORMULAS_CALCULO_2026-07.xlsx": {
+      "clase": "parcial",
+      "decidido_por": "june",
+      "fecha": "2026-07-19",
+      "razon": "los 339 «Cálculo (lectura CPA)» se publican: transparencia y defendibilidad como argumento de venta",
+      "solo_estas_columnas": [
+        "ID",
+        "Concepto",
+        "Cálculo (lectura CPA)",
+        "Fundamento legal"
+      ],
+      "jamas_estas_columnas": [
+        "Fórmula técnica (dev)",
+        "Código (archivo:línea)",
+        "Insumos",
+        "Parámetros fiscales"
+      ],
+      "saneo": "sanear_publicable() quita IDs internos (CAL/DESC/D-nn, REGLAS §, informes) y conserva el hecho «en revisión» en lenguaje de cliente",
+      "filas_no_publicables": {
+        "ids": ["OPE-013", "OPE-014", "OPE-015", "OPE-016", "OPE-017", "OPE-018", "OPE-019", "OPE-020", "OPE-021", "OPE-022", "OPE-023", "OPE-024", "OPE-025", "OPE-026", "OPE-027"],
+        "decidido_por": "june",
+        "fecha": "2026-10-13",
+        "razon": "describen el módulo de inventario, que su propio código declara experimental y no entregado; publicar su cálculo sería describir una capacidad que el producto no ofrece"
+      }
+    },
+    "_nota_catalogo": "OJO: la copia que SE DISTRIBUYE es paquete/CATALOGO_COMERCIAL.xlsx (1.0.31, 49 afirmaciones, auditada el 07-17) y NO está en git (.gitignore *.xlsx). Las copias de key documents declaran 1.0.23 y se modificaron el 07-18 22:17 — durante la recuperación del borrado, que aparentemente restauró la versión vieja encima. No se perdió el archivo: se perdió la VERSIÓN. Alinear desde paquete/, no al revés. Ver informes/VERIFICACION_CATALOGO_COMERCIAL_2026-07-20.md",
+    "registros/CATALOGO_COMERCIAL_2026-07.md": {
+      "clase": "publico",
+      "decidido_por": "propuesta",
+      "razon": "está escrito COMO material de venta para distribuidores: lenguaje de cliente, sin columnas internas. Es el candidato natural para la sección «qué hace el software».",
+      "verificado_contra_version": "1.0.23",
+      "bloqueo": "NO PUBLICAR. Verificado el 2026-07-20 contra el código 1.0.37: 0 afirmaciones falsas pero 24 EXAGERADAS, y una promesa VENCIDA (prellenado DF-07, fecha 17-jul, sin una línea de código). Seis frases requieren reescritura antes de circular — ver informes/VERIFICACION_CATALOGO_COMERCIAL_2026-07-20.md §3. Un catálogo comercial desactualizado no es un detalle de forma — describe capacidades, y describir mal una capacidad ES una promesa incumplida. Requiere re-verificación contra el código, no un cambio de número: subir el sello sin revisar el contenido sería poner el candado en verde sin haber mirado.",
+      "historia": "contenido tocado el 2026-07-18 22:17 (auditoría del 07-17) pero el sello de versión quedó en 1.0.23 en AMBAS copias — edición parcial: se cambió el contenido y no todas las representaciones del mismo hecho"
+    },
+    "registros/CATALOGO_COMERCIAL_2026-07.xlsx": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "razon": "misma información que el .md pero es la copia de trabajo; publicar dos representaciones del mismo hecho es invitar a que deriven"
+    },
+    "gobernanza/Garantia_Calidad_Cliente_ES.docx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "fecha": "2026-07-20",
+      "razon": "REVISADO línea por línea: limpio de RFC, nombres, IDs internos y rutas de código, y sus afirmaciones son ciertas (el 100% declarado se verificó contra la matriz: 96/96, cero huecos). Aun así NO va a la base de conocimiento, por regla de June: ninguna frase de garantía o compromiso puede aparecer en la ayuda — y este documento es promesa de principio a fin. Una página de ayuda se lee fuera de contexto, se indexa para siempre y no se negocia; ahí una promesa equivale a un compromiso incondicional.",
+      "sigue_siendo_util": "como material COMERCIAL entregado aparte (propuesta, contrato, kit del distribuidor), donde la promesa tiene alcance, contraprestación y firma. Esa vía no la bloquea esta clasificación: 'interno' aquí significa «no entra al sitio de ayuda».",
+      "candado_asociado": "test_sin_promesas verifica que la cobertura siga siendo 100% mientras ese documento afirme 100%, para que un hueco futuro no vuelva falsa una promesa ya impresa"
+    },
+    "registros/REGISTRO_FUNCIONES_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "inventario interno de 136 funciones; su contraparte pública es el catálogo comercial"
+    },
+    "registros/REGISTRO_FUNCIONES_2026-07.xlsx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "ídem"
+    },
+    "registros/REGISTRO_BUGS_MASTER.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "registro de defectos: publicarlo es entregar al competidor el mapa de debilidades y alarmar al cliente sin contexto"
+    },
+    "registros/REGISTRO_BUGS_MASTER.xlsx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "ídem"
+    },
+    "registros/ACTIVO_SUGERENCIAS.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "backlog de ideas; incluye análisis de competencia"
+    },
+    "registros/BACKLOG_TECNICO.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "deuda técnica"
+    },
+    "registros/PREGUNTAS_CPA_PENDIENTES.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "preguntas abiertas al CPA: expone justo lo que aún no está resuelto"
+    },
+    "informes/Auditoria_Sistema_Fiscal_ES_MASTER_2026-07-12.xlsx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "auditoría: hallazgos y debilidades"
+    },
+    "informes/INFORME_AUDITORIA_CODIGO_2026-07-02.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "auditoría de código"
+    },
+    "informes/INFORME_FALLOS_SILENCIOSOS_2026-07-02.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "catálogo de fallos silenciosos"
+    },
+    "informes/INFORME_FLUJO_DATOS_2026-07-03.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "arquitectura interna de datos"
+    },
+    "informes/INFORME_I18N_2026-07-03.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "informe técnico interno"
+    },
+    "informes/INFORME_REAUDITORIA_2026-07-12.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "re-auditoría"
+    },
+    "informes/VERIFICACION_CATALOGO_COMERCIAL_2026-07-20.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "verificación del catálogo contra el código 1.0.37: enumera lo que el material de venta exagera y los PENDIENTE_DE_VALIDACION del propio código. Es el mapa de las debilidades comerciales — jamás material de cliente. Detectado por el propio candado al crearse."
+    },
+    "diseno/DISEÑO_ARQUITECTURA_TABS_2026-07-03.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "diseño interno"
+    },
+    "diseno/DISEÑO_MULTIPUESTO_Y_SDK_CONTPAQI_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "diseño interno; además menciona integración con un tercero"
+    },
+    "diseno/DISEÑO_RECONCILIACION_Y_ONBOARDING_2026-07-03.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "diseño interno"
+    },
+    "diseno/PATRONES_DE_ERROR_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "doctrina de fallos: es el mapa de dónde puede romperse"
+    },
+    "gobernanza/CADENAS_OPERATIVAS_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "operación interna"
+    },
+    "gobernanza/GESTION_DE_VERSIONES.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "proceso interno"
+    },
+    "gobernanza/GOBERNANZA_MONITOREO_Y_DISPARO_2026-07-14.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "proceso interno"
+    },
+    "gobernanza/MODELO_REGLAS_Y_ACTUALIZACION_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "proceso interno"
+    },
+    "gobernanza/SOP_Modificacion_Software_ES.xlsx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "SOP interno (podría ser señal de confianza, pero requiere reescritura para cliente, no publicación directa)"
+    },
+    "gobernanza/INVENTARIO_RECUPERACION_BORRADO_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "post-mortem de un incidente propio (PROC-12: borrado y recuperación). Narra un fallo de proceso interno y detalla dónde vive el respaldo — jamás material de cliente. Detectado por el propio candado: apareció el 2026-07-20 y el gate lo bloqueó por no estar clasificado."
+    },
+    "cliente-cpa/FEEDBACK_NOE_V100_2026-07-10.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "contiene el nombre de un cliente real y su caso"
+    },
+    "cliente-cpa/PREGUNTAS_RAFAEL_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "nombre del CPA + criterios en discusión"
+    },
+    "cliente-cpa/PRERELLENO_RAFAEL_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "ídem"
+    },
+    "cliente-cpa/PROPUESTA_DIFF_MASTER_PROC-04_2026-07-13.md": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "propuesta de proceso interno"
+    },
+    "guias/CI_Guia_Montaje.docx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "guía de montaje de CI: infraestructura propia"
+    },
+    "_archivo/Auditoria_Sistema_Fiscal_ES_MASTER_2026-07-02.xlsx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "versión superada, archivada"
+    },
+    "_archivo/SOP_Modificacion_Software (2).xlsx": {
+      "clase": "interno",
+      "decidido_por": "june",
+      "razon": "versión superada, archivada"
+    },
+    "registros/REGISTRO_DICTAMENES_CPA_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-20",
+      "razon": "registro de dictámenes del CPA: su nombre jamás en salidas; criterios en discusión. Detectado por el candado al aparecer sin clasificar; propuesta conservadora (interno) a la espera de June."
+    },
+    "registros/REGISTRO_DICTAMENES_CPA_2026-07.xlsx": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-20",
+      "razon": "ídem (gemelo xlsx). Detectado por el candado al aparecer sin clasificar; propuesta conservadora (interno) a la espera de June."
+    },
+    "cliente-cpa/PREGUNTAS_2026-07.xlsx": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-20",
+      "razon": "vista xlsx de las preguntas al CPA (gemela de PREGUNTAS_RAFAEL): nombre del CPA + asuntos abiertos. Detectado por el candado al aparecer sin clasificar; propuesta conservadora (interno) a la espera de June."
+    },
+    "gobernanza/INVENTARIO_ACTIVOS_2026-07.md": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-20",
+      "razon": "inventario de activos: enumera llaves, secretos y dónde viven los datos de cliente — mapa del tesoro, jamás material de cliente. Detectado por el candado al aparecer sin clasificar; propuesta conservadora (interno) a la espera de June."
+    },
+    "gobernanza/INVENTARIO_MANTENIMIENTO_2026-07-20.md": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-20",
+      "razon": "inventario de tareas/monitores internos de mantenimiento. Detectado por el candado al aparecer sin clasificar; propuesta conservadora (interno) a la espera de June."
+    },
+    "informes/COMPARATIVA_SIIGO_FISCAL_2026-07.xlsx": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-20",
+      "razon": "análisis competitivo (pricing y posicionamiento vs competidor): estrategia comercial propia. Detectado por el candado al aparecer sin clasificar; propuesta conservadora (interno) a la espera de June."
+    },
+    "cliente-cpa/PREGUNTAS_RAFAEL_2026-07-21.md": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-21",
+      "razon": "preguntas al CPA vigentes: asuntos en discusion - jamas al sitio de ayuda"
+    },
+    "cliente-cpa/PREGUNTAS_COMITE_2026-07-21.xlsx": {
+      "clase": "interno",
+      "decidido_por": "propuesta",
+      "fecha": "2026-07-21",
+      "razon": "version de envio al CPA (correo directo, no publicacion)"
+    }
+  }
+}
