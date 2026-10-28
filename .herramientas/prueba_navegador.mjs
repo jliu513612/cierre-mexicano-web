@@ -9,6 +9,8 @@
 //   G. con las cabeceras de `_headers` puestas (la politica de contenido), portada, blog y herramientas cargan,
 //      calculan y votan con CERO violaciones. Limite: en local se quita `upgrade-insecure-requests`, porque el
 //      servidor de prueba es http; esa directiva solo se puede comprobar en la vista previa de Netlify.
+//   V. visitas recurrentes (visita.js): tres paginas el mismo dia = un solo envio, con solo el codigo y el mes; con
+//      Global Privacy Control ni envio ni codigo. Cada caso en un perfil limpio (contexto de navegador aparte).
 // Uso: node .herramientas/prueba_navegador.mjs        (CHROME=ruta para indicar otro navegador)
 import http from 'node:http';
 import fs from 'node:fs';
@@ -17,7 +19,7 @@ import os from 'node:os';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
-import { clicDe } from '../netlify/lib/descargas.mjs';
+import { clicDe, visitaDe } from '../netlify/lib/descargas.mjs';
 import { ACCIONES } from '../netlify/lib/herramientas.mjs';
 import embudo from '../netlify/embudo.mjs';
 
@@ -41,6 +43,7 @@ if (fs.existsSync(path.join(RAIZ, '_headers'))) {
 const recibidos = [];           // cuerpos de los POST de OPINION, tal como llegan
 const usos = [];                // cuerpos de los POST a /descargar/uso (usos de las herramientas), aparte
 const clics = [];               // pasos del embudo (/descargar/ir/<destino>): ruta, Referer y el evento que se guardaria
+const visitas = [];             // POST a /descargar/visita: el cuerpo y el evento que se guardaria (visitaDe, la misma logica)
 let modo = 'OK';                // 'OK' | 'FALLA_500' | 'SIN_OPINION'
 const servidor = http.createServer((req, res) => {
   if (req.method === 'POST') {
@@ -48,6 +51,13 @@ const servidor = http.createServer((req, res) => {
     req.on('data', d => { cuerpo += d; });
     req.on('end', () => {
       if (req.url === '/descargar/uso') { usos.push({ cuerpo, ts: Date.now() }); res.writeHead(204); res.end(); return; }
+      if (req.url === '/descargar/visita') {
+        const cab = {};
+        for (const k of ['content-type', 'user-agent', 'cookie', 'dnt', 'sec-gpc']) if (req.headers[k]) cab[k] = req.headers[k];
+        visitaDe(new Request(`http://127.0.0.1:${PUERTO}/descargar/visita`, { method: 'POST', headers: cab, body: cuerpo }), { ts: new Date().toISOString(), contexto: 'prueba' })
+          .then(v => { visitas.push({ cuerpo, evento: v.evento }); res.writeHead(v.estado); res.end(); });
+        return;
+      }
       recibidos.push({ url: req.url, cuerpo, tipo: req.headers['content-type'] });
       res.writeHead(modo === 'FALLA_500' ? 500 : 200); res.end('x');
     });
@@ -483,7 +493,8 @@ async function main() {
     console.log('   peticiones del diagnostico:', [...new Set(pedidos.map(r => r.method + ' ' + r.url.replace(`http://127.0.0.1:${PUERTO}`, '')))].join(' | '));
     exige(fuera.length === 0, `ninguna peticion sale del sitio (${fuera.length})`);
     exige(conMarca.length === 0, `ninguna peticion lleva nombres, RFC ni UUID de los XML (${conMarca.length})`);
-    exige(conCuerpo.length > 0 && conCuerpo.every(r => r.method === 'POST' && r.url.endsWith('/descargar/uso')), `lo unico con cuerpo es el conteo de uso (${conCuerpo.map(r => r.url).join(', ')})`);
+    exige(conCuerpo.length > 0 && conCuerpo.every(r => r.method === 'POST' && (r.url.endsWith('/descargar/uso') || r.url.endsWith('/descargar/visita'))), `lo unico con cuerpo es el conteo de uso o de visita (${conCuerpo.map(r => r.url).join(', ')})`);
+    exige(conCuerpo.filter(r => r.url.endsWith('/descargar/visita')).every(r => Object.keys(JSON.parse(r.postData || '{}')).sort().join() === 'desde,visitante'), 'y la visita solo lleva el codigo y el mes');
     const mios = usos.slice(usos0).map(u => JSON.parse(u.cuerpo));
     exige(mios.every(c => Object.keys(c).every(k => ['herramienta', 'n', 'accion'].includes(k)) && c.herramienta === 'diagnostico-del-mes'), `el uso solo lleva herramienta, n y accion (${JSON.stringify(mios)})`);
     exige(mios.filter(c => c.accion === 'diagnostico_ejecutado').length === 2 && mios.filter(c => c.accion === 'ejemplo_ejecutado').length === 1, `cuenta dos diagnosticos y un ejemplo (${mios.map(c => c.accion).join(',')})`);
@@ -697,6 +708,44 @@ async function main() {
     exige(usos.length === antes + 2, `pasados 2 s el siguiente calculo vuelve a contar (contados ${usos.length - antes})`);
     exige(JSON.parse(usos[usos.length - 1].cuerpo).herramienta === 'valor-uma', 'el uso es de la herramienta que se ejecuto');
     await p.cerrar();
+  }
+
+  console.log('V. visitas recurrentes: una al dia, solo el codigo y el mes, y nada con Global Privacy Control');
+  {
+    // cada caso en su propio contexto de navegador: almacenamiento vacio, sin depender del orden de las demas pruebas
+    const perfilLimpio = async gpc => {
+      const { browserContextId } = await cdp('Target.createBrowserContext');
+      const { targetId } = await cdp('Target.createTarget', { url: 'about:blank', browserContextId });
+      const { sessionId: s } = await cdp('Target.attachToTarget', { targetId, flatten: true });
+      await cdp('Page.enable', {}, s); await cdp('Runtime.enable', {}, s);
+      if (gpc) await cdp('Page.addScriptToEvaluateOnNewDocument', { source: "Object.defineProperty(Navigator.prototype,'globalPrivacyControl',{get:()=>true})" }, s);
+      const js = async e => (await cdp('Runtime.evaluate', { expression: e, returnByValue: true }, s)).result.value;
+      const ir = async ruta => {
+        const d = eventos.length;
+        await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}${ruta}` }, s);
+        for (let i = 0; i < 100 && !eventos.slice(d).some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
+        await espera(400);
+      };
+      return { js, ir, cerrar: async () => { await cdp('Target.closeTarget', { targetId }); await cdp('Target.disposeBrowserContext', { browserContextId }); } };
+    };
+    const v0 = visitas.length;
+    let q = await perfilLimpio(false);
+    for (const ruta of ['/herramientas/', '/herramientas/valor-uma/', '/privacidad/']) await q.ir(ruta);
+    const mias = visitas.slice(v0);
+    exige(mias.length === 1, `tres paginas el mismo dia: una sola visita (${mias.length})`);
+    const c = mias[0] ? JSON.parse(mias[0].cuerpo) : {};
+    exige(Object.keys(c).sort().join() === 'desde,visitante' && /^[0-9a-f]{32}$/.test(c.visitante || ''), `el envio solo lleva el codigo aleatorio y el mes (${Object.keys(c).join(',')})`);
+    exige(!!(mias[0] && mias[0].evento) && Object.keys(mias[0].evento).sort().join() === 'bot,contexto,desde,interno,tipo,ts,visitante', 'lo que se guardaria no lleva nada mas');
+    const g = JSON.parse((await q.js("localStorage.getItem('tc_visitante')")) || '{}');
+    exige(g.id === c.visitante && g.desde === c.desde, 'el navegador guarda el mismo codigo que envio');
+    await q.cerrar();
+    const v1 = visitas.length;
+    q = await perfilLimpio(true);
+    await q.ir('/herramientas/');
+    exige((await q.js('navigator.globalPrivacyControl')) === true, 'calibracion: el navegador de prueba tiene Global Privacy Control activado');
+    await espera(300);
+    exige(visitas.length === v1 && (await q.js("localStorage.getItem('tc_visitante')")) === null, `con Global Privacy Control: ni envio ni codigo (${visitas.length - v1} envios)`);
+    await q.cerrar();
   }
 
   console.log('G. politica de contenido de _headers');

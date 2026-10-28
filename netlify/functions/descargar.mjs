@@ -5,13 +5,14 @@
 //   /descargar/resumen?clave=  resumen JSON de un periodo (?desde=&hasta=, por omision la semana anterior). No es publico.
 //   /descargar/uso  (POST)     USO de una herramienta: {herramienta, n}; lo manda herramientas/uso.js al ejecutar el calculo.
 //                              Va bajo /descargar para que le llegue la misma cookie de interno (Path=/descargar).
+//   /descargar/visita (POST)   VISITA: {visitante, desde}, el identificador aleatorio de herramientas/visita.js (como mucho
+//                              una al dia por navegador). No recibe el contexto de Netlify: ni la IP ni el pais (visitaDe).
 //   /descargar/ir/<destino>    CLIC en un paso del embudo (whatsapp, demo, descargar, video): lo cuenta con la pagina de
 //                              origen (cabecera Referer del propio sitio) y redirige (302) al destino de netlify/embudo.mjs.
 //                              Un destino que no esta en esa tabla da 404: no hay redireccion abierta.
 // La descarga (/descargar) tambien guarda su pagina de origen, igual.
 // UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
 //   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno y de /descargar/resumen (la tienen las mismas personas).
-// Con los unicos encendidos (UNICOS_ACTIVOS, hoy apagado) haria falta ademas DESCARGAS_SAL.
 // La descarga entrega una URL FIRMADA de GitHub que caduca (enlaceTemporal), no el enlace permanente. Si el archivo pasa a
 // un repo PRIVADO (tabla: `privado: {repo, asset}`), hace falta ademas GITHUB_DIST_TOKEN: token de SOLO LECTURA de ese repo.
 // Lo de las vistas previas va a OTRO almacen ('descargas-pruebas') y su resumen se lee sin clave: son descargas de prueba,
@@ -19,7 +20,7 @@
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
 import embudo from '../embudo.mjs';
-import { evento, eventoUso, clicDe, PREFIJO_IR, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
+import { evento, eventoUso, visitaDe, RUTA_VISITA, clicDe, PREFIJO_IR, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -61,12 +62,8 @@ export default async (req, context) => {
     if (RE_FECHA.test(url.searchParams.get('desde') || '')) desde = url.searchParams.get('desde');
     if (RE_FECHA.test(url.searchParams.get('hasta') || '')) hasta = url.searchParams.get('hasta');
     if (diasEntre(desde, hasta).length > 62) return respuesta('Periodo demasiado largo (maximo 62 dias)', 400);
-    // las huellas internas se buscan desde el primer dia del mes: una descarga con la cookie marca a ese equipo todo el mes
-    const eventos = await leer(store, desde.slice(0, 8) + '01', hasta);
-    const internas = eventos.filter(e => e.interno && e.huella).map(e => e.huella);
-    const r = resumir(eventos, { desde, hasta, contexto, internas });
+    const r = resumir(await leer(store, desde, hasta), { desde, hasta, contexto });
     r.clave_interna_configurada = !!env('DESCARGAS_CLAVE_INTERNA');   // solo si existe; jamas el valor
-    r.unicos = UNICOS_ACTIVOS ? (env('DESCARGAS_SAL') ? 'activos' : 'activos sin sal') : 'apagados (sin aviso de privacidad)';
     return respuesta(JSON.stringify(r, null, 1), 200, { 'Content-Type': 'application/json; charset=utf-8' });
   }
 
@@ -81,6 +78,16 @@ export default async (req, context) => {
     try { await store.setJSON(`ev/${ts.slice(0, 10)}/${ts}-u-${Math.random().toString(36).slice(2, 10)}`, ev); }
     catch (e) { console.error('uso: no se pudo registrar', e && e.message); }
     return respuesta(null, 204);
+  }
+
+  if (ruta === RUTA_VISITA) {
+    const ts = new Date().toISOString();
+    const v = await visitaDe(req, { ts, contexto });   // sin `context`: la IP y el pais no llegan ahi
+    if (v.evento) {
+      try { await store.setJSON(`ev/${ts.slice(0, 10)}/${ts}-v-${Math.random().toString(36).slice(2, 10)}`, v.evento); }
+      catch (e) { console.error('visita: no se pudo registrar', e && e.message); }
+    }
+    return respuesta(v.estado === 404 ? 'No encontrado' : v.estado === 400 ? 'Visita no valida' : null, v.estado);
   }
 
   const origen = origenDe(req.headers.get('referer'), url.host);
@@ -103,7 +110,6 @@ export default async (req, context) => {
   const ev = evento({
     ts, contexto, version: d.version, archivo: d.archivo, origen, pais: context.geo && context.geo.country && context.geo.country.code,
     metodo: req.method, ua: req.headers.get('user-agent'),
-    ip: UNICOS_ACTIVOS ? context.ip : undefined, sal: UNICOS_ACTIVOS ? env('DESCARGAS_SAL') : '',
     interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || ''),
   });
   try {
@@ -118,4 +124,4 @@ export default async (req, context) => {
   return respuesta(null, 302, { Location: enlace.url });
 };
 
-export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso', '/descargar/ir/*'] };
+export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso', '/descargar/visita', '/descargar/ir/*'] };
