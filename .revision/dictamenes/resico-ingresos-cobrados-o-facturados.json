@@ -1,27 +1,36 @@
 {
  "slug": "resico-ingresos-cobrados-o-facturados",
- "huella": "e47bfb8acde9704b6e08f3598f7d3ff95998d6a6d5cc2e2a670358c32a01d0d8",
- "fecha": "2026-10-12",
- "puntaje": 66,
+ "huella": "1eb5227c4923f05c93cd0aef6a32d3d12dd31ce26a77ddb44e21ec4a7c76bc63",
+ "fecha": "2026-10-27",
+ "puntajes": [
+  76,
+  76
+ ],
+ "puntaje": 76.0,
  "a_ciegas_con_anclas": true,
  "anclas": {
   "humanos": [
-   95,
+   85,
    88,
-   90
+   90,
+   90,
+   86,
+   88
   ],
   "maquina": [
    12,
-   15
+   18,
+   10,
+   12
   ]
  },
  "graves": 0,
  "medios": 0,
- "leves": 4,
+ "leves": 3,
  "leves_pendientes": [
-  "fecha de pago del complemento como regla",
-  "cheque: depósito igualado a fecha de cobro y falta 'salvo en procuración' en ese pasaje",
-  "'aunque no tenga factura' atribuido al artículo 207",
-  "'PPD mientras no se cobra' dicho sin matiz"
- ]
+  "la fecha de pago del REP como criterio sin hecho que lo respalde",
+  "cheque depositado frente a cheque cobrado (la salvedad de procuracion solo esta en la FAQ)",
+  "«el anticipo sin factura lo detectas tu» se queda corto frente a la conciliacion bancaria"
+ ],
+ "motivo": "Cambio de titulo/descripcion/primer parrafo/enlaces por la consulta de Google Trends del 2026-10-27 (registro/terminos/resico-ingresos-cobrados-o-facturados.json); el contenido no cambia. Ronda 1 de esta revision."
 }

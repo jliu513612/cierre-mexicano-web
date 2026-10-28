@@ -1,52 +1,36 @@
 {
  "slug": "lista-negra-sat-efos-69b",
- "huella": "070a3d1b0dc3b5ce6b695767d1c31b7b5214e34b96cce177bd6d9051204beab1",
- "fecha": "2026-10-12",
+ "huella": "c574d952cf6b3f5ca7585cd723eeed0f7e16023fd6381f88c30be4994a4ec1c8",
+ "fecha": "2026-10-27",
  "puntajes": [
-  73,
-  70
+  72,
+  74
  ],
- "puntaje": 71.5,
+ "puntaje": 73.0,
  "a_ciegas_con_anclas": true,
  "anclas": {
-  "revisor_a": {
-   "humanos": [
-    95,
-    93,
-    94
-   ],
-   "maquina": [
-    14,
-    11
-   ]
-  },
-  "revisor_b": {
-   "humanos": [
-    90,
-    93,
-    95
-   ],
-   "maquina": [
-    8,
-    18
-   ]
-  }
+  "humanos": [
+   85,
+   88,
+   90,
+   90,
+   86,
+   88
+  ],
+  "maquina": [
+   12,
+   18,
+   10,
+   12
+  ]
  },
  "graves": 0,
  "medios": 0,
- "leves": 5,
- "nota": "ronda 2; ronda 1: 66 y 70, con 2 medios (prórroga 'dentro del mismo plazo'; ejemplo con pago en efectivo)",
+ "leves": 3,
  "leves_pendientes": [
-  "'todavía puede desvirtuar': el plazo de pruebas del presunto puede haber vencido",
-  "juicio probatorio del ejemplo",
-  "'ante la propia autoridad'",
-  "'ese cruce' sugiere listado vigente al día y repetición mensual",
-  "'Eso lo decide el cliente' depende del ejemplo"
+  "50 dias pueden suspenderse si la autoridad requiere informacion en los primeros 20",
+  "«todavia puede desvirtuar» es mas ancho que el permite pasado el plazo",
+  "el ejemplo juzga que evidencia sostiene una operacion"
  ],
- "que_baja_el_puntaje": [
-  "la respuesta directa del inicio se lee como formato para buscadores",
-  "paráfrasis del artículo en orden, sin observaciones de práctica",
-  "ejemplo demasiado simétrico",
-  "voz sin postura propia"
- ]
+ "motivo": "Cambio de titulo/descripcion/primer parrafo/enlaces por la consulta de Google Trends del 2026-10-27 (registro/terminos/lista-negra-sat-efos-69b.json); el contenido no cambia. Ronda 1 de esta revision."
 }
