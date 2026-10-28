@@ -59,3 +59,35 @@ test('busqueda: cada registro esta completo y el titulo contiene la expresion el
     assert.ok(normal(tituloPublicado(n)).includes(normal(r.elegida)), `${n}: el titulo «${tituloPublicado(n)}» no contiene «${r.elegida}»`);
   }
 });
+
+// «Palabras clave» = la expresion en el titulo, la descripcion, el H1, el primer parrafo y los textos de los enlaces
+// internos (no la etiqueta meta keywords, que Google ignora). Descripcion y H1: la expresion entera. Primer parrafo y
+// tarjeta del indice: todas sus palabras, porque forzar la frase exacta en la prosa la rompe.
+const textoDe = (html) => html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+const palabras = (t) => normal(t).split(' ').filter(Boolean);
+function partes(n) {
+  const h = fs.readFileSync(path.join(RAIZ, 'herramientas', n === 'indice' ? '' : n, 'index.html'), 'utf8');
+  return {
+    descripcion: textoDe((/<meta name="description" content="([^"]*)"/.exec(h) || [])[1] || ''),
+    h1: textoDe((/<h1[^>]*>([\s\S]*?)<\/h1>/.exec(h) || [])[1] || ''),
+    parrafo: textoDe((/<p class="lead">([\s\S]*?)<\/p>/.exec(h) || [])[1] || ''),
+  };
+}
+
+test('busqueda: la expresion elegida va en la descripcion, el H1, el primer parrafo y la tarjeta del indice', () => {
+  const indice = fs.readFileSync(path.join(RAIZ, 'herramientas', 'index.html'), 'utf8');
+  for (const n of publicadas()) {
+    const p = path.join(DIR, n + '.json');
+    if (!fs.existsSync(p)) continue;
+    const eleg = JSON.parse(fs.readFileSync(p, 'utf8')).elegida;
+    const x = partes(n);
+    for (const k of ['descripcion', 'h1']) assert.ok(normal(x[k]).includes(normal(eleg)), `${n}: ${k} «${x[k]}» no contiene «${eleg}»`);
+    const enParrafo = palabras(x.parrafo);
+    assert.deepEqual(palabras(eleg).filter((w) => !enParrafo.includes(w)), [], `${n}: al primer parrafo le faltan palabras de «${eleg}»`);
+    if (n === 'indice') continue;
+    const tarjeta = (new RegExp(`<a class="tarjeta" href="/herramientas/${n}/">\\s*<h2>([^<]*)</h2>`).exec(indice) || [])[1];
+    assert.ok(tarjeta, `${n}: sin tarjeta en el indice`);
+    const enTarjeta = palabras(tarjeta);
+    assert.deepEqual(palabras(eleg).filter((w) => !enTarjeta.includes(w)), [], `${n}: a la tarjeta «${tarjeta}» le faltan palabras de «${eleg}»`);
+  }
+});

@@ -168,6 +168,9 @@ const SABOTAJES = [
   ['busqueda: se borra el registro de una pagina', path.join(RAIZ, '.herramientas', 'busqueda', 'iva-del-mes.json'), null, null],
   ['busqueda: el titulo cambio sin volver a medir', path.join(RAIZ, '.herramientas', 'busqueda', 'iva-del-mes.json'), '"titulo": "IVA a pagar o a favor del mes: estimación con tus XML"', '"titulo": "¿Cuánto IVA pago este mes? Estimación con tus XML"'],
   ['busqueda: el titulo no contiene la expresion elegida', path.join(RAIZ, '.herramientas', 'busqueda', 'tipo-de-cambio.json'), '"elegida": "tipo de cambio dof"', '"elegida": "tipo de cambio banxico"'],
+  ['busqueda: el H1 pierde la expresion', H('tipo-de-cambio/index.html'), '<h1>Tipo de cambio DOF del dólar para efectos fiscales</h1>', '<h1>Tipo de cambio del dólar para efectos fiscales</h1>'],
+  ['busqueda: el primer parrafo pierde la expresion', H('iva-del-mes/index.html'), 'la página estima el IVA a pagar o a favor', 'la página estima el IVA a cargo o a favor'],
+  ['busqueda: la tarjeta del indice pierde la expresion', H('index.html'), '<h2>EFOS: consulta de la lista 69-B</h2>', '<h2>Consulta de la lista 69-B</h2>'],
   // --- IVA del mes
   ['iva: lo retenido al proveedor no sale del acreditable (Q-17600)', H('iva-del-mes/iva.js'), 'acr = res(acr, sale);', 'acr = sum(acr, CERO);'],
   ['iva: una PPD emitida causa sin complemento de pago', H('iva-del-mes/iva.js'), 'pendCau.push(c.uuid);', 'cau16 = sum(cau16, c.iva);'],

@@ -1,11 +1,11 @@
 {
  "/herramientas/": {
   "fecha": "2026-10-27",
-  "huella": "17a15676b475b16021b55d2583dd0bad41ac38419631a698496cb5546fa135a1"
+  "huella": "17c9ec8ee366c10ca29c988a4b7427545339c774a92ca145b1efbf593462bc13"
  },
  "/herramientas/calendario-dia-17/": {
   "fecha": "2026-10-27",
-  "huella": "79883878545c426e1e12ed2adb1cf54a3a32952ea908b84c29d3d65708c5c980"
+  "huella": "a59809aa6d0c146db891fe3f397a1669880e574c857335145062cb7102436fdd"
  },
  "/herramientas/complemento-de-pago/": {
   "fecha": "2026-10-21",
@@ -13,27 +13,27 @@
  },
  "/herramientas/diagnostico-del-mes/": {
   "fecha": "2026-10-27",
-  "huella": "518aaa4dc296c9d6158027714c0d0a14bd9b506caacb7cf7585b7b9461dca714"
+  "huella": "13e083f492a174ced8a2def76fb9b9d5dd6e666527cb32979fb0cef3ee235cb2"
  },
  "/herramientas/factura-con-retenciones/": {
   "fecha": "2026-10-27",
-  "huella": "4352d5e85a86e4423506009b0311c3e84ce3e75fbf9ecaedc120fa0d3a135940"
+  "huella": "37ef2876ae4841d2800d64f38cd91ffc3f389a36f366fa3b990ef5886b7a7f05"
  },
  "/herramientas/iva-del-mes/": {
   "fecha": "2026-10-27",
-  "huella": "e6bb23abb4d61f856624ef4e1fe5d2395b28c111d839195974a0eeff8c2628cc"
+  "huella": "08d85b7c2759fde1f3e67a0edeac318cb2e15c7078941d143859fa4fdd4e8759"
  },
  "/herramientas/lista-69b/": {
   "fecha": "2026-10-27",
-  "huella": "8e13c8103090cce7d408e30f198d5c04b5083d09589fbb7511d06f3c3cc555f8"
+  "huella": "d3d3e5b0e6b4888aebea54cd28cea4d58e36f32c80868afdf5a22784a17680ca"
  },
  "/herramientas/tipo-de-cambio/": {
   "fecha": "2026-10-27",
-  "huella": "9f473c27d01824d1299f2d676ea13c983fef40b3c0a218371a5a0a538f3a47ac"
+  "huella": "4f9f4a779011c8eb30d2b030f7c9ba8bb06c78b42b3a09acfa26da17b187671c"
  },
  "/herramientas/validar-rfc/": {
-  "fecha": "2026-10-21",
-  "huella": "f960727d5409401d16d556360d210b7993b6597538d52ce0611f74b7874678b3"
+  "fecha": "2026-10-27",
+  "huella": "19cf77dbaa17a672c6e8046073bd9e2d88d4b588cbef4194150ed66d614c4c4b"
  },
  "/herramientas/valor-uma/": {
   "fecha": "2026-10-21",
@@ -41,6 +41,6 @@
  },
  "/herramientas/verificar-factura/": {
   "fecha": "2026-10-27",
-  "huella": "ee7ca1d37ca62f9368ee05b472bb189d9e415d75fb0d90b4c550b0ef1f0286d3"
+  "huella": "74862af7c7812a46eb7c527dbe39d683964ee4869345c9b6ab1ae5284d88dd31"
  }
 }
