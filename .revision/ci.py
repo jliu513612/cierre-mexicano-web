@@ -8,8 +8,10 @@ para aprobarse a si mismo). <dir_pr> es el contenido del PR, que se trata como D
 Reglas:
 1. Un PR que toca el blog solo puede tocar blog/, sitemap.xml, llms.txt y .revision/dictamenes/.
 2. Un PR que toca .github/ o .revision/ (fuera de dictamenes) es un cambio del estandar: no puede traer articulos.
-3. Cada articulo nuevo o cuyo contenido cambio debe pasar revisar.py y traer su dictamen del revisor independiente,
-   hecho sobre ESE texto (huella), con puntaje >= minimo y sin hallazgos graves ni medios.
+3. Cada articulo nuevo o cuyo contenido cambio EN ESTE PR debe pasar revisar.py y traer su dictamen del revisor
+   independiente, hecho sobre ESE texto (huella), con puntaje >= minimo y sin hallazgos graves ni medios.
+   «En este PR» se mide contra el merge-base, no contra la punta de main: una rama vieja trae las paginas que main
+   cambio despues con su texto y su dictamen viejos, y el merge no las publica (2026-10-27, PR 105 rojo por resico).
 4. Como mucho un articulo NUEVO por PR, y como mucho <tope> articulos nuevos en main en los ultimos 7 dias.
 """
 import datetime
@@ -31,6 +33,23 @@ def huella(html_texto):
     art = re.split(r'<section class="rel">', art)[0]
     art = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", art)).strip()
     return hashlib.sha256(art.encode("utf-8")).hexdigest()
+
+
+def huella_en(repo, rev, ruta):
+    """Huella de <ruta> en el commit <rev> de <repo>; None si no se puede leer (y entonces no se salta nada)."""
+    r = subprocess.run(["git", "-C", str(repo), "show", f"{rev}:{ruta}"], capture_output=True, text=True, encoding="utf-8")
+    return huella(r.stdout) if r.returncode == 0 and "<article>" in r.stdout else None
+
+
+def merge_base(base, pr):
+    """Merge-base entre la cabeza del PR y main; None si no se puede calcular."""
+    r = subprocess.run(["git", "-C", str(base), "rev-parse", "HEAD"], capture_output=True, text=True)
+    if r.returncode:
+        return None
+    r = subprocess.run(["git", "-C", str(pr), "merge-base", "HEAD", r.stdout.strip()], capture_output=True, text=True)
+    if r.returncode:
+        return None
+    return r.stdout.strip() or None
 
 
 def main(base, pr, lista):
@@ -55,6 +74,9 @@ def main(base, pr, lista):
     os.environ["REVISION_BASE"] = str(base / ".revision")
     import revisar  # el de main, nunca el del PR
 
+    mb = merge_base(base, pr)
+    if not mb:
+        avisos.append("no se pudo calcular el merge-base: se revisan contra la punta de main todas las paginas que difieren de ella")
     nuevos = 0
     for pag in sorted((pr / "blog").glob("*/index.html")):
         slug = pag.parent.name
@@ -62,6 +84,8 @@ def main(base, pr, lista):
         vieja = base / "blog" / slug / "index.html"
         if vieja.exists() and huella(vieja.read_text(encoding="utf-8")) == h_pr:
             continue  # el contenido no cambio (solo enlaces relacionados o estilos)
+        if vieja.exists() and mb and huella_en(pr, mb, f"blog/{slug}/index.html") == h_pr:
+            continue  # ESTE PR no cambio el contenido (rama vieja, o solo enlaces): el merge deja el de main
         es_nuevo = not vieja.exists()
         nuevos += es_nuevo
         m, f = revisar.revisar(str(pag))
