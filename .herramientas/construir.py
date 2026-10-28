@@ -232,6 +232,17 @@ def construir():
            "tipo de cambio para solventar obligaciones denominadas en dólares</a>: tabla oficial con las columnas de "
            f'determinación, publicación en el DOF y para solventar obligaciones. Serie {_tc["serie"]} del Sistema de '
            "Información Económica.</li>"])
+    # La descripcion de /herramientas/ se GENERA de PAGINAS: cada herramienta declara @@NOMBRE_LISTA. Escrita a mano,
+    # se quedo nombrando las 3 primeras cuando ya habia 9 (auditoria 2026-10-23). Sin nombre no se construye.
+    _nombres = []
+    for n in PAGINAS:
+        if n == "indice":
+            continue
+        nl = leer_plantilla(n).get("NOMBRE_LISTA", "").strip()
+        if not nl:
+            raise SystemExit(f"{n}: sin @@NOMBRE_LISTA (lo usa la descripcion de /herramientas/)")
+        _nombres.append(nl)
+    v_uma["LISTA_HERRAMIENTAS"] = ", ".join(_nombres[:-1]) + " y " + _nombres[-1] if len(_nombres) > 1 else _nombres[0]
     base = (AQUI / "plantillas" / "base.html").read_text(encoding="utf-8")
     salidas = {}
     for nombre, ruta in PAGINAS.items():
@@ -241,6 +252,11 @@ def construir():
         migas = [("Inicio", "/"), ("Herramientas", "/herramientas/")]
         if nombre != "indice":
             migas.append((s["MIGA"], ruta))
+        else:
+            # las tarjetas del indice estan escritas a mano: una herramienta nueva sin tarjeta no se ve. Falla cerrado.
+            sin_tarjeta = [r for n, r in PAGINAS.items() if n != "indice" and f'href="{r}"' not in s["CUERPO"]]
+            if sin_tarjeta:
+                raise SystemExit(f"indice: sin tarjeta para {', '.join(sin_tarjeta)}")
         grafo = []
         if nombre == "indice":
             grafo.append({"@type": "CollectionPage", "name": s["TITULO_CORTO"], "url": SITIO + ruta, "description": s["DESCRIPCION"],
