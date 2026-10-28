@@ -1,5 +1,5 @@
 {
-  "nota": "Inventario MAQUINA de lo que el sitio recoge. Lo coteja privacidad.test.js en las dos direcciones: contra el codigo (cada evento que construye netlify/lib/descargas.mjs u opinion.js tiene exactamente los campos con se_guarda=true) y contra el texto del aviso (aviso_es.html y aviso_en.html nombran cada id con data-datos y cada finalidad con data-finalidad). No depende de la redaccion: el aviso se puede sustituir entero y la prueba sigue mordiendo si le falta una entrada. cotejo: 'evento' = se compara con el evento real; 'no_guardado' = se comprueba que NO aparece en ningun evento; 'declarado' = no hay codigo en este repo que lo produzca, y lleva su razon.",
+  "nota": "Inventario MAQUINA de lo que el sitio recoge. Lo coteja privacidad.test.js en las dos direcciones: contra el codigo (cada evento que construye netlify/lib/descargas.mjs, opinion.js o visita.js tiene exactamente los campos con se_guarda=true; almacen_visita es lo que visita.js deja en el almacenamiento del navegador) y contra el texto del aviso (aviso_es.html y aviso_en.html nombran cada id con data-datos y cada finalidad con data-finalidad). No depende de la redaccion: el aviso se puede sustituir entero y la prueba sigue mordiendo si le falta una entrada. cotejo: 'evento' = se compara con el evento real; 'no_guardado' = se comprueba que NO aparece en ningun evento; 'declarado' = no hay codigo en este repo que lo produzca, y lleva su razon.",
   "finalidades": {
     "conteo": "primaria: cifras de conjunto de descargas, usos y clics",
     "mejora": "primaria: mejorar las herramientas con las opiniones",
@@ -33,6 +33,16 @@
     {"id": "clic.pais", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
     {"id": "clic.bot", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
     {"id": "clic.interno", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.tipo", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.ts", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.contexto", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.visitante", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.desde", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.bot", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "visita.interno", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "almacen_visita.id", "se_guarda": true, "donde": "navegador", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "almacen_visita.desde", "se_guarda": true, "donde": "navegador", "finalidad": "conteo", "cotejo": "evento"},
+    {"id": "almacen_visita.dia", "se_guarda": true, "donde": "navegador", "finalidad": "conteo", "cotejo": "evento"},
     {"id": "opinion.herramienta", "se_guarda": true, "donde": "servidor", "finalidad": "mejora", "cotejo": "evento"},
     {"id": "opinion.clase", "se_guarda": true, "donde": "servidor", "finalidad": "mejora", "cotejo": "evento"},
     {"id": "opinion.voto", "se_guarda": true, "donde": "servidor", "finalidad": "mejora", "cotejo": "evento"},

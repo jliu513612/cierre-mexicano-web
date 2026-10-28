@@ -16,8 +16,13 @@ if (!r.ok) {
 const x = await r.json();
 console.log(`Descargas del ${x.periodo.desde} al ${x.periodo.hasta} (${x.contexto}): ` +
   `${x.descargas_reales} descargas reales (sin bots ni las nuestras); ` +
-  `en total ${x.descargas_total} descargas, ${x.descargas_bots} de bots y ${x.descargas_internas} nuestras.` +
-  ('unicos_reales' in x ? ` Personas distintas: ${x.unicos_reales}.` : ''));
+  `en total ${x.descargas_total} descargas, ${x.descargas_bots} de bots y ${x.descargas_internas} nuestras.`);
+if (x.visitas) {
+  // una visita = un dia con al menos una pagina vista, por navegador con el codigo aleatorio de visita.js
+  const meses = Object.entries(x.visitas.por_mes).map(([m, v]) => `${m} (del ${v.cubre.desde} al ${v.cubre.hasta}): ` +
+    `${v.nuevos} nuevos, ${v.recurrentes} que vuelven, ${v.visitas_por_recurrente === null ? 'sin' : v.visitas_por_recurrente} visitas por cada uno que vuelve`).join('; ');
+  console.log(`Visitas reales (sin bots ni las nuestras): ${x.visitas.reales}. ${meses || 'Ninguna en el periodo'}.`);
+}
 if (x.usos) {
   const lista = Object.entries(x.usos.reales_por_herramienta).sort((a, b) => b[1] - a[1])
     .map(([h, n]) => `${h} ${n}` + (x.usos.elementos_por_herramienta[h] ? ` (${x.usos.elementos_por_herramienta[h]} elementos)` : '')).join(', ');
