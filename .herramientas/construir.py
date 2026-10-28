@@ -123,6 +123,42 @@ def pie_herramienta(nombre):
 CASO_EJEMPLO = 60
 
 
+PRIVACIDAD = {  # el aviso de privacidad del sitio, en los dos idiomas: cuerpo en .herramientas/privacidad/, barra y pie de base.html
+    "es": {"ruta": "/privacidad/", "titulo": "Aviso de privacidad | Tax Certeza", "lang": "es-MX", "locale": "es_MX",
+           "descripcion": "Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos ARCO."},
+    "en": {"ruta": "/privacidad/en/", "titulo": "Privacy notice | Tax Certeza", "lang": "en", "locale": "en_US",
+           "descripcion": "What data the taxcerteza.mx website collects, what it is used for, who it is shared with and how to exercise your rights."},
+}
+
+
+def paginas_privacidad(base):
+    """Las dos paginas del aviso de privacidad. Mientras el cuerpo lleve [POR COMPLETAR] (datos de la empresa que da la
+    duena del sitio) la pagina sale con noindex; la prueba privacidad.test.js ademas falla mientras queden."""
+    salidas = {}
+    for idioma, d in PRIVACIDAD.items():
+        cuerpo = (AQUI / "privacidad" / f"cuerpo_{idioma}.html").read_text(encoding="utf-8").strip("\n")
+        otro = PRIVACIDAD["en" if idioma == "es" else "es"]
+        grafo = [{"@type": "WebPage", "name": d["titulo"].split(" | ")[0], "url": SITIO + d["ruta"], "description": d["descripcion"],
+                  "inLanguage": d["lang"], "isPartOf": {"@type": "WebSite", "name": "Tax Certeza", "url": SITIO + "/"}}]
+        pagina = rellenar(base, {
+            "TITULO": html.escape(d["titulo"], quote=True), "DESCRIPCION": html.escape(d["descripcion"], quote=True), "RUTA": d["ruta"],
+            "JSONLD": json.dumps({"@context": "https://schema.org", "@graph": grafo}, ensure_ascii=False).replace("</", "<\\/"),
+            "NAV_ACTUAL": "", "CUERPO": cuerpo, "SCRIPTS": "", "FORMULARIO": "",
+        })
+        pagina = pagina.replace('<html lang="es-MX">', f'<html lang="{d["lang"]}">', 1)
+        pagina = pagina.replace('<meta property="og:locale" content="es_MX">', f'<meta property="og:locale" content="{d["locale"]}">', 1)
+        pagina = pagina.replace(f'<link rel="canonical" href="{SITIO}{d["ruta"]}">',
+                                f'<link rel="canonical" href="{SITIO}{d["ruta"]}">\n'
+                                f'<link rel="alternate" hreflang="{d["lang"]}" href="{SITIO}{d["ruta"]}">\n'
+                                f'<link rel="alternate" hreflang="{otro["lang"]}" href="{SITIO}{otro["ruta"]}">', 1)
+        if "[POR COMPLETAR" in cuerpo:
+            pagina = pagina.replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, nofollow">', 1)
+        if "[[" in pagina or "{{" in pagina or "@@" in pagina:
+            raise SystemExit(f"privacidad {idioma}: quedaron marcadores sin rellenar")
+        salidas[d["ruta"].strip("/") + "/index.html"] = pagina
+    return salidas
+
+
 def ejemplo_diagnostico():
     import base64
     import gzip
@@ -313,6 +349,7 @@ def construir():
         "/* GENERADO por .herramientas/construir.py desde .herramientas/datos/iva.json. No se edita a mano. */\n"
         "(function (raiz, datos) {\n  if (typeof module === 'object' && module.exports) module.exports = datos;\n"
         "  else raiz.TCIvaDatos = datos;\n})(this, " + json.dumps(iva, ensure_ascii=False, indent=1) + ");\n")
+    salidas.update(paginas_privacidad(base))
     salidas["herramientas/diagnostico-del-mes/ejemplo.json"] = ejemplo_diagnostico()
     tcam = {k: v for k, v in json.loads((AQUI / "datos" / "tipo-cambio.json").read_text(encoding="utf-8")).items() if k != "_nota"}
     salidas["herramientas/tipo-de-cambio/tipo-cambio-datos.js"] = (
