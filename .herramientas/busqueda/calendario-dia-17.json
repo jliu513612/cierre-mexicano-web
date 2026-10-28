@@ -1,0 +1,40 @@
+{
+ "pagina": "/herramientas/calendario-dia-17/",
+ "titulo": "Declaración mensual SAT: cuándo vence, calendario del día 17 para {{CAL_ANIOS}}",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "declaracion mensual sat",
+   "media": 48
+  },
+  {
+   "texto": "dia 17 sat",
+   "media": 0
+  },
+  {
+   "texto": "fecha limite declaracion mensual",
+   "media": 0
+  },
+  {
+   "texto": "calendario fiscal 2026",
+   "media": 1
+  },
+  {
+   "texto": "pago provisional isr",
+   "media": 11
+  }
+ ],
+ "relacionadas": [
+  "como hacer declaracion mensual sat",
+  "declaracion resico",
+  "presentar declaracion sat",
+  "resico",
+  "resico sat"
+ ],
+ "elegida": "declaracion mensual sat",
+ "por_que": "Es la de mayor media (48); «dia 17 sat» y «fecha limite declaracion mensual» dan 0. Sus relacionadas son sobre cómo presentarla («como hacer declaracion mensual sat»), que la página no explica: cubre solo cuándo vence. El título lo dice."
+}

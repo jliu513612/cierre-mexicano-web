@@ -1,0 +1,49 @@
+{
+ "pagina": "/herramientas/valor-uma/",
+ "titulo": "Valor de la UMA {{UMA_ANIO}}: diario, mensual y anual, con conversor",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "uma 2026",
+   "media": 34
+  },
+  {
+   "texto": "valor uma 2026",
+   "media": 7
+  },
+  {
+   "texto": "valor de la uma",
+   "media": 7
+  },
+  {
+   "texto": "uma diaria",
+   "media": 0
+  },
+  {
+   "texto": "uma mensual",
+   "media": 2
+  }
+ ],
+ "relacionadas": [
+  "salario minimo",
+  "uma 2025",
+  "uma 2026 mexico",
+  "uma diaria 2024",
+  "uma diaria 2025",
+  "uma mensual 2024",
+  "valor de la uma 2024",
+  "valor de la uma 2025",
+  "valor de la uma 2026",
+  "valor de la uma 2026 mexico",
+  "valor de la uma diaria 2025",
+  "valor de la uma para 2025",
+  "valor de uma 2026",
+  "valor uma"
+ ],
+ "elegida": "uma 2026",
+ "por_que": "Es la de mayor media (34) y el título ya la contiene («Valor de la UMA 2026»). El año sale de los datos de la UMA: al cambiar de año, el título dirá «UMA 2027» y esta prueba se pondrá roja hasta volver a medir, que es lo que pide el proceso."
+}

@@ -1,0 +1,45 @@
+{
+ "pagina": "/herramientas/factura-con-retenciones/",
+ "titulo": "Retención de IVA e ISR si facturas a una persona moral: calculadora",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "retencion de iva",
+   "media": 39
+  },
+  {
+   "texto": "retencion isr",
+   "media": 71
+  },
+  {
+   "texto": "retencion honorarios",
+   "media": 1
+  },
+  {
+   "texto": "factura con retenciones",
+   "media": 0
+  },
+  {
+   "texto": "retenciones persona moral",
+   "media": 13
+  }
+ ],
+ "relacionadas": [
+  "calculadora isr",
+  "calculadora retencion isr",
+  "calculo retencion isr",
+  "ley del iva",
+  "porcentaje de retencion de iva",
+  "que es retencion de iva",
+  "retencion de iva en resico",
+  "retencion de iva resico",
+  "retencion isr resico",
+  "tablas de retencion isr 2026"
+ ],
+ "elegida": "retencion de iva",
+ "por_que": "«retencion isr» tiene más media (71), pero sus relacionadas son de nómina («tablas de retencion isr 2026», «calculadora isr»), que la página no calcula. «retencion de iva» (39) y sus relacionadas («porcentaje de retencion de iva», «retencion de iva resico») son lo que calcula: lo que retiene una persona moral por honorarios, arrendamiento y fletes. El ISR sigue en el título porque también lo calcula."
+}

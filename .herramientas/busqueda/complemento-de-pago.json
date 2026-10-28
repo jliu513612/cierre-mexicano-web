@@ -1,0 +1,40 @@
+{
+ "pagina": "/herramientas/complemento-de-pago/",
+ "titulo": "Calculadora de la fecha límite del complemento de pago (REP)",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "complemento de pago",
+   "media": 82
+  },
+  {
+   "texto": "rep sat",
+   "media": 0
+  },
+  {
+   "texto": "complemento de pago fecha limite",
+   "media": 0
+  },
+  {
+   "texto": "plazo complemento de pago",
+   "media": 0
+  },
+  {
+   "texto": "complemento de pago ppd",
+   "media": 1
+  }
+ ],
+ "relacionadas": [
+  "como hacer complemento de pago",
+  "complemento de pago que es",
+  "complemento de pago sat",
+  "factura complemento de pago",
+  "sat"
+ ],
+ "elegida": "complemento de pago",
+ "por_que": "Es la única con media apreciable (82; las demás 0 o 1), y el título ya la contiene."
+}

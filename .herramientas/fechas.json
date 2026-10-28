@@ -1,35 +1,35 @@
 {
  "/herramientas/": {
-  "fecha": "2026-10-24",
-  "huella": "c91f1758533a368e4a51e905dbbb11db325a8967645f7ee3347ac892332fcbab"
+  "fecha": "2026-10-27",
+  "huella": "17a15676b475b16021b55d2583dd0bad41ac38419631a698496cb5546fa135a1"
  },
  "/herramientas/calendario-dia-17/": {
-  "fecha": "2026-10-21",
-  "huella": "25bf586979bb1bf2f46a985f4a888c212cd6f008bf9ea9d7da1897d33d3374b0"
+  "fecha": "2026-10-27",
+  "huella": "79883878545c426e1e12ed2adb1cf54a3a32952ea908b84c29d3d65708c5c980"
  },
  "/herramientas/complemento-de-pago/": {
   "fecha": "2026-10-21",
   "huella": "f97406a022045ae452e46c296099fe5579d7fe33f115ab4957f0d8708cafa3a2"
  },
  "/herramientas/diagnostico-del-mes/": {
-  "fecha": "2026-10-23",
-  "huella": "40b30c2608e38ffdee314097f53df78eb091cf6224f1665d57ffb2c46789aa70"
+  "fecha": "2026-10-27",
+  "huella": "518aaa4dc296c9d6158027714c0d0a14bd9b506caacb7cf7585b7b9461dca714"
  },
  "/herramientas/factura-con-retenciones/": {
-  "fecha": "2026-10-21",
-  "huella": "372458cb7915e4327c25c88ff135f846d0f2d304ecd18d75d21c1c0643f0c2f9"
+  "fecha": "2026-10-27",
+  "huella": "4352d5e85a86e4423506009b0311c3e84ce3e75fbf9ecaedc120fa0d3a135940"
  },
  "/herramientas/iva-del-mes/": {
-  "fecha": "2026-10-21",
-  "huella": "3dec42477d25cd171020875f38a8349d49000f301fab749f9a17526acb177312"
+  "fecha": "2026-10-27",
+  "huella": "e6bb23abb4d61f856624ef4e1fe5d2395b28c111d839195974a0eeff8c2628cc"
  },
  "/herramientas/lista-69b/": {
-  "fecha": "2026-10-21",
-  "huella": "d215c4fc14997f37de2e908500fcc4f35806940e44f1b081c2d237252550d045"
+  "fecha": "2026-10-27",
+  "huella": "8e13c8103090cce7d408e30f198d5c04b5083d09589fbb7511d06f3c3cc555f8"
  },
  "/herramientas/tipo-de-cambio/": {
-  "fecha": "2026-10-21",
-  "huella": "facdf4112ce311a3fb9dd380d434e1baa6e5197a991b633dcf073635171235a7"
+  "fecha": "2026-10-27",
+  "huella": "9f473c27d01824d1299f2d676ea13c983fef40b3c0a218371a5a0a538f3a47ac"
  },
  "/herramientas/validar-rfc/": {
   "fecha": "2026-10-21",
@@ -40,7 +40,7 @@
   "huella": "af5bb4b301b4dd60739fe4b71ec6a4e3455c04a5605bb98a8bd2485943464cc9"
  },
  "/herramientas/verificar-factura/": {
-  "fecha": "2026-10-21",
-  "huella": "bb07f6308e16a23401ae4855338e1049f467e94cfc7f94885303d967650232d1"
+  "fecha": "2026-10-27",
+  "huella": "ee7ca1d37ca62f9368ee05b472bb189d9e415d75fb0d90b4c550b0ef1f0286d3"
  }
 }

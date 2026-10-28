@@ -1,0 +1,42 @@
+{
+ "pagina": "/herramientas/",
+ "titulo": "Calculadora SAT y herramientas gratis para contadores en México",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "herramientas fiscales",
+   "media": 0
+  },
+  {
+   "texto": "calculadora fiscal",
+   "media": 4
+  },
+  {
+   "texto": "calculadora sat",
+   "media": 66
+  },
+  {
+   "texto": "herramientas para contadores",
+   "media": 0
+  },
+  {
+   "texto": "calculadora de impuestos",
+   "media": 25
+  }
+ ],
+ "relacionadas": [
+  "calculadora de aguinaldo",
+  "calculadora de impuestos 2026",
+  "calculadora de impuestos mexico",
+  "calculadora de impuestos nomina",
+  "calculadora de impuestos sat",
+  "calculadora isr",
+  "calculadora iva"
+ ],
+ "elegida": "calculadora sat",
+ "por_que": "Es la de mayor media (66). Sus relacionadas son «calculadora iva» y «calculadora isr», y el índice tiene la estimación del IVA del mes y la calculadora de retenciones de IVA e ISR. «herramientas fiscales» y «herramientas para contadores», que eran el título, dan 0. No cubre a quien busca la calculadora de nómina o de aguinaldo (relacionadas de «calculadora de impuestos»): no la tenemos. Las herramientas no son del SAT; la marca va en el título."
+}
