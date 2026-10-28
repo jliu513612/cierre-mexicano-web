@@ -123,39 +123,110 @@ def pie_herramienta(nombre):
 CASO_EJEMPLO = 60
 
 
-PRIVACIDAD = {  # el aviso de privacidad del sitio, en los dos idiomas: cuerpo en .herramientas/privacidad/, barra y pie de base.html
+PRIVACIDAD = {  # el aviso de privacidad del sitio: TEXTO en .herramientas/privacidad/aviso_<idioma>.html (un fichero por idioma)
     "es": {"ruta": "/privacidad/", "titulo": "Aviso de privacidad | Tax Certeza", "lang": "es-MX", "locale": "es_MX",
-           "descripcion": "Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos ARCO."},
+           "h1": "Aviso de privacidad", "migas": "Ruta de navegación", "inicio": "Inicio",
+           "vigente": "Versión {v}, vigente desde el {f}.",
+           "archivada": "Versión {v}, vigente del {f} al {h}. Ya no está vigente: consulta la <a href=\"{ruta}\">versión vigente</a>.",
+           "versiones": "Versiones de este aviso:", "version": "versión {v}", "es_vigente": " (vigente)",
+           "otro": "Privacy notice in English"},
     "en": {"ruta": "/privacidad/en/", "titulo": "Privacy notice | Tax Certeza", "lang": "en", "locale": "en_US",
-           "descripcion": "What data the taxcerteza.mx website collects, what it is used for, who it is shared with and how to exercise your rights."},
+           "h1": "Privacy notice", "migas": "Breadcrumb", "inicio": "Home",
+           "vigente": "Version {v}, in effect since {f}.",
+           "archivada": "Version {v}, in effect from {f} to {h}. It is no longer in effect: see the <a href=\"{ruta}\">current version</a>.",
+           "versiones": "Versions of this notice:", "version": "version {v}", "es_vigente": " (current)",
+           "otro": "Aviso de privacidad en español"},
 }
+MONTHS = "January February March April May June July August September October November December".split()
+
+
+def fuente_aviso(ruta):
+    """Lee un fichero de texto del aviso: una cabecera <!-- ... --> con `version:` y `fecha:` (AAAA-MM-DD, o un
+    [POR COMPLETAR ...] mientras no se publique) y el texto. La cabecera NO se publica: ahi va la nota interna."""
+    t = ruta.read_text(encoding="utf-8")
+    m = re.match(r"\s*<!--(.*?)-->\s*", t, re.S)
+    if not m:
+        raise SystemExit(f"{ruta.name}: falta la cabecera <!-- version: / fecha: -->")
+    meta = dict((k.strip().lower(), v.strip()) for k, _, v in (l.partition(":") for l in m.group(1).splitlines()) if _)
+    if not re.fullmatch(r"[1-9]\d*", meta.get("version", "")) or not (re.fullmatch(r"\d{4}-\d{2}-\d{2}", meta.get("fecha", "")) or meta.get("fecha", "").startswith("[POR COMPLETAR")):
+        raise SystemExit(f"{ruta.name}: la cabecera necesita version: N y fecha: AAAA-MM-DD")
+    cuerpo = t[m.end():].strip("\n")
+    if "<!--" in cuerpo:
+        raise SystemExit(f"{ruta.name}: un comentario dentro del texto se publicaria; las notas van en la cabecera")
+    return int(meta["version"]), meta["fecha"], cuerpo
+
+
+def fecha_aviso(f, idioma):
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", f):
+        return f
+    a, m, d = int(f[:4]), int(f[5:7]), int(f[8:])
+    return f"{d} de {MESES[m - 1]} de {a}" if idioma == "es" else f"{MONTHS[m - 1]} {d}, {a}"
 
 
 def paginas_privacidad(base):
-    """Las dos paginas del aviso de privacidad. Mientras el cuerpo lleve [POR COMPLETAR] (datos de la empresa que da la
-    duena del sitio) la pagina sale con noindex; la prueba privacidad.test.js ademas falla mientras queden."""
+    """El aviso de privacidad. La URL estable /privacidad/ (y /privacidad/en/) lleva siempre la version vigente; cada version
+    tiene ademas su enlace fijo /privacidad/vN/ (y /privacidad/vN/en/). Las anteriores salen de privacidad/archivo/vN_<idioma>.html,
+    que se guardan tal cual al publicar la siguiente. Mientras quede [POR COMPLETAR] (datos de la empresa) las paginas salen
+    con noindex; la prueba privacidad.test.js ademas falla mientras queden."""
+    carpeta = AQUI / "privacidad"
+    versiones = {}  # idioma -> {version: (fecha, cuerpo)}
+    for idioma in PRIVACIDAD:
+        v, f, c = fuente_aviso(carpeta / f"aviso_{idioma}.html")
+        versiones[idioma] = {v: (f, c)}
+        for a in sorted((carpeta / "archivo").glob(f"v*_{idioma}.html")):
+            va, fa, ca = fuente_aviso(a)
+            if a.name != f"v{va}_{idioma}.html" or va >= v:
+                raise SystemExit(f"archivo/{a.name}: dice version {va}; el archivo guarda versiones ANTERIORES a la vigente ({v})")
+            versiones[idioma][va] = (fa, ca)
+    fechas = {i: {k: x[0] for k, x in d.items()} for i, d in versiones.items()}
+    if fechas["es"] != fechas["en"]:
+        raise SystemExit("privacidad: las versiones y fechas del aviso en espanol y en ingles no coinciden")
+    vigente = max(versiones["es"])
+    if sorted(versiones["es"]) != list(range(1, vigente + 1)):
+        raise SystemExit(f"privacidad: faltan versiones anteriores en archivo/ (hay {sorted(versiones['es'])})")
     salidas = {}
     for idioma, d in PRIVACIDAD.items():
-        cuerpo = (AQUI / "privacidad" / f"cuerpo_{idioma}.html").read_text(encoding="utf-8").strip("\n")
-        otro = PRIVACIDAD["en" if idioma == "es" else "es"]
-        grafo = [{"@type": "WebPage", "name": d["titulo"].split(" | ")[0], "url": SITIO + d["ruta"], "description": d["descripcion"],
-                  "inLanguage": d["lang"], "isPartOf": {"@type": "WebSite", "name": "Tax Certeza", "url": SITIO + "/"}}]
-        pagina = rellenar(base, {
-            "TITULO": html.escape(d["titulo"], quote=True), "DESCRIPCION": html.escape(d["descripcion"], quote=True), "RUTA": d["ruta"],
-            "JSONLD": json.dumps({"@context": "https://schema.org", "@graph": grafo}, ensure_ascii=False).replace("</", "<\\/"),
-            "NAV_ACTUAL": "", "CUERPO": cuerpo, "SCRIPTS": "", "FORMULARIO": "",
-        })
-        pagina = pagina.replace('<html lang="es-MX">', f'<html lang="{d["lang"]}">', 1)
-        pagina = pagina.replace('<meta property="og:locale" content="es_MX">', f'<meta property="og:locale" content="{d["locale"]}">', 1)
-        pagina = pagina.replace(f'<link rel="canonical" href="{SITIO}{d["ruta"]}">',
-                                f'<link rel="canonical" href="{SITIO}{d["ruta"]}">\n'
-                                f'<link rel="alternate" hreflang="{d["lang"]}" href="{SITIO}{d["ruta"]}">\n'
-                                f'<link rel="alternate" hreflang="{otro["lang"]}" href="{SITIO}{otro["ruta"]}">', 1)
-        if "[POR COMPLETAR" in cuerpo:
-            pagina = pagina.replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, nofollow">', 1)
-        if "[[" in pagina or "{{" in pagina or "@@" in pagina:
-            raise SystemExit(f"privacidad {idioma}: quedaron marcadores sin rellenar")
-        salidas[d["ruta"].strip("/") + "/index.html"] = pagina
+        otro_idioma = "en" if idioma == "es" else "es"
+        otro = PRIVACIDAD[otro_idioma]
+        sufijo = "" if idioma == "es" else "en/"
+        for v, (f, cuerpo) in sorted(versiones[idioma].items()):
+            for estable in ([True, False] if v == vigente else [False]):
+                ruta = d["ruta"] if estable else f"/privacidad/v{v}/{sufijo}"
+                ruta_otro = otro["ruta"] if estable else f"/privacidad/v{v}/{'' if otro_idioma == 'es' else 'en/'}"
+                if v == vigente:
+                    estado = d["vigente"].format(v=v, f=fecha_aviso(f, idioma))
+                else:
+                    estado = d["archivada"].format(v=v, f=fecha_aviso(f, idioma), h=fecha_aviso(versiones[idioma][v + 1][0], idioma), ruta=d["ruta"])
+                lista = ", ".join(f'<a href="/privacidad/v{k}/{sufijo}">{d["version"].format(v=k)}</a>' + (d["es_vigente"] if k == vigente else "")
+                                  for k in sorted(versiones[idioma]))
+                pagina_cuerpo = (
+                    f'<nav class="migas" aria-label="{d["migas"]}"><ol><li><a href="/">{d["inicio"]}</a></li><li aria-current="page">{d["h1"]}</li></ol></nav>\n'
+                    f'<header class="cab">\n  <h1>{d["h1"]}</h1>\n  <p class="lead">{estado}</p>\n</header>\n\n'
+                    f'<section class="txt">\n{cuerpo}\n'
+                    f'<p>{d["versiones"]} {lista}.</p>\n'
+                    f'<p><a href="{ruta_otro}" hreflang="{otro["lang"]}" lang="{otro_idioma}">{d["otro"]}</a></p>\n</section>')
+                # la descripcion sale del primer parrafo del TEXTO: ninguna frase del aviso vive fuera de su fichero
+                p1 = re.search(r"<p[^>]*>(.*?)</p>", cuerpo, re.S)
+                descripcion = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", p1.group(1) if p1 else d["h1"])).strip()[:300]
+                grafo = [{"@type": "WebPage", "name": d["h1"], "url": SITIO + ruta, "description": descripcion,
+                          "inLanguage": d["lang"], "isPartOf": {"@type": "WebSite", "name": "Tax Certeza", "url": SITIO + "/"}}]
+                pagina = rellenar(base, {
+                    "TITULO": html.escape(d["titulo"], quote=True), "DESCRIPCION": html.escape(descripcion, quote=True), "RUTA": ruta,
+                    "JSONLD": json.dumps({"@context": "https://schema.org", "@graph": grafo}, ensure_ascii=False).replace("</", "<\\/"),
+                    "NAV_ACTUAL": "", "CUERPO": pagina_cuerpo, "SCRIPTS": "", "FORMULARIO": "",
+                })
+                pagina = pagina.replace('<html lang="es-MX">', f'<html lang="{d["lang"]}">', 1)
+                pagina = pagina.replace('<meta property="og:locale" content="es_MX">', f'<meta property="og:locale" content="{d["locale"]}">', 1)
+                pagina = pagina.replace(f'<link rel="canonical" href="{SITIO}{ruta}">',
+                                        f'<link rel="canonical" href="{SITIO}{ruta}">\n'
+                                        f'<link rel="alternate" hreflang="{d["lang"]}" href="{SITIO}{ruta}">\n'
+                                        f'<link rel="alternate" hreflang="{otro["lang"]}" href="{SITIO}{ruta_otro}">', 1)
+                # solo la URL estable se indexa; los enlaces fijos por version existen para consultarse, no para competir con ella
+                if not estable or "[POR COMPLETAR" in pagina:
+                    pagina = pagina.replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, follow">', 1)
+                if "[[" in pagina or "{{" in pagina or "@@" in pagina:
+                    raise SystemExit(f"privacidad {idioma} v{v}: quedaron marcadores sin rellenar")
+                salidas[ruta.strip("/") + "/index.html"] = pagina
     return salidas
 
 

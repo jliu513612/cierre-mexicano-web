@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aviso de privacidad | Tax Certeza</title>
-<meta name="description" content="Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos ARCO.">
+<meta name="description" content="Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos.">
 <link rel="canonical" href="https://taxcerteza.mx/privacidad/">
 <link rel="alternate" hreflang="es-MX" href="https://taxcerteza.mx/privacidad/">
 <link rel="alternate" hreflang="en" href="https://taxcerteza.mx/privacidad/en/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aviso de privacidad | Tax Certeza">
-<meta property="og:description" content="Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos ARCO.">
+<meta property="og:description" content="Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos.">
 <meta property="og:url" content="https://taxcerteza.mx/privacidad/">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Tax Certeza">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, follow">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/herramientas/herramientas.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Aviso de privacidad", "url": "https://taxcerteza.mx/privacidad/", "description": "Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos ARCO.", "inLanguage": "es-MX", "isPartOf": {"@type": "WebSite", "name": "Tax Certeza", "url": "https://taxcerteza.mx/"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Aviso de privacidad", "url": "https://taxcerteza.mx/privacidad/", "description": "Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos.", "inLanguage": "es-MX", "isPartOf": {"@type": "WebSite", "name": "Tax Certeza", "url": "https://taxcerteza.mx/"}}]}</script>
 </head>
 <body>
 <a class="salto" href="#contenido">Saltar al contenido</a>
@@ -43,65 +43,67 @@
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Aviso de privacidad</li></ol></nav>
 <header class="cab">
   <h1>Aviso de privacidad</h1>
-  <p class="lead">Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos. Última actualización: [POR COMPLETAR: fecha de publicación].</p>
+  <p class="lead">Versión 1, vigente desde el [POR COMPLETAR: fecha de publicación].</p>
 </header>
 
 <section class="txt">
+<p>Qué datos recoge el sitio taxcerteza.mx, para qué, con quién se comparten y cómo ejercer tus derechos.</p>
+
 <h2>1. Quién es el responsable</h2>
 <p>El responsable de tus datos personales es [POR COMPLETAR: razón social], con domicilio en [POR COMPLETAR: domicilio]. Para cualquier asunto de este aviso escribe a [POR COMPLETAR: correo para derechos ARCO].</p>
 <p>Este aviso cubre el sitio web taxcerteza.mx: sus páginas, sus herramientas gratuitas, el blog y la ayuda. No cubre el programa de escritorio Tax Certeza.</p>
 
 <h2>2. Qué datos recoge hoy el sitio</h2>
-<p>El sitio cuenta descargas, usos de herramientas y clics para saber qué sirve. Esos registros no llevan tu nombre, ni tu dirección IP, ni una huella calculada a partir de ella, ni el identificador de tu navegador. Esto es lo que se guarda en cada caso, y nada más:</p>
+<p data-datos="conexion.ip conexion.user_agent">El sitio cuenta descargas, usos de herramientas y clics para saber qué sirve. Esos registros no llevan tu nombre, ni tu dirección IP, ni una huella calculada a partir de ella, ni el identificador de tu navegador. Esto es lo que se guarda en cada caso, y nada más:</p>
 <h3>Cuando descargas el programa</h3>
-<ul data-evento="descarga" data-campos="ts contexto version archivo origen pais metodo bot interno">
-  <li>la fecha y la hora;</li>
-  <li>si fue en el sitio publicado o en una vista de prueba;</li>
-  <li>la versión y el archivo que descargaste;</li>
-  <li>la página del propio sitio desde la que pulsaste el botón;</li>
-  <li>el país, como código de dos letras (por ejemplo, MX). Lo deduce nuestro proveedor de alojamiento a partir de la conexión en ese momento; guardamos solo el código del país, no la dirección IP;</li>
-  <li>el tipo de petición;</li>
-  <li>si la petición parece de un programa automático (un buscador, por ejemplo). Se calcula en el momento con el identificador del navegador, que no se guarda;</li>
-  <li>si el navegador es de nuestro propio equipo de trabajo, para no contar nuestras pruebas.</li>
+<ul>
+  <li data-datos="descarga.ts">la fecha y la hora;</li>
+  <li data-datos="descarga.contexto">si fue en el sitio publicado o en una vista de prueba;</li>
+  <li data-datos="descarga.version descarga.archivo">la versión y el archivo que descargaste;</li>
+  <li data-datos="descarga.origen">la página del propio sitio desde la que pulsaste el botón;</li>
+  <li data-datos="descarga.pais">el país, como código de dos letras (por ejemplo, MX). Lo deduce nuestro proveedor de alojamiento a partir de la conexión en ese momento; guardamos solo el código del país, no la dirección IP;</li>
+  <li data-datos="descarga.metodo">el tipo de petición;</li>
+  <li data-datos="descarga.bot">si la petición parece de un programa automático (un buscador, por ejemplo). Se calcula en el momento con el identificador del navegador, que no se guarda;</li>
+  <li data-datos="descarga.interno">si el navegador es de nuestro propio equipo de trabajo, para no contar nuestras pruebas.</li>
 </ul>
 <h3>Cuando usas una herramienta</h3>
-<ul data-evento="uso" data-campos="tipo ts contexto herramienta accion n pais bot interno">
-  <li>qué herramienta usaste y, en algunas, qué acción (por ejemplo, descargar un rango de tipos de cambio);</li>
-  <li>cuántos elementos procesó (por ejemplo, cuántos XML), sin su contenido;</li>
-  <li>la fecha y la hora, si fue en el sitio publicado o en una vista de prueba, el país, si parece un programa automático y si es nuestro propio equipo, igual que en las descargas.</li>
+<ul>
+  <li data-datos="uso.tipo uso.herramienta uso.accion">qué herramienta usaste y, en algunas, qué acción (por ejemplo, descargar un rango de tipos de cambio);</li>
+  <li data-datos="uso.n">cuántos elementos procesó (por ejemplo, cuántos XML), sin su contenido;</li>
+  <li data-datos="uso.ts uso.contexto uso.pais uso.bot uso.interno">la fecha y la hora, si fue en el sitio publicado o en una vista de prueba, el país, si parece un programa automático y si es nuestro propio equipo, igual que en las descargas.</li>
 </ul>
-<p>Lo que escribes o cargas en una herramienta (un RFC, una cantidad, tus archivos XML) se procesa en tu navegador y no se envía al sitio.</p>
+<p data-datos="herramienta.contenido">Lo que escribes o cargas en una herramienta (un RFC, una cantidad, tus archivos XML) se procesa en tu navegador y no se envía al sitio.</p>
 <h3>Cuando pulsas un enlace de contacto o de descarga</h3>
-<ul data-evento="clic" data-campos="tipo ts contexto destino origen pais bot interno">
-  <li>a dónde lleva el enlace (WhatsApp, la demostración, la descarga o el video);</li>
-  <li>la página del propio sitio desde la que lo pulsaste;</li>
-  <li>la fecha y la hora, si fue en el sitio publicado o en una vista de prueba, el país, si parece un programa automático y si es nuestro propio equipo.</li>
+<ul>
+  <li data-datos="clic.tipo clic.destino">a dónde lleva el enlace (WhatsApp, la demostración, la descarga o el video);</li>
+  <li data-datos="clic.origen">la página del propio sitio desde la que lo pulsaste;</li>
+  <li data-datos="clic.ts clic.contexto clic.pais clic.bot clic.interno">la fecha y la hora, si fue en el sitio publicado o en una vista de prueba, el país, si parece un programa automático y si es nuestro propio equipo.</li>
 </ul>
 <h3>Cuando respondes «¿Te sirvió este resultado?»</h3>
-<ul data-evento="opinion" data-campos="herramienta clase voto motivo fecha">
-  <li>la herramienta, el tipo de resultado que viste y tu voto;</li>
-  <li>si votas que no, el motivo que escribas. Antes de enviarlo se quita todo lo que tenga forma de RFC. Te pedimos no escribir ahí datos personales;</li>
-  <li>la fecha.</li>
+<ul>
+  <li data-datos="opinion.herramienta opinion.clase opinion.voto">la herramienta, el tipo de resultado que viste y tu voto;</li>
+  <li data-datos="opinion.motivo">si votas que no, el motivo que escribas. Antes de enviarlo se quita todo lo que tenga forma de RFC. Te pedimos no escribir ahí datos personales;</li>
+  <li data-datos="opinion.fecha">la fecha.</li>
 </ul>
 <p>No se pide correo ni ningún otro dato de contacto.</p>
 <h3>Cuando nos escribes</h3>
-<p>Si nos escribes por WhatsApp o por correo, recibimos tu número o tu correo, el nombre que muestre tu cuenta y lo que nos escribas. Los usamos para responderte.</p>
+<p data-datos="contacto.medio contacto.nombre contacto.mensaje">Si nos escribes por WhatsApp o por correo, recibimos tu número o tu correo, el nombre que muestre tu cuenta y lo que nos escribas. Los usamos para responderte.</p>
 <p>El sitio no pide datos personales sensibles.</p>
 
 <h2>3. Qué se guarda en tu navegador</h2>
-<p>El sitio no usa cookies de publicidad ni de analítica de terceros. Solo hay una cookie, que existe únicamente en los navegadores de nuestro propio equipo para que sus descargas no se cuenten. La ayuda puede guardar en tu navegador tu preferencia de tema claro u oscuro; ese dato no sale de tu equipo.</p>
+<p><span data-datos="navegador.cookie_interno">El sitio no usa cookies de publicidad ni de analítica de terceros. Solo hay una cookie, que existe únicamente en los navegadores de nuestro propio equipo para que sus descargas no se cuenten.</span> <span data-datos="navegador.tema_ayuda">La ayuda puede guardar en tu navegador tu preferencia de tema claro u oscuro; ese dato no sale de tu equipo.</span></p>
 
 <h2>4. Cambio previsto: visitas recurrentes (todavía no activo)</h2>
 <p>Queremos saber, en conjunto, cuántas personas vuelven al sitio. Para eso, más adelante el sitio podrá guardar en el almacenamiento de tu navegador un identificador aleatorio que no contiene ningún dato tuyo. Sin dirección IP, sin el identificador del navegador y sin servicios de terceros. Solo se usará para contar, por mes, visitantes nuevos, visitantes que vuelven y visitas por visitante. Si tu navegador tiene activada la señal «No rastrear» (Do Not Track) o Global Privacy Control, el identificador no se creará. Podrás borrarlo en cualquier momento borrando los datos de este sitio en tu navegador.</p>
-<p>Hoy esto no está activo. Antes de activarlo actualizaremos este aviso y su fecha.</p>
+<p>Hoy esto no está activo. Antes de activarlo publicaremos una versión nueva de este aviso.</p>
 
 <h2>5. Para qué usamos los datos</h2>
 <ul>
-  <li>Saber cuántas personas descargan el programa y usan las herramientas, y qué páginas llevan a la descarga, con cifras de conjunto.</li>
-  <li>Mejorar las herramientas con las opiniones que recibimos.</li>
-  <li>Responder tus mensajes.</li>
+  <li data-finalidad="conteo">Saber cuántas personas descargan el programa y usan las herramientas, y qué páginas llevan a la descarga, con cifras de conjunto.</li>
+  <li data-finalidad="mejora">Mejorar las herramientas con las opiniones que recibimos.</li>
+  <li data-finalidad="respuesta">Responder tus mensajes.</li>
 </ul>
-<p>Finalidad secundaria: si nos escribes (y, cuando el sitio tenga registro, si te registras), podemos enviarte mensajes sobre los productos y las actualizaciones de Tax Certeza. Puedes darte de baja en cualquier momento por el mismo canal por el que te llegan o escribiendo a [POR COMPLETAR: correo para derechos ARCO]. Darte de baja no afecta a las demás finalidades.</p>
+<p data-finalidad="mensajes">Finalidad secundaria: si nos escribes (y, cuando el sitio tenga registro, si te registras), podemos enviarte mensajes sobre los productos y las actualizaciones de Tax Certeza. Puedes darte de baja en cualquier momento por el mismo canal por el que te llegan o escribiendo a [POR COMPLETAR: correo para derechos ARCO]. Darte de baja no afecta a las demás finalidades.</p>
 <p>No vendemos tus datos ni los transferimos a terceros.</p>
 
 <h2>6. Con quién se comparten</h2>
@@ -133,8 +135,9 @@
 <p>Si consideras que tu derecho a la protección de datos personales fue vulnerado, puedes acudir a la Secretaría Anticorrupción y Buen Gobierno.</p>
 
 <h2>9. Cambios a este aviso</h2>
-<p>Publicaremos cualquier cambio en esta misma página, con su nueva fecha de actualización. Si el cambio es importante, lo avisaremos también en la portada del sitio.</p>
+<p>Cada cambio se publica en esta misma dirección como una versión nueva, con su número y su fecha. Las versiones anteriores se conservan y se pueden consultar en la lista de versiones del final. Si el cambio es importante, lo avisaremos también en la portada del sitio.</p>
 <p>Este aviso se emite conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+<p>Versiones de este aviso: <a href="/privacidad/v1/">versión 1</a> (vigente).</p>
 <p><a href="/privacidad/en/" hreflang="en" lang="en">Privacy notice in English</a></p>
 </section>
 </div>
