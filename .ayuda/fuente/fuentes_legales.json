@@ -1,0 +1,352 @@
+{
+  "_leeme": "Consulta hecha el 2026-10-14 (fecha de cada descarga). 'ultima_reforma' copiada del encabezado del PDF oficial o del registro oficial (DOF/SIDOF) tal como se ve hoy. Lo que no se pudo abrir en fuente oficial queda dicho en 'nota' y con enlace vacio. Ojo para el generador: la clave 'LISR' tambien aparece dentro de 'RLISR', 'LIVA' dentro de 'RLIVA', 'CFF' dentro de 'RCFF' y 'LSS' dentro de 'Decreto de reforma a la LSS'; buscar con limite de palabra. 'origen' = pagina de la autoridad de la que sale el fichero (ficha de reformas o listado de la Camara de Diputados, edicion del DOF de esa fecha), medida el dia de 'origen_medido': responde 200 y nombra la ley o enlaza al fichero o nota; lo que no pasa esa prueba no lleva origen.",
+  "LISR": {
+    "nombre": "Ley del Impuesto sobre la Renta",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/lisr.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 01-04-2024",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 01-04-2024' (igual en el indice de LeyesBiblio). Sin reforma posterior, el texto publicado es el vigente para 2026. Algunas cantidades y reglas de 2026 viven fuera de la ley (Ley de Ingresos de la Federacion 2026, DOF 07-11-2025; RMF 2026)."
+  },
+  "LIVA": {
+    "nombre": "Ley del Impuesto al Valor Agregado",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIVA.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/liva.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 12-11-2021",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 12-11-2021'. Sin reforma posterior, aplica a 2026. La ley numera sus articulos como 1o.-A, 1o.-B, 5o., 5o.-D (con 'o.')."
+  },
+  "CFF": {
+    "nombre": "Codigo Fiscal de la Federacion",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/cff.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 09-04-2026",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 09-04-2026'. Las cantidades (p. ej. multas del art. 84) estan actualizadas por la RMF DOF 28-12-2025 segun las notas del propio texto. Hubo reforma DOF 07-11-2025 (p. ej. art. 59, fr. III y art. 84, fr. IV, inc. b)) que entro para 2026."
+  },
+  "RCFF": {
+    "nombre": "Reglamento del Codigo Fiscal de la Federacion",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_CFF.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm",
+    "origen_tipo": "reglamentos de leyes federales",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Sin reforma (Nuevo Reglamento DOF 02-04-2014)",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "La Camara de Diputados lo muestra como 'Nuevo Reglamento DOF 02-04-2014' sin reformas. No se cruzo contra el DOF si existe alguna reforma que la Camara no haya incorporado."
+  },
+  "RLISR": {
+    "nombre": "Reglamento de la Ley del Impuesto sobre la Renta",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LISR_060516.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm",
+    "origen_tipo": "reglamentos de leyes federales",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 06-05-2016",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 06-05-2016' (Reglamento DOF 08-10-2015). No se cruzo contra el DOF si hay reformas posteriores no incorporadas por la Camara."
+  },
+  "RLIVA": {
+    "nombre": "Reglamento de la Ley del Impuesto al Valor Agregado",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LIVA_250914.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/regla.htm",
+    "origen_tipo": "reglamentos de leyes federales",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 25-09-2014",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 25-09-2014' (Reglamento DOF 04-12-2006). No se cruzo contra el DOF si hay reformas posteriores no incorporadas por la Camara."
+  },
+  "LIEPS": {
+    "nombre": "Ley del Impuesto Especial sobre Produccion y Servicios",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIEPS.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/lieps.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 07-11-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "El PDF dice 'Ultima reforma publicada DOF 07-11-2025' y 'Cuotas actualizadas por Acuerdo DOF 22-12-2025'; el indice de LeyesBiblio muestra 22/12/2025 (la fecha del Acuerdo de cuotas)."
+  },
+  "LFT": {
+    "nombre": "Ley Federal del Trabajo",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFT.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/lft.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 14-05-2026",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada 14-05-2026'."
+  },
+  "LSS": {
+    "nombre": "Ley del Seguro Social",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSS.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/lss.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 15-01-2026",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 15-01-2026'. El transitorio decimo noveno citado es de la ley de 1995 (DOF 21-12-1995) y esta en el mismo PDF; regulo incrementos de 1998 a 2007."
+  },
+  "LINFONAVIT": {
+    "nombre": "Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LIFNVT.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/lifnvt.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 21-02-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Encabezado del PDF de la Camara de Diputados: 'Ultima reforma publicada DOF 21-02-2025'. La Camara la abrevia LIFNVT; en las citas aparece como LINFONAVIT."
+  },
+  "Ley para Determinar el Valor de la UMA": {
+    "nombre": "Ley para Determinar el Valor de la Unidad de Medida y Actualizacion",
+    "enlace": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LDVUMA_301216.pdf",
+    "origen": "https://www.diputados.gob.mx/LeyesBiblio/ref/ldvuma.htm",
+    "origen_tipo": "ficha de reformas",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Sin reforma (Ley DOF 30-12-2016)",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Indice de LeyesBiblio: publicada DOF 30/12/2016, 'Sin reforma'. El valor de la UMA de cada ano lo publica el INEGI en el DOF; ese valor no se verifico aqui."
+  },
+  "RMF": {
+    "nombre": "Resolucion Miscelanea Fiscal para 2026 (y sus Anexos)",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5777217&fecha=28/12/2025",
+    "origen": "https://dof.gob.mx/index.php?year=2025&month=12&day=28",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicada DOF 28-12-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "SIDOF (nota 5777217) confirma titulo 'Resolucion Miscelanea Fiscal para 2026', DOF 28-12-2025, edicion matutina. NO se pudo leer el cuerpo de las reglas en el DOF (el visor no entrega el texto), asi que las reglas citadas (2.7.1.32, 2.7.1.37, 2.7.1.39, 2.16.3, 2.16.5) NO se verificaron contra la fuente oficial. Fuentes secundarias (IMCP, SAT 'version anticipada') hablan de una Primera Resolucion de Modificaciones a la RMF 2026 de julio de 2026; su fecha DOF no se confirmo en fuente oficial. Los Anexos 8, 20 y 24 forman parte de la RMF; el Anexo 8 se publico junto con la RMF el 28-12-2025 segun fuentes secundarias (no confirmado en DOF). Version del SAT: https://www.sat.gob.mx/minisitio/NormatividadRMFyRGCE/ (no se abrio)."
+  },
+  "RGCE": {
+    "nombre": "Reglas Generales de Comercio Exterior para 2026 (y sus Anexos)",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5777199&fecha=27/12/2025",
+    "origen": "https://dof.gob.mx/index.php?year=2025&month=12&day=27",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicadas DOF 27-12-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Indice del DOF del 27-12-2025 (edicion matutina): 'Reglas Generales de Comercio Exterior para 2026 y Anexo 13'. El Anexo 22 (apendices 2 y 13 citados) no viene en esa publicacion; fuentes secundarias dicen que se publico con la Primera Resolucion de Modificaciones, DOF 14-05-2026, lo cual NO se confirmo en el DOF."
+  },
+  "Decreto que otorga el subsidio para el empleo": {
+    "nombre": "Decreto que otorga el subsidio para el empleo",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5725287&fecha=01/05/2024",
+    "origen": "https://dof.gob.mx/index.php?year=2024&month=05&day=01",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 31-12-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Original DOF 01-05-2024, edicion vespertina (SIDOF nota 5725287). Modificado DOF 31-12-2024 y DOF 31-12-2025: el decreto de 31-12-2025 ('Decreto por el que se modifica el diverso que otorga el subsidio para el empleo', SIDOF nota 5777649, https://dof.gob.mx/nota_detalle.php?codigo=5777649&fecha=31/12/2025) reforma el Articulo Segundo (parrafos primero, tercero, cuarto y quinto), cita en su preambulo la modificacion de 31-12-2024 y entra en vigor el 01-01-2026. El enlace oficial de la modificacion de 31-12-2024 no se abrio."
+  },
+  "Decreto DOF 31-12-2025": {
+    "nombre": "Decreto por el que se modifica el diverso que otorga el subsidio para el empleo",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5777649&fecha=31/12/2025",
+    "origen": "https://dof.gob.mx/index_113.php?year=2025&month=12&day=31&edicion=MAT",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicado DOF 31-12-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "SIDOF nota 5777649, edicion matutina, Presidencia de la Republica. Vigente desde 01-01-2026. Ese mismo dia (edicion vespertina) se publico otro decreto distinto, el de estimulos fiscales de regiones fronterizas, por eso conviene nombrar el decreto y no solo la fecha."
+  },
+  "Decreto DOF 11-12-2013": {
+    "nombre": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley del Impuesto al Valor Agregado, ... y se expide la Ley del Impuesto sobre la Renta (articulo decimo de sus disposiciones transitorias: subsidio para el empleo)",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5325371&fecha=11/12/2013",
+    "origen": "https://dof.gob.mx/index.php?year=2013&month=12&day=11",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicado DOF 11-12-2013",
+    "ejercicio": "Anterior a 2026 (rige solo periodos hasta abril de 2024)",
+    "consultado": "2026-10-14",
+    "nota": "Indice del DOF del 11-12-2013: el decreto viene en Segunda Seccion (codigo 5325371) y continua en Tercera Seccion (codigo 5325373). Fuentes secundarias indican que su tabla de subsidio fue sustituida por el Decreto que otorga el subsidio para el empleo (DOF 01-05-2024); por eso no es la regla de 2026."
+  },
+  "Decreto de estímulos fiscales región fronteriza norte": {
+    "nombre": "Decreto de estimulos fiscales region fronteriza norte",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5777697&fecha=31/12/2025",
+    "origen": "https://dof.gob.mx/index.php?year=2025&month=12&day=31",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "DOF 31-12-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "El enlace es la modificacion de DOF 31-12-2025, edicion vespertina ('Decreto por el que se modifica los diversos de estimulos fiscales region fronteriza norte...'), que segun fuentes secundarias prorroga los estimulos hasta el 31-12-2026. La fecha del decreto ORIGINAL (fuentes secundarias: DOF 31-12-2018) NO se confirmo: la edicion vespertina del DOF de 31-12-2018 no lo contiene y no se reviso la matutina."
+  },
+  "Resolución de la Quinta Comisión Nacional para la PTU": {
+    "nombre": "Resolucion del H. Consejo de Representantes de la Quinta Comision Nacional para la Participacion de los Trabajadores en las Utilidades de las Empresas",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5079190&fecha=03/02/2009",
+    "origen": "https://dof.gob.mx/index.php?year=2009&month=02&day=03",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicada DOF 03-02-2009",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Indice del DOF del 03-02-2009, Primera Seccion (codigo 5079190). El 10 % sigue aplicando en 2026: segun fuentes secundarias la Sexta Comision (DOF 18-09-2020) no modifico el porcentaje; esa publicacion no se abrio en el DOF."
+  },
+  "Resolución de la CONASAMI": {
+    "nombre": "Resolucion del H. Consejo de Representantes de la Comision Nacional de los Salarios Minimos que fija los salarios minimos generales y profesionales vigentes a partir del 1 de enero de 2026",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5775534&fecha=09/12/2025",
+    "origen": "https://dof.gob.mx/index_113.php?year=2025&month=12&day=09&edicion=MAT",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicada DOF 09-12-2025",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "SIDOF nota 5775534, edicion matutina, 09-12-2025. Coincide con la fecha citada. Los resolutivos primero y tercero no se leyeron en el texto oficial."
+  },
+  "Decreto de reforma a la LSS": {
+    "nombre": "Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Ley del Seguro Social y de la Ley de los Sistemas de Ahorro para el Retiro",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5607729&fecha=16/12/2020",
+    "origen": "https://dof.gob.mx/index.php?year=2020&month=12&day=16",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicado DOF 16-12-2020",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Indice del DOF del 16-12-2020 (codigo 5607729). El PDF vigente de la LSS marca parrafos 'reformados DOF 16-12-2020'. El calendario gradual de su segundo transitorio no se leyo en el DOF."
+  },
+  "Decreto de desindexación del salario mínimo": {
+    "nombre": "Decreto por el que se declara reformadas y adicionadas diversas disposiciones de la Constitucion Politica de los Estados Unidos Mexicanos, en materia de desindexacion del salario minimo",
+    "enlace": "https://dof.gob.mx/nota_detalle.php?codigo=5423663&fecha=27/01/2016",
+    "origen": "https://dof.gob.mx/index.php?year=2016&month=01&day=27",
+    "origen_tipo": "edición del DOF",
+    "origen_medido": "2026-10-19",
+    "ultima_reforma": "Publicado DOF 27-01-2016",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "Indice del DOF del 27-01-2016, Primera Seccion (codigo 5423663). Es reforma constitucional, no de la LSS."
+  },
+  "CFCDMX": {
+    "nombre": "Codigo Fiscal de la Ciudad de Mexico",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (Gaceta Oficial de la CDMX / Congreso de la CDMX)."
+  },
+  "CFEDOMEX": {
+    "nombre": "Codigo Financiero del Estado de Mexico y Municipios",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (Legislatura del Estado de Mexico / Gaceta del Gobierno)."
+  },
+  "LHNL": {
+    "nombre": "Ley de Hacienda del Estado de Nuevo Leon",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (H. Congreso de Nuevo Leon / Periodico Oficial)."
+  },
+  "LHBC": {
+    "nombre": "Ley de Hacienda del Estado de Baja California",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (Congreso de Baja California / Periodico Oficial)."
+  },
+  "LHCHIH": {
+    "nombre": "Ley de Hacienda del Estado de Chihuahua",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado, ni tampoco el 'Decreto LXVIII/RFLYC/0462/2025' citado junto a ella (Congreso de Chihuahua / Periodico Oficial del Estado)."
+  },
+  "Decreto LXVIII/RFLYC/0462/2025": {
+    "nombre": "Decreto LXVIII/RFLYC/0462/2025 del H. Congreso del Estado de Chihuahua",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio el Periodico Oficial del Estado de Chihuahua; no se puede confirmar fecha ni contenido del segundo transitorio."
+  },
+  "LHGTO": {
+    "nombre": "Ley de Hacienda para el Estado de Guanajuato",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (Congreso de Guanajuato / Periodico Oficial)."
+  },
+  "Ley de Ingresos del Estado de Jalisco 2026": {
+    "nombre": "Ley de Ingresos del Estado de Jalisco para el Ejercicio Fiscal 2026",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "2026",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (Congreso de Jalisco / Periodico Oficial 'El Estado de Jalisco')."
+  },
+  "Ley de Hacienda del Estado de Sinaloa": {
+    "nombre": "Ley de Hacienda del Estado de Sinaloa",
+    "enlace": "",
+    "ultima_reforma": "",
+    "ejercicio": "",
+    "consultado": "2026-10-14",
+    "nota": "No verificado: no se abrio la fuente oficial (Congreso de Sinaloa / Periodico Oficial)."
+  },
+  "_citas_dudosas": [
+    {
+      "cita": "RCFF, art. 33; CFF, art. 81, fr. V",
+      "por_que": "En el texto vigente del CFF, el art. 81, fr. V trata de no informar sobre pagos en efectivo de subsidio para el empleo; la pagina (dec-013) habla del codigo agrupador del catalogo de cuentas. La fraccion del art. 81 que habla de no ingresar la informacion contable al SAT es otra (fr. XLI en el texto consultado). Revisar."
+    },
+    {
+      "cita": "Decreto DOF 11-12-2013, art. décimo; RMF, Anexo 8 (tabla del subsidio para el empleo mensual)",
+      "por_que": "Cita 'RMF' sin ano. La tabla de 2013 solo rige periodos hasta abril de 2024 (asi lo dice la propia pagina), asi que el Anexo 8 aplicable seria el de una RMF anterior a 2026, no el de la RMF 2026. Conviene decir el ano."
+    },
+    {
+      "cita": "LISR, art. 96; RMF, Anexo 8",
+      "por_que": "Cita 'RMF' sin ano; si se refiere a las tarifas de 2026 deberia decir 'RMF 2026, Anexo 8'."
+    },
+    {
+      "cita": "RMF, Anexo 20 (catálogo c_FormaPago del CFDI 4.0)",
+      "por_que": "Cita 'RMF' sin ano, mientras otra pagina dice 'RMF 2026, Anexo 20'. Formato inconsistente."
+    },
+    {
+      "cita": "RMF, Anexo 24 (balanza de comprobación) / RMF, Anexo 24 (balanza de comprobación, versión 1.3) / RMF, Anexo 24 (catálogo de cuentas) / RMF, Anexo 24 (código agrupador)",
+      "por_que": "Las cuatro citan 'RMF' sin ano."
+    },
+    {
+      "cita": "LIVA, arts. 1o. y 2o.-A; Decreto de estímulos fiscales región fronteriza norte",
+      "por_que": "El decreto se cita sin fecha DOF. Para 2026 se sostiene por la modificacion DOF 31-12-2025; el original (fuentes secundarias: DOF 31-12-2018) no se pudo confirmar en el DOF."
+    },
+    {
+      "cita": "LIVA, art. 1-B / LIVA, art. 5-D; LIVA, art. 1-A / LIVA, art. 5 / LIVA, art. 5, fr. II / LIVA, art. 24, fr. I; LIVA, art. 27; LIVA, art. 5, fr. I y II",
+      "por_que": "Solo de forma: la LIVA numera estos articulos como 1o.-B, 1o.-A, 5o. y 5o.-D (otras paginas ya lo citan asi). No cambia el contenido; lo hace inconsistente."
+    },
+    {
+      "cita": "Decreto DOF 31-12-2025 (subsidio para el empleo)",
+      "por_que": "No es incorrecta, pero solo da la fecha: ese dia el DOF publico mas de un decreto (subsidio para el empleo en la matutina, estimulos fronterizos en la vespertina). Mejor nombrar el decreto: 'Decreto por el que se modifica el diverso que otorga el subsidio para el empleo'."
+    },
+    {
+      "cita": "Decreto DOF 11-12-2013, art. décimo; Decreto que otorga el subsidio para el empleo, DOF 01-05-2024, y sus reformas",
+      "por_que": "Mezcla dos regimenes: el art. decimo de 2013 solo rige hasta abril de 2024 y el decreto de 2024 desde mayo de 2024. Para 2026 rige el segundo; si la pagina describe los dos periodos, conviene que lo diga."
+    },
+    {
+      "cita": "RMF 2026, regla 2.7.1.32 / 2.7.1.37 / 2.7.1.39 / 2.16.3 / 2.16.5",
+      "por_que": "No es que esten mal: NO se pudieron verificar en el texto oficial de la RMF 2026 (el DOF no dejo leer el cuerpo). Falta revisarlas regla por regla antes de afirmar que existen y dicen lo que la pagina dice."
+    },
+    {
+      "cita": "RGCE 2026, Anexo 22, apéndice 2 / apéndice 13",
+      "por_que": "No verificada: la publicacion de las RGCE 2026 en el DOF (27-12-2025) solo trae el Anexo 13; el Anexo 22 se habria publicado despues (fuentes secundarias: DOF 14-05-2026). Conviene confirmar en que publicacion esta el Anexo 22 vigente."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "_doc": [
+    "ESTRUCTURA DEL CENTRO DE AYUDA (June 2026-10-13: nueve secciones en este orden;",
+    "comercio exterior con seccion propia marcada como vista previa; portada con entrada",
+    "a todas las explicaciones de calculo). Modelo de navegacion: secciones arriba, grupos",
+    "en la barra lateral, una pagina por tema.",
+    "",
+    "Cada seccion del registro de formulas (hoja + titulo de seccion) va a UN grupo de UNA",
+    "seccion del sitio. Falla cerrado: una seccion del registro que no este aqui detiene la",
+    "generacion; no se publica en un sitio por defecto.",
+    "",
+    "Los titulos de grupo se escriben aqui, para el cliente: no se copian del registro,",
+    "que es un documento interno."
+  ],
+  "secciones": [
+    {
+      "id": "primeros-pasos",
+      "guias": ["fuentes"],
+      "pestana": "Primeros pasos",
+      "titulo": "Primeros pasos",
+      "resumen": "Instalar, empezar la prueba de 30 días o activar la licencia, dar de alta un cliente y cargar sus datos.",
+      "uso": ["01_instalacion", "02_activacion", "03_alta_cliente", "04_carpeta_trabajo",
+              "05_carga_datos", "06_tablero", "20_parametros", "21_actualizacion_soporte"],
+      "grupos": []
+    },
+    {
+      "id": "cfdi-e-iva",
+      "pestana": "CFDI e IVA",
+      "titulo": "CFDI e IVA",
+      "resumen": "Comprobantes, IVA causado y acreditable, retenciones y DIOT.",
+      "uso": ["07_cfdis", "14_diot", "22_plataformas"],
+      "grupos": [
+        {"titulo": "Cuándo se causa y se acredita", "registro": [["IVA y DIOT", "Momento de causación / clasificación de flujo (PUE vs PPD)"]]},
+        {"titulo": "IVA por complemento de pago", "registro": [["IVA y DIOT", "IVA vía complemento de pago (REP)"]]},
+        {"titulo": "Requisitos del acreditamiento", "registro": [["IVA y DIOT", "Requisitos de acreditamiento / exclusiones"]]},
+        {"titulo": "IVA a cargo, saldo a favor y retenciones", "registro": [["IVA y DIOT", "IVA neto, saldo a favor, retenciones"]]},
+        {"titulo": "Notas de crédito", "registro": [["IVA y DIOT", "Notas de crédito"]]},
+        {"titulo": "Tasas", "registro": [["IVA y DIOT", "Tasas / clasificación"]]},
+        {"titulo": "Retenciones esperadas", "registro": [["IVA y DIOT", "Retenciones esperadas (validador)"]]},
+        {"titulo": "DIOT", "registro": [["IVA y DIOT", "DIOT (cómputo de campos)"]]},
+        {"titulo": "Moneda extranjera", "registro": [["IVA y DIOT", "Tipo de cambio / moneda"]]},
+        {"titulo": "Redondeo", "registro": [["IVA y DIOT", "Redondeo / precisión"]]}
+      ]
+    },
+    {
+      "id": "cierre-mensual-e-isr",
+      "guias": ["cierre-detenido"],
+      "pestana": "Cierre mensual",
+      "titulo": "Cierre mensual e ISR",
+      "resumen": "El cierre del mes, el pago provisional de ISR por régimen y SAT vs Libros.",
+      "uso": ["13_cierre_mensual", "15_sat_vs_libros"],
+      "grupos": [
+        {"titulo": "Régimen general (601)", "registro": [["ISR", "Régimen 601 — PM General (pago provisional, coeficiente de utilidad)"]]},
+        {"titulo": "Coeficiente de utilidad", "registro": [["ISR", "Coeficiente de utilidad (CU)"]]},
+        {"titulo": "Acumulación de meses anteriores", "registro": [["ISR", "Acumulación de ISR (meses previos)"]]},
+        {"titulo": "RESICO personas físicas", "registro": [["ISR", "RESICO PF — Art. 113-E (mensual definitivo)"]]},
+        {"titulo": "RESICO personas morales", "registro": [["ISR", "RESICO PM — Art. 9/211"]]},
+        {"titulo": "Actividad empresarial (612)", "registro": [["ISR", "Régimen 612 — PF Actividad Empresarial (acumulativo)"]]},
+        {"titulo": "Arrendamiento (606)", "registro": [["ISR", "Régimen 606 — Arrendamiento PF"]]},
+        {"titulo": "Tarifa progresiva", "registro": [["ISR", "Tarifa progresiva (Art. 96 mensual / Art. 152 anual)"]]},
+        {"titulo": "Plataformas digitales", "registro": [["ISR", "Plataformas digitales (D-21)"]]},
+        {"titulo": "PTU", "registro": [["ISR", "PTU"]]},
+        {"titulo": "Deducciones que se excluyen", "registro": [["ISR", "Exclusiones de deducciones"]]},
+        {"titulo": "Régimen, moneda y redondeos", "registro": [["ISR", "Enrutamiento, FX y redondeos"]]},
+        {"titulo": "SAT vs Libros", "registro": [["Operativos", "SAT vs Libros"]]}
+      ]
+    },
+    {
+      "id": "cierre-anual",
+      "pestana": "Cierre anual",
+      "titulo": "Cierre anual",
+      "resumen": "Conciliación anual, pérdidas, depreciación, CUFIN y declaraciones informativas del ejercicio.",
+      "uso": ["17_cierre_anual"],
+      "grupos": [
+        {"titulo": "ISR del ejercicio", "registro": [["ISR", "ISR anual (conciliación fiscal)"]]},
+        {"titulo": "Pérdidas fiscales", "registro": [["ISR", "Pérdidas fiscales (Art. 57)"]]},
+        {"titulo": "Depreciación de activos fijos", "registro": [["ISR", "Activos fijos — Depreciación fiscal"]]},
+        {"titulo": "CUFIN y CUCA", "registro": [["ISR", "CUFIN / CUCA"]]},
+        {"titulo": "Eventos que requieren trámite ante el SAT", "registro": [
+          ["ISR", "Eventos condicionados a trámite SAT — conciliación anual (en mejora)"],
+          ["Operativos", "Eventos condicionados a trámite SAT — operativos"]]},
+        {"titulo": "Expediente fiscal anual", "registro": [["Declaraciones e informativas", "Expediente fiscal anual (read-only: lee los JSON del cierre, no recalcula)"]]},
+        {"titulo": "ISSIF", "registro": [["Declaraciones e informativas", "ISSIF — Información sobre Situación Fiscal (CFF 32-H)"]]},
+        {"titulo": "Pagos al extranjero", "registro": [["Declaraciones e informativas", "DIM Anexo 4 — Pagos al extranjero"]]}
+      ]
+    },
+    {
+      "id": "nomina",
+      "pestana": "Nómina",
+      "titulo": "Nómina",
+      "resumen": "Retención de ISR, subsidio, exenciones, IMSS como cifra de referencia, impuesto sobre nómina y finiquitos.",
+      "uso": ["11_nomina"],
+      "grupos": [
+        {"titulo": "Retención de ISR", "registro": [["Nómina e ISN", "ISR retención de sueldos (tarifa Art. 96 LISR)"]]},
+        {"titulo": "Subsidio al empleo", "registro": [["Nómina e ISN", "Subsidio al empleo"]]},
+        {"titulo": "Salario mínimo", "registro": [["Nómina e ISN", "Exención salario mínimo (SD manda)"]]},
+        {"titulo": "Percepciones exentas", "registro": [["Nómina e ISN", "Exenciones Art. 93 LISR (percepciones extraordinarias)"]]},
+        {"titulo": "IMSS (cifra de referencia)", "registro": [["Nómina e ISN", "IMSS cuota obrera y patronal (SBC, tope 25 UMA)"]]},
+        {"titulo": "Salario base y neto", "registro": [["Nómina e ISN", "SBC / factor de integración / neto"]]},
+        {"titulo": "Impuesto sobre nómina", "registro": [["Nómina e ISN", "ISN estatal (Impuesto Sobre Nómina)"]]},
+        {"titulo": "Finiquito y liquidación", "registro": [["Nómina e ISN", "Finiquito / Liquidación (LFT + Art. 93 LISR)"]]},
+        {"titulo": "Otras tasas de referencia", "registro": [["Nómina e ISN", "Otras tasas del hub (referencia)"]]},
+        {"titulo": "Póliza de nómina", "registro": [["Declaraciones e informativas", "Asiento contable de la nómina"]]},
+        {"titulo": "Información anual de sueldos", "registro": [["Declaraciones e informativas", "DIM Anexo 1 — Sueldos (obligación derogada; se genera solo como respaldo)"]]}
+      ]
+    },
+    {
+      "id": "banco-y-conciliacion",
+      "guias": ["banco-por-confirmar"],
+      "pestana": "Banco",
+      "titulo": "Banco y conciliación",
+      "resumen": "Cruce del banco contra los comprobantes, gastos sin comprobante y complementos de pago.",
+      "uso": ["08_banco", "09_gasto_sin_comprobante"],
+      "grupos": [
+        {"titulo": "Conciliación bancaria", "registro": [["Operativos", "Conciliación bancaria"]]},
+        {"titulo": "Gasto sin comprobante", "registro": [["Operativos", "Gasto sin comprobante (cubos A/B)"]]},
+        {"titulo": "Complementos de pago: plazos", "registro": [["Declaraciones e informativas", "Monitor de complementos de pago (REP) — plazos y multas"]]}
+      ]
+    },
+    {
+      "id": "comercio-exterior",
+      "pestana": "Comercio exterior",
+      "titulo": "Comercio exterior (vista previa)",
+      "resumen": "Pedimentos: IVA de importación, costo y DIOT. Módulo en vista previa.",
+      "uso": ["10_comercio_ext"],
+      "grupos": [
+        {"titulo": "Pedimentos", "registro": [["Operativos", "Comercio exterior / pedimentos"]]}
+      ]
+    },
+    {
+      "id": "contabilidad-y-declaraciones",
+      "pestana": "Contabilidad",
+      "titulo": "Contabilidad y declaraciones",
+      "resumen": "Pólizas, contabilidad electrónica y declaraciones complementarias.",
+      "uso": ["16_polizas", "12_inventario"],
+      "grupos": [
+        {"titulo": "Balanza de comprobación", "registro": [["Declaraciones e informativas", "Contabilidad electrónica — Balanza de comprobación (Anexo 24)"]]},
+        {"titulo": "Catálogo de cuentas", "registro": [["Declaraciones e informativas", "Contabilidad electrónica — Catálogo de cuentas"]]},
+        {"titulo": "Pólizas del cierre", "registro": [["Declaraciones e informativas", "Pólizas del cierre (CFDIs → CONTPAQi)"]]},
+        {"titulo": "Declaraciones complementarias", "registro": [["Declaraciones e informativas", "Centro de complementarias (9 familias; prioridad por monto)"]]},
+        {"titulo": "Conceptos inventariables", "registro": [["Operativos", "Inventario (costo de lo vendido y valuación)"]]}
+      ]
+    },
+    {
+      "id": "flujo-y-salud",
+      "pestana": "Flujo y salud",
+      "titulo": "Flujo de caja y salud del cliente",
+      "resumen": "Proyección de 13 semanas, tarjeta de salud y tablero.",
+      "uso": ["18_flujo_caja", "19_salud_cliente"],
+      "grupos": [
+        {"titulo": "Flujo de caja a 13 semanas", "registro": [["Flujo de caja", "Flujo de caja 13 semanas"]]},
+        {"titulo": "Tarjeta de salud del cliente", "registro": [["Operativos", "Tarjeta de salud del cliente"]]},
+        {"titulo": "Tablero", "registro": [["Operativos", "Tablero / proyección"]]}
+      ]
+    }
+  ]
+}

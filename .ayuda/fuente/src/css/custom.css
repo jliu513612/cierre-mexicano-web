@@ -1,0 +1,24 @@
+/* Sin decoración innecesaria: legibilidad primero (doctrina de UI del producto). */
+:root { --ifm-color-primary: #2563EB; --ifm-code-font-size: 95%; }
+/* Nueve pestañas: una línea cada una, sin partir el texto. */
+.navbar__item { white-space: nowrap; padding: 0 0.45rem; font-size: 0.95rem; }
+.navbar__brand { flex-shrink: 0; }
+/* Pestañas compactas hasta 1480 px: con «Leyes» (la décima) a tamaño normal se encimaban con el
+   buscador (medido: 15 px de solape a 1366; 1 px de hueco a 1441; holgado desde ~1465). */
+@media (max-width: 1480px) { .navbar__item { padding: 0 0.3rem; font-size: 0.85rem; } }
+.navbar__title { white-space: nowrap; }
+/* Entre el menú móvil (≤996 px) y ~1280 px las nueve pestañas, el buscador y el
+   botón de tema no caben en una línea y se encimaban: el buscador y el tema pasan
+   a una segunda fila (medido en taxcerteza.mx/ayuda a 1000, 1100 y 1200 px; el
+   tope sube a 1359 px desde que la marca es el logotipo, más ancho que el texto). */
+.navbar__logo { height: 1.9rem; }
+@media (min-width: 997px) and (max-width: 1359px) {
+  :root { --ifm-navbar-height: 5.5rem; }
+  .navbar { height: auto; }
+  .navbar__inner { flex-wrap: wrap; row-gap: .25rem; }
+  .navbar__items:not(.navbar__items--right) { flex: 0 0 auto; }
+  .navbar__items--right { flex: 1 1 100%; justify-content: flex-end; }
+}
+/* iconos de redes del pie (fragmento único compartido con el sitio y el blog) */
+.redes{display:flex;gap:14px;align-items:center;margin-top:12px}.redes a{display:inline-flex;line-height:0;color:#2563EB;border-radius:4px}.redes a:hover,.redes a:focus-visible{color:#1E40AF}.redes svg{width:22px;height:22px;fill:currentColor}[data-theme='dark'] .redes a{color:#93C5FD}[data-theme='dark'] .redes a:hover,[data-theme='dark'] .redes a:focus-visible{color:#BFDBFE}
+.footer__copyright .redes{justify-content:center;margin:0 0 .5rem}
