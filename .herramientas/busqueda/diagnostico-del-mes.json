@@ -1,0 +1,36 @@
+{
+ "pagina": "/herramientas/diagnostico-del-mes/",
+ "titulo": "Revisar facturas del mes con tus XML: IVA, lista 69-B y complementos de pago",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "revisar xml sat",
+   "media": 2
+  },
+  {
+   "texto": "diagnostico fiscal",
+   "media": 0
+  },
+  {
+   "texto": "revisar facturas sat",
+   "media": 23
+  },
+  {
+   "texto": "leer xml factura",
+   "media": 0
+  },
+  {
+   "texto": "revisar facturas",
+   "media": 45
+  }
+ ],
+ "relacionadas": [
+  "revisar facturas sat"
+ ],
+ "elegida": "revisar facturas",
+ "por_que": "Es la de mayor media (45); «diagnostico fiscal» da 0 y «revisar xml sat» 2. La página revisa las facturas de un mes: el IVA, los proveedores en la lista 69-B y las PPD sin complemento."
+}

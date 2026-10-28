@@ -1,0 +1,45 @@
+{
+ "pagina": "/herramientas/verificar-factura/",
+ "titulo": "Verificar y validar factura (CFDI) en el SAT: enlaces para varios XML",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "verificar factura",
+   "media": 54
+  },
+  {
+   "texto": "verificar cfdi",
+   "media": 13
+  },
+  {
+   "texto": "validar factura",
+   "media": 73
+  },
+  {
+   "texto": "verificacion de cfdi",
+   "media": 39
+  },
+  {
+   "texto": "verificar factura sat",
+   "media": 35
+  }
+ ],
+ "relacionadas": [
+  "como verificar una factura",
+  "factura sat",
+  "sat",
+  "validar cfdi",
+  "validar facturas",
+  "validar facturas sat",
+  "validar rfc sat",
+  "verificar cfdi sat",
+  "verificar factura sat",
+  "verificar facturas"
+ ],
+ "elegida": "validar factura",
+ "por_que": "Es la de mayor media (73), por encima de «verificar factura» (54), que ya estaba. Las dos buscan saber si una factura es válida en el SAT; la página revisa que el XML esté completo y arma el enlace oficial de verificación del SAT, donde se valida. No dice que la valide ella."
+}

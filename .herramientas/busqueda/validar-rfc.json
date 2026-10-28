@@ -1,0 +1,49 @@
+{
+ "pagina": "/herramientas/validar-rfc/",
+ "titulo": "Validar RFC: estructura, fecha y dígito verificador",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "validar rfc",
+   "media": 29
+  },
+  {
+   "texto": "verificar rfc",
+   "media": 8
+  },
+  {
+   "texto": "validador de rfc",
+   "media": 6
+  },
+  {
+   "texto": "consultar rfc",
+   "media": 57
+  },
+  {
+   "texto": "rfc valido",
+   "media": 0
+  }
+ ],
+ "relacionadas": [
+  "como consultar rfc",
+  "consultar rfc con curp sat",
+  "consultar rfc sat",
+  "rfc sat",
+  "sat",
+  "validador de rfc nombre y código postal",
+  "validador de rfc sat",
+  "validar rfc con curp",
+  "validar rfc con curp sat",
+  "validar rfc con homoclave",
+  "validar rfc en el sat",
+  "validar rfc en sat",
+  "verificar rfc con homoclave",
+  "verificar rfc en el sat"
+ ],
+ "elegida": "validar rfc",
+ "por_que": "«consultar rfc» tiene más media (57), pero su intención es buscar el RFC propio en el SAT («consultar rfc con curp sat»), y la herramienta no consulta al SAT: comprueba que un RFC esté bien escrito. «validar rfc» (29) es lo que hace, y el título ya lo dice."
+}

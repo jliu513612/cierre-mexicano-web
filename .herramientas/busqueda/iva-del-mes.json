@@ -1,0 +1,49 @@
+{
+ "pagina": "/herramientas/iva-del-mes/",
+ "titulo": "IVA a pagar o a favor del mes: estimación con tus XML",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "calcular iva",
+   "media": 59
+  },
+  {
+   "texto": "iva a pagar",
+   "media": 25
+  },
+  {
+   "texto": "iva mensual",
+   "media": 24
+  },
+  {
+   "texto": "como calcular el iva",
+   "media": 4
+  },
+  {
+   "texto": "iva a favor",
+   "media": 43
+  }
+ ],
+ "relacionadas": [
+  "calcular el iva",
+  "calcular iva de una cantidad",
+  "calcular iva sat",
+  "como calcular el iva",
+  "como calcular el iva de un producto",
+  "como calcular el iva de un total",
+  "como calcular el iva de una cantidad",
+  "como calcular el iva en excel",
+  "como calcular iva",
+  "como se calcula el iva a pagar",
+  "iva a favor",
+  "iva a favor es activo o pasivo",
+  "iva por pagar",
+  "ley del iva"
+ ],
+ "elegida": "iva a pagar",
+ "por_que": "«calcular iva» tiene más media (59), pero sus relacionadas son el 16 % de un precio («calcular iva de una cantidad», «de un producto», «en excel»), que no es esta herramienta. «iva a favor» (43) va en el título también. Se elige «iva a pagar» (25) porque sus relacionadas son justo este cálculo («iva por pagar», «como se calcula el iva a pagar»). La página estima: el título dice «estimación»."
+}

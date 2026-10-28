@@ -1,0 +1,43 @@
+{
+ "pagina": "/herramientas/tipo-de-cambio/",
+ "titulo": "Tipo de cambio DOF del dólar para efectos fiscales (FIX de Banxico)",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorías",
+ "expresiones": [
+  {
+   "texto": "tipo de cambio dof",
+   "media": 81
+  },
+  {
+   "texto": "tipo de cambio banxico",
+   "media": 31
+  },
+  {
+   "texto": "tipo de cambio fix",
+   "media": 6
+  },
+  {
+   "texto": "tipo de cambio sat",
+   "media": 11
+  },
+  {
+   "texto": "dolar dof",
+   "media": 13
+  }
+ ],
+ "relacionadas": [
+  "banxico",
+  "dof",
+  "precio dolar dof",
+  "tipo de cambio banxico hoy",
+  "tipo de cambio banxico para pagos",
+  "tipo de cambio del dolar dof",
+  "tipo de cambio fix banxico",
+  "tipo de cambio sat hoy"
+ ],
+ "elegida": "tipo de cambio dof",
+ "por_que": "Es la de mayor media (81), frente a «tipo de cambio banxico» (31). La página da el FIX que Banco de México publica en el DOF."
+}
