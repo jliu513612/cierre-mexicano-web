@@ -1,0 +1,1837 @@
+{
+ "ayuda/": {
+  "titulo": "Centro de ayuda",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/alcance/": {
+  "titulo": "Qué responde esta ayuda",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/banco-por-confirmar/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Movimientos «Por confirmar» en Banco",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/banco-y-conciliacion/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Banco y conciliación",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/calculos/": {
+  "titulo": "Cómo calcula el software",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/calculos/dec-001/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Saldo final de una cuenta de naturaleza deudora",
+  "conserva": "conserva: saldo final de una cuenta deudora; regla contable general, no contabilidad electronica"
+ },
+ "ayuda/calculos/dec-002/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Saldo final de una cuenta de naturaleza acreedora",
+  "conserva": "conserva: saldo final de una cuenta acreedora; regla contable general"
+ },
+ "ayuda/calculos/dec-003/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Saldo inicial igual al saldo final del mes anterior",
+  "conserva": "conserva: saldo inicial igual al final del mes anterior; regla contable general"
+ },
+ "ayuda/calculos/dec-004/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: asiento de ingresos cobrados",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-005/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: asiento de gastos pagados",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-006/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Contabilidad electrónica: el gasto en el catálogo de cuentas del cliente",
+  "expresion": "contabilidad electronica"
+ },
+ "ayuda/calculos/dec-007/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Asiento contable del pago provisional de ISR del mes",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/dec-008/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: asiento de la nómina en la balanza",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-009/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Contabilidad electrónica: cuadre de la balanza de comprobación antes de emitirla",
+  "expresion": "contabilidad electronica"
+ },
+ "ayuda/calculos/dec-010/": {
+  "tema": "notas-de-credito",
+  "titulo": "Nota de crédito en el gasto: clasificación sin cargos negativos",
+  "expresion": "nota de credito"
+ },
+ "ayuda/calculos/dec-011/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Contabilidad electrónica: catálogo de cuentas emitido con las cuentas del cliente",
+  "expresion": "contabilidad electronica"
+ },
+ "ayuda/calculos/dec-012/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Contabilidad electrónica: descripción, nivel y naturaleza de cada cuenta del catálogo",
+  "expresion": "contabilidad electronica"
+ },
+ "ayuda/calculos/dec-013/": {
+  "tema": "contabilidad-electronica",
+  "titulo": "Contabilidad electrónica: validación del código agrupador del catálogo de cuentas",
+  "expresion": "contabilidad electronica"
+ },
+ "ayuda/calculos/dec-014/": {
+  "tema": "pagos-al-extranjero",
+  "titulo": "Retención a residentes en el extranjero: total anual de pagos",
+  "expresion": "retencion residentes en el extranjero"
+ },
+ "ayuda/calculos/dec-015/": {
+  "tema": "pagos-al-extranjero",
+  "titulo": "Retención a residentes en el extranjero: total anual retenido",
+  "expresion": "retencion residentes en el extranjero"
+ },
+ "ayuda/calculos/dec-016/": {
+  "tema": "pagos-al-extranjero",
+  "titulo": "Retención a residentes en el extranjero: tasa de tratado o tasa nacional",
+  "expresion": "retencion residentes en el extranjero"
+ },
+ "ayuda/calculos/dec-017/": {
+  "tema": "pagos-al-extranjero",
+  "titulo": "Retención a residentes en el extranjero: importe sugerido en pesos por pago",
+  "expresion": "retencion residentes en el extranjero"
+ },
+ "ayuda/calculos/dec-018/": {
+  "tema": "informativa-sueldos",
+  "titulo": "Información anual de sueldos por empleado desde recibos guardados",
+  "conserva": "conserva (decision de pauta 10-28): la unica expresion con volumen es «constancia de sueldos», que busca el trabajador para DESCARGAR su constancia; esta pagina no la descarga"
+ },
+ "ayuda/calculos/dec-019/": {
+  "tema": "informativa-sueldos",
+  "titulo": "Información anual de sueldos estimada sin recibos guardados",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-018"
+ },
+ "ayuda/calculos/dec-020/": {
+  "tema": "informativa-sueldos",
+  "titulo": "Total de ingresos por trabajador: gravado más exento",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-018"
+ },
+ "ayuda/calculos/dec-021/": {
+  "tema": "issif",
+  "titulo": "Obligación de presentar la ISSIF por monto de ingresos",
+  "expresion": "issif"
+ },
+ "ayuda/calculos/dec-022/": {
+  "tema": "issif",
+  "titulo": "ISSIF: operaciones con residentes en el extranjero",
+  "expresion": "issif"
+ },
+ "ayuda/calculos/dec-023/": {
+  "tema": "issif",
+  "titulo": "ISSIF: partes relacionadas de contribuyentes que dictaminan",
+  "expresion": "issif"
+ },
+ "ayuda/calculos/dec-024/": {
+  "tema": "issif",
+  "titulo": "ISSIF cumplida al presentar el dictamen fiscal",
+  "expresion": "issif"
+ },
+ "ayuda/calculos/dec-025/": {
+  "tema": "issif",
+  "titulo": "ISSIF: estimación de ingresos y operaciones extranjeras desde CFDI",
+  "expresion": "issif"
+ },
+ "ayuda/calculos/dec-026/": {
+  "tema": "cierre-anual",
+  "titulo": "Cierre de ejercicio: totales anuales de IVA e ISR en el expediente fiscal",
+  "expresion": "cierre de ejercicio"
+ },
+ "ayuda/calculos/dec-027/": {
+  "tema": "iva-a-pagar",
+  "titulo": "IVA a pagar en el expediente anual: IVA neto propio (causado menos acreditable)",
+  "expresion": "iva a pagar"
+ },
+ "ayuda/calculos/dec-028/": {
+  "tema": "cierre-anual",
+  "titulo": "Cierre de ejercicio: totales anuales por columna en el expediente fiscal",
+  "expresion": "cierre de ejercicio"
+ },
+ "ayuda/calculos/dec-029/": {
+  "tema": "cierre-anual",
+  "titulo": "Cierre de ejercicio: ganancia cambiaria y PTU no capturadas en el expediente",
+  "expresion": "cierre de ejercicio"
+ },
+ "ayuda/calculos/dec-030/": {
+  "tema": "declaracion-complementaria",
+  "titulo": "Declaración complementaria: prioridad de las diferencias según su importe",
+  "expresion": "declaracion complementaria"
+ },
+ "ayuda/calculos/dec-031/": {
+  "tema": "declaracion-complementaria",
+  "titulo": "Declaración complementaria: IVA de un CFDI cancelado después del cierre",
+  "expresion": "declaracion complementaria"
+ },
+ "ayuda/calculos/dec-032/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago: diferencia por registrarlo en su fecha de pago",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/dec-033/": {
+  "tema": "declaracion-complementaria",
+  "titulo": "Declaración complementaria: diferencia de IVA por facturas timbradas tarde",
+  "expresion": "declaracion complementaria"
+ },
+ "ayuda/calculos/dec-034/": {
+  "tema": "declaracion-complementaria",
+  "titulo": "Declaración complementaria: diferencia de IVA al recalcular un mes declarado",
+  "expresion": "declaracion complementaria"
+ },
+ "ayuda/calculos/dec-035/": {
+  "tema": "declaracion-complementaria",
+  "titulo": "Declaración complementaria: IVA acreditable de pedimentos registrados tarde",
+  "expresion": "declaracion complementaria"
+ },
+ "ayuda/calculos/dec-036/": {
+  "tema": "declaracion-complementaria",
+  "titulo": "Declaración complementaria: diferencia entre lo declarado al SAT y lo calculado",
+  "expresion": "declaracion complementaria"
+ },
+ "ayuda/calculos/dec-037/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Diferencia de ingresos entre contabilidad y CFDI",
+  "conserva": "conserva (decision de pauta 10-28): «conciliacion contable fiscal» nombra la conciliacion anual del ISR y esta pagina coteja ingresos de libros contra CFDI; ninguna expresion medida nombra ese cotejo"
+ },
+ "ayuda/calculos/dec-038/": {
+  "tema": "descarga-cfdi",
+  "titulo": "Meses sin CFDI dentro del periodo con datos",
+  "conserva": "conserva (decision de pauta 10-28): «descargar facturas sat» promete una descarga que la pagina no hace (explica meses sin CFDI en lo ya descargado)"
+ },
+ "ayuda/calculos/dec-039/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago (REP): fecha límite para emitirlo",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/dec-040/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago (REP): plazo vencido, urgente o en tiempo",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/dec-041/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago (REP): rango de multa potencial por pagos sin él",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/dec-042/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago: saldo pendiente de complementar de un CFDI",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/dec-043/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: abonos y CFDI pendientes de pago",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/dec-044/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: forma de pago SAT deducida del movimiento",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/dec-045/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: totales del mes para la póliza de nómina",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-046/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: cargos de la póliza de nómina",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-047/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: abonos de la póliza de nómina",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-048/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: cuadre de la póliza de nómina sin subsidio entregado",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-049/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: importe cobrado en la póliza de facturas emitidas",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-050/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: importe por pagar en la póliza de facturas recibidas",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/dec-051/": {
+  "tema": "polizas",
+  "titulo": "Pólizas contables: verificación de cargos y abonos de cada póliza",
+  "expresion": "polizas contables"
+ },
+ "ayuda/calculos/flu-001/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Cálculo de percentiles",
+  "conserva": "conserva: calculo de percentiles, metodo general sin expresion de busqueda propia"
+ },
+ "ayuda/calculos/flu-002/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: días esperados de cobro y de pago",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-003/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: días de cobro y de pago ponderados por importe",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-004/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: ciclo de caja",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-005/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: tasa de realización de la cobranza",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-006/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: cobranza real respaldada por el banco",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-007/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: monto en riesgo de la cartera",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-008/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: factor de realización de la cobranza",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-009/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: entrada proyectada de cuentas por cobrar",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-010/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: fecha esperada de cobro o pago de una factura",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-011/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: cuentas por pagar con más de 90 días de atraso",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-012/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: periodicidad y monto de la nómina proyectada",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-013/": {
+  "tema": "dia-17",
+  "titulo": "Declaración mensual SAT: impuestos del mes agendados al día 17",
+  "expresion": "declaracion mensual sat"
+ },
+ "ayuda/calculos/flu-014/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: calibración de la proyección de cobros",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-015/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: saldo semanal acumulado",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-016/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: saldo inicial de bancos",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-017/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: variación semanal real contra proyectada",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/flu-018/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de efectivo: fecha de cobro capturada para una factura",
+  "expresion": "flujo de efectivo"
+ },
+ "ayuda/calculos/isr-001/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Ingresos acumulables del régimen general (601) para los pagos provisionales",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-002/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Utilidad fiscal estimada para el pago provisional (601)",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-003/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "ISR causado del periodo a la tasa del 30 % en los pagos provisionales (601)",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-004/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pago provisional de ISR del mes (601)",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-005/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Ganancia cambiaria no realizada en los ingresos acumulables",
+  "conserva": "conserva: ganancia cambiaria no realizada; no es sobre facturas en dolares y ganancia cambiaria casi no se busca (2)"
+ },
+ "ayuda/calculos/isr-006/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Ganancia cambiaria de meses anteriores del ejercicio",
+  "conserva": "conserva: igual que ISR-005"
+ },
+ "ayuda/calculos/isr-007/": {
+  "tema": "coeficiente-de-utilidad",
+  "titulo": "Coeficiente de utilidad del ejercicio",
+  "expresion": "coeficiente de utilidad"
+ },
+ "ayuda/calculos/isr-008/": {
+  "tema": "coeficiente-de-utilidad",
+  "titulo": "Coeficiente de utilidad aplicable a cada pago provisional",
+  "expresion": "coeficiente de utilidad"
+ },
+ "ayuda/calculos/isr-009/": {
+  "tema": "coeficiente-de-utilidad",
+  "titulo": "Coeficiente de utilidad vigente en cada ejercicio",
+  "expresion": "coeficiente de utilidad"
+ },
+ "ayuda/calculos/isr-010/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pagos provisionales de ISR: ingresos del mes al emitir la factura (601)",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-011/": {
+  "tema": "ingresos-acumulables",
+  "titulo": "Ingresos acumulables del mes en flujo de efectivo: PUE y PPD cobradas",
+  "expresion": "ingresos acumulables"
+ },
+ "ayuda/calculos/isr-012/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pagos provisionales de ISR: deducciones del mes que entran al cálculo del ISR",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-013/": {
+  "tema": "coeficiente-de-utilidad",
+  "titulo": "Utilidad fiscal estimada del mes con coeficiente de utilidad",
+  "expresion": "coeficiente de utilidad"
+ },
+ "ayuda/calculos/isr-014/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pagos provisionales de ISR: utilidad estimada del mes, ingresos menos deducciones",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-015/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pagos provisionales de ISR: ISR acumulado con tasa del 30 % o tarifa progresiva",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-016/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pago provisional estimado del mes",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-017/": {
+  "tema": "ptu",
+  "titulo": "PTU pagada que se resta en los pagos provisionales",
+  "expresion": "ptu"
+ },
+ "ayuda/calculos/isr-018/": {
+  "tema": "resico-pf",
+  "titulo": "Base mensual del RESICO de personas físicas: ingreso cobrado",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/isr-019/": {
+  "tema": "resico-pf",
+  "titulo": "ISR mensual del RESICO de personas físicas con tasa fija",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/isr-020/": {
+  "tema": "resico-pf",
+  "titulo": "Pago mensual definitivo en el RESICO de personas físicas",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/isr-021/": {
+  "tema": "resico-pf",
+  "titulo": "Tabla anual del RESICO de personas físicas",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/isr-022/": {
+  "tema": "resico-pm",
+  "titulo": "RESICO persona moral: utilidad por flujo de efectivo",
+  "expresion": "resico persona moral"
+ },
+ "ayuda/calculos/isr-023/": {
+  "tema": "resico-pm",
+  "titulo": "RESICO persona moral: ISR a la tasa del 30 %",
+  "expresion": "resico persona moral"
+ },
+ "ayuda/calculos/isr-024/": {
+  "tema": "resico-pf",
+  "titulo": "Cálculo del RESICO según sea persona física o moral",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/isr-025/": {
+  "tema": "actividad-empresarial",
+  "titulo": "Utilidad acumulada de actividad empresarial (612)",
+  "expresion": "actividad empresarial"
+ },
+ "ayuda/calculos/isr-026/": {
+  "tema": "actividad-empresarial",
+  "titulo": "Actividad empresarial (612): ISR con tarifa progresiva acumulada al periodo",
+  "expresion": "actividad empresarial"
+ },
+ "ayuda/calculos/isr-027/": {
+  "tema": "actividad-empresarial",
+  "titulo": "Actividad empresarial (612): número de meses del periodo para la tarifa",
+  "expresion": "actividad empresarial"
+ },
+ "ayuda/calculos/isr-028/": {
+  "tema": "tarifa-isr",
+  "titulo": "Tabla de ISR: tarifa progresiva mensual y por periodo de nómina",
+  "expresion": "tabla isr"
+ },
+ "ayuda/calculos/isr-029/": {
+  "tema": "tarifa-isr",
+  "titulo": "Tabla de ISR anual para personas físicas",
+  "expresion": "tabla isr"
+ },
+ "ayuda/calculos/isr-030/": {
+  "tema": "declaracion-anual-pm",
+  "titulo": "Declaración anual: resultado fiscal a partir de la utilidad contable",
+  "expresion": "declaracion anual"
+ },
+ "ayuda/calculos/isr-031/": {
+  "tema": "declaracion-anual-pm",
+  "titulo": "Declaración anual de personas morales: ISR al 30 %",
+  "expresion": "declaracion anual"
+ },
+ "ayuda/calculos/isr-032/": {
+  "tema": "actividad-empresarial",
+  "titulo": "ISR anual de actividad empresarial (612) con tarifa anual",
+  "expresion": "actividad empresarial"
+ },
+ "ayuda/calculos/isr-033/": {
+  "tema": "declaracion-anual-pm",
+  "titulo": "Declaración anual: ISR a cargo o a favor",
+  "expresion": "declaracion anual"
+ },
+ "ayuda/calculos/isr-034/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Primera actualización de la pérdida fiscal (año en que se generó)",
+  "expresion": "perdida fiscal"
+ },
+ "ayuda/calculos/isr-035/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Segunda actualización de la pérdida fiscal al amortizarla",
+  "expresion": "perdida fiscal"
+ },
+ "ayuda/calculos/isr-036/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Monto actualizado de la pérdida fiscal",
+  "expresion": "perdida fiscal"
+ },
+ "ayuda/calculos/isr-037/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Pérdida fiscal: amortización por antigüedad, hasta 10 años",
+  "expresion": "perdida fiscal"
+ },
+ "ayuda/calculos/isr-038/": {
+  "tema": "declaracion-anual-pm",
+  "titulo": "Declaración anual: base gravable, resultado fiscal menos pérdidas amortizadas",
+  "expresion": "declaracion anual"
+ },
+ "ayuda/calculos/isr-039/": {
+  "tema": "arrendamiento",
+  "titulo": "ISR por arrendamiento: deducción opcional del 35 %",
+  "expresion": "isr arrendamiento"
+ },
+ "ayuda/calculos/isr-040/": {
+  "tema": "arrendamiento",
+  "titulo": "ISR por arrendamiento con deducciones comprobadas",
+  "expresion": "isr arrendamiento"
+ },
+ "ayuda/calculos/isr-041/": {
+  "tema": "arrendamiento",
+  "titulo": "ISR por arrendamiento: pago provisional mensual",
+  "expresion": "isr arrendamiento"
+ },
+ "ayuda/calculos/isr-042/": {
+  "tema": "arrendamiento",
+  "titulo": "ISR por arrendamiento: impuesto predial deducible",
+  "expresion": "isr arrendamiento"
+ },
+ "ayuda/calculos/isr-043/": {
+  "tema": "arrendamiento",
+  "titulo": "ISR por arrendamiento: retención del 10 % por inquilino persona moral",
+  "expresion": "isr arrendamiento"
+ },
+ "ayuda/calculos/isr-044/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): ISR retenido con RFC, según la actividad",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-045/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): ISR retenido sin RFC",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-046/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): IVA retenido",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-047/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): actividad no identificada se trata como enajenación",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-048/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): ingresos con retención definitiva en el RESICO",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-049/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): ISR retenido como pago provisional",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-050/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): aviso de opción de retención definitiva hasta $300,000",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-051/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales (SAT): aviso al superar $4,000,000 anuales",
+  "expresion": "plataformas digitales sat"
+ },
+ "ayuda/calculos/isr-052/": {
+  "tema": "ptu",
+  "titulo": "PTU a repartir: 10 % de la renta gravable",
+  "expresion": "ptu"
+ },
+ "ayuda/calculos/isr-053/": {
+  "tema": "ptu",
+  "titulo": "Reparto de la PTU por días trabajados y por salarios",
+  "expresion": "ptu"
+ },
+ "ayuda/calculos/isr-054/": {
+  "tema": "ptu",
+  "titulo": "Tope individual de la PTU",
+  "expresion": "ptu"
+ },
+ "ayuda/calculos/isr-055/": {
+  "tema": "ptu",
+  "titulo": "Promedio de la PTU de los últimos tres años",
+  "expresion": "ptu"
+ },
+ "ayuda/calculos/isr-056/": {
+  "tema": "cufin",
+  "titulo": "Utilidad fiscal neta del ejercicio para la CUFIN",
+  "expresion": "cufin"
+ },
+ "ayuda/calculos/isr-057/": {
+  "tema": "cufin",
+  "titulo": "Actualización del saldo de la CUFIN",
+  "expresion": "cufin"
+ },
+ "ayuda/calculos/isr-058/": {
+  "tema": "cufin",
+  "titulo": "Utilidad fiscal neta negativa y su efecto en la CUFIN",
+  "expresion": "cufin"
+ },
+ "ayuda/calculos/isr-059/": {
+  "tema": "cufin",
+  "titulo": "ISR por dividendos que no provienen de la CUFIN",
+  "expresion": "cufin"
+ },
+ "ayuda/calculos/isr-060/": {
+  "tema": "cufin",
+  "titulo": "CUFIN y CUCA: CUCA por acción",
+  "expresion": "cufin"
+ },
+ "ayuda/calculos/isr-061/": {
+  "tema": "cufin",
+  "titulo": "Liquidación: reembolso a socios contra CUCA y CUFIN",
+  "expresion": "cufin"
+ },
+ "ayuda/calculos/isr-062/": {
+  "tema": "deduccion-automoviles",
+  "titulo": "Deducción de automóviles: monto deducible máximo",
+  "expresion": "deduccion de automoviles"
+ },
+ "ayuda/calculos/isr-063/": {
+  "tema": "depreciacion",
+  "titulo": "Depreciación fiscal histórica del ejercicio",
+  "expresion": "depreciacion"
+ },
+ "ayuda/calculos/isr-064/": {
+  "tema": "depreciacion",
+  "titulo": "Depreciación: meses completos de uso del activo en el ejercicio",
+  "expresion": "depreciacion"
+ },
+ "ayuda/calculos/isr-065/": {
+  "tema": "depreciacion",
+  "titulo": "Depreciación: mes de la mitad del periodo de uso para actualizar",
+  "expresion": "depreciacion"
+ },
+ "ayuda/calculos/isr-066/": {
+  "tema": "depreciacion",
+  "titulo": "Factor de actualización de la depreciación",
+  "expresion": "depreciacion"
+ },
+ "ayuda/calculos/isr-067/": {
+  "tema": "depreciacion",
+  "titulo": "Depreciación fiscal actualizada: parte deducible y no deducible",
+  "expresion": "depreciacion"
+ },
+ "ayuda/calculos/isr-068/": {
+  "tema": "depreciacion",
+  "titulo": "Pólizas mensuales de depreciación",
+  "expresion": "depreciacion"
+ },
+ "ayuda/calculos/isr-069/": {
+  "tema": "pagos-en-efectivo",
+  "titulo": "Gastos en efectivo deducibles: pagos de más de $2,000",
+  "expresion": "gastos en efectivo deducibles"
+ },
+ "ayuda/calculos/isr-070/": {
+  "tema": "lista-69b",
+  "titulo": "EFOS: facturas de proveedores en la lista definitiva del artículo 69-B",
+  "expresion": "efos"
+ },
+ "ayuda/calculos/isr-071/": {
+  "tema": "lista-69b",
+  "titulo": "EFOS: la lista del artículo 69-B en los meses anteriores del ejercicio",
+  "expresion": "efos"
+ },
+ "ayuda/calculos/isr-072/": {
+  "tema": "ingresos-acumulables",
+  "titulo": "Anticipos facturados: ingresos acumulables y deducciones sin duplicar",
+  "expresion": "ingresos acumulables"
+ },
+ "ayuda/calculos/isr-073/": {
+  "tema": "regimen-fiscal",
+  "titulo": "Régimen fiscal: persona física o moral según la estructura del RFC",
+  "expresion": "regimen fiscal"
+ },
+ "ayuda/calculos/isr-074/": {
+  "tema": "regimen-fiscal",
+  "titulo": "Método de cálculo del ISR según el régimen fiscal",
+  "expresion": "regimen fiscal"
+ },
+ "ayuda/calculos/isr-075/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Facturas en dólares u otra moneda extranjera: tipo de cambio del propio CFDI",
+  "expresion": "factura en dolares"
+ },
+ "ayuda/calculos/isr-076/": {
+  "tema": "redondeo",
+  "titulo": "Redondeo SAT: centavos en el cálculo del ISR",
+  "expresion": "redondeo sat"
+ },
+ "ayuda/calculos/isr-077/": {
+  "tema": "coeficiente-de-utilidad",
+  "titulo": "Coeficiente de utilidad y tasa a cuatro decimales",
+  "expresion": "coeficiente de utilidad"
+ },
+ "ayuda/calculos/isr-078/": {
+  "tema": "retenciones",
+  "titulo": "ISR retenido al cobrar facturas PPD es acreditable",
+  "conserva": "conserva: es ISR retenido al cobrar (no retencion de IVA); retencion isr (71) tiene intencion de nomina, asi que no se usa"
+ },
+ "ayuda/calculos/isr-079/": {
+  "tema": "pago-provisional-isr",
+  "titulo": "Pagos provisionales de ISR: utilidad, ISR causado y pago nunca negativos",
+  "expresion": "pagos provisionales"
+ },
+ "ayuda/calculos/isr-080/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Pérdida fiscal con trámite completo no registrada en la balanza",
+  "expresion": "perdida fiscal"
+ },
+ "ayuda/calculos/isr-081/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Pérdida en la balanza sin requisitos fiscales: gasto no deducible",
+  "conserva": "conserva: perdida contable sin requisitos fiscales; no es una perdida fiscal y «no deducible» no esta medida en este tema"
+ },
+ "ayuda/calculos/isr-082/": {
+  "tema": "perdidas-fiscales",
+  "titulo": "Pérdida fiscal con trámite completo ya deducida en la balanza: sin ajuste",
+  "expresion": "perdida fiscal"
+ },
+ "ayuda/calculos/isr-083/": {
+  "tema": "deducciones-perdidas-bienes",
+  "titulo": "Ejercicio de la deducción por destrucción, incobrable o siniestro",
+  "conserva": "conserva: la pagina fija el ejercicio de tres deducciones (destruccion, incobrable y siniestro); anteponer «cuentas incobrables» diria menos de lo que explica"
+ },
+ "ayuda/calculos/isr-084/": {
+  "tema": "deducciones-perdidas-bienes",
+  "titulo": "Cuentas incobrables: crédito de hasta 30,000 UDIS con un año de mora",
+  "expresion": "cuentas incobrables"
+ },
+ "ayuda/calculos/isr-085/": {
+  "tema": "indemnizacion-seguro",
+  "titulo": "Indemnización de seguro no reinvertida: ingreso acumulable",
+  "expresion": "indemnizacion de seguro"
+ },
+ "ayuda/calculos/isr-086/": {
+  "tema": "indemnizacion-seguro",
+  "titulo": "Indemnización de seguro: lo reinvertido no puede exceder lo recuperado",
+  "expresion": "indemnizacion de seguro"
+ },
+ "ayuda/calculos/isr-087/": {
+  "tema": "donativos",
+  "titulo": "Donativos deducibles: tope del 7% y sublímite del 4% a gobierno",
+  "expresion": "donativos"
+ },
+ "ayuda/calculos/iva-001/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "IVA causado en facturas emitidas de contado (PUE)",
+  "conserva": "conserva: ya nombra PUE, que es como se busca (ppd que es 24, pue y ppd 9); ninguna expresion medida cabe sin prometer otra cosa"
+ },
+ "ayuda/calculos/iva-002/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "Base gravable del IVA en facturas emitidas de contado (PUE)",
+  "conserva": "conserva: igual que IVA-001"
+ },
+ "ayuda/calculos/iva-003/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "Importes exentos o no objeto de IVA en la factura",
+  "conserva": "conserva: importes exentos o no objeto en la factura; no es IVA acreditable ni PUE/PPD"
+ },
+ "ayuda/calculos/iva-004/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "Límite de la parte exenta frente al subtotal de la factura",
+  "conserva": "conserva: limite de la parte exenta; no es IVA acreditable ni PUE/PPD"
+ },
+ "ayuda/calculos/iva-005/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "IVA de facturas emitidas en parcialidades (PPD): se causa al cobrar",
+  "conserva": "conserva: ya nombra PPD (ppd que es 24 es una pregunta, no cabe en un titulo)"
+ },
+ "ayuda/calculos/iva-006/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "IVA acreditable de facturas de proveedor de contado (PUE)",
+  "expresion": "iva acreditable"
+ },
+ "ayuda/calculos/iva-007/": {
+  "tema": "iva-pue-ppd",
+  "titulo": "IVA acreditable de facturas de proveedor en parcialidades (PPD)",
+  "expresion": "iva acreditable"
+ },
+ "ayuda/calculos/iva-008/": {
+  "tema": "complemento-de-pago",
+  "titulo": "IVA causado por cobros con complemento de pago (REP)",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-009/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Clasificación por tasa de la base cobrada con complemento de pago",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-010/": {
+  "tema": "complemento-de-pago",
+  "titulo": "IVA acreditable por pagos con complemento de pago (REP)",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-011/": {
+  "tema": "retenciones",
+  "titulo": "Retención de IVA al proveedor en pagos en parcialidades",
+  "expresion": "retencion de iva"
+ },
+ "ayuda/calculos/iva-012/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago cobrado en un mes anterior al declarado",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-013/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago de proveedor pagado en otro mes",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-014/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago timbrado después pero pagado en el mes declarado",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-015/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Comprobantes de un mes posterior que no son complemento de pago",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/iva-016/": {
+  "tema": "pagos-en-efectivo",
+  "titulo": "Gastos en efectivo deducibles: IVA no acreditable por pagos de más de $2,000",
+  "expresion": "gastos en efectivo deducibles"
+ },
+ "ayuda/calculos/iva-017/": {
+  "tema": "pagos-en-efectivo",
+  "titulo": "Gastos en efectivo deducibles: pagos de más de $2,000 con complemento de pago",
+  "expresion": "gastos en efectivo deducibles"
+ },
+ "ayuda/calculos/iva-018/": {
+  "tema": "lista-69b",
+  "titulo": "EFOS: IVA no acreditable de proveedores en la lista definitiva del 69-B",
+  "expresion": "efos"
+ },
+ "ayuda/calculos/iva-019/": {
+  "tema": "lista-69b",
+  "titulo": "EFOS: corte por fecha de publicación de la lista definitiva del 69-B",
+  "expresion": "efos"
+ },
+ "ayuda/calculos/iva-020/": {
+  "tema": "lista-69b",
+  "titulo": "EFOS: situaciones de la lista 69-B que sí permiten acreditar el IVA",
+  "expresion": "efos"
+ },
+ "ayuda/calculos/iva-021/": {
+  "tema": "lista-69b",
+  "titulo": "EFOS: proveedor en la lista definitiva del 69-B sin fecha de publicación",
+  "expresion": "efos"
+ },
+ "ayuda/calculos/iva-022/": {
+  "tema": "tasas-iva",
+  "titulo": "IVA causado total por tasa: 16 % y 8 % de IVA en la frontera",
+  "expresion": "iva frontera"
+ },
+ "ayuda/calculos/iva-023/": {
+  "tema": "iva-a-pagar",
+  "titulo": "IVA a pagar: IVA neto propio del mes",
+  "expresion": "iva a pagar"
+ },
+ "ayuda/calculos/iva-024/": {
+  "tema": "iva-a-pagar",
+  "titulo": "IVA a pagar, a favor o en cero: resultado de la declaración",
+  "expresion": "iva a pagar"
+ },
+ "ayuda/calculos/iva-025/": {
+  "tema": "iva-a-pagar",
+  "titulo": "Monto de IVA a pagar en el mes",
+  "expresion": "iva a pagar"
+ },
+ "ayuda/calculos/iva-026/": {
+  "tema": "iva-a-pagar",
+  "titulo": "IVA a favor: saldo para meses siguientes",
+  "expresion": "iva a favor"
+ },
+ "ayuda/calculos/iva-028/": {
+  "tema": "notas-de-credito",
+  "titulo": "Nota de crédito emitida y aplicación de anticipos en el IVA causado",
+  "expresion": "nota de credito"
+ },
+ "ayuda/calculos/iva-029/": {
+  "tema": "notas-de-credito",
+  "titulo": "Nota de crédito recibida y anticipos en el IVA acreditable",
+  "expresion": "nota de credito"
+ },
+ "ayuda/calculos/iva-030/": {
+  "tema": "notas-de-credito",
+  "titulo": "Nota de crédito recibida en el campo de devoluciones de la DIOT",
+  "expresion": "nota de credito"
+ },
+ "ayuda/calculos/iva-031/": {
+  "tema": "notas-de-credito",
+  "titulo": "Aplicación de anticipos (tipo de relación 07) por proveedor",
+  "conserva": "conserva: anticipos factura casi no se busca (1); no es nota de credito"
+ },
+ "ayuda/calculos/iva-033/": {
+  "tema": "diot",
+  "titulo": "Tasa de IVA con que se clasifica cada comprobante en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-034/": {
+  "tema": "tasas-iva",
+  "titulo": "Reparto por tasa del IVA causado en facturas de contado (PUE)",
+  "conserva": "conserva: reparto por tasa del IVA causado PUE; no es de la frontera en particular"
+ },
+ "ayuda/calculos/iva-035/": {
+  "tema": "tasas-iva",
+  "titulo": "Tasa 0 de IVA, 16 %, 8 % en la frontera y exento: tasas aplicables",
+  "expresion": "tasa 0 iva"
+ },
+ "ayuda/calculos/iva-037/": {
+  "tema": "retenciones",
+  "titulo": "Tasas de retención de IVA e ISR esperadas",
+  "expresion": "retencion de iva"
+ },
+ "ayuda/calculos/iva-038/": {
+  "tema": "tasas-iva",
+  "titulo": "Base al 16% reconstruida a partir del IVA trasladado",
+  "conserva": "conserva: base al 16 % reconstruida; no es de la frontera"
+ },
+ "ayuda/calculos/iva-039/": {
+  "tema": "retenciones",
+  "titulo": "Retención de IVA del 4% en autotransporte de carga",
+  "expresion": "retencion de iva"
+ },
+ "ayuda/calculos/iva-040/": {
+  "tema": "retenciones",
+  "titulo": "Retención de IVA de dos terceras partes a personas físicas",
+  "expresion": "retencion de iva"
+ },
+ "ayuda/calculos/iva-041/": {
+  "tema": "resico-pf",
+  "titulo": "Retención de ISR del 10% o del 1.25% (RESICO) a personas físicas",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/iva-043/": {
+  "tema": "diot",
+  "titulo": "Acumulación de importes por proveedor en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-044/": {
+  "tema": "diot",
+  "titulo": "Tipo de tercero en la DIOT: nacional, extranjero o global",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-045/": {
+  "tema": "diot",
+  "titulo": "Montos de la DIOT en pesos enteros",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-046/": {
+  "tema": "diot",
+  "titulo": "Base y devoluciones al 16% en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-047/": {
+  "tema": "diot",
+  "titulo": "IVA acreditable al 16% en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-048/": {
+  "tema": "diot",
+  "titulo": "Base e IVA al 8% de región fronteriza norte o sur en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-049/": {
+  "tema": "diot",
+  "titulo": "Base de importación en la DIOT cuando falta el dato del pedimento",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-050/": {
+  "tema": "diot",
+  "titulo": "IVA retenido por proveedor en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-051/": {
+  "tema": "diot",
+  "titulo": "Bases exenta y al 0% en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-052/": {
+  "tema": "diot",
+  "titulo": "Devoluciones limitadas al valor pagado en la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-053/": {
+  "tema": "diot",
+  "titulo": "Validación de los 54 campos de cada renglón de la DIOT",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/iva-055/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Facturas en dólares: factor de conversión a pesos según el tipo de cambio",
+  "expresion": "factura en dolares"
+ },
+ "ayuda/calculos/iva-056/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Facturas en dólares u otra moneda extranjera: conversión a pesos",
+  "expresion": "factura en dolares"
+ },
+ "ayuda/calculos/iva-057/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Complemento de pago de una factura en dólares: tipo de cambio",
+  "expresion": "factura en dolares"
+ },
+ "ayuda/calculos/iva-059/": {
+  "tema": "redondeo",
+  "titulo": "Redondeo SAT: centavos en el cálculo del IVA",
+  "expresion": "redondeo sat"
+ },
+ "ayuda/calculos/iva-060/": {
+  "tema": "redondeo",
+  "titulo": "Redondeo SAT de las cifras de la declaración",
+  "expresion": "redondeo sat"
+ },
+ "ayuda/calculos/iva-061/": {
+  "tema": "redondeo",
+  "titulo": "Redondeo SAT: precisión de los cálculos internos",
+  "expresion": "redondeo sat"
+ },
+ "ayuda/calculos/iva-062/": {
+  "tema": "redondeo",
+  "titulo": "Redondeo SAT: importes con precisión exacta, sin decimales aproximados",
+  "expresion": "redondeo sat"
+ },
+ "ayuda/calculos/iva-063/": {
+  "tema": "redondeo",
+  "titulo": "Redondeo SAT para la autoridad frente al redondeo interno",
+  "expresion": "redondeo sat"
+ },
+ "ayuda/calculos/iva-064/": {
+  "tema": "retenciones",
+  "titulo": "Retención de IVA a terceros: entero en renglón aparte",
+  "expresion": "retencion de iva"
+ },
+ "ayuda/calculos/nom-001/": {
+  "tema": "tarifa-isr",
+  "titulo": "Tabla de ISR sobre salarios: cálculo por tramos",
+  "expresion": "tabla isr"
+ },
+ "ayuda/calculos/nom-002/": {
+  "tema": "tarifa-isr",
+  "titulo": "Tabla de ISR según el periodo de pago de la nómina",
+  "expresion": "tabla isr"
+ },
+ "ayuda/calculos/nom-003/": {
+  "tema": "tarifa-isr",
+  "titulo": "Tabla de ISR mensual sobre salarios",
+  "expresion": "tabla isr"
+ },
+ "ayuda/calculos/nom-004/": {
+  "tema": "isr-nomina",
+  "titulo": "ISR de salarios a retener: tarifa menos subsidio al empleo",
+  "expresion": "isr salarios"
+ },
+ "ayuda/calculos/nom-005/": {
+  "tema": "isr-nomina",
+  "titulo": "Subsidio al empleo como porcentaje de la UMA (desde mayo 2024)",
+  "expresion": "subsidio al empleo"
+ },
+ "ayuda/calculos/nom-006/": {
+  "tema": "isr-nomina",
+  "titulo": "Subsidio al empleo por tabla (hasta abril 2024)",
+  "expresion": "subsidio al empleo"
+ },
+ "ayuda/calculos/nom-007/": {
+  "tema": "isr-nomina",
+  "titulo": "Subsidio al empleo: porcentajes y tope vigentes",
+  "expresion": "subsidio al empleo"
+ },
+ "ayuda/calculos/nom-008/": {
+  "tema": "isr-nomina",
+  "titulo": "Subsidio al empleo: porcentajes y topes históricos",
+  "expresion": "subsidio al empleo"
+ },
+ "ayuda/calculos/nom-009/": {
+  "tema": "isr-nomina",
+  "titulo": "Subsidio al empleo mensual de referencia",
+  "expresion": "subsidio al empleo"
+ },
+ "ayuda/calculos/nom-010/": {
+  "tema": "isr-nomina",
+  "titulo": "ISR de salarios: cuándo un trabajador se considera de salario mínimo",
+  "expresion": "isr salarios"
+ },
+ "ayuda/calculos/nom-011/": {
+  "tema": "isr-nomina",
+  "titulo": "ISR de salarios: trabajador de salario mínimo sin retención",
+  "expresion": "isr salarios"
+ },
+ "ayuda/calculos/nom-012/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS: trabajador de salario mínimo, el patrón paga la cuota obrera",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-013/": {
+  "tema": "exenciones-nomina",
+  "titulo": "Aguinaldo exento hasta 30 UMA",
+  "expresion": "aguinaldo exento"
+ },
+ "ayuda/calculos/nom-014/": {
+  "tema": "exenciones-nomina",
+  "titulo": "Prima vacacional exenta hasta 15 UMA",
+  "expresion": "prima vacacional exenta"
+ },
+ "ayuda/calculos/nom-015/": {
+  "tema": "ptu",
+  "titulo": "PTU exenta hasta 15 UMA",
+  "expresion": "ptu"
+ },
+ "ayuda/calculos/nom-016/": {
+  "tema": "exenciones-nomina",
+  "titulo": "Prima dominical exenta: 1 UMA por domingo trabajado",
+  "conserva": "conserva: prima dominical, sin expresion medida con volumen"
+ },
+ "ayuda/calculos/nom-017/": {
+  "tema": "exenciones-nomina",
+  "titulo": "Horas extra: 50% exento con tope de 5 UMA por semana",
+  "conserva": "conserva: horas extra exentas, 0 en Trends"
+ },
+ "ayuda/calculos/nom-018/": {
+  "tema": "exenciones-nomina",
+  "titulo": "Percepciones sin exención: gravadas en su totalidad",
+  "conserva": "conserva: percepciones sin exencion; no es aguinaldo"
+ },
+ "ayuda/calculos/nom-019/": {
+  "tema": "cuotas-imss",
+  "titulo": "SBC: tope en 25 UMA diarias",
+  "expresion": "sbc"
+ },
+ "ayuda/calculos/nom-020/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS obreras por ramo",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-021/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS: cuota obrera de enfermedad y maternidad sobre el excedente de 3 UMA",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-022/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS: cuota fija patronal de enfermedad y maternidad",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-023/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS: cuota patronal de enfermedad y maternidad sobre el excedente de 3 UMA",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-024/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS patronales por ramo y prima de riesgo de trabajo",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-025/": {
+  "tema": "cuotas-imss",
+  "titulo": "Cuotas IMSS: cuota patronal de cesantía y vejez, transición 2023 a 2030",
+  "expresion": "cuotas imss"
+ },
+ "ayuda/calculos/nom-026/": {
+  "tema": "cuotas-imss",
+  "titulo": "SBC integrado con el factor mínimo cuando no se captura",
+  "expresion": "sbc"
+ },
+ "ayuda/calculos/nom-027/": {
+  "tema": "cuotas-imss",
+  "titulo": "SBC: factor de integración mínimo",
+  "expresion": "sbc"
+ },
+ "ayuda/calculos/nom-028/": {
+  "tema": "recibo-de-nomina",
+  "titulo": "Salario diario a partir del sueldo mensual",
+  "conserva": "conserva: salario diario a partir del sueldo mensual; no es el recibo"
+ },
+ "ayuda/calculos/nom-029/": {
+  "tema": "infonavit",
+  "titulo": "Aportaciones INFONAVIT: aportación patronal del 5 %",
+  "expresion": "aportaciones infonavit"
+ },
+ "ayuda/calculos/nom-030/": {
+  "tema": "recibo-de-nomina",
+  "titulo": "Recibo de nómina: sueldo del periodo por días trabajados",
+  "expresion": "recibo de nomina"
+ },
+ "ayuda/calculos/nom-031/": {
+  "tema": "recibo-de-nomina",
+  "titulo": "Neto a pagar del recibo de nómina",
+  "expresion": "recibo de nomina"
+ },
+ "ayuda/calculos/nom-032/": {
+  "tema": "recibo-de-nomina",
+  "titulo": "Costo patronal por trabajador",
+  "conserva": "conserva: costo patronal; no es el recibo (costo patronal 0 en Trends)"
+ },
+ "ayuda/calculos/nom-033/": {
+  "tema": "isn",
+  "titulo": "ISN en el recibo: tasa del estado sobre las percepciones",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-034/": {
+  "tema": "isn",
+  "titulo": "Monto del ISN estatal y cuándo no se determina",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-035/": {
+  "tema": "isn",
+  "titulo": "ISN de Sinaloa por tramos: no se calcula en esta versión",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-036/": {
+  "tema": "isn",
+  "titulo": "Reparto del ISN por tramos entre recibos",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-037/": {
+  "tema": "isn",
+  "titulo": "ISN de Jalisco al 3% y el impuesto del 5% que no es ISN",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-038/": {
+  "tema": "isn",
+  "titulo": "ISN de Sonora: no se calcula en esta versión",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-039/": {
+  "tema": "isn",
+  "titulo": "Qué tasa de ISN se aplica y en qué orden",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-040/": {
+  "tema": "isn",
+  "titulo": "ISN: entidad federativa a partir del código postal",
+  "expresion": "isn"
+ },
+ "ayuda/calculos/nom-041/": {
+  "tema": "finiquito",
+  "titulo": "Antigüedad en años para el finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-042/": {
+  "tema": "finiquito",
+  "titulo": "Salarios devengados pendientes de pago en el finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-043/": {
+  "tema": "finiquito",
+  "titulo": "Aguinaldo proporcional en el finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-044/": {
+  "tema": "finiquito",
+  "titulo": "Vacaciones pendientes en el finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-045/": {
+  "tema": "finiquito",
+  "titulo": "Prima vacacional en el finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-046/": {
+  "tema": "finiquito",
+  "titulo": "Liquidación por despido: indemnización de tres meses",
+  "expresion": "liquidacion"
+ },
+ "ayuda/calculos/nom-047/": {
+  "tema": "finiquito",
+  "titulo": "Liquidación por despido: indemnización de 20 días por año de servicio",
+  "expresion": "liquidacion"
+ },
+ "ayuda/calculos/nom-048/": {
+  "tema": "finiquito",
+  "titulo": "Finiquito: prima de antigüedad, 12 días por año con tope de dos salarios mínimos",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-049/": {
+  "tema": "finiquito",
+  "titulo": "Finiquito: exención de ISR por separación, 90 UMA por año de servicio",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-050/": {
+  "tema": "finiquito",
+  "titulo": "Finiquito: reparto de la exención por separación entre conceptos",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-051/": {
+  "tema": "finiquito",
+  "titulo": "ISR de la parte ordinaria del finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-052/": {
+  "tema": "finiquito",
+  "titulo": "Finiquito: ISR de los pagos por separación con la tasa del último sueldo",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-053/": {
+  "tema": "finiquito",
+  "titulo": "ISR total y neto del finiquito",
+  "expresion": "finiquito"
+ },
+ "ayuda/calculos/nom-054/": {
+  "tema": "tasas-iva",
+  "titulo": "IVA en la frontera: tasa efectiva del 8 %",
+  "expresion": "iva frontera"
+ },
+ "ayuda/calculos/nom-055/": {
+  "tema": "resico-pf",
+  "titulo": "Retención de ISR del 1.25% a personas físicas del RESICO",
+  "expresion": "resico"
+ },
+ "ayuda/calculos/nom-056/": {
+  "tema": "declaracion-anual-pm",
+  "titulo": "Declaración anual: tasa de ISR de personas morales",
+  "expresion": "declaracion anual"
+ },
+ "ayuda/calculos/nom-057/": {
+  "tema": "uma-salario-minimo",
+  "titulo": "UMA 2026 y otros años: la aplicable según la fecha de la operación",
+  "expresion": "uma 2026"
+ },
+ "ayuda/calculos/nom-058/": {
+  "tema": "uma-salario-minimo",
+  "titulo": "Salario mínimo por año: general y zona libre de la frontera norte",
+  "expresion": "salario minimo"
+ },
+ "ayuda/calculos/ope-001/": {
+  "tema": "pedimento",
+  "titulo": "Clasificación del pedimento: definitivo, temporal o por confirmar",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-002/": {
+  "tema": "pedimento",
+  "titulo": "IVA acreditable del pedimento de importación",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-003/": {
+  "tema": "pedimento",
+  "titulo": "IVA de pedimentos temporales IMMEX según su forma de pago",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-004/": {
+  "tema": "pedimento",
+  "titulo": "Pedimento: costo de importación que se suma al inventario",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-005/": {
+  "tema": "pedimento",
+  "titulo": "Recargos del pedimento no deducibles",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-006/": {
+  "tema": "pedimento",
+  "titulo": "Pedimento: IEPS pagado en la importación, acreditamiento condicionado",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-007/": {
+  "tema": "pedimento",
+  "titulo": "Cuadre de las contribuciones del pedimento con su total",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-008/": {
+  "tema": "diot",
+  "titulo": "Renglón de la DIOT por IVA de importación",
+  "expresion": "diot"
+ },
+ "ayuda/calculos/ope-009/": {
+  "tema": "pedimento",
+  "titulo": "Pedimento: deducción del costo de importación en la declaración anual",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-010/": {
+  "tema": "pedimento",
+  "titulo": "Pedimento: deducción anual de compras de importación",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-011/": {
+  "tema": "pedimento",
+  "titulo": "Aviso de diferencia en el IVA de pedimentos frente al último cierre",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-012/": {
+  "tema": "pedimento",
+  "titulo": "Pedimento: aviso de diferencia en gasto extranjero frente al último cierre",
+  "expresion": "pedimento"
+ },
+ "ayuda/calculos/ope-028/": {
+  "tema": "inventario",
+  "titulo": "Inventario contable: cuándo un concepto de factura es inventariable",
+  "expresion": "inventario contable"
+ },
+ "ayuda/calculos/ope-029/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Tolerancia de importe en la conciliación bancaria",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-030/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: cruces por confirmar",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-031/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: tolerancia de importe en movimientos de nómina y consumo",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-032/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: cargos de comercios conocidos solo con su propio CFDI",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-033/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: selección del CFDI más cercano y manejo de empates",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-034/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: depósito que paga varias facturas",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-035/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: cobros y pagos sin duplicar el ingreso o el gasto",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-036/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: movimientos sin CFDI",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-037/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: cuadre de saldos del estado de cuenta",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-038/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: totales del estado de cuenta según sus movimientos",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-039/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: movimientos contra los totales del estado de cuenta",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-040/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Gastos no deducibles: cargos sin factura que requieren CFDI y los que no",
+  "expresion": "no deducibles"
+ },
+ "ayuda/calculos/ope-041/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Cargos que no requieren CFDI: impuestos, seguridad social y traspasos",
+  "conserva": "conserva: cargos que no requieren CFDI (impuestos, seguridad social, traspasos); no son gastos no deducibles"
+ },
+ "ayuda/calculos/ope-042/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Gastos no deducibles: nivel de confianza de la sugerencia",
+  "expresion": "no deducibles"
+ },
+ "ayuda/calculos/ope-043/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Detección de comisiones bancarias",
+  "conserva": "conserva: deteccion de comisiones bancarias; «comisiones bancarias deducibles» 0 en Trends y no es gasto no deducible"
+ },
+ "ayuda/calculos/ope-044/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Identificación del banco como emisor",
+  "conserva": "conserva: identificar al banco como emisor; no es un gasto no deducible"
+ },
+ "ayuda/calculos/ope-045/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Comisiones amparadas por el CFDI mensual del banco",
+  "conserva": "conserva: comisiones amparadas por el CFDI del banco, que SI son deducibles; anteponer «no deducibles» seria falso"
+ },
+ "ayuda/calculos/ope-046/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Gastos no deducibles: registro de un cargo como no deducible",
+  "expresion": "no deducibles"
+ },
+ "ayuda/calculos/ope-047/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Cuenta contable para gastos no deducibles",
+  "expresion": "no deducibles"
+ },
+ "ayuda/calculos/ope-048/": {
+  "tema": "salud-cliente",
+  "titulo": "Estados de cada señal de la tarjeta de salud",
+  "conserva": "conserva: estados de cada señal de la tarjeta de salud del propio programa; sin expresion de busqueda"
+ },
+ "ayuda/calculos/ope-049/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Facturas PPD vencidas sin complemento de pago (REP)",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/ope-050/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Complemento de pago (REP) timbrado después del día 17 del mes siguiente al pago",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/ope-051/": {
+  "tema": "complemento-de-pago",
+  "titulo": "Factura PUE cobrada en parcialidades: complemento de pago",
+  "expresion": "complemento de pago"
+ },
+ "ayuda/calculos/ope-052/": {
+  "tema": "salud-cliente",
+  "titulo": "Cuentas por cobrar en riesgo: facturas a plazos no cobradas",
+  "expresion": "cuentas por cobrar"
+ },
+ "ayuda/calculos/ope-053/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Conciliación bancaria: movimientos sin conciliar",
+  "expresion": "conciliacion bancaria"
+ },
+ "ayuda/calculos/ope-054/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Gasto sin comprobante fiscal en la tarjeta de salud",
+  "conserva": "conserva: senal de la tarjeta de salud del propio programa; no dice si el gasto es deducible"
+ },
+ "ayuda/calculos/ope-055/": {
+  "tema": "descarga-cfdi",
+  "titulo": "Meses sin estado de cuenta cargado",
+  "conserva": "conserva: meses sin estado de cuenta; no es descarga del SAT"
+ },
+ "ayuda/calculos/ope-056/": {
+  "tema": "descarga-cfdi",
+  "titulo": "Descarga del SAT incompleta",
+  "conserva": "conserva (decision de pauta 10-28): la pagina explica una descarga del SAT INCOMPLETA en lo ya descargado; el titulo ya lo nombra asi y no promete descargar"
+ },
+ "ayuda/calculos/ope-057/": {
+  "tema": "descarga-cfdi",
+  "titulo": "CFDI ilegibles",
+  "conserva": "conserva (decision de pauta 10-28): CFDI ilegibles en lo descargado; no promete descargar"
+ },
+ "ayuda/calculos/ope-058/": {
+  "tema": "descarga-cfdi",
+  "titulo": "Huecos en los folios de facturas propias",
+  "conserva": "conserva: huecos de folio en facturas propias; no es descarga del SAT"
+ },
+ "ayuda/calculos/ope-059/": {
+  "tema": "salud-cliente",
+  "titulo": "Orden de las señales en la tarjeta de salud",
+  "conserva": "conserva: tarjeta de salud del propio programa; sin expresion de busqueda"
+ },
+ "ayuda/calculos/ope-060/": {
+  "tema": "salud-cliente",
+  "titulo": "Evaluación de cada módulo de la tarjeta de salud",
+  "conserva": "conserva: tarjeta de salud del propio programa; sin expresion de busqueda"
+ },
+ "ayuda/calculos/ope-061/": {
+  "tema": "salud-cliente",
+  "titulo": "Calificación global de la salud del cliente",
+  "conserva": "conserva: tarjeta de salud del propio programa; sin expresion de busqueda"
+ },
+ "ayuda/calculos/ope-062/": {
+  "tema": "salud-cliente",
+  "titulo": "Semáforo del cliente en el tablero",
+  "conserva": "conserva: semaforo del propio programa; sin expresion de busqueda"
+ },
+ "ayuda/calculos/ope-063/": {
+  "tema": "salud-cliente",
+  "titulo": "Cuentas por cobrar: tasa de cobranza real de facturas a plazos",
+  "expresion": "cuentas por cobrar"
+ },
+ "ayuda/calculos/ope-064/": {
+  "tema": "salud-cliente",
+  "titulo": "Cuentas por cobrar: cobranza real por factura",
+  "expresion": "cuentas por cobrar"
+ },
+ "ayuda/calculos/ope-065/": {
+  "tema": "salud-cliente",
+  "titulo": "Factor de realización de la cobranza en la tarjeta de salud",
+  "conserva": "conserva: factor de la tarjeta de salud del propio programa; sin expresion de busqueda"
+ },
+ "ayuda/calculos/ope-066/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Ingresos, costos y gastos según libros por familia de cuentas",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-037"
+ },
+ "ayuda/calculos/ope-067/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Ingreso facturado según CFDI",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-037"
+ },
+ "ayuda/calculos/ope-068/": {
+  "tema": "ganancia-cambiaria",
+  "titulo": "Facturas en dólares u otra moneda extranjera: tipo de cambio del CFDI",
+  "expresion": "factura en dolares"
+ },
+ "ayuda/calculos/ope-069/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Diferencia mensual entre libros y facturado",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-037"
+ },
+ "ayuda/calculos/ope-070/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Exclusión de CFDI cancelados",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-037"
+ },
+ "ayuda/calculos/ope-071/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Utilidad contable del mes como referencia",
+  "conserva": "conserva (decision de pauta 10-28): igual que DEC-037"
+ },
+ "ayuda/calculos/ope-072/": {
+  "tema": "deducciones-perdidas-bienes",
+  "titulo": "Plazo del aviso de destrucción de mercancías",
+  "conserva": "conserva: destruccion de mercancias, sin expresion con volumen (1 en Trends)"
+ },
+ "ayuda/calculos/ope-073/": {
+  "tema": "deducciones-perdidas-bienes",
+  "titulo": "Ofrecimiento en donación antes de destruir bienes básicos",
+  "conserva": "conserva: donacion antes de destruir, sin expresion con volumen (1 en Trends)"
+ },
+ "ayuda/cfdi-e-iva/": {
+  "tema": "descarga-cfdi",
+  "titulo": "CFDI e IVA",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/cierre-anual/": {
+  "tema": "cierre-anual",
+  "titulo": "Cierre anual",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/cierre-detenido/": {
+  "tema": "cierre-mensual",
+  "titulo": "Si el cierre se detiene o sale «Rechazado»",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/cierre-mensual-e-isr/": {
+  "tema": "cierre-mensual",
+  "titulo": "Cierre mensual e ISR",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/comercio-exterior/": {
+  "tema": "pedimento",
+  "titulo": "Comercio exterior (vista previa)",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/contabilidad-y-declaraciones/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "Contabilidad y declaraciones",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/flujo-y-salud/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de caja y salud del cliente",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/fuentes/": {
+  "titulo": "De dónde sale cada número",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/leyes/": {
+  "titulo": "Leyes y textos oficiales",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/leyes/liva/": {
+  "tema": "ley-del-iva",
+  "titulo": "Ley del Impuesto al Valor Agregado",
+  "conserva": "texto de la ley: el titulo es su nombre oficial"
+ },
+ "ayuda/leyes/mapa/": {
+  "titulo": "Qué norma usa cada cálculo",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/nomina/": {
+  "tema": "recibo-de-nomina",
+  "titulo": "Nómina",
+  "conserva": "portada de seccion: su titulo es el nombre del menu y de la barra lateral de la ayuda; cambiarlo para busqueda despega la ayuda de lo que el usuario ve en el programa"
+ },
+ "ayuda/primeros-pasos/": {
+  "titulo": "Primeros pasos",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/01_instalacion/": {
+  "titulo": "Instalación",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/02_activacion/": {
+  "titulo": "Activación de la licencia",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/03_alta_cliente/": {
+  "titulo": "Alta de cliente",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/04_carpeta_trabajo/": {
+  "titulo": "Carpeta de trabajo",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/05_carga_datos/": {
+  "titulo": "Carga de datos",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/06_tablero/": {
+  "titulo": "Tablero",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/07_cfdis/": {
+  "tema": "descarga-cfdi",
+  "titulo": "CFDIs",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/08_banco/": {
+  "tema": "conciliacion-bancaria",
+  "titulo": "Banco (conciliación)",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/09_gasto_sin_comprobante/": {
+  "tema": "gastos-no-deducibles",
+  "titulo": "Gasto sin comprobante (comisiones y otros cargos)",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/10_comercio_ext/": {
+  "tema": "pedimento",
+  "titulo": "Comercio Exterior (vista previa)",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/11_nomina/": {
+  "tema": "recibo-de-nomina",
+  "titulo": "Nómina",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/12_inventario/": {
+  "tema": "inventario",
+  "titulo": "Inventario",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/13_cierre_mensual/": {
+  "tema": "cierre-mensual",
+  "titulo": "Cierre mensual",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/14_diot/": {
+  "tema": "diot",
+  "titulo": "DIOT (vista previa y ajustes)",
+  "expresion": "diot"
+ },
+ "ayuda/uso/15_sat_vs_libros/": {
+  "tema": "sat-vs-contabilidad",
+  "titulo": "SAT vs Libros",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/16_polizas/": {
+  "tema": "polizas",
+  "titulo": "Pólizas",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/17_cierre_anual/": {
+  "tema": "cierre-anual",
+  "titulo": "Cierre Anual",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/18_flujo_caja/": {
+  "tema": "flujo-de-caja",
+  "titulo": "Flujo de caja",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/19_salud_cliente/": {
+  "tema": "salud-cliente",
+  "titulo": "Salud del cliente",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ },
+ "ayuda/uso/20_parametros/": {
+  "titulo": "Parámetros fiscales",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/21_actualizacion_soporte/": {
+  "titulo": "Actualización de versión y soporte",
+  "producto": "pagina del producto sin tema de busqueda (instalar, licencia, indices de la propia ayuda): lista nominal de pauta 10-28"
+ },
+ "ayuda/uso/22_plataformas/": {
+  "tema": "plataformas-digitales",
+  "titulo": "Plataformas digitales",
+  "fijado_por_producto": "titulo fijado por el producto, pendiente: sale de manual/escenas del repo del producto y no hay PR al producto durante la veda y el release (decision de pauta 10-28); se retoma despues de 1.0.49 si Trends lo justifica"
+ }
+}
