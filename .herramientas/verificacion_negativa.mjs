@@ -74,6 +74,10 @@ const SABOTAJES = [
   ['cal: la facilidad deja de remitir al contador', H('calendario-dia-17/pagina.js'), 'Revisa con tu contador si te aplica. La DIOT no cambia.', 'La DIOT no cambia.', 'nav'],
   ['descargas: los unicos se encienden sin aviso de privacidad', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), 'export const UNICOS_ACTIVOS = false;', 'export const UNICOS_ACTIVOS = true;'],
   ['descargas: el evento guarda la IP', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };", "metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno, ip };"],
+  // --- Aviso de privacidad: inventario maquina (datos_recogidos.json) contra el codigo y contra el texto, sin depender de la redaccion
+  ['privacidad: el inventario pierde una entrada que el codigo guarda', path.join(RAIZ, '.herramientas', 'privacidad', 'datos_recogidos.json'), '    {"id": "descarga.pais", "se_guarda": true, "donde": "servidor", "finalidad": "conteo", "cotejo": "evento"},\n', ''],
+  ['privacidad: el texto deja de nombrar un dato', path.join(RAIZ, '.herramientas', 'privacidad', 'aviso_es.html'), '<li data-datos="descarga.pais">', '<li>'],
+  ['privacidad: el texto deja de nombrar una finalidad', path.join(RAIZ, '.herramientas', 'privacidad', 'aviso_en.html'), '<li data-finalidad="mejora">', '<li>'],
   // --- Usos de las herramientas
   ['usos: el envio lleva un dato del usuario', H('uso.js'), '    var c = { herramienta: String(herramienta) };', "    var c = { herramienta: String(herramienta), pagina: (typeof document !== 'undefined' && document.querySelector('input')) ? document.querySelector('input').value : 'x' };", 'nav'],
   ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  const e = { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  const e = Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
