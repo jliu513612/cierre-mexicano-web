@@ -1,0 +1,1791 @@
+{
+ "_doc": "Medicion de Google Trends por tema para /ayuda/ (decision de June 10-27: toda expresion de titulo sale de lo que la gente busca, medido). No se edita sin volver a medir. Las medias solo se comparan dentro de su tema.",
+ "fuente": "Google Trends",
+ "fecha": "2026-10-27",
+ "geo": "MX",
+ "periodo": "12 meses (2025-10-28 a 2026-10-28)",
+ "busqueda": "web, todas las categorias",
+ "autocompletado": "Para los temas cuya expresion mas alta no llega a 10 de media (volumen demasiado bajo para decidir): autocompletado de Google (suggestqueries, client=firefox, hl=es, gl=mx), 2026-10-27. gl=mx no filtra del todo: salen sugerencias de otros paises (soat, irpf, El Salvador), que se ignoran.",
+ "temas": {
+  "pago-provisional-isr": {
+   "expresiones": [
+    {
+     "texto": "pago provisional isr",
+     "media": 9
+    },
+    {
+     "texto": "pagos provisionales",
+     "media": 44
+    },
+    {
+     "texto": "pago provisional persona moral",
+     "media": 0
+    },
+    {
+     "texto": "calculo pago provisional isr",
+     "media": 0
+    },
+    {
+     "texto": "isr mensual",
+     "media": 61
+    }
+   ],
+   "relacionadas": {
+    "pagos provisionales": [
+     "sat pagos provisionales",
+     "pagos provisionales isr",
+     "pagos provisionales de isr",
+     "pagos provisionales personas fisicas",
+     "pagos provisionales personas morales"
+    ],
+    "isr mensual": [
+     "isr mensual 2026",
+     "tabla isr mensual",
+     "tabla de isr mensual",
+     "tabla de isr mensual 2026"
+    ]
+   },
+   "elegida": "pagos provisionales",
+   "por_que": "isr mensual (61) busca la TABLA de ISR de sueldos (sus relacionadas), que es otro tema (tarifa-isr). pagos provisionales (44) trae personas morales en sus relacionadas: es la intencion de estas paginas."
+  },
+  "coeficiente-de-utilidad": {
+   "expresiones": [
+    {
+     "texto": "coeficiente de utilidad",
+     "media": 43
+    },
+    {
+     "texto": "como calcular coeficiente de utilidad",
+     "media": 0
+    },
+    {
+     "texto": "coeficiente de utilidad 2026",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "coeficiente de utilidad": [
+     "coeficiente de utilidad sat",
+     "que es el coeficiente de utilidad",
+     "calculo de coeficiente de utilidad",
+     "coeficiente de utilidad para pagos provisionales",
+     "como se calcula el coeficiente de utilidad"
+    ]
+   },
+   "elegida": "coeficiente de utilidad",
+   "por_que": "La unica con volumen; sus relacionadas son exactamente estas paginas (como se calcula, para pagos provisionales)."
+  },
+  "ganancia-cambiaria": {
+   "expresiones": [
+    {
+     "texto": "ganancia cambiaria",
+     "media": 2
+    },
+    {
+     "texto": "utilidad cambiaria",
+     "media": 3
+    },
+    {
+     "texto": "fluctuacion cambiaria",
+     "media": 1
+    },
+    {
+     "texto": "factura en dolares",
+     "media": 15
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "factura en dolares",
+   "por_que": "La mas alta (15) y cubre la conversion a pesos de facturas en moneda extranjera (iva-055..057, ope-068, isr-075). Ganancia y utilidad cambiaria casi no se buscan (2-3): en isr-005/006 el termino tecnico queda en el cuerpo.",
+   "paginas_aparte": "isr-005 e isr-006 (ganancia cambiaria no realizada) no son sobre facturas en dolares: conservan su nombre tecnico; sin expresion con volumen."
+  },
+  "ingresos-acumulables": {
+   "expresiones": [
+    {
+     "texto": "ingresos acumulables",
+     "media": 25
+    },
+    {
+     "texto": "flujo de efectivo isr",
+     "media": 0
+    },
+    {
+     "texto": "anticipo de clientes",
+     "media": 7
+    }
+   ],
+   "relacionadas": {
+    "ingresos acumulables": [
+     "ingresos acumulables personas morales",
+     "que son los ingresos acumulables",
+     "ingresos acumulables personas fisicas",
+     "cuales son los ingresos acumulables"
+    ],
+    "anticipo de clientes": [
+     "anticipo de clientes es activo o pasivo"
+    ]
+   },
+   "elegida": "ingresos acumulables",
+   "por_que": "La mas alta (25) y su intencion es la de las paginas. anticipo de clientes (7) busca la clasificacion contable (activo o pasivo), no el ISR."
+  },
+  "ptu": {
+   "expresiones": [
+    {
+     "texto": "ptu",
+     "media": 20
+    },
+    {
+     "texto": "reparto de utilidades",
+     "media": 6
+    },
+    {
+     "texto": "calculo ptu",
+     "media": 1
+    },
+    {
+     "texto": "ptu 2026",
+     "media": 2
+    }
+   ],
+   "relacionadas": {
+    "ptu": [
+     "que es ptu",
+     "ptu 2026",
+     "pago ptu",
+     "ptu 2025",
+     "pago de ptu"
+    ],
+    "reparto de utilidades": [
+     "reparto de utilidades 2026",
+     "reparto de utilidades fecha",
+     "fecha de reparto de utilidades",
+     "que es reparto de utilidades",
+     "reparto de utilidades 2025"
+    ],
+    "calculo ptu": [
+     "calculo ptu 2025"
+    ],
+    "ptu 2026": [
+     "calculo de ptu 2026",
+     "calculadora isr ptu 2026"
+    ]
+   },
+   "elegida": "ptu",
+   "por_que": "La sigla se busca mas del triple (20) que el nombre largo (6); el nombre largo puede ir en la descripcion."
+  },
+  "resico-pf": {
+   "expresiones": [
+    {
+     "texto": "resico",
+     "media": 65
+    },
+    {
+     "texto": "resico persona fisica",
+     "media": 5
+    },
+    {
+     "texto": "isr resico",
+     "media": 10
+    },
+    {
+     "texto": "tabla resico",
+     "media": 3
+    }
+   ],
+   "relacionadas": {
+    "resico": [
+     "sat resico",
+     "isr resico",
+     "sat",
+     "isr",
+     "resico 2026"
+    ],
+    "resico persona fisica": [
+     "regimen resico persona fisica",
+     "anual resico persona fisica",
+     "declaracion anual resico persona fisica"
+    ],
+    "isr resico": [
+     "isr resico 2026",
+     "retencion isr resico",
+     "isr resico 2025",
+     "tabla de isr resico",
+     "tabla isr resico 2026"
+    ],
+    "tabla resico": [
+     "tabla resico 2026",
+     "tabla resico mensual",
+     "tabla resico 2025",
+     "tabla resico personas fisicas"
+    ]
+   },
+   "elegida": "resico",
+   "por_que": "La sigla sola domina (65). Las paginas ya la llevan; se conserva el calificativo de persona fisica porque hay paginas de persona moral."
+  },
+  "resico-pm": {
+   "expresiones": [
+    {
+     "texto": "resico persona moral",
+     "media": 75
+    },
+    {
+     "texto": "resico pm",
+     "media": 6
+    },
+    {
+     "texto": "resico personas morales",
+     "media": 27
+    }
+   ],
+   "relacionadas": {
+    "resico personas morales": [
+     "isr resico personas morales",
+     "tasa resico personas morales"
+    ]
+   },
+   "elegida": "resico persona moral",
+   "por_que": "La mas alta (75); el singular gana al plural (27)."
+  },
+  "actividad-empresarial": {
+   "expresiones": [
+    {
+     "texto": "actividad empresarial",
+     "media": 66
+    },
+    {
+     "texto": "regimen 612",
+     "media": 12
+    },
+    {
+     "texto": "actividad empresarial y profesional",
+     "media": 6
+    },
+    {
+     "texto": "isr actividad empresarial",
+     "media": 13
+    }
+   ],
+   "relacionadas": {
+    "actividad empresarial": [
+     "persona fisica con actividad empresarial",
+     "actividad empresarial sat",
+     "regimen actividad empresarial",
+     "personas fisicas con actividad empresarial",
+     "regimen de actividad empresarial"
+    ],
+    "regimen 612": [
+     "regimen 612 cual es"
+    ],
+    "actividad empresarial y profesional": [
+     "regimen de actividad empresarial y profesional",
+     "personas fisicas con actividad empresarial y profesional"
+    ]
+   },
+   "elegida": "actividad empresarial",
+   "por_que": "La mas alta (66) con la intencion del regimen; el numero 612 (12) puede quedar entre parentesis."
+  },
+  "tarifa-isr": {
+   "expresiones": [
+    {
+     "texto": "tabla isr",
+     "media": 41
+    },
+    {
+     "texto": "tabla isr 2026",
+     "media": 21
+    },
+    {
+     "texto": "tarifa isr",
+     "media": 11
+    },
+    {
+     "texto": "tablas isr mensual",
+     "media": 2
+    }
+   ],
+   "relacionadas": {
+    "tabla isr": [
+     "tabla isr 2025",
+     "tabla isr mensual",
+     "tabla isr anual",
+     "tabla isr mensual 2026",
+     "tabla isr 2026 sueldos y salarios"
+    ],
+    "tabla isr 2026": [
+     "tabla isr 2026 sueldos y salarios",
+     "tablas isr 2026",
+     "uma"
+    ],
+    "tarifa isr": [
+     "tarifa isr 2026",
+     "tarifa isr 2024",
+     "tarifa isr 2023"
+    ]
+   },
+   "elegida": "tabla isr",
+   "por_que": "Se busca TABLA (41) casi cuatro veces mas que TARIFA (11), que es el nombre de la ley. Sus relacionadas piden la mensual y la anual: son estas paginas."
+  },
+  "declaracion-anual-pm": {
+   "expresiones": [
+    {
+     "texto": "declaracion anual persona moral",
+     "media": 0
+    },
+    {
+     "texto": "declaracion anual",
+     "media": 11
+    },
+    {
+     "texto": "isr anual persona moral",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "declaracion anual": [
+     "declaracion anual sat",
+     "sat",
+     "declaracion anual 2026",
+     "declaracion anual 2025",
+     "presentar declaracion anual"
+    ]
+   },
+   "elegida": "declaracion anual",
+   "por_que": "Las variantes de persona moral no tienen volumen medible; declaracion anual (11) si. El calificativo de persona moral se conserva en el titulo porque la mayoria que la busca es persona fisica."
+  },
+  "perdidas-fiscales": {
+   "expresiones": [
+    {
+     "texto": "perdida fiscal",
+     "media": 19
+    },
+    {
+     "texto": "perdidas fiscales",
+     "media": 21
+    },
+    {
+     "texto": "amortizacion de perdidas fiscales",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "perdida fiscal": [
+     "perdida fiscal actualizada",
+     "actualizacion de perdida fiscal",
+     "que es una perdida fiscal",
+     "como actualizar una perdida fiscal",
+     "actualizacion de la perdida fiscal"
+    ],
+    "perdidas fiscales": [
+     "actualizacion perdidas fiscales",
+     "actualizacion de perdidas fiscales",
+     "perdidas fiscales en pagos provisionales",
+     "actualizar perdidas fiscales",
+     "como se actualizan las perdidas fiscales"
+    ]
+   },
+   "elegida": "perdida fiscal",
+   "por_que": "Empate (19 contra 21) con la misma intencion: la actualizacion, que es justo lo que explican estas paginas. Las paginas hablan de UNA perdida (su actualizacion y su monto), asi que el singular."
+  },
+  "arrendamiento": {
+   "expresiones": [
+    {
+     "texto": "isr arrendamiento",
+     "media": 44
+    },
+    {
+     "texto": "deduccion ciega arrendamiento",
+     "media": 0
+    },
+    {
+     "texto": "arrendamiento persona fisica",
+     "media": 13
+    },
+    {
+     "texto": "retencion isr arrendamiento",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "isr arrendamiento": [
+     "retencion isr arrendamiento",
+     "tabla isr arrendamiento 2026",
+     "tabla isr arrendamiento 2025"
+    ]
+   },
+   "elegida": "isr arrendamiento",
+   "por_que": "La mas alta (44); su relacionada principal es la retencion, que tambien cubren estas paginas. Deduccion ciega no se busca (0)."
+  },
+  "plataformas-digitales": {
+   "expresiones": [
+    {
+     "texto": "plataformas digitales sat",
+     "media": 49
+    },
+    {
+     "texto": "retencion plataformas digitales",
+     "media": 6
+    },
+    {
+     "texto": "isr plataformas digitales",
+     "media": 19
+    }
+   ],
+   "relacionadas": {
+    "plataformas digitales sat": [
+     "regimen plataformas digitales sat",
+     "regimen de plataformas digitales sat"
+    ]
+   },
+   "elegida": "plataformas digitales sat",
+   "por_que": "La mas alta (49): se busca el regimen ante el SAT, no la retencion suelta (6)."
+  },
+  "cufin": {
+   "expresiones": [
+    {
+     "texto": "cufin",
+     "media": 10
+    },
+    {
+     "texto": "cuca",
+     "media": 72
+    },
+    {
+     "texto": "dividendos isr",
+     "media": 1
+    }
+   ],
+   "relacionadas": {
+    "cufin": [
+     "cufin y cuca",
+     "cufin que es",
+     "que es la cufin",
+     "calculo cufin",
+     "calculo de cufin"
+    ],
+    "cuca": [
+     "la cuca",
+     "cuca y lupe",
+     "dona cuca",
+     "que es cuca",
+     "cufin y cuca"
+    ]
+   },
+   "elegida": "cufin",
+   "por_que": "cuca (72) es casi todo OTRO significado (sus relacionadas: la cuca, cuca y lupe, dona cuca). cufin (10) es la intencion fiscal y trae cuca dentro (cufin y cuca)."
+  },
+  "deduccion-automoviles": {
+   "expresiones": [
+    {
+     "texto": "deduccion de automoviles",
+     "media": 6
+    },
+    {
+     "texto": "deducibilidad de autos",
+     "media": 0
+    },
+    {
+     "texto": "deduccion auto",
+     "media": 0
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "deduccion de automoviles",
+   "por_que": "Volumen bajo en Trends (6, unica medible); el autocompletado la confirma con el anio y las variantes de hibridos y electricos.",
+   "autocompletado": {
+    "deduccion de automoviles": [
+     "deduccion de automoviles 2026",
+     "deduccion de automoviles personas fisicas con actividad empresarial",
+     "deduccion de automoviles electricos 2026",
+     "deduccion de automoviles hibridos 2026",
+     "deduccion de automoviles 2025 resico"
+    ],
+    "deducibilidad de autos": [
+     "deducibilidad de autos 2026",
+     "deducibilidad de autos hibridos 2026",
+     "deducibilidad de autos electricos"
+    ]
+   }
+  },
+  "depreciacion": {
+   "expresiones": [
+    {
+     "texto": "depreciacion fiscal",
+     "media": 4
+    },
+    {
+     "texto": "depreciacion",
+     "media": 45
+    },
+    {
+     "texto": "tasa de depreciacion",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "depreciacion fiscal": [
+     "actualizacion depreciacion fiscal",
+     "depreciacion fiscal activos fijos"
+    ],
+    "depreciacion": [
+     "depreciacion fiscal",
+     "porcentaje de depreciacion",
+     "que es depreciacion",
+     "depreciacion de activos",
+     "depreciacion maquinaria"
+    ]
+   },
+   "elegida": "depreciacion",
+   "por_que": "La mas alta (45) y trae depreciacion fiscal entre sus relacionadas; fiscal se conserva como calificativo."
+  },
+  "pagos-en-efectivo": {
+   "expresiones": [
+    {
+     "texto": "pagos en efectivo mayores a 2000",
+     "media": 0
+    },
+    {
+     "texto": "gastos en efectivo deducibles",
+     "media": 3
+    },
+    {
+     "texto": "pagos en efectivo deducibles",
+     "media": 0
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "gastos en efectivo deducibles",
+   "por_que": "Volumen bajo en Trends (3, la unica medible). El autocompletado la pone primera y trae el monto (mayores a 2000 pesos), que es la regla de estas paginas.",
+   "autocompletado": {
+    "pagos en efectivo": [
+     "pagos en efectivo son deducibles",
+     "pagos en efectivo deducibles 2026",
+     "pagos en efectivo hasta que monto"
+    ],
+    "gastos en efectivo": [
+     "gastos en efectivo deducibles",
+     "gastos en efectivo mayores a 2000 pesos",
+     "gastos en efectivo deducibles 2026",
+     "gastos en efectivo deducibles fundamento legal"
+    ]
+   }
+  },
+  "regimen-fiscal": {
+   "expresiones": [
+    {
+     "texto": "regimen fiscal",
+     "media": 79
+    },
+    {
+     "texto": "regimen fiscal persona moral",
+     "media": 0
+    },
+    {
+     "texto": "persona fisica o moral",
+     "media": 9
+    }
+   ],
+   "relacionadas": {
+    "regimen fiscal": [
+     "regimen fiscal sat",
+     "cambiar regimen fiscal",
+     "regimen fiscal que es",
+     "cambio de regimen fiscal",
+     "sat cambiar regimen fiscal"
+    ],
+    "persona fisica o moral": [
+     "persona fisica o moral sat",
+     "que es persona fisica o moral",
+     "que soy persona fisica o moral"
+    ]
+   },
+   "elegida": "regimen fiscal",
+   "por_que": "La mas alta (79). Ojo con la intencion: parte busca CAMBIAR de regimen, que estas paginas no hacen; el titulo dice que explica como se calcula segun el regimen."
+  },
+  "redondeo": {
+   "expresiones": [
+    {
+     "texto": "redondeo sat",
+     "media": 2
+    },
+    {
+     "texto": "redondeo declaraciones sat",
+     "media": 0
+    },
+    {
+     "texto": "redondeo de cifras sat",
+     "media": 0
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "redondeo sat",
+   "por_que": "Volumen bajo en Trends (2, la unica medible). El autocompletado separa centavos y declaraciones: las dos son estas paginas.",
+   "autocompletado": {
+    "redondeo sat": [
+     "redondeo decimales sat",
+     "redondeo centavos sat",
+     "redondeo en declaraciones sat",
+     "redondeo de decimales sat cfdi 4.0"
+    ],
+    "redondeo declaracion": [
+     "redondeo en declaraciones sat"
+    ]
+   }
+  },
+  "deducciones-perdidas-bienes": {
+   "expresiones": [
+    {
+     "texto": "destruccion de mercancias",
+     "media": 1
+    },
+    {
+     "texto": "cuentas incobrables",
+     "media": 22
+    },
+    {
+     "texto": "creditos incobrables",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "cuentas incobrables": [
+     "estimacion de cuentas incobrables",
+     "estimacion de cuentas incobrables"
+    ]
+   },
+   "elegida": "cuentas incobrables",
+   "por_que": "La mas alta (22) para isr-084; destruccion de mercancias casi no se busca (1).",
+   "paginas_aparte": "isr-083, ope-072 y ope-073 (destruccion y donacion de mercancias) sin expresion con volumen: conservan su nombre."
+  },
+  "indemnizacion-seguro": {
+   "expresiones": [
+    {
+     "texto": "indemnizacion de seguro isr",
+     "media": 0
+    },
+    {
+     "texto": "indemnizacion seguro deducible",
+     "media": 0
+    },
+    {
+     "texto": "indemnizacion de seguro",
+     "media": 4
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "indemnizacion de seguro",
+   "por_que": "Volumen bajo en Trends (4). El autocompletado trae la intencion fiscal (grava para ISR, por siniestro), que es la de estas paginas.",
+   "autocompletado": {
+    "indemnizacion de seguro": [
+     "indemnizacion de seguros grava para isr",
+     "indemnizacion de seguro por siniestro",
+     "indemnizacion de seguros grava para iva"
+    ]
+   }
+  },
+  "donativos": {
+   "expresiones": [
+    {
+     "texto": "donativos deducibles",
+     "media": 1
+    },
+    {
+     "texto": "deducir donativos",
+     "media": 0
+    },
+    {
+     "texto": "donativos",
+     "media": 60
+    }
+   ],
+   "relacionadas": {
+    "donativos": [
+     "donativos deducibles",
+     "donativos lds",
+     "donativos en especie",
+     "los donativos son deducibles",
+     "donativos sud"
+    ]
+   },
+   "elegida": "donativos",
+   "por_que": "La mas alta (60); trae donativos deducibles entre sus relacionadas, que es esta pagina (las otras relacionadas son de iglesias, otra intencion)."
+  },
+  "iva-pue-ppd": {
+   "expresiones": [
+    {
+     "texto": "pue y ppd",
+     "media": 9
+    },
+    {
+     "texto": "pue o ppd",
+     "media": 3
+    },
+    {
+     "texto": "ppd que es",
+     "media": 24
+    },
+    {
+     "texto": "iva acreditable",
+     "media": 58
+    }
+   ],
+   "relacionadas": {
+    "pue y ppd": [
+     "ppd factura",
+     "ppd que es",
+     "pue y ppd sat",
+     "que es ppd en una factura"
+    ],
+    "ppd que es": [
+     "ppd que es factura",
+     "pue y ppd"
+    ],
+    "iva acreditable": [
+     "que es el iva acreditable",
+     "iva acreditable contabilidad",
+     "iva acreditable e iva trasladado",
+     "iva acreditable del periodo",
+     "iva acreditable y por acreditar"
+    ]
+   },
+   "elegida": "iva acreditable",
+   "por_que": "La mas alta (58). PUE y PPD se buscan como pregunta (ppd que es, 24): van en la descripcion, no en el titulo.",
+   "paginas_aparte": "iva-001..005 (IVA causado, el de las facturas emitidas) no son acreditable: usan PUE/PPD (ppd que es, 24)."
+  },
+  "notas-de-credito": {
+   "expresiones": [
+    {
+     "texto": "nota de credito",
+     "media": 76
+    },
+    {
+     "texto": "nota de credito sat",
+     "media": 9
+    },
+    {
+     "texto": "anticipos factura",
+     "media": 1
+    }
+   ],
+   "relacionadas": {
+    "nota de credito": [
+     "que es nota de credito",
+     "que es una nota de credito",
+     "como hacer una nota de credito",
+     "que es la nota de credito",
+     "nota de credito por devolucion"
+    ]
+   },
+   "elegida": "nota de credito",
+   "por_que": "La mas alta (76); en singular, como se busca."
+  },
+  "diot": {
+   "expresiones": [
+    {
+     "texto": "diot",
+     "media": 60
+    },
+    {
+     "texto": "diot 2026",
+     "media": 5
+    },
+    {
+     "texto": "que es la diot",
+     "media": 1
+    }
+   ],
+   "relacionadas": {
+    "diot": [
+     "sat",
+     "diot sat",
+     "diot 2026",
+     "diot 2025",
+     "presentar diot"
+    ],
+    "que es la diot": [
+     "que es la diot sat"
+    ]
+   },
+   "elegida": "diot",
+   "por_que": "La sigla sola (60); las paginas ya la llevan."
+  },
+  "tasas-iva": {
+   "expresiones": [
+    {
+     "texto": "iva frontera",
+     "media": 10
+    },
+    {
+     "texto": "iva 8 frontera",
+     "media": 0
+    },
+    {
+     "texto": "region fronteriza iva",
+     "media": 4
+    },
+    {
+     "texto": "tasa 0 iva",
+     "media": 36
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "iva frontera",
+   "por_que": "tasa 0 iva (36) es mas alta pero solo cubre una pagina (iva-035); el resto es la tasa del 8 % de la region fronteriza, donde iva frontera (10) gana a region fronteriza (4).",
+   "paginas_aparte": "iva-035 (tasas 16, 8, 0 y exento) usa tasa 0 iva (36)."
+  },
+  "isr-nomina": {
+   "expresiones": [
+    {
+     "texto": "isr sueldos",
+     "media": 21
+    },
+    {
+     "texto": "subsidio al empleo",
+     "media": 19
+    },
+    {
+     "texto": "calculo isr nomina",
+     "media": 1
+    },
+    {
+     "texto": "isr salarios",
+     "media": 24
+    }
+   ],
+   "relacionadas": {
+    "isr sueldos": [
+     "isr sueldos y salarios",
+     "isr sueldos y salarios 2026",
+     "calculadora isr sueldos",
+     "tabla isr sueldos y salarios 2026",
+     "calculo isr sueldos y salarios"
+    ],
+    "subsidio al empleo": [
+     "subsidio al empleo 2026",
+     "subsidio al empleo 2025",
+     "tabla subsidio al empleo 2026",
+     "tablas subsidio al empleo 2026",
+     "que es subsidio al empleo"
+    ]
+   },
+   "elegida": "subsidio al empleo",
+   "por_que": "Seis de las ocho paginas son del subsidio. Se busca subsidio AL empleo (19), aunque la ley lo llame para el empleo; el nombre de la ley va en el cuerpo. isr sueldos (21) e isr salarios (24) empatan con la misma intencion (sus relacionadas: isr sueldos y salarios).",
+   "paginas_aparte": "nom-004 (ISR a retener) y nom-010/011 (salario minimo) usan isr salarios (24)."
+  },
+  "exenciones-nomina": {
+   "expresiones": [
+    {
+     "texto": "aguinaldo exento",
+     "media": 14
+    },
+    {
+     "texto": "prima vacacional exenta",
+     "media": 6
+    },
+    {
+     "texto": "horas extras exentas",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "aguinaldo exento": [
+     "aguinaldo 2026",
+     "aguinaldo exento de isr"
+    ],
+    "prima vacacional exenta": [
+     "prima vacacional exenta 2026",
+     "prima vacacional exenta 2025",
+     "prima vacacional exenta 2024"
+    ]
+   },
+   "elegida": "aguinaldo exento",
+   "por_que": "Cada pagina es una prestacion distinta: cada una usa su propia expresion, que ya es la de su titulo. aguinaldo exento (14) es la del tema.",
+   "paginas_aparte": "nom-014 prima vacacional exenta (6); nom-015/016/017/018 sin expresion medible: conservan su nombre."
+  },
+  "cuotas-imss": {
+   "expresiones": [
+    {
+     "texto": "cuotas imss",
+     "media": 36
+    },
+    {
+     "texto": "calculo cuotas imss",
+     "media": 1
+    },
+    {
+     "texto": "sbc",
+     "media": 65
+    },
+    {
+     "texto": "salario base de cotizacion",
+     "media": 23
+    }
+   ],
+   "relacionadas": {
+    "cuotas imss": [
+     "cuotas imss 2026",
+     "cuotas imss 2025",
+     "calculadora cuotas imss",
+     "tabla de cuotas imss 2026"
+    ],
+    "sbc": [
+     "sbc que es",
+     "sbc 2026",
+     "sbc nomina",
+     "sbc imss",
+     "sbc en nomina"
+    ],
+    "salario base de cotizacion": [
+     "salario base de cotizacion 2026",
+     "que es salario base de cotizacion"
+    ]
+   },
+   "elegida": "cuotas imss",
+   "por_que": "Siete de las diez paginas son cuotas por ramo: cuotas imss (36).",
+   "paginas_aparte": "nom-019, nom-026 y nom-027 (tope y factor del SBC) usan sbc (65), con el nombre largo salario base de cotizacion (23) en la descripcion."
+  },
+  "infonavit": {
+   "expresiones": [
+    {
+     "texto": "aportacion infonavit",
+     "media": 2
+    },
+    {
+     "texto": "infonavit patronal",
+     "media": 21
+    },
+    {
+     "texto": "aportaciones infonavit",
+     "media": 27
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "aportaciones infonavit",
+   "por_que": "La mas alta (27); en plural, como se busca."
+  },
+  "recibo-de-nomina": {
+   "expresiones": [
+    {
+     "texto": "recibo de nomina",
+     "media": 71
+    },
+    {
+     "texto": "costo patronal",
+     "media": 0
+    },
+    {
+     "texto": "calculo de nomina",
+     "media": 13
+    }
+   ],
+   "relacionadas": {
+    "recibo de nomina": [
+     "recibo de nomina sat",
+     "que es un recibo de nomina",
+     "recibo de nomina cdmx",
+     "recibo de nomina issste"
+    ],
+    "calculo de nomina": [
+     "calculo de nomina 2026",
+     "calculo de nomina semanal",
+     "calculo de nomina quincenal"
+    ]
+   },
+   "elegida": "recibo de nomina",
+   "por_que": "La mas alta (71). Ojo: parte de las relacionadas son empleados de gobierno buscando SU recibo (cdmx, issste); el titulo dice que explica como se calcula."
+  },
+  "isn": {
+   "expresiones": [
+    {
+     "texto": "impuesto sobre nomina",
+     "media": 30
+    },
+    {
+     "texto": "isn",
+     "media": 64
+    },
+    {
+     "texto": "impuesto estatal sobre nomina",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "impuesto sobre nomina": [
+     "impuesto sobre nomina cdmx",
+     "impuesto sobre nomina jalisco",
+     "pago impuesto sobre nomina",
+     "impuesto sobre nomina estado de mexico"
+    ],
+    "isn": [
+     "isn jalisco",
+     "isn cdmx",
+     "pago isn",
+     "isn nuevo leon",
+     "isn chihuahua"
+    ]
+   },
+   "elegida": "isn",
+   "por_que": "La sigla (64) duplica al nombre (30) y sus relacionadas son por estado, igual que estas paginas. El nombre completo va al lado: Impuesto sobre nomina (ISN)."
+  },
+  "finiquito": {
+   "expresiones": [
+    {
+     "texto": "finiquito",
+     "media": 83
+    },
+    {
+     "texto": "calculo finiquito",
+     "media": 6
+    },
+    {
+     "texto": "liquidacion",
+     "media": 40
+    },
+    {
+     "texto": "calcular finiquito",
+     "media": 7
+    }
+   ],
+   "relacionadas": {
+    "finiquito": [
+     "calculadora finiquito",
+     "calculadora de finiquito",
+     "calcular finiquito",
+     "finiquito por renuncia",
+     "finiquito calculo"
+    ],
+    "liquidacion": [
+     "finiquito",
+     "liquidacion por despido",
+     "liquidacion calculo",
+     "calculadora liquidacion",
+     "calculo de liquidacion"
+    ]
+   },
+   "elegida": "finiquito",
+   "por_que": "La mas alta (83). liquidacion (40) es la de las paginas de despido (nom-046, nom-047).",
+   "paginas_aparte": "nom-046 y nom-047 (indemnizacion por despido) usan liquidacion (40)."
+  },
+  "uma-salario-minimo": {
+   "expresiones": [
+    {
+     "texto": "uma 2026",
+     "media": 8
+    },
+    {
+     "texto": "salario minimo 2026",
+     "media": 11
+    },
+    {
+     "texto": "salario minimo",
+     "media": 30
+    }
+   ],
+   "relacionadas": {
+    "uma 2026": [
+     "valor uma",
+     "valor de uma 2026",
+     "uma 2025",
+     "valor de la uma 2026"
+    ],
+    "salario minimo 2026": [
+     "salario minimo 2026 en mexico",
+     "cuanto es el salario minimo 2026",
+     "uma"
+    ],
+    "salario minimo": [
+     "minimo salario 2026",
+     "salario minimo mexico",
+     "cuanto es el salario minimo"
+    ]
+   },
+   "elegida": "salario minimo",
+   "por_que": "Dos paginas, dos temas: nom-058 es el salario minimo (30); nom-057 es la UMA, que usa la misma expresion que la herramienta (uma 2026).",
+   "paginas_aparte": "nom-057 usa uma 2026."
+  },
+  "pedimento": {
+   "expresiones": [
+    {
+     "texto": "pedimento de importacion",
+     "media": 4
+    },
+    {
+     "texto": "iva importacion",
+     "media": 0
+    },
+    {
+     "texto": "pedimento",
+     "media": 68
+    }
+   ],
+   "relacionadas": {
+    "pedimento de importacion": [
+     "que es un pedimento de importacion"
+    ],
+    "pedimento": [
+     "que es pedimento",
+     "pedimento a3",
+     "pedimento a1",
+     "que es un pedimento",
+     "pedimento de importacion"
+    ]
+   },
+   "elegida": "pedimento",
+   "por_que": "La palabra sola (68) trae pedimento de importacion entre sus relacionadas; las paginas ya la llevan."
+  },
+  "conciliacion-bancaria": {
+   "expresiones": [
+    {
+     "texto": "conciliacion bancaria",
+     "media": 33
+    },
+    {
+     "texto": "como hacer una conciliacion bancaria",
+     "media": 0
+    },
+    {
+     "texto": "conciliacion bancaria ejemplo",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "conciliacion bancaria": [
+     "conciliacion bancaria que es",
+     "que es una conciliacion bancaria",
+     "conciliacion bancaria formato",
+     "conciliacion bancaria en excel",
+     "conciliacion bancaria ejemplos"
+    ]
+   },
+   "elegida": "conciliacion bancaria",
+   "por_que": "La unica con volumen (33)."
+  },
+  "gastos-no-deducibles": {
+   "expresiones": [
+    {
+     "texto": "gastos no deducibles",
+     "media": 9
+    },
+    {
+     "texto": "comisiones bancarias deducibles",
+     "media": 0
+    },
+    {
+     "texto": "no deducibles",
+     "media": 38
+    }
+   ],
+   "relacionadas": {
+    "no deducibles": [
+     "gastos no deducibles",
+     "no deducibles para cufin"
+    ]
+   },
+   "elegida": "no deducibles",
+   "por_que": "La mas alta (38) y su primera relacionada es gastos no deducibles: un titulo con gastos no deducibles cubre las dos."
+  },
+  "contabilidad-electronica": {
+   "expresiones": [
+    {
+     "texto": "contabilidad electronica",
+     "media": 57
+    },
+    {
+     "texto": "balanza de comprobacion",
+     "media": 13
+    },
+    {
+     "texto": "catalogo de cuentas sat",
+     "media": 10
+    },
+    {
+     "texto": "codigo agrupador sat",
+     "media": 7
+    }
+   ],
+   "relacionadas": {
+    "contabilidad electronica": [
+     "sat contabilidad electronica",
+     "envio de contabilidad electronica",
+     "enviar contabilidad electronica",
+     "enviar contabilidad electronica sat"
+    ],
+    "balanza de comprobacion": [
+     "que es balanza de comprobacion",
+     "balanza de comprobacion contabilidad",
+     "ejemplo de balanza de comprobacion"
+    ]
+   },
+   "elegida": "contabilidad electronica",
+   "por_que": "La mas alta (57). Cada pagina conserva su pieza (balanza 13, catalogo 10, codigo agrupador 7) y gana el paraguas en la descripcion."
+  },
+  "polizas": {
+   "expresiones": [
+    {
+     "texto": "poliza contable",
+     "media": 4
+    },
+    {
+     "texto": "polizas contables",
+     "media": 5
+    },
+    {
+     "texto": "poliza de diario",
+     "media": 13
+    }
+   ],
+   "relacionadas": {
+    "poliza contable": [
+     "que es una poliza contable"
+    ],
+    "polizas contables": [
+     "tipos de polizas contables",
+     "que son las polizas contables"
+    ],
+    "poliza de diario": [
+     "poliza de diario ejemplo",
+     "que es una poliza de diario",
+     "poliza de diario formato",
+     "poliza de diario pdf"
+    ]
+   },
+   "elegida": "polizas contables",
+   "por_que": "poliza de diario (13) es UN tipo de poliza y estas paginas cubren ingresos, gastos y nomina; elegirla diria menos de lo que hay. polizas contables (5) es la mas alta de las que cubren todo. Volumen bajo en las tres."
+  },
+  "pagos-al-extranjero": {
+   "expresiones": [
+    {
+     "texto": "retencion residentes en el extranjero",
+     "media": 0
+    },
+    {
+     "texto": "pagos al extranjero isr",
+     "media": 3
+    },
+    {
+     "texto": "retencion pagos al extranjero",
+     "media": 0
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "retencion residentes en el extranjero",
+   "por_que": "Volumen bajo en Trends (0 a 3). El autocompletado ofrece la frase completa con la tasa y el tratado, que es lo que calculan estas paginas.",
+   "autocompletado": {
+    "retencion residentes en el extranjero": [
+     "retencion isr residentes en el extranjero",
+     "tasa de retencion residentes en el extranjero",
+     "retencion de isr por pagos a residentes en el extranjero"
+    ],
+    "pagos al extranjero": [
+     "pagos al extranjero retencion isr",
+     "pagos al extranjero tratamiento tratados y timbrado cfdi",
+     "pagos al extranjero sat"
+    ]
+   }
+  },
+  "informativa-sueldos": {
+   "expresiones": [
+    {
+     "texto": "declaracion informativa de sueldos",
+     "media": 0
+    },
+    {
+     "texto": "constancia de sueldos",
+     "media": 40
+    },
+    {
+     "texto": "declaracion informativa de sueldos y salarios",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "constancia de sueldos": [
+     "constancia de sueldos y salarios",
+     "sat constancia de sueldos y salarios"
+    ]
+   },
+   "elegida": "constancia de sueldos",
+   "por_que": "La unica con volumen (40). La busca sobre todo el trabajador que quiere su constancia; estas paginas explican el total anual por empleado de donde sale. PARA DECIDIR: el titulo tiene que dejar claro que no la descarga."
+  },
+  "issif": {
+   "expresiones": [
+    {
+     "texto": "issif",
+     "media": 13
+    },
+    {
+     "texto": "issif 2026",
+     "media": 0
+    },
+    {
+     "texto": "que es issif",
+     "media": 3
+    }
+   ],
+   "relacionadas": {
+    "issif": [
+     "sat issif",
+     "que es issif",
+     "issif 2025",
+     "que es el issif",
+     "situacion fiscal issif"
+    ]
+   },
+   "elegida": "issif",
+   "por_que": "La sigla sola (13); las paginas ya la llevan."
+  },
+  "cierre-anual": {
+   "expresiones": [
+    {
+     "texto": "cierre anual contable",
+     "media": 0
+    },
+    {
+     "texto": "cierre fiscal anual",
+     "media": 0
+    },
+    {
+     "texto": "cierre de ejercicio",
+     "media": 26
+    }
+   ],
+   "relacionadas": {
+    "cierre de ejercicio": [
+     "cierre de ejercicio contpaqi"
+    ]
+   },
+   "elegida": "cierre de ejercicio",
+   "por_que": "La unica con volumen (26); es el nombre que usan los contadores (su relacionada es la de otro programa contable)."
+  },
+  "declaracion-complementaria": {
+   "expresiones": [
+    {
+     "texto": "declaracion complementaria",
+     "media": 23
+    },
+    {
+     "texto": "complementaria sat",
+     "media": 17
+    },
+    {
+     "texto": "como hacer una declaracion complementaria",
+     "media": 1
+    }
+   ],
+   "relacionadas": {
+    "declaracion complementaria": [
+     "declaracion complementaria sat",
+     "presentar declaracion complementaria",
+     "como hacer declaracion complementaria"
+    ],
+    "complementaria sat": [
+     "declaracion complementaria sat",
+     "tipo de complementaria sat"
+    ]
+   },
+   "elegida": "declaracion complementaria",
+   "por_que": "La mas alta (23). Las paginas explican de donde salen las diferencias, no como presentarla: el titulo no promete el tramite."
+  },
+  "sat-vs-contabilidad": {
+   "expresiones": [
+    {
+     "texto": "conciliacion contable fiscal",
+     "media": 6
+    },
+    {
+     "texto": "ingresos facturados vs declarados",
+     "media": 0
+    },
+    {
+     "texto": "conciliacion fiscal",
+     "media": 6
+    }
+   ],
+   "relacionadas": {
+    "conciliacion fiscal": [
+     "conciliacion fiscal contable"
+    ]
+   },
+   "elegida": "conciliacion contable fiscal",
+   "por_que": "Volumen bajo en Trends (empate 6 y 6). El autocompletado de las dos raices lleva a conciliacion contable fiscal. PARA DECIDIR: estas paginas cotejan ingresos de libros contra CFDI, no la conciliacion contable-fiscal anual del ISR; el titulo tiene que decir cual.",
+   "autocompletado": {
+    "conciliacion fiscal": [
+     "conciliacion fiscal contable",
+     "conciliacion fiscal contable ejemplo"
+    ],
+    "conciliacion contable": [
+     "conciliacion contable fiscal",
+     "conciliacion contable vs fiscal"
+    ]
+   }
+  },
+  "descarga-cfdi": {
+   "expresiones": [
+    {
+     "texto": "descarga masiva cfdi",
+     "media": 1
+    },
+    {
+     "texto": "descargar facturas sat",
+     "media": 61
+    },
+    {
+     "texto": "descarga masiva sat",
+     "media": 3
+    }
+   ],
+   "relacionadas": {
+    "descarga masiva sat": [
+     "descarga masiva xml sat",
+     "descarga masiva de xml gratis",
+     "descarga masiva de xml sat gratis"
+    ]
+   },
+   "elegida": "descargar facturas sat",
+   "por_que": "La mas alta (61). Cuidado: estas paginas NO descargan del SAT (el usuario hace clic, regla del cupo); explican que pasa si la descarga quedo incompleta. El titulo no puede prometer la descarga."
+  },
+  "flujo-de-caja": {
+   "expresiones": [
+    {
+     "texto": "flujo de caja",
+     "media": 16
+    },
+    {
+     "texto": "flujo de efectivo",
+     "media": 64
+    },
+    {
+     "texto": "proyeccion flujo de caja",
+     "media": 0
+    }
+   ],
+   "relacionadas": {
+    "flujo de caja": [
+     "que es flujo de caja",
+     "que es el flujo de caja",
+     "flujo de efectivo",
+     "diagrama de flujo"
+    ],
+    "flujo de efectivo": [
+     "el flujo de efectivo",
+     "estado flujo de efectivo",
+     "estado de flujo de efectivo",
+     "flujo de efectivo que es"
+    ]
+   },
+   "elegida": "flujo de efectivo",
+   "por_que": "La mas alta (64) y es el nombre mexicano; flujo de caja (16) la trae como relacionada. Parte de su intencion es el ESTADO de flujo de efectivo (estado financiero), que estas paginas no hacen: el titulo dice proyeccion."
+  },
+  "salud-cliente": {
+   "expresiones": [
+    {
+     "texto": "cartera vencida",
+     "media": 2
+    },
+    {
+     "texto": "cuentas por cobrar",
+     "media": 6
+    },
+    {
+     "texto": "cobranza",
+     "media": 54
+    }
+   ],
+   "relacionadas": {
+    "cartera vencida": [
+     "que es la cartera vencida",
+     "recuperacion de cartera vencida"
+    ],
+    "cuentas por cobrar": [
+     "cuentas por pagar",
+     "que son cuentas por cobrar",
+     "documentos por cobrar"
+    ],
+    "cobranza": [
+     "que es cobranza",
+     "despacho de cobranza",
+     "llamadas de cobranza",
+     "credito y cobranza",
+     "cobranza extrajudicial"
+    ]
+   },
+   "elegida": "cuentas por cobrar",
+   "por_que": "cobranza (54) es mas alta pero su intencion es despachos y llamadas de cobranza, que no es esto. cuentas por cobrar (6) es el concepto de estas paginas. Volumen bajo: varias paginas de la tarjeta de salud no tienen expresion de busqueda propia.",
+   "paginas_aparte": "ope-048 y ope-059..062 (tarjeta de salud del propio programa) sin expresion con volumen: conservan su nombre."
+  },
+  "inventario": {
+   "expresiones": [
+    {
+     "texto": "inventario fiscal",
+     "media": 3
+    },
+    {
+     "texto": "inventario contable",
+     "media": 5
+    },
+    {
+     "texto": "inventarios deducibles",
+     "media": 0
+    }
+   ],
+   "relacionadas": {},
+   "elegida": "inventario contable",
+   "por_que": "Volumen bajo en Trends (5, la mas alta). El autocompletado de inventario contable apunta a la cuenta y el asiento, que es lo que decide ope-028 (si un concepto es inventariable).",
+   "autocompletado": {
+    "inventario fiscal": [
+     "inventario fiscal anual",
+     "inventario fiscal definicion"
+    ],
+    "inventario contable": [
+     "inventario contable ejemplo",
+     "inventario contable en excel",
+     "inventario cuenta contable",
+     "inventario asiento contable"
+    ]
+   }
+  },
+  "cierre-mensual": {
+   "expresiones": [
+    {
+     "texto": "cierre mensual contable",
+     "media": 0
+    },
+    {
+     "texto": "cierre contable mensual",
+     "media": 1
+    },
+    {
+     "texto": "cierre de mes",
+     "media": 28
+    }
+   ],
+   "relacionadas": {
+    "cierre de mes": [
+     "cierre de mes contable",
+     "cierre de mes en ingles",
+     "cierre de mes meme"
+    ]
+   },
+   "elegida": "cierre de mes",
+   "por_que": "La unica con volumen (28); su relacionada principal es cierre de mes contable."
+  },
+  "ley-del-iva": {
+   "expresiones": [
+    {
+     "texto": "ley del iva",
+     "media": 49
+    },
+    {
+     "texto": "ley del impuesto al valor agregado",
+     "media": 7
+    },
+    {
+     "texto": "ley iva",
+     "media": 71
+    }
+   ],
+   "relacionadas": {
+    "ley del iva": [
+     "ley de iva",
+     "la ley del iva",
+     "ley del iva 2026",
+     "ley iva 2026"
+    ],
+    "ley del impuesto al valor agregado": [
+     "ley del impuesto al valor agregado 2026",
+     "ley del iva"
+    ],
+    "ley iva": [
+     "ley iva 2026",
+     "ley iva 2025",
+     "ley del isr"
+    ]
+   },
+   "elegida": "ley del iva",
+   "por_que": "ley iva (71) y ley del iva (49) son la misma busqueda con y sin articulo: cada una sale en las relacionadas de la otra. Ley del IVA es la forma que se lee; el nombre oficial (7) va en la descripcion."
+  },
+  "lista-69b": {
+   "expresiones": [
+    {
+     "texto": "lista negra sat",
+     "media": 14
+    },
+    {
+     "texto": "lista 69b",
+     "media": 0
+    },
+    {
+     "texto": "efos",
+     "media": 43
+    },
+    {
+     "texto": "lista 69 b sat",
+     "media": 2
+    },
+    {
+     "texto": "empresas fantasma sat",
+     "media": 0
+    }
+   ],
+   "relacionadas": [
+    "edos y efos sat",
+    "efos sat",
+    "efos y edos",
+    "lista de efos",
+    "que son los efos"
+   ],
+   "elegida": "efos",
+   "por_que": "Es la de mayor media (43) frente a «lista negra sat» (14); «lista 69b», que era el título, da 0. Sus relacionadas («lista de efos», «efos sat») son la consulta que hace la página.",
+   "reusado": "herramientas/lista-69b"
+  },
+  "complemento-de-pago": {
+   "expresiones": [
+    {
+     "texto": "complemento de pago",
+     "media": 82
+    },
+    {
+     "texto": "rep sat",
+     "media": 0
+    },
+    {
+     "texto": "complemento de pago fecha limite",
+     "media": 0
+    },
+    {
+     "texto": "plazo complemento de pago",
+     "media": 0
+    },
+    {
+     "texto": "complemento de pago ppd",
+     "media": 1
+    }
+   ],
+   "relacionadas": [
+    "como hacer complemento de pago",
+    "complemento de pago que es",
+    "complemento de pago sat",
+    "factura complemento de pago",
+    "sat"
+   ],
+   "elegida": "complemento de pago",
+   "por_que": "Es la única con media apreciable (82; las demás 0 o 1), y el título ya la contiene.",
+   "reusado": "herramientas/complemento-de-pago"
+  },
+  "iva-a-pagar": {
+   "expresiones": [
+    {
+     "texto": "calcular iva",
+     "media": 59
+    },
+    {
+     "texto": "iva a pagar",
+     "media": 25
+    },
+    {
+     "texto": "iva mensual",
+     "media": 24
+    },
+    {
+     "texto": "como calcular el iva",
+     "media": 4
+    },
+    {
+     "texto": "iva a favor",
+     "media": 43
+    }
+   ],
+   "relacionadas": [
+    "calcular el iva",
+    "calcular iva de una cantidad",
+    "calcular iva sat",
+    "como calcular el iva",
+    "como calcular el iva de un producto",
+    "como calcular el iva de un total",
+    "como calcular el iva de una cantidad",
+    "como calcular el iva en excel",
+    "como calcular iva",
+    "como se calcula el iva a pagar",
+    "iva a favor",
+    "iva a favor es activo o pasivo",
+    "iva por pagar",
+    "ley del iva"
+   ],
+   "elegida": "iva a pagar",
+   "por_que": "«calcular iva» tiene más media (59), pero sus relacionadas son el 16 % de un precio («calcular iva de una cantidad», «de un producto», «en excel»), que no es esta herramienta. «iva a favor» (43) va en el título también. Se elige «iva a pagar» (25) porque sus relacionadas son justo este cálculo («iva por pagar», «como se calcula el iva a pagar»). La página estima: el título dice «estimación».",
+   "reusado": "herramientas/iva-del-mes"
+  },
+  "retenciones": {
+   "expresiones": [
+    {
+     "texto": "retencion de iva",
+     "media": 39
+    },
+    {
+     "texto": "retencion isr",
+     "media": 71
+    },
+    {
+     "texto": "retencion honorarios",
+     "media": 1
+    },
+    {
+     "texto": "factura con retenciones",
+     "media": 0
+    },
+    {
+     "texto": "retenciones persona moral",
+     "media": 13
+    }
+   ],
+   "relacionadas": [
+    "calculadora isr",
+    "calculadora retencion isr",
+    "calculo retencion isr",
+    "ley del iva",
+    "porcentaje de retencion de iva",
+    "que es retencion de iva",
+    "retencion de iva en resico",
+    "retencion de iva resico",
+    "retencion isr resico",
+    "tablas de retencion isr 2026"
+   ],
+   "elegida": "retencion de iva",
+   "por_que": "«retencion isr» tiene más media (71), pero sus relacionadas son de nómina («tablas de retencion isr 2026», «calculadora isr»), que la página no calcula. «retencion de iva» (39) y sus relacionadas («porcentaje de retencion de iva», «retencion de iva resico») son lo que calcula: lo que retiene una persona moral por honorarios, arrendamiento y fletes. El ISR sigue en el título porque también lo calcula.",
+   "reusado": "herramientas/factura-con-retenciones"
+  },
+  "dia-17": {
+   "expresiones": [
+    {
+     "texto": "declaracion mensual sat",
+     "media": 48
+    },
+    {
+     "texto": "dia 17 sat",
+     "media": 0
+    },
+    {
+     "texto": "fecha limite declaracion mensual",
+     "media": 0
+    },
+    {
+     "texto": "calendario fiscal 2026",
+     "media": 1
+    },
+    {
+     "texto": "pago provisional isr",
+     "media": 11
+    }
+   ],
+   "relacionadas": [
+    "como hacer declaracion mensual sat",
+    "declaracion resico",
+    "presentar declaracion sat",
+    "resico",
+    "resico sat"
+   ],
+   "elegida": "declaracion mensual sat",
+   "por_que": "Es la de mayor media (48); «dia 17 sat» y «fecha limite declaracion mensual» dan 0. Sus relacionadas son sobre cómo presentarla («como hacer declaracion mensual sat»), que la página no explica: cubre solo cuándo vence. El título lo dice.",
+   "reusado": "herramientas/calendario-dia-17"
+  }
+ }
+}
