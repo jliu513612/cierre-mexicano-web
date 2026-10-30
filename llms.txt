@@ -4,6 +4,7 @@
 
 ## Recursos fiscales
 
+- [Factura PUE que no se cobró completa en el mes: qué dice la regla 2.7.1.39](https://taxcerteza.mx/blog/factura-pue-no-cobrada-completa-en-el-mes/): La regla 2.7.1.39 deja emitir PUE sin haber cobrado si el total entra a más tardar el último día del mes. Qué hacer si no se cobró completo.
 - [¿Cuándo vence la declaración mensual y cuándo se recorre el día 17?](https://taxcerteza.mx/blog/cuando-vence-la-declaracion-mensual-dia-17/): El pago provisional de ISR de las personas morales y el del IVA vencen el día 17 del mes siguiente. Qué días no cuentan y cuándo se recorre el plazo.
 - [Reforma fiscal 2027: qué propone la iniciativa del ISR y cómo prepararte](https://taxcerteza.mx/blog/reforma-fiscal-2027-que-propone-isr/): Reforma fiscal 2027: límite de deducciones con factor 0.9667 para personas morales con más de 50 millones, pérdidas al 50 % y RESICO. Estado al 22-10-2026.
 - [Dónde quedan los datos de tus clientes y su e.firma cuando usas Tax Certeza](https://taxcerteza.mx/blog/datos-fiscales-en-tu-computadora/): Los CFDI descargados, los datos de tus clientes y la e.firma se guardan en tu computadora. Qué usa internet el programa y qué cuidados quedan de tu lado.
