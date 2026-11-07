@@ -1,36 +1,32 @@
 {
- "slug": "resico-ingresos-cobrados-o-facturados",
- "huella": "1eb5227c4923f05c93cd0aef6a32d3d12dd31ce26a77ddb44e21ec4a7c76bc63",
- "fecha": "2026-10-27",
- "puntajes": [
-  76,
-  76
- ],
- "puntaje": 76.0,
- "a_ciegas_con_anclas": true,
- "anclas": {
-  "humanos": [
-   85,
-   88,
-   90,
-   90,
-   86,
-   88
+  "slug": "resico-ingresos-cobrados-o-facturados",
+  "huella": "d89232cfbe73264719900a0ea289e8af3a37d0635750c48d1f1ce4100d3e8581",
+  "fecha": "2026-11-07",
+  "puntajes": [
+    85,
+    85
   ],
-  "maquina": [
-   12,
-   18,
-   10,
-   12
-  ]
- },
- "graves": 0,
- "medios": 0,
- "leves": 3,
- "leves_pendientes": [
-  "la fecha de pago del REP como criterio sin hecho que lo respalde",
-  "cheque depositado frente a cheque cobrado (la salvedad de procuracion solo esta en la FAQ)",
-  "«el anticipo sin factura lo detectas tu» se queda corto frente a la conciliacion bancaria"
- ],
- "motivo": "Cambio de titulo/descripcion/primer parrafo/enlaces por la consulta de Google Trends del 2026-10-27 (registro/terminos/resico-ingresos-cobrados-o-facturados.json); el contenido no cambia. Ronda 1 de esta revision."
+  "puntaje": 85.0,
+  "a_ciegas_con_anclas": true,
+  "anclas": {
+    "humanos": [
+      96,
+      96,
+      91,
+      93,
+      93,
+      94
+    ],
+    "maquina": [
+      12,
+      25,
+      32,
+      35
+    ]
+  },
+  "graves": 0,
+  "medios": 0,
+  "leves": 0,
+  "leves_pendientes": [],
+  "nota": "Revisión independiente nueva del texto final; dos lecturas anónimas calibradas y una revisión de contenido. No prueba de autoría."
 }
