@@ -1,36 +1,32 @@
 {
- "slug": "lista-negra-sat-efos-69b",
- "huella": "c574d952cf6b3f5ca7585cd723eeed0f7e16023fd6381f88c30be4994a4ec1c8",
- "fecha": "2026-10-27",
- "puntajes": [
-  72,
-  74
- ],
- "puntaje": 73.0,
- "a_ciegas_con_anclas": true,
- "anclas": {
-  "humanos": [
-   85,
-   88,
-   90,
-   90,
-   86,
-   88
+  "slug": "lista-negra-sat-efos-69b",
+  "huella": "87545ab76f971675df08089d09aa36fc5083448c32a7f84ada8bd412e13eb92e",
+  "fecha": "2026-11-07",
+  "puntajes": [
+    76,
+    84
   ],
-  "maquina": [
-   12,
-   18,
-   10,
-   12
-  ]
- },
- "graves": 0,
- "medios": 0,
- "leves": 3,
- "leves_pendientes": [
-  "50 dias pueden suspenderse si la autoridad requiere informacion en los primeros 20",
-  "«todavia puede desvirtuar» es mas ancho que el permite pasado el plazo",
-  "el ejemplo juzga que evidencia sostiene una operacion"
- ],
- "motivo": "Cambio de titulo/descripcion/primer parrafo/enlaces por la consulta de Google Trends del 2026-10-27 (registro/terminos/lista-negra-sat-efos-69b.json); el contenido no cambia. Ronda 1 de esta revision."
+  "puntaje": 80.0,
+  "a_ciegas_con_anclas": true,
+  "anclas": {
+    "humanos": [
+      93,
+      94,
+      96,
+      96,
+      91,
+      92
+    ],
+    "maquina": [
+      17,
+      23,
+      18,
+      18
+    ]
+  },
+  "graves": 0,
+  "medios": 0,
+  "leves": 0,
+  "leves_pendientes": [],
+  "nota": "Revisión independiente nueva del texto final; dos lecturas anónimas calibradas y una revisión de contenido. No prueba de autoría."
 }

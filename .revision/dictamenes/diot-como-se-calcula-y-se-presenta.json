@@ -1,0 +1,32 @@
+{
+  "slug": "diot-como-se-calcula-y-se-presenta",
+  "huella": "e636aaae9d8cd057071d29b2c2496b195685ee0963b3a6c00b98f078d690533c",
+  "fecha": "2026-11-07",
+  "puntajes": [
+    74,
+    84
+  ],
+  "puntaje": 79.0,
+  "a_ciegas_con_anclas": true,
+  "anclas": {
+    "humanos": [
+      93,
+      94,
+      96,
+      96,
+      91,
+      92
+    ],
+    "maquina": [
+      17,
+      23,
+      18,
+      18
+    ]
+  },
+  "graves": 0,
+  "medios": 0,
+  "leves": 0,
+  "leves_pendientes": [],
+  "nota": "Revisión independiente nueva del texto final; dos lecturas anónimas calibradas y una revisión de contenido. No prueba de autoría."
+}
