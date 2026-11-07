@@ -1,32 +1,38 @@
 {
   "slug": "cierre-fiscal-mensual-sin-dejar-tu-sistema-contable",
-  "huella": "4450d523fecff9b4f88671df192e019ccf4b4113390077526bfd10888a0a9e02",
-  "fecha": "2026-11-07",
+  "huella": "48b2aca7683e4117fdeec7857634973446cddbee7597f74a06c480a82f2d1e25",
+  "fecha": "2026-11-06",
   "puntajes": [
-    84,
-    85
+    74,
+    78
   ],
-  "puntaje": 84.5,
+  "puntaje": 76.0,
   "a_ciegas_con_anclas": true,
   "anclas": {
     "humanos": [
-      93,
-      94,
-      96,
-      96,
+      95,
+      95,
       91,
+      93,
+      88,
       92
     ],
     "maquina": [
-      17,
-      23,
       18,
-      18
+      34,
+      27,
+      30
     ]
   },
   "graves": 0,
   "medios": 0,
-  "leves": 0,
-  "leves_pendientes": [],
-  "nota": "Revisión independiente nueva del texto final; dos lecturas anónimas calibradas y una revisión de contenido. No prueba de autoría."
+  "leves": 1,
+  "leves_pendientes": [
+    {
+      "frase": "Descarga el Excel de esta prueba y revisa las cuatro hojas, incluidas Fundamentos del cálculo y Soporte del cálculo.",
+      "porque": "Las entradas respaldan la exportación y hojas de soporte, pero ninguna establece que este archivo exportado tenga exactamente cuatro hojas.",
+      "gravedad": "leve"
+    }
+  ],
+  "nota": "Revisión nueva del texto exacto: dos lectores independientes con anclas calibradas y revisión de contenido completa. La demostración usa datos sintéticos y código de desarrollo; no valida un instalador ni resultados de búsqueda."
 }
