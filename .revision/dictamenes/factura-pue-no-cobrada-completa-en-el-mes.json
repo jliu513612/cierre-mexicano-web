@@ -1,32 +1,32 @@
 {
   "slug": "factura-pue-no-cobrada-completa-en-el-mes",
-  "huella": "a6b91ecedf627592e44ed1989ce6f1caf89c58e432caefd6f027a3a4a54ab79f",
-  "fecha": "2026-11-07",
+  "huella": "5f52dff8045c063659cbbe94212804adaa249239990d5486c70b0adc44f65daf",
+  "fecha": "2026-11-06",
   "puntajes": [
-    78,
-    78
+    82,
+    84
   ],
-  "puntaje": 78.0,
+  "puntaje": 83.0,
   "a_ciegas_con_anclas": true,
   "anclas": {
     "humanos": [
-      93,
-      94,
-      96,
-      96,
+      95,
+      95,
       91,
+      93,
+      88,
       92
     ],
     "maquina": [
-      17,
-      23,
       18,
-      18
+      34,
+      27,
+      30
     ]
   },
   "graves": 0,
   "medios": 0,
   "leves": 0,
   "leves_pendientes": [],
-  "nota": "Revisión independiente nueva del texto final; dos lecturas anónimas calibradas y una revisión de contenido. No prueba de autoría."
+  "nota": "Revisión nueva del texto exacto: dos lectores independientes con anclas calibradas y revisión de contenido completa. La demostración usa datos sintéticos y código de desarrollo; no valida un instalador ni resultados de búsqueda."
 }

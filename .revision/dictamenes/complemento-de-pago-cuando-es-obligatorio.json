@@ -1,32 +1,32 @@
 {
   "slug": "complemento-de-pago-cuando-es-obligatorio",
-  "huella": "0171069c4b3b9e8fd1467f7b49c83b571cc99e5daab6cd2d05683078354b3b98",
-  "fecha": "2026-11-07",
+  "huella": "64f6d58c7604aab4cc7c90bb1c25913839863c2811b62993db1876367ae8d4b8",
+  "fecha": "2026-11-06",
   "puntajes": [
-    76,
-    87
+    84,
+    84
   ],
-  "puntaje": 81.5,
+  "puntaje": 84.0,
   "a_ciegas_con_anclas": true,
   "anclas": {
     "humanos": [
-      93,
-      94,
-      96,
-      96,
+      95,
+      95,
       91,
+      93,
+      88,
       92
     ],
     "maquina": [
-      17,
-      23,
       18,
-      18
+      34,
+      27,
+      30
     ]
   },
   "graves": 0,
   "medios": 0,
   "leves": 0,
   "leves_pendientes": [],
-  "nota": "Revisión independiente nueva del texto final; dos lecturas anónimas calibradas y una revisión de contenido. No prueba de autoría."
+  "nota": "Revisión nueva del texto exacto: dos lectores independientes con anclas calibradas y revisión de contenido completa. La demostración usa datos sintéticos y código de desarrollo; no valida un instalador ni resultados de búsqueda."
 }
