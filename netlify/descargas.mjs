@@ -4,8 +4,8 @@ export default {
   predeterminado: 'windows',
   archivos: {
     windows: {
-      version: '1.0.47',
-      url: 'https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.47/TaxCerteza_1.0.47.zip',
+      version: '1.0.49',
+      url: 'https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.49/TaxCerteza_1.0.49.zip',
     },
   },
 };

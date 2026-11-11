@@ -1,7 +1,7 @@
 """Rellena la portada y la tabla de /descargar con los datos REALES de un release, el dia de la publicacion.
 
-Uso:  python -X utf8 .herramientas/lanzamiento.py --version 1.0.48 --zip TaxCerteza_1.0.48.zip --bytes 201905414 \
-          --sha256 <64 hex> --fecha 2026-10-26
+Uso:  python -X utf8 .herramientas/lanzamiento.py --version 1.0.49 --zip TaxCerteza_1.0.49.zip --bytes 202521149 \
+          --sha256 <64 hex> --fecha 2026-11-10
       (--sin-medir solo para pruebas: no descarga el archivo)
 
 Los datos salen de la fila de docs/RELEASES.md del programa. ANTES de escribir nada descarga el zip publicado en

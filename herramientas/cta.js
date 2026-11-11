@@ -39,7 +39,7 @@
   // Condiciones de la prueba integrada de 1.0.48, MEDIDAS en el programa (license_gate.PRUEBA_DIAS = 30; entra sola al
   // primer arranque sin licencia, sin servidor ni datos personales; al terminar, los datos siguen en el equipo). Solo
   // lo que es verdad, nada que la prueba no sea (lo vigila normas.test.js). Va al sitio vivo el dia del lanzamiento de
-  // 1.0.48: antes seria falso, 1.0.47 no tiene prueba.
+  // 1.0.49, la primera version publicada con la prueba: antes seria falso, 1.0.47 no tiene prueba.
   var CONDICIONES_PRUEBA = 'Pruébalo 30 días gratis, sin registro. Tus datos se quedan en tu equipo.';
 
   function el(etiqueta, clase, t) {
