@@ -143,7 +143,8 @@ export function clicDe({ ruta, tabla, referer, host, ts, contexto, pais, metodo,
 /** ACTUALIZACION EN UN CLIC (/descargar/actualizacion/<version>): la pide el programa con el url_zip de su version.json
     firmado. Devuelve {evento, destino} o null (entonces 404). La version sale SOLO de la lista cerrada
     `tabla.actualizaciones` (nada de redireccion abierta), y el destino es el zip de ESA version. El evento es el de una
-    descarga con `canal: 'actualizacion'`, y NUNCA lleva nada de la IP: no se le pasa, aunque se enciendan los unicos. El
+    descarga con `canal: 'actualizacion'`: ni la IP ni huella (no se le pasa la IP, aunque se enciendan los unicos); si el
+    pais, como las descargas del sitio. El
     user-agent solo se mira para la marca de bot y no se guarda. El sha256 del zip lo verifica el programa, no esto. */
 export const PREFIJO_ACTUALIZACION = '/descargar/actualizacion/';
 export const CANAL_ACTUALIZACION = 'actualizacion';
@@ -156,6 +157,27 @@ export function actualizacionDe({ ruta, tabla, ts, contexto, pais, metodo, ua, i
   const ev = evento({ ts, contexto, version, archivo: CANAL_ACTUALIZACION, pais, metodo, ua, interno, unicos: false });
   ev.canal = CANAL_ACTUALIZACION;
   return { evento: ev, destino: { archivo: CANAL_ACTUALIZACION, version, url: lista[version], privado: null } };
+}
+
+/** EL MANEJADOR de /descargar/actualizacion/<version>, entero salvo la eleccion del almacen y del token (eso lo cablea
+    netlify/functions/descargar.mjs). Recibe la peticion y el contexto de Netlify tal cual, el `store` (setJSON) y
+    `traer` (fetch), para poder probarlo sin Netlify. Devuelve {estado, cuerpo, cabeceras}.
+    - La ruta sale de la peticion SOLO para elegir la version de la lista cerrada; el destino sale de la tabla.
+    - El evento no lleva la IP ni huella (sí el pais); si el almacen falla, se redirige igual y queda en el log.
+    - 302 a la URL FIRMADA de GitHub (enlaceTemporal) o, si no la da, al enlace permanente de la tabla. */
+export async function responderActualizacion({ req, context, tabla, store, traer = fetch, token = '',
+  registrarError = (...a) => console.error(...a), ahora = () => new Date() }) {
+  const ruta = new URL(req.url).pathname.replace(/\/+$/, '');
+  const ts = ahora().toISOString();
+  const a = actualizacionDe({ ruta, tabla, ts, contexto: (context && context.deploy && context.deploy.context) || 'desconocido',
+    pais: context && context.geo && context.geo.country && context.geo.country.code, metodo: req.method,
+    ua: req.headers.get('user-agent'), interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || '') });
+  if (!a) return { estado: 404, cuerpo: 'No encontrado', cabeceras: {} };
+  try { await store.setJSON(`ev/${ts.slice(0, 10)}/${ts}-a-${Math.random().toString(36).slice(2, 10)}`, a.evento); }
+  catch (e) { registrarError('actualizacion: no se pudo registrar', e && e.message); }
+  const enlace = await enlaceTemporal(a.destino, { traer, token });
+  if (!enlace.temporal) registrarError('actualizacion: se entrego el enlace permanente:', enlace.motivo);
+  return { estado: 302, cuerpo: null, cabeceras: { Location: enlace.url } };
 }
 
 /** El texto prellenado de WhatsApp para una pagina de origen de la lista cerrada; '' si no se sabe de donde viene. */

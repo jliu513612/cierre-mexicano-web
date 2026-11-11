@@ -9,7 +9,7 @@
 //                              origen (cabecera Referer del propio sitio) y redirige (302) al destino de netlify/embudo.mjs.
 //                              Un destino que no esta en esa tabla da 404: no hay redireccion abierta.
 //   /descargar/actualizacion/<version>  la ACTUALIZACION EN UN CLIC del programa (url_zip del version.json firmado): la
-//                              cuenta aparte (canal 'actualizacion', sin IP) y redirige (302) al zip de ESA version, que
+//                              cuenta aparte (canal 'actualizacion'; ni IP ni huella, si el pais) y redirige (302) al zip de ESA version, que
 //                              sale de la lista cerrada `actualizaciones` de netlify/descargas.mjs (otra version = 404).
 // La descarga (/descargar) tambien guarda su pagina de origen, igual.
 // UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
@@ -22,7 +22,7 @@
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
 import embudo from '../embudo.mjs';
-import { evento, eventoUso, clicDe, PREFIJO_IR, actualizacionDe, PREFIJO_ACTUALIZACION, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
+import { evento, eventoUso, clicDe, PREFIJO_IR, responderActualizacion, PREFIJO_ACTUALIZACION, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -100,16 +100,9 @@ export default async (req, context) => {
   }
 
   if (ruta.startsWith(PREFIJO_ACTUALIZACION)) {
-    const ts = new Date().toISOString();
-    const a = actualizacionDe({ ruta, tabla, ts, contexto, pais: context.geo && context.geo.country && context.geo.country.code,
-      metodo: req.method, ua: req.headers.get('user-agent'), interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || '') });
-    if (!a) return respuesta('No encontrado', 404);
-    // la actualizacion NUNCA se bloquea por el registro: si el almacen falla, se redirige igual y queda en el log
-    try { await store.setJSON(`ev/${ts.slice(0, 10)}/${ts}-a-${Math.random().toString(36).slice(2, 10)}`, a.evento); }
-    catch (e) { console.error('actualizacion: no se pudo registrar', e && e.message); }
-    const enlace = await enlaceTemporal(a.destino, { token: env('GITHUB_DIST_TOKEN') });
-    if (!enlace.temporal) console.error('actualizacion: se entrego el enlace permanente:', enlace.motivo);
-    return respuesta(null, 302, { Location: enlace.url });
+    // todo lo demas (version de la lista cerrada, evento sin IP ni huella, 302) vive y se prueba en lib: aqui solo el cableado
+    const r = await responderActualizacion({ req, context, tabla, store, token: env('GITHUB_DIST_TOKEN') });
+    return respuesta(r.cuerpo, r.estado, r.cabeceras);
   }
 
   if (ruta !== '/descargar') return respuesta('No encontrado', 404);

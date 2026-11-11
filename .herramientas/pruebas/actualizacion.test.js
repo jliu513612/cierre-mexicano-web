@@ -4,7 +4,7 @@
 // se cuentan aparte de las del sitio. Lo que se asevera:
 //   (1) la tabla de actualizaciones es cerrada, por version, y solo apunta a los releases propios de esa version;
 //   (2) la ruta solo acepta una version de la tabla: lo demas da null (404), sin redireccion abierta;
-//   (3) el evento lleva canal 'actualizacion' y NADA de la IP, ni aunque llegue;
+//   (3) el evento lleva canal 'actualizacion' y ni la IP ni huella, ni aunque llegue (si el pais, como las descargas);
 //   (4) el resumen las cuenta aparte: no se mezclan con las descargas del sitio;
 //   (5) el programa ("TaxCerteza/update") cuenta como persona y la verificacion de publicacion como bot.
 const test = require('node:test');
@@ -77,4 +77,76 @@ test('actualizacion: el resumen las cuenta aparte, sin mezclarlas con las descar
   assert.equal(r.descargas_total, 1, 'las actualizaciones no entran en las descargas del sitio');
   assert.equal(r.descargas_reales, 1);
   assert.deepEqual(r.actualizaciones, { total: 4, bots: 1, internas: 1, reales: 2, por_version: { [v]: 2 } });
+});
+
+// --- El MANEJADOR de la ruta (lo que corre en Netlify), entrando por la peticion y no por la API comoda. La funcion de
+// netlify/functions/descargar.mjs solo lo cablea (elige el almacen y el token); esto ejercita todo lo demas.
+const FIRMADA = 'https://release-assets.githubusercontent.com/github-production-release-asset/1/x?sig=abc';
+function montaje({ almacenRoto = false, githubFirma = true } = {}) {
+  const guardados = [], pedidos = [], errores = [];
+  const store = { setJSON: async (k, v) => { if (almacenRoto) throw new Error('almacen caido'); guardados.push({ k, v }); } };
+  const traer = async (u, o) => {
+    pedidos.push({ u, metodo: o && o.method });
+    if (!githubFirma) throw Object.assign(new Error('sin red'), { name: 'SinRed' });
+    return { status: 302, headers: { get: h => (h.toLowerCase() === 'location' ? FIRMADA : null) } };
+  };
+  return { guardados, pedidos, errores, store, traer, registrarError: (...a) => errores.push(a.join(' ')) };
+}
+function peticion(ruta, { ua = UA_PROGRAMA, cookie = '' } = {}) {
+  return new Request('https://taxcerteza.mx' + ruta, { headers: Object.assign({ 'user-agent': ua }, cookie ? { cookie } : {}) });
+}
+const CONTEXTO = { deploy: { context: 'production' }, geo: { country: { code: 'MX' } }, ip: '203.0.113.7' };
+
+test('actualizacion (manejador): 302 al zip firmado de ESA version; la URL de la peticion no decide nada', async () => {
+  const { default: tabla } = await imp('netlify/descargas.mjs');
+  const { responderActualizacion } = await imp('netlify/lib/descargas.mjs');
+  const v = Object.keys(tabla.actualizaciones)[0];
+  const m = montaje();
+  const r = await responderActualizacion({ req: peticion(`/descargar/actualizacion/${v}?u=https://evil.example/x.zip&archivo=x`),
+    context: CONTEXTO, tabla, store: m.store, traer: m.traer, registrarError: m.registrarError });
+  assert.equal(r.estado, 302);
+  assert.equal(r.cabeceras.Location, FIRMADA);
+  assert.deepEqual(m.pedidos.map(p => p.u), [tabla.actualizaciones[v]], 'a GitHub se le pide el zip de la tabla, nada de la peticion');
+  // sin URL firmada de GitHub: el enlace permanente de la tabla, y queda en el log
+  const m2 = montaje({ githubFirma: false });
+  const r2 = await responderActualizacion({ req: peticion(`/descargar/actualizacion/${v}?u=https://evil.example/x.zip`),
+    context: CONTEXTO, tabla, store: m2.store, traer: m2.traer, registrarError: m2.registrarError });
+  assert.deepEqual([r2.estado, r2.cabeceras.Location], [302, tabla.actualizaciones[v]]);
+  assert.equal(m2.errores.length, 1);
+});
+
+test('actualizacion (manejador): guarda UN evento sin la IP; si el almacen falla, redirige igual', async () => {
+  const { default: tabla } = await imp('netlify/descargas.mjs');
+  const { responderActualizacion } = await imp('netlify/lib/descargas.mjs');
+  const v = Object.keys(tabla.actualizaciones)[0];
+  const m = montaje();
+  await responderActualizacion({ req: peticion(`/descargar/actualizacion/${v}`), context: CONTEXTO, tabla, store: m.store,
+    traer: m.traer, registrarError: m.registrarError });
+  assert.equal(m.guardados.length, 1);
+  const e = m.guardados[0].v;
+  assert.ok(!JSON.stringify(m.guardados).includes('203.0.113'), 'la IP del contexto no se guarda');
+  assert.deepEqual([e.canal, e.version, e.pais, e.contexto, e.bot, e.interno], ['actualizacion', v, 'MX', 'production', false, false]);
+  assert.match(m.guardados[0].k, /^ev\/\d{4}-\d{2}-\d{2}\/.+-a-[a-z0-9]+$/);
+  const mi = montaje();
+  await responderActualizacion({ req: peticion(`/descargar/actualizacion/${v}`, { cookie: 'x=1; tc_interno=1' }), context: CONTEXTO,
+    tabla, store: mi.store, traer: mi.traer, registrarError: mi.registrarError });
+  assert.equal(mi.guardados[0].v.interno, true, 'la cookie de interno se respeta');
+  const mr = montaje({ almacenRoto: true });
+  const r = await responderActualizacion({ req: peticion(`/descargar/actualizacion/${v}`), context: CONTEXTO, tabla, store: mr.store,
+    traer: mr.traer, registrarError: mr.registrarError });
+  assert.deepEqual([r.estado, r.cabeceras.Location], [302, FIRMADA]);
+  assert.equal(mr.errores.length, 1);
+});
+
+test('actualizacion (manejador): una version fuera de la lista da 404 sin guardar ni pedir nada', async () => {
+  const { default: tabla } = await imp('netlify/descargas.mjs');
+  const { responderActualizacion } = await imp('netlify/lib/descargas.mjs');
+  for (const ruta of ['/descargar/actualizacion/9.9.9', '/descargar/actualizacion/__proto__', '/descargar/actualizacion/x',
+    '/descargar/actualizacion/', '/descargar/actualizacion/1.0.49.zip']) {
+    const m = montaje();
+    const r = await responderActualizacion({ req: peticion(ruta), context: CONTEXTO, tabla, store: m.store, traer: m.traer,
+      registrarError: m.registrarError });
+    assert.equal(r.estado, 404, ruta);
+    assert.deepEqual([m.guardados.length, m.pedidos.length], [0, 0], ruta);
+  }
 });
