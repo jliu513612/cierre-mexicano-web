@@ -1,46 +1,46 @@
 {
  "/herramientas/": {
-  "fecha": "2026-10-30",
-  "huella": "1baa21a90922a03510f41e032ba2f18ef11b6f0549e006005ec76143b9d8b106"
+  "fecha": "2026-11-11",
+  "huella": "049d4abd28c91651ed65a0b376be80c7b0ddb8718a61b4594662e42d087145f2"
  },
  "/herramientas/calendario-dia-17/": {
-  "fecha": "2026-10-30",
-  "huella": "d4f8a7f1a6ebfc63fa9c388a85ea8edbd4092ec22584ead8c588f1bb548e95aa"
+  "fecha": "2026-11-11",
+  "huella": "b5327b54a420a2d0c54bdb7f2797fcd5c6a64aa652293191ac580eab69136e1f"
  },
  "/herramientas/complemento-de-pago/": {
-  "fecha": "2026-10-30",
-  "huella": "9746496214ff3e04e0c4769cfed2106372a1e77d3999ba1bb7355d64c2730e63"
+  "fecha": "2026-11-11",
+  "huella": "eae54fb0e97c474f92078d951d23c05569a4074af205625591713611ffe7c5c6"
  },
  "/herramientas/diagnostico-del-mes/": {
-  "fecha": "2026-10-30",
-  "huella": "0413c3ba7d8e38b1f25adad3b56e53f6121cbb543690947538f7d7923ee23d2b"
+  "fecha": "2026-11-11",
+  "huella": "1f030ac117da3e8c983553d0571154188e3572e189e92f6635aa77184b1053c8"
  },
  "/herramientas/factura-con-retenciones/": {
-  "fecha": "2026-10-30",
-  "huella": "8b8b01f95fc5fea9cd0aa1727da8fa375f3a56f1baa9f3e55cc83515ed21f07f"
+  "fecha": "2026-11-11",
+  "huella": "3d71d12d0c765ab013d4b8fe696e45b90d6bdcc31e5ecc2654f50409e5769d39"
  },
  "/herramientas/iva-del-mes/": {
-  "fecha": "2026-10-30",
-  "huella": "b2dab3080ff2e1b5c5a13dd70c32b16db5ec7196f6a10875b36cdb527d27c63a"
+  "fecha": "2026-11-11",
+  "huella": "a5711b1355fccb8099397842d0fed16ecb3f5a15884a6663e3669253e90398ff"
  },
  "/herramientas/lista-69b/": {
-  "fecha": "2026-10-30",
-  "huella": "328a96de028869ba79ccd8b7c57cee46bd504ef8706f195e34d95dab61211441"
+  "fecha": "2026-11-11",
+  "huella": "1602a8c0c9a6fb0f5d593ea3868286660a0d423b5acdd579dadadc361786a641"
  },
  "/herramientas/tipo-de-cambio/": {
-  "fecha": "2026-10-30",
-  "huella": "005b59135b86c03a15802a2fbfd8b1294019518206366f6911a3dba3d6e13dee"
+  "fecha": "2026-11-11",
+  "huella": "17ac4352650ab8e35eeb5c0dbe1331633911cecdc0ff50e92b27ddeeeb0718ab"
  },
  "/herramientas/validar-rfc/": {
-  "fecha": "2026-10-30",
-  "huella": "26e994f7c961b8f99932cb4b30b01f72c33f65bbc0ac930b11b756e78c30fb88"
+  "fecha": "2026-11-11",
+  "huella": "42ae6927e135a2c1b992a783717b21daa77fb813b0609558267c93e138baf969"
  },
  "/herramientas/valor-uma/": {
-  "fecha": "2026-10-30",
-  "huella": "1958fe75944032fbc100dd60be41e048fb4f9b0ef124a260397e941464ce49bc"
+  "fecha": "2026-11-11",
+  "huella": "22ac8d72d37398eb55cd1c3a8d5b2e20dbe3956be6f6301dbb7fed4ee21825a2"
  },
  "/herramientas/verificar-factura/": {
-  "fecha": "2026-10-30",
-  "huella": "e46f660ea4c2e0a23a969d86343607f27a56dbdeccd19df593a23835b74b5857"
+  "fecha": "2026-11-11",
+  "huella": "5a35348e8afb69ed21025e8047c1a1dea8173e8eed9ed005ead75f090948f359"
  }
 }

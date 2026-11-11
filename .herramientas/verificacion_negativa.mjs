@@ -123,7 +123,8 @@ const SABOTAJES = [
   ['pie: una fecha de revision cambiada a mano en los datos', path.join(RAIZ, '.herramientas', 'datos', 'normas.json'), '"revisado": "2026-10-21"', '"revisado": "2026-10-20"'],
   ['pie: pierde el aviso de que no es un servicio del SAT', path.join(RAIZ, '.herramientas', 'construir.py'), "'    <p>Es una herramienta informativa, no un servicio oficial del SAT. Revisa con tu contador tu caso concreto.</p>\\n'", "'    <p>Es una herramienta informativa.</p>\\n'"],
   ['pie: una herramienta sin normas declaradas', path.join(RAIZ, '.herramientas', 'normas_por_herramienta.json'), '  "lista-69b": ["cff-69-b"],\n', ''],
-  ['cta: el hueco de las condiciones se rellena con texto supuesto', H('cta.js'), "  var CONDICIONES_PRUEBA = '';", "  var CONDICIONES_PRUEBA = 'Prueba gratis 30 dias.';"],
+  ['cta: las condiciones de la prueba prometen algo no medido', H('cta.js'), "Pruébalo 30 días gratis, sin registro. Tus datos", "Pruébalo 30 días gratis, sin registro y para siempre. Tus datos"],
+  ['cta: el pie de una herramienta deja de decir la prueba', H('valor-uma/index.html'), 'Se prueba 30 días gratis y sin registro;', 'Se activa;'],
   // --- Diagnostico del mes: compone las tres herramientas, no calcula; y lo que el usuario sube no sale del navegador
   ['diagnostico: las facturas de un proveedor del 69-B se pierden por el camino', H('diagnostico-del-mes/diagnostico.js'), "facturas: porEmisor[a.rfc] || [] };", "facturas: [] };"],
   ['diagnostico: el total de una factura del 69-B sale de otro campo', H('iva-del-mes/iva.js'), "metodo: x.metodo,\n               total: Dm.texto(Dm.centavos(x.total)),", "metodo: x.metodo,\n               total: Dm.texto(Dm.centavos(x.iva)),"],
@@ -162,6 +163,9 @@ const SABOTAJES = [
   ['sitemap: falta una herramienta y nombra una que no existe', H('sitemap.xml'), '<loc>https://taxcerteza.mx/herramientas/iva-del-mes/</loc>', '<loc>https://taxcerteza.mx/herramientas/no-existe/</loc>'],
   ['sitemap: robots.txt no declara el de herramientas', path.join(RAIZ, 'robots.txt'), 'Sitemap: https://taxcerteza.mx/herramientas/sitemap.xml', 'Sitemap: https://taxcerteza.mx/otro/sitemap.xml'],
   ['sitemap: el blog nombra una herramienta que no existe', path.join(RAIZ, 'sitemap.xml'), '<loc>https://taxcerteza.mx/ayuda/</loc>', '<loc>https://taxcerteza.mx/herramientas/no-existe/</loc>'],
+  ['sitemap: el raiz vuelve a repetir una herramienta que existe', path.join(RAIZ, 'sitemap.xml'), '<loc>https://taxcerteza.mx/ayuda/</loc>', '<loc>https://taxcerteza.mx/herramientas/iva-del-mes/</loc>'],
+  ['llms: falta una herramienta', path.join(RAIZ, 'llms.txt'), '](https://taxcerteza.mx/herramientas/diagnostico-del-mes/)', '](https://taxcerteza.mx/blog/diagnostico-del-mes/)'],
+  ['llms: nombra una herramienta que no existe', path.join(RAIZ, 'llms.txt'), '](https://taxcerteza.mx/blog/):', '](https://taxcerteza.mx/herramientas/no-existe/):'],
   ['sitemap: una pagina cambia y conserva su fecha', path.join(RAIZ, '.herramientas', 'construir.py'), 'fechas[ruta] = {"huella": huella, "fecha": antes["fecha"] if antes.get("huella") == huella else hoy}', 'fechas[ruta] = {"huella": huella, "fecha": antes.get("fecha") or hoy}'],
   ['sitemap: falta la ultima pagina de PAGINAS', path.join(RAIZ, '.herramientas', 'construir.py'), '        urls.append(f\'  <url><loc>{SITIO}{ruta}</loc><lastmod>', '        if nombre != "iva-del-mes": urls.append(f\'  <url><loc>{SITIO}{ruta}</loc><lastmod>'],
   // --- Registro de busqueda de cada titulo (Google Trends)

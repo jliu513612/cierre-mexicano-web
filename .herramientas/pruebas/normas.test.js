@@ -51,7 +51,17 @@ test('normas: cada pagina muestra su pie con esas normas y esas fechas, el aviso
   }
 });
 
-test('normas: el hueco de las condiciones de la prueba sigue vacio', () => {
+test('normas: las condiciones de la prueba son solo lo medido en 1.0.48 (30 dias, sin registro, datos en tu equipo)', () => {
   const CTA = require(path.join(RAIZ, 'herramientas', 'cta.js'));
-  assert.equal(CTA.CONDICIONES_PRUEBA, '', 'sin texto supuesto hasta que exista el diseno de la prueba');
+  assert.equal(CTA.CONDICIONES_PRUEBA, 'Pruébalo 30 días gratis, sin registro. Tus datos se quedan en tu equipo.');
+  // ni en el bloque ni en las paginas se promete lo que la prueba no es
+  const paginas = ['index.html', ...fs.readdirSync(path.join(RAIZ, 'herramientas'), { withFileTypes: true })
+    .filter(d => d.isDirectory()).map(d => path.join('herramientas', d.name, 'index.html')), path.join('herramientas', 'index.html')]
+    .filter(f => fs.existsSync(path.join(RAIZ, f)));
+  assert.ok(paginas.length >= 11, 'calibracion: portada, indice y las herramientas');
+  for (const f of ['herramientas/cta.js', ...paginas]) {
+    const t = fs.readFileSync(path.join(RAIZ, f), 'utf8');
+    assert.doesNotMatch(t, /para siempre|sin tarjeta|ilimitad|No hay modo de prueba/i, f);
+    if (f !== 'herramientas/cta.js') assert.match(t, /30 días gratis/, `${f}: dice la prueba de 30 dias`);
+  }
 });

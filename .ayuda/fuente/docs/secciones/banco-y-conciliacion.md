@@ -17,5 +17,5 @@ Cruce del banco contra los comprobantes, gastos sin comprobante y complementos d
 ## Cómo calcula el software
 
 - **Conciliación bancaria** — 11 explicaciones: [Tolerancia de importe en la conciliación bancaria](../calculos/ope-029.md) y siguientes
-- **Gasto sin comprobante** — 8 explicaciones: [Cargos sin factura: los que requieren CFDI y los que no](../calculos/ope-040.md) y siguientes
-- **Complementos de pago: plazos** — 6 explicaciones: [Fecha límite para emitir el REP](../calculos/dec-039.md) y siguientes
+- **Gasto sin comprobante** — 8 explicaciones: [Gastos no deducibles: cargos sin factura que requieren CFDI y los que no](../calculos/ope-040.md) y siguientes
+- **Complementos de pago: plazos** — 6 explicaciones: [Complemento de pago (REP): fecha límite para emitirlo](../calculos/dec-039.md) y siguientes
