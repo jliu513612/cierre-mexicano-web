@@ -191,7 +191,7 @@
    "donde_nota": "Solo aparecen los pagos que pasaron los filtros de lista 69-B, forma de pago y mes del pago."
   },
   "IVA-011": {
-   "titulo_es": "IVA retenido al proveedor en pagos en parcialidades",
+   "titulo_es": "Retención de IVA al proveedor en pagos en parcialidades",
    "titulo_en": "VAT withheld from suppliers on installment payments",
    "fundamento": "LIVA, art. 1o.-A",
    "fuente": "registro:liva-1-a",
@@ -210,7 +210,7 @@
    ]
   },
   "IVA-012": {
-   "titulo_es": "Complementos de pago cobrados en un mes anterior al declarado",
+   "titulo_es": "Complemento de pago cobrado en un mes anterior al declarado",
    "titulo_en": "Payment complements collected in a month before the one being filed",
    "fundamento": "LIVA, art. 1o.-B",
    "fuente": "",
@@ -230,7 +230,7 @@
    "donde_nota": "El hallazgo dice cuánto IVA causado se apartó de este mes y a qué mes pertenece."
   },
   "IVA-013": {
-   "titulo_es": "Complementos de pago de proveedor pagados en otro mes",
+   "titulo_es": "Complemento de pago de proveedor pagado en otro mes",
    "titulo_en": "Supplier payment complements paid in a different month",
    "fundamento": "LIVA, art. 1o.-B",
    "fuente": "",
@@ -249,7 +249,7 @@
    ]
   },
   "IVA-014": {
-   "titulo_es": "Complementos timbrados después pero pagados en el mes declarado",
+   "titulo_es": "Complemento de pago timbrado después pero pagado en el mes declarado",
    "titulo_en": "Payment complements stamped later but paid in the month filed",
    "fundamento": "LIVA, art. 1o.-B",
    "fuente": "",
@@ -276,7 +276,7 @@
    "estado": "para_contador"
   },
   "IVA-016": {
-   "titulo_es": "IVA no acreditable por pagos en efectivo mayores a $2,000",
+   "titulo_es": "Gastos en efectivo deducibles: IVA no acreditable por pagos de más de $2,000",
    "titulo_en": "Non-creditable VAT on cash payments over MXN 2,000",
    "fundamento": "LISR, art. 27, fr. III; LIVA, art. 5o., fr. I; RMF 2026, regla 2.7.1.37",
    "fuente": "registro:lisr-27; registro:rmf-2026-2-7-1-37",
@@ -328,7 +328,7 @@
    ]
   },
   "IVA-017": {
-   "titulo_es": "Pagos en efectivo mayores a $2,000 con complemento de pago",
+   "titulo_es": "Gastos en efectivo deducibles: pagos de más de $2,000 con complemento de pago",
    "titulo_en": "Cash payments over MXN 2,000 made via a payment complement",
    "fundamento": "LIVA, art. 5o., fr. I; LISR, art. 27, fr. III; RMF 2026, regla 2.7.1.37",
    "fuente": "registro:lisr-27; registro:rmf-2026-2-7-1-37",
@@ -370,7 +370,7 @@
    ]
   },
   "IVA-018": {
-   "titulo_es": "IVA no acreditable de proveedores en la lista definitiva del 69-B",
+   "titulo_es": "EFOS: IVA no acreditable de proveedores en la lista definitiva del 69-B",
    "titulo_en": "Non-creditable VAT from suppliers on the final Article 69-B list",
    "fundamento": "CFF, art. 69-B",
    "fuente": "",
@@ -389,7 +389,7 @@
    ]
   },
   "IVA-019": {
-   "titulo_es": "Corte por fecha de publicación de la lista definitiva del 69-B",
+   "titulo_es": "EFOS: corte por fecha de publicación de la lista definitiva del 69-B",
    "titulo_en": "Publication-date cutoff for the final Article 69-B list",
    "fundamento": "CFF, art. 69-B",
    "fuente": "",
@@ -408,7 +408,7 @@
    ]
   },
   "IVA-020": {
-   "titulo_es": "Situaciones de la lista 69-B que sí permiten acreditar el IVA",
+   "titulo_es": "EFOS: situaciones de la lista 69-B que sí permiten acreditar el IVA",
    "titulo_en": "Article 69-B list statuses that still allow VAT credit",
    "fundamento": "CFF, art. 69-B",
    "fuente": "",
@@ -427,7 +427,7 @@
    ]
   },
   "IVA-021": {
-   "titulo_es": "Proveedor en la lista definitiva del 69-B sin fecha de publicación",
+   "titulo_es": "EFOS: proveedor en la lista definitiva del 69-B sin fecha de publicación",
    "titulo_en": "Supplier on the final Article 69-B list with no publication date",
    "fundamento": null,
    "fuente": "",
@@ -446,7 +446,7 @@
    ]
   },
   "IVA-022": {
-   "titulo_es": "IVA causado total por tasa: 16% y 8% de región fronteriza",
+   "titulo_es": "IVA causado total por tasa: 16 % y 8 % de IVA en la frontera",
    "titulo_en": "Total VAT due by rate: 16% and 8% border region",
    "fundamento": "LIVA, arts. 1o. y 2o.-A; Decreto de estímulos fiscales región fronteriza norte",
    "fuente": "codigo:calculador_iva_v2.py:471; registro:liva-1; registro:decreto-frontera-norte-vigencia",
@@ -465,7 +465,7 @@
    ]
   },
   "IVA-023": {
-   "titulo_es": "IVA neto propio del mes",
+   "titulo_es": "IVA a pagar: IVA neto propio del mes",
    "titulo_en": "Net VAT for the month (own operations)",
    "fundamento": "LIVA, art. 5o.-D",
    "fuente": "",
@@ -484,7 +484,7 @@
    ]
   },
   "IVA-064": {
-   "titulo_es": "Entero del IVA retenido a terceros en renglón aparte",
+   "titulo_es": "Retención de IVA a terceros: entero en renglón aparte",
    "titulo_en": "Remittance of VAT withheld from third parties as a separate line",
    "fundamento": "LIVA, art. 1o.-A",
    "fuente": "registro:liva-1-a",
@@ -503,7 +503,7 @@
    ]
   },
   "IVA-024": {
-   "titulo_es": "Resultado de la declaración de IVA: a cargo, a favor o en cero",
+   "titulo_es": "IVA a pagar, a favor o en cero: resultado de la declaración",
    "titulo_en": "VAT return result: tax payable, credit balance or zero",
    "fundamento": null,
    "fuente": "",
@@ -536,7 +536,7 @@
    ]
   },
   "IVA-026": {
-   "titulo_es": "Saldo a favor de IVA para meses siguientes",
+   "titulo_es": "IVA a favor: saldo para meses siguientes",
    "titulo_en": "VAT credit balance carried forward",
    "fundamento": "LIVA, art. 6o.",
    "fuente": "",
@@ -556,7 +556,7 @@
    "donde_nota": "Cuando la retención de clientes excede el IVA a cargo, el prellenado agrega el renglón «IVA retenido NO aplicado este mes → registrado como SALDO A FAVOR»."
   },
   "IVA-028": {
-   "titulo_es": "Notas de crédito emitidas y aplicación de anticipos en el IVA causado",
+   "titulo_es": "Nota de crédito emitida y aplicación de anticipos en el IVA causado",
    "titulo_en": "Issued credit notes and advance applications in VAT due",
    "fundamento": "LIVA, art. 7o.; RLIVA, art. 24",
    "fuente": "codigo:calculador_iva_v2.py:3028",
@@ -575,7 +575,7 @@
    ]
   },
   "IVA-029": {
-   "titulo_es": "Notas de crédito recibidas y anticipos en el IVA acreditable",
+   "titulo_es": "Nota de crédito recibida y anticipos en el IVA acreditable",
    "titulo_en": "Received credit notes and advances in creditable VAT",
    "fundamento": "LIVA, art. 7o.; RLIVA, art. 24",
    "fuente": "codigo:calculador_iva_v2.py:3028",
@@ -594,7 +594,7 @@
    ]
   },
   "IVA-030": {
-   "titulo_es": "Notas de crédito recibidas en el campo de devoluciones de la DIOT",
+   "titulo_es": "Nota de crédito recibida en el campo de devoluciones de la DIOT",
    "titulo_en": "Received credit notes in the DIOT returns and discounts field",
    "fundamento": null,
    "fuente": "",
@@ -657,7 +657,7 @@
    ]
   },
   "IVA-035": {
-   "titulo_es": "Tasas de IVA aplicables: 16%, 8% fronteriza, 0% y exento",
+   "titulo_es": "Tasa 0 de IVA, 16 %, 8 % en la frontera y exento: tasas aplicables",
    "titulo_en": "Applicable VAT rates: 16%, 8% border region, 0% and exempt",
    "fundamento": "LIVA, arts. 1o. y 2o.-A; Decreto de estímulos fiscales región fronteriza norte",
    "fuente": "codigo:calculador_iva_v2.py:471",
@@ -857,7 +857,7 @@
    ]
   },
   "IVA-040": {
-   "titulo_es": "Retención de dos terceras partes del IVA a personas físicas",
+   "titulo_es": "Retención de IVA de dos terceras partes a personas físicas",
    "titulo_en": "Two-thirds VAT withholding on individuals",
    "fundamento": "LIVA, art. 1o.-A, fr. II, inciso a); RLIVA, art. 3, fr. I",
    "fuente": "registro:rliva-3",
@@ -1160,7 +1160,7 @@
    "donde_nota": "La validación no tiene cifra propia: si un renglón no tuviera sus 54 campos, el .txt no se genera y la pantalla muestra el error."
   },
   "IVA-055": {
-   "titulo_es": "Factor de conversión a pesos según el tipo de cambio",
+   "titulo_es": "Facturas en dólares: factor de conversión a pesos según el tipo de cambio",
    "titulo_en": "Peso conversion factor based on the exchange rate",
    "fundamento": "CFF, art. 20",
    "fuente": "",
@@ -1180,7 +1180,7 @@
    "donde_nota": "El factor no se muestra como cifra: se ve en que el desglose ya trae los importes en pesos."
   },
   "IVA-056": {
-   "titulo_es": "Conversión a pesos de facturas en moneda extranjera",
+   "titulo_es": "Facturas en dólares u otra moneda extranjera: conversión a pesos",
    "titulo_en": "Converting foreign-currency CFDI to pesos",
    "fundamento": "CFF, art. 20",
    "fuente": "",
@@ -1199,7 +1199,7 @@
    ]
   },
   "IVA-057": {
-   "titulo_es": "Tipo de cambio del complemento de pago en moneda extranjera",
+   "titulo_es": "Complemento de pago de una factura en dólares: tipo de cambio",
    "titulo_en": "Exchange rate on foreign-currency payment complements",
    "fundamento": "CFF, art. 20",
    "fuente": "registro:cff-20",
@@ -1218,7 +1218,7 @@
    ]
   },
   "IVA-059": {
-   "titulo_es": "Redondeo a centavos en el cálculo del IVA",
+   "titulo_es": "Redondeo SAT: centavos en el cálculo del IVA",
    "titulo_en": "Rounding to cents in the VAT calculation",
    "fundamento": null,
    "fuente": "",
@@ -1245,7 +1245,7 @@
    ]
   },
   "IVA-060": {
-   "titulo_es": "Redondeo de las cifras de la declaración",
+   "titulo_es": "Redondeo SAT de las cifras de la declaración",
    "titulo_en": "Rounding of the figures in the return",
    "fundamento": null,
    "fuente": "",
@@ -1260,7 +1260,7 @@
    "donde_nota": "No tiene renglón propio: cada cifra que se transcribe ya viene redondeada."
   },
   "IVA-061": {
-   "titulo_es": "Precisión de los cálculos internos",
+   "titulo_es": "Redondeo SAT: precisión de los cálculos internos",
    "titulo_en": "Precision of internal calculations",
    "fundamento": null,
    "fuente": "",
@@ -1275,14 +1275,14 @@
    "donde_nota": "Es precisión interna del cálculo: se nota en que las sumas y restas del desglose cuadran sin diferencias de centavos."
   },
   "IVA-062": {
-   "titulo_es": "Importes con precisión exacta, sin decimales aproximados",
+   "titulo_es": "Redondeo SAT: importes con precisión exacta, sin decimales aproximados",
    "titulo_en": "Amounts kept at exact precision, without approximate decimals",
    "fundamento": null,
    "fuente": "",
    "estado": "para_contador"
   },
   "IVA-063": {
-   "titulo_es": "Redondeo para la autoridad frente al redondeo interno",
+   "titulo_es": "Redondeo SAT para la autoridad frente al redondeo interno",
    "titulo_en": "Rounding for the tax authority versus internal rounding",
    "fundamento": "CFF, art. 20",
    "fuente": "registro:cff-20",
@@ -1309,7 +1309,7 @@
    ]
   },
   "ISR-001": {
-   "titulo_es": "Ingresos acumulables del régimen general (601)",
+   "titulo_es": "Ingresos acumulables del régimen general (601) para los pagos provisionales",
    "titulo_en": "Taxable income under the general regime (601)",
    "fundamento": "LISR, arts. 17 y 18, fr. IX",
    "fuente": "",
@@ -1360,7 +1360,7 @@
    ]
   },
   "ISR-003": {
-   "titulo_es": "ISR causado del periodo a la tasa del 30% (601)",
+   "titulo_es": "ISR causado del periodo a la tasa del 30 % en los pagos provisionales (601)",
    "titulo_en": "ISR for the period at the 30% rate (601)",
    "fundamento": "LISR, arts. 9 y 14",
    "fuente": "",
@@ -1511,7 +1511,7 @@
    ]
   },
   "ISR-010": {
-   "titulo_es": "Ingresos del mes al emitir la factura (régimen 601)",
+   "titulo_es": "Pagos provisionales de ISR: ingresos del mes al emitir la factura (601)",
    "titulo_en": "Monthly income recognized when the invoice is issued (regime 601)",
    "fundamento": "LISR, art. 17",
    "fuente": "",
@@ -1531,7 +1531,7 @@
    "donde_nota": "La resta de anticipos no tiene renglón propio: se ve como un documento en negativo dentro del desglose de los ingresos PUE."
   },
   "ISR-011": {
-   "titulo_es": "Ingresos del mes en flujo de efectivo: PUE y PPD cobradas",
+   "titulo_es": "Ingresos acumulables del mes en flujo de efectivo: PUE y PPD cobradas",
    "titulo_en": "Monthly cash-basis income: PUE invoices and collected PPD",
    "fundamento": "LISR, art. 211",
    "fuente": "",
@@ -1550,7 +1550,7 @@
    ]
   },
   "ISR-012": {
-   "titulo_es": "Deducciones del mes que entran al cálculo del ISR",
+   "titulo_es": "Pagos provisionales de ISR: deducciones del mes que entran al cálculo del ISR",
    "titulo_en": "Monthly deductions included in the ISR calculation",
    "fundamento": "LISR, art. 27",
    "fuente": "",
@@ -1589,7 +1589,7 @@
    ]
   },
   "ISR-014": {
-   "titulo_es": "Utilidad estimada del mes: ingresos menos deducciones",
+   "titulo_es": "Pagos provisionales de ISR: utilidad estimada del mes, ingresos menos deducciones",
    "titulo_en": "Estimated monthly profit: income less deductions",
    "fundamento": "LISR, arts. 9, 106 y 211",
    "fuente": "",
@@ -1604,7 +1604,7 @@
    "donde_nota": "La utilidad por flujo (ingresos menos deducciones) no tiene renglón propio en la Memoria: se ve su efecto en el ISR del mes; si hay PTU o pérdidas, en «= Base del pago provisional»."
   },
   "ISR-015": {
-   "titulo_es": "ISR acumulado del mes con tasa del 30 % o tarifa progresiva",
+   "titulo_es": "Pagos provisionales de ISR: ISR acumulado con tasa del 30 % o tarifa progresiva",
    "titulo_en": "Year-to-date ISR for the month at the 30% rate or progressive table",
    "fundamento": "LISR, arts. 9, 96 y 106",
    "fuente": "",
@@ -1764,7 +1764,7 @@
    ]
   },
   "ISR-022": {
-   "titulo_es": "Utilidad por flujo de efectivo del RESICO de personas morales",
+   "titulo_es": "RESICO persona moral: utilidad por flujo de efectivo",
    "titulo_en": "Cash-basis profit under RESICO for legal entities",
    "fundamento": "LISR, arts. 9 y 211",
    "fuente": "",
@@ -1779,7 +1779,7 @@
    "donde_nota": "La utilidad de flujo no tiene renglón propio: se ve su efecto en el ISR del mes (y en «= Base del pago provisional» si hay PTU o pérdidas)."
   },
   "ISR-023": {
-   "titulo_es": "ISR del RESICO de personas morales a la tasa del 30 %",
+   "titulo_es": "RESICO persona moral: ISR a la tasa del 30 %",
    "titulo_en": "RESICO ISR for legal entities at the 30% rate",
    "fundamento": "LISR, art. 9",
    "fuente": "",
@@ -1835,7 +1835,7 @@
    "donde_nota": "La utilidad acumulada del 612 no tiene renglón propio; se ve su efecto en el ISR del mes (y en «= Base del pago provisional» si hay PTU o pérdidas)."
   },
   "ISR-026": {
-   "titulo_es": "ISR del 612 con tarifa progresiva acumulada al periodo",
+   "titulo_es": "Actividad empresarial (612): ISR con tarifa progresiva acumulada al periodo",
    "titulo_en": "Regime 612 ISR with the progressive table accumulated to the period",
    "fundamento": "LISR, arts. 96 y 106",
    "fuente": "",
@@ -1861,14 +1861,14 @@
    ]
   },
   "ISR-027": {
-   "titulo_es": "Número de meses del periodo para la tarifa del 612",
+   "titulo_es": "Actividad empresarial (612): número de meses del periodo para la tarifa",
    "titulo_en": "Number of months in the period for the regime 612 table",
    "fundamento": "LISR, art. 106",
    "fuente": "",
    "estado": "conservado"
   },
   "ISR-028": {
-   "titulo_es": "Tarifa progresiva del ISR: mensual y por periodo de nómina",
+   "titulo_es": "Tabla de ISR: tarifa progresiva mensual y por periodo de nómina",
    "titulo_en": "Progressive ISR table: monthly and by payroll period",
    "fundamento": "LISR, art. 96; RMF, Anexo 8",
    "fuente": "",
@@ -1900,7 +1900,7 @@
    ]
   },
   "ISR-029": {
-   "titulo_es": "Tarifa anual del ISR para personas físicas",
+   "titulo_es": "Tabla de ISR anual para personas físicas",
    "titulo_en": "Annual ISR table for individuals",
    "fundamento": "LISR, art. 152",
    "fuente": "",
@@ -1931,7 +1931,7 @@
    ]
   },
   "ISR-030": {
-   "titulo_es": "Resultado fiscal a partir de la utilidad contable",
+   "titulo_es": "Declaración anual: resultado fiscal a partir de la utilidad contable",
    "titulo_en": "Taxable result derived from book profit",
    "fundamento": "LISR, art. 9",
    "fuente": "",
@@ -1945,7 +1945,7 @@
    ]
   },
   "ISR-031": {
-   "titulo_es": "ISR anual de personas morales al 30 %",
+   "titulo_es": "Declaración anual de personas morales: ISR al 30 %",
    "titulo_en": "Annual ISR for legal entities at 30%",
    "fundamento": "LISR, art. 9",
    "fuente": "",
@@ -2004,7 +2004,7 @@
    ]
   },
   "ISR-033": {
-   "titulo_es": "ISR anual a cargo o a favor",
+   "titulo_es": "Declaración anual: ISR a cargo o a favor",
    "titulo_en": "Annual ISR payable or refundable",
    "fundamento": "LISR, arts. 9 y 152",
    "fuente": "",
@@ -2102,7 +2102,7 @@
    "donde_nota": "Los avisos de falta de INPC o de diferencia entre lo capturado y lo calculado salen al pie del papel anual."
   },
   "ISR-037": {
-   "titulo_es": "Amortización de pérdidas fiscales por antigüedad, hasta 10 años",
+   "titulo_es": "Pérdida fiscal: amortización por antigüedad, hasta 10 años",
    "titulo_en": "Tax loss carryforward, oldest first, for up to 10 years",
    "fundamento": "LISR, art. 57",
    "fuente": "",
@@ -2133,7 +2133,7 @@
    ]
   },
   "ISR-038": {
-   "titulo_es": "Base gravable: resultado fiscal menos pérdidas amortizadas",
+   "titulo_es": "Declaración anual: base gravable, resultado fiscal menos pérdidas amortizadas",
    "titulo_en": "Taxable base: taxable result less tax losses applied",
    "fundamento": "LISR, art. 57",
    "fuente": "",
@@ -2152,7 +2152,7 @@
    ]
   },
   "ISR-039": {
-   "titulo_es": "Deducción opcional del 35 % en arrendamiento",
+   "titulo_es": "ISR por arrendamiento: deducción opcional del 35 %",
    "titulo_en": "Optional 35% flat deduction for rental income",
    "fundamento": "LISR, art. 115, segundo párrafo",
    "fuente": "",
@@ -2184,7 +2184,7 @@
    ]
   },
   "ISR-040": {
-   "titulo_es": "Arrendamiento con deducciones comprobadas",
+   "titulo_es": "ISR por arrendamiento con deducciones comprobadas",
    "titulo_en": "Rental income with documented actual deductions",
    "fundamento": "LISR, art. 115",
    "fuente": "",
@@ -2203,7 +2203,7 @@
    ]
   },
   "ISR-041": {
-   "titulo_es": "Pago provisional mensual de ISR por arrendamiento",
+   "titulo_es": "ISR por arrendamiento: pago provisional mensual",
    "titulo_en": "Monthly provisional ISR payment on rental income",
    "fundamento": "LISR, arts. 96 y 116",
    "fuente": "",
@@ -2235,7 +2235,7 @@
    ]
   },
   "ISR-042": {
-   "titulo_es": "Impuesto predial deducible en arrendamiento",
+   "titulo_es": "ISR por arrendamiento: impuesto predial deducible",
    "titulo_en": "Deductible property tax (predial) on rental income",
    "fundamento": "LISR, art. 115",
    "fuente": "",
@@ -2254,7 +2254,7 @@
    ]
   },
   "ISR-043": {
-   "titulo_es": "Retención del 10 % de ISR por inquilino persona moral",
+   "titulo_es": "ISR por arrendamiento: retención del 10 % por inquilino persona moral",
    "titulo_en": "10% ISR withholding by a corporate tenant",
    "fundamento": "LISR, art. 116",
    "fuente": "",
@@ -2285,7 +2285,7 @@
    ]
   },
   "ISR-044": {
-   "titulo_es": "ISR retenido por plataformas digitales con RFC, según actividad",
+   "titulo_es": "Plataformas digitales (SAT): ISR retenido con RFC, según la actividad",
    "titulo_en": "ISR withheld by digital platforms (with RFC), by activity",
    "fundamento": "LISR, art. 113-A",
    "fuente": "",
@@ -2312,7 +2312,7 @@
    ]
   },
   "ISR-045": {
-   "titulo_es": "ISR retenido por plataformas digitales sin RFC",
+   "titulo_es": "Plataformas digitales (SAT): ISR retenido sin RFC",
    "titulo_en": "ISR withheld by digital platforms without an RFC",
    "fundamento": "LISR, art. 113-C",
    "fuente": "",
@@ -2338,7 +2338,7 @@
    ]
   },
   "ISR-046": {
-   "titulo_es": "IVA retenido por plataformas digitales",
+   "titulo_es": "Plataformas digitales (SAT): IVA retenido",
    "titulo_en": "IVA withheld by digital platforms",
    "fundamento": "LIVA, art. 18-J",
    "fuente": "",
@@ -2369,7 +2369,7 @@
    ]
   },
   "ISR-047": {
-   "titulo_es": "Plataformas: actividad no identificada se trata como enajenación",
+   "titulo_es": "Plataformas digitales (SAT): actividad no identificada se trata como enajenación",
    "titulo_en": "Platforms: unidentified activity treated as a sale of goods",
    "fundamento": "LISR, art. 113-A, fr. III",
    "fuente": "",
@@ -2383,7 +2383,7 @@
    ]
   },
   "ISR-048": {
-   "titulo_es": "Ingresos por plataformas con retención definitiva en el RESICO",
+   "titulo_es": "Plataformas digitales (SAT): ingresos con retención definitiva en el RESICO",
    "titulo_en": "Platform income with final withholding under RESICO",
    "fundamento": "LISR, art. 113-A",
    "fuente": "",
@@ -2403,7 +2403,7 @@
    "donde_nota": "En persona moral el total dice que la retención de plataformas no aplica."
   },
   "ISR-049": {
-   "titulo_es": "ISR retenido por plataformas como pago provisional",
+   "titulo_es": "Plataformas digitales (SAT): ISR retenido como pago provisional",
    "titulo_en": "Platform ISR withholding credited as a provisional payment",
    "fundamento": "LISR, art. 113-A",
    "fuente": "",
@@ -2422,7 +2422,7 @@
    ]
   },
   "ISR-050": {
-   "titulo_es": "Aviso de opción de retención definitiva hasta $300,000 anuales",
+   "titulo_es": "Plataformas digitales (SAT): aviso de opción de retención definitiva hasta $300,000",
    "titulo_en": "Notice of the final-withholding option up to MXN 300,000 a year",
    "fundamento": "LISR, art. 113-A",
    "fuente": "",
@@ -2449,7 +2449,7 @@
    ]
   },
   "ISR-051": {
-   "titulo_es": "Aviso por plataformas al superar $4,000,000 anuales",
+   "titulo_es": "Plataformas digitales (SAT): aviso al superar $4,000,000 anuales",
    "titulo_en": "Notice when platform income exceeds MXN 4,000,000 a year",
    "fundamento": null,
    "fuente": "",
@@ -2648,7 +2648,7 @@
    ]
   },
   "ISR-060": {
-   "titulo_es": "CUCA por acción",
+   "titulo_es": "CUFIN y CUCA: CUCA por acción",
    "titulo_en": "CUCA per share",
    "fundamento": "LISR, art. 78",
    "fuente": "",
@@ -2688,7 +2688,7 @@
    ]
   },
   "ISR-062": {
-   "titulo_es": "Monto deducible máximo de automóviles",
+   "titulo_es": "Deducción de automóviles: monto deducible máximo",
    "titulo_en": "Maximum deductible amount for automobiles",
    "fundamento": "LISR, art. 36, fr. II",
    "fuente": "",
@@ -2751,7 +2751,7 @@
    ]
   },
   "ISR-064": {
-   "titulo_es": "Meses completos de uso del activo en el ejercicio",
+   "titulo_es": "Depreciación: meses completos de uso del activo en el ejercicio",
    "titulo_en": "Full months of asset use in the fiscal year",
    "fundamento": "LISR, art. 31",
    "fuente": "",
@@ -2765,7 +2765,7 @@
    ]
   },
   "ISR-065": {
-   "titulo_es": "Mes de la mitad del periodo de uso para actualizar",
+   "titulo_es": "Depreciación: mes de la mitad del periodo de uso para actualizar",
    "titulo_en": "Mid-period month of use for the inflation adjustment",
    "fundamento": "LISR, art. 31, párrafos séptimo y octavo",
    "fuente": "",
@@ -2832,7 +2832,7 @@
    "estado": "para_contador"
   },
   "ISR-069": {
-   "titulo_es": "Gastos pagados en efectivo por más de $2,000",
+   "titulo_es": "Gastos en efectivo deducibles: pagos de más de $2,000",
    "titulo_en": "Expenses paid in cash over MXN 2,000",
    "fundamento": "LISR, art. 27, fr. III",
    "fuente": "",
@@ -2864,7 +2864,7 @@
    ]
   },
   "ISR-070": {
-   "titulo_es": "Facturas de proveedores en la lista definitiva del artículo 69-B",
+   "titulo_es": "EFOS: facturas de proveedores en la lista definitiva del artículo 69-B",
    "titulo_en": "Invoices from suppliers on the article 69-B final list",
    "fundamento": "LISR, art. 27; CFF, art. 69-B",
    "fuente": "",
@@ -2884,7 +2884,7 @@
    "donde_nota": "Presunto, desvirtuado o definitivo anterior al listado aparecen en ámbar o verde con el texto «deduce»."
   },
   "ISR-071": {
-   "titulo_es": "Lista del artículo 69-B en los meses anteriores del ejercicio",
+   "titulo_es": "EFOS: la lista del artículo 69-B en los meses anteriores del ejercicio",
    "titulo_en": "Article 69-B list applied to prior months of the year",
    "fundamento": "CFF, art. 69-B",
    "fuente": "",
@@ -2904,7 +2904,7 @@
    "donde_nota": "En los meses anteriores la exclusión actúa por dentro: reduce la deducción acumulada que pesa en el ISR del mes, sin renglón propio."
   },
   "ISR-072": {
-   "titulo_es": "Anticipos facturados: sin duplicar ingreso ni deducción",
+   "titulo_es": "Anticipos facturados: ingresos acumulables y deducciones sin duplicar",
    "titulo_en": "Invoiced advance payments: no double counting of income or deductions",
    "fundamento": null,
    "fuente": "",
@@ -2919,7 +2919,7 @@
    "donde_nota": "No hay renglón propio de anticipos: la resta se ve como documento en rojo dentro del desglose; para deducciones no hay desglose a la vista en la Memoria."
   },
   "ISR-073": {
-   "titulo_es": "Persona física o moral según la estructura del RFC",
+   "titulo_es": "Régimen fiscal: persona física o moral según la estructura del RFC",
    "titulo_en": "Individual or legal entity based on the RFC structure",
    "fundamento": null,
    "fuente": "",
@@ -2970,7 +2970,7 @@
    ]
   },
   "ISR-075": {
-   "titulo_es": "Comprobantes en moneda extranjera: tipo de cambio del propio CFDI",
+   "titulo_es": "Facturas en dólares u otra moneda extranjera: tipo de cambio del propio CFDI",
    "titulo_en": "Foreign-currency CFDI: using the exchange rate stated on the invoice",
    "fundamento": "CFF, art. 20",
    "fuente": "registro:cff-20",
@@ -2990,7 +2990,7 @@
    "donde_nota": "La conversión con el tipo de cambio del propio comprobante actúa por dentro; lo que se ve es la lista de los que quedaron fuera."
   },
   "ISR-076": {
-   "titulo_es": "Redondeo a centavos en el cálculo del ISR",
+   "titulo_es": "Redondeo SAT: centavos en el cálculo del ISR",
    "titulo_en": "Rounding to cents in the ISR calculation",
    "fundamento": null,
    "fuente": "",
@@ -3057,7 +3057,7 @@
    ]
   },
   "ISR-079": {
-   "titulo_es": "Utilidad, ISR causado y pago provisional nunca negativos",
+   "titulo_es": "Pagos provisionales de ISR: utilidad, ISR causado y pago nunca negativos",
    "titulo_en": "Profit, ISR due and provisional payment are never negative",
    "fundamento": null,
    "fuente": "",
@@ -3071,7 +3071,7 @@
    ]
   },
   "ISR-080": {
-   "titulo_es": "Pérdidas con trámite completo no registradas en la balanza",
+   "titulo_es": "Pérdida fiscal con trámite completo no registrada en la balanza",
    "titulo_en": "Losses with a completed process not recorded in the trial balance",
    "fundamento": "LISR, art. 27, fr. XV y XX; LISR, art. 37",
    "fuente": "registro:lisr-27",
@@ -3105,7 +3105,7 @@
    ]
   },
   "ISR-082": {
-   "titulo_es": "Pérdida con trámite completo ya deducida en la balanza: sin ajuste",
+   "titulo_es": "Pérdida fiscal con trámite completo ya deducida en la balanza: sin ajuste",
    "titulo_en": "Loss with a completed process already deducted in the books: no adjustment",
    "fundamento": null,
    "fuente": "",
@@ -3139,7 +3139,7 @@
    "donde_nota": "Para destrucción y siniestros el ejercicio no tiene columna propia: se ve en el año del papel anual donde entra el evento."
   },
   "ISR-084": {
-   "titulo_es": "Crédito incobrable de hasta 30,000 UDIS: un año de mora",
+   "titulo_es": "Cuentas incobrables: crédito de hasta 30,000 UDIS con un año de mora",
    "titulo_en": "Bad debt up to 30,000 UDIS: one year past due",
    "fundamento": "LISR, art. 27, fr. XV, inciso a)",
    "fuente": "registro:lisr-27",
@@ -3184,7 +3184,7 @@
    ]
   },
   "ISR-086": {
-   "titulo_es": "Lo reinvertido no puede exceder lo recuperado del seguro",
+   "titulo_es": "Indemnización de seguro: lo reinvertido no puede exceder lo recuperado",
    "titulo_en": "Reinvested amount cannot exceed the insurance recovery",
    "fundamento": null,
    "fuente": "",
@@ -3240,7 +3240,7 @@
    ]
   },
   "NOM-001": {
-   "titulo_es": "Tarifa del ISR sobre salarios: cálculo por tramos",
+   "titulo_es": "Tabla de ISR sobre salarios: cálculo por tramos",
    "titulo_en": "ISR wage withholding table: bracket calculation",
    "fundamento": "LISR, art. 96; RMF, Anexo 8",
    "fuente": "registro:lisr-96 · registro:rmf-anexo8-2026-periodos",
@@ -3282,7 +3282,7 @@
    ]
   },
   "NOM-002": {
-   "titulo_es": "Tarifa del ISR según el periodo de pago de la nómina",
+   "titulo_es": "Tabla de ISR según el periodo de pago de la nómina",
    "titulo_en": "ISR withholding table by payroll pay period",
    "fundamento": "LISR, art. 96; RMF, Anexo 8",
    "fuente": "registro:rmf-anexo8-2026-periodos",
@@ -3354,7 +3354,7 @@
    ]
   },
   "NOM-003": {
-   "titulo_es": "Tarifa mensual del ISR sobre salarios",
+   "titulo_es": "Tabla de ISR mensual sobre salarios",
    "titulo_en": "Monthly ISR withholding table for wages",
    "fundamento": "LISR, art. 96",
    "fuente": "registro:lisr-96",
@@ -3386,7 +3386,7 @@
    ]
   },
   "NOM-004": {
-   "titulo_es": "ISR a retener: tarifa menos subsidio para el empleo",
+   "titulo_es": "ISR de salarios a retener: tarifa menos subsidio al empleo",
    "titulo_en": "ISR to withhold: table amount less employment subsidy",
    "fundamento": "LISR, art. 96; Decreto que otorga el subsidio para el empleo, DOF 01-05-2024",
    "fuente": "registro:lisr-96 · registro:decreto-subsidio-2024",
@@ -3406,7 +3406,7 @@
    "donde_nota": "La columna «ISR» es ya la tarifa menos el subsidio, nunca negativa; el subsidio aplicado se ve por separado en el XML exportado."
   },
   "NOM-005": {
-   "titulo_es": "Subsidio para el empleo como porcentaje de la UMA (desde mayo 2024)",
+   "titulo_es": "Subsidio al empleo como porcentaje de la UMA (desde mayo 2024)",
    "titulo_en": "Employment subsidy as a percentage of the UMA (since May 2024)",
    "fundamento": "Decreto que otorga el subsidio para el empleo, DOF 01-05-2024, reformado por Decreto DOF 31-12-2025",
    "fuente": "registro:decreto-subsidio-2024 · registro:decreto-subsidio-2026",
@@ -3468,7 +3468,7 @@
    ]
   },
   "NOM-006": {
-   "titulo_es": "Subsidio para el empleo por tabla (hasta abril 2024)",
+   "titulo_es": "Subsidio al empleo por tabla (hasta abril 2024)",
    "titulo_en": "Employment subsidy by table (through April 2024)",
    "fundamento": "Decreto DOF 11-12-2013, art. décimo; RMF, Anexo 8 (tabla del subsidio para el empleo mensual)",
    "fuente": "registro:decreto-subsidio-2013 · registro:rmf-anexo8-2024-subsidio",
@@ -3495,7 +3495,7 @@
    ]
   },
   "NOM-007": {
-   "titulo_es": "Porcentajes y tope del subsidio para el empleo vigentes",
+   "titulo_es": "Subsidio al empleo: porcentajes y tope vigentes",
    "titulo_en": "Current employment subsidy percentages and income cap",
    "fundamento": "Decreto DOF 31-12-2025 (subsidio para el empleo)",
    "fuente": "registro:decreto-subsidio-2026",
@@ -3541,7 +3541,7 @@
    ]
   },
   "NOM-008": {
-   "titulo_es": "Porcentajes y topes históricos del subsidio para el empleo",
+   "titulo_es": "Subsidio al empleo: porcentajes y topes históricos",
    "titulo_en": "Historical employment subsidy percentages and caps",
    "fundamento": "Decreto que otorga el subsidio para el empleo, DOF 01-05-2024, art. segundo, y sus reformas DOF 31-12-2024 y DOF 31-12-2025",
    "fuente": "registro:decreto-subsidio-2024 · registro:decreto-subsidio-dic2024 · registro:decreto-subsidio-2026",
@@ -3598,7 +3598,7 @@
    ]
   },
   "NOM-009": {
-   "titulo_es": "Subsidio para el empleo mensual de referencia",
+   "titulo_es": "Subsidio al empleo mensual de referencia",
    "titulo_en": "Reference monthly employment subsidy",
    "fundamento": "Decreto DOF 11-12-2013, art. décimo; Decreto que otorga el subsidio para el empleo, DOF 01-05-2024, y sus reformas",
    "fuente": "registro:decreto-subsidio-2013 · registro:decreto-subsidio-2024 · registro:decreto-subsidio-2026",
@@ -3624,7 +3624,7 @@
    ]
   },
   "NOM-010": {
-   "titulo_es": "Cuándo un trabajador se considera de salario mínimo",
+   "titulo_es": "ISR de salarios: cuándo un trabajador se considera de salario mínimo",
    "titulo_en": "When a worker is considered a minimum-wage earner",
    "fundamento": null,
    "fuente": "",
@@ -3666,7 +3666,7 @@
    ]
   },
   "NOM-011": {
-   "titulo_es": "Trabajador de salario mínimo: sin retención de ISR",
+   "titulo_es": "ISR de salarios: trabajador de salario mínimo sin retención",
    "titulo_en": "Minimum-wage worker: no ISR withholding",
    "fundamento": "LISR, art. 96, primer párrafo",
    "fuente": "registro:lisr-96",
@@ -3680,7 +3680,7 @@
    ]
   },
   "NOM-012": {
-   "titulo_es": "Trabajador de salario mínimo: el patrón paga la cuota obrera del IMSS",
+   "titulo_es": "Cuotas IMSS: trabajador de salario mínimo, el patrón paga la cuota obrera",
    "titulo_en": "Minimum-wage worker: employer pays the employee IMSS contribution",
    "fundamento": "LSS, art. 36",
    "fuente": "registro:lss-36",
@@ -3885,7 +3885,7 @@
    "donde_nota": "Regla interna: la percepción sin exención entra entera a la base del ISR; en pantalla solo se ve su efecto en la columna «ISR»."
   },
   "NOM-019": {
-   "titulo_es": "Tope del SBC en 25 UMA diarias",
+   "titulo_es": "SBC: tope en 25 UMA diarias",
    "titulo_en": "SBC cap at 25 daily UMA",
    "fundamento": "LSS, art. 28; Decreto de desindexación del salario mínimo, DOF 27-01-2016, art. tercero transitorio",
    "fuente": "registro:lss-28 · registro:dof-2016-desindexacion-trans-tercero",
@@ -3927,7 +3927,7 @@
    ]
   },
   "NOM-020": {
-   "titulo_es": "Cuotas obreras del IMSS por ramo",
+   "titulo_es": "Cuotas IMSS obreras por ramo",
    "titulo_en": "Employee IMSS contributions by insurance branch",
    "fundamento": "LSS, arts. 25, 106, fr. II, 107, 147 y 168, fr. II, inciso b); LSS, transitorio décimo noveno",
    "fuente": "registro:lss-25 · registro:lss-106 · registro:lss-trans-1995-decimonoveno · registro:lss-107 · registro:lss-147 · registro:lss-168",
@@ -3999,7 +3999,7 @@
    ]
   },
   "NOM-021": {
-   "titulo_es": "Cuota obrera de enfermedad y maternidad sobre el excedente de 3 UMA",
+   "titulo_es": "Cuotas IMSS: cuota obrera de enfermedad y maternidad sobre el excedente de 3 UMA",
    "titulo_en": "Employee health and maternity contribution on SBC above 3 UMA",
    "fundamento": "LSS, art. 106, fr. II; LSS, transitorio décimo noveno",
    "fuente": "registro:lss-106 · registro:lss-trans-1995-decimonoveno",
@@ -4036,7 +4036,7 @@
    ]
   },
   "NOM-022": {
-   "titulo_es": "Cuota fija patronal de enfermedad y maternidad",
+   "titulo_es": "Cuotas IMSS: cuota fija patronal de enfermedad y maternidad",
    "titulo_en": "Employer fixed health and maternity contribution",
    "fundamento": "LSS, art. 106, fr. I; LSS, transitorio décimo noveno",
    "fuente": "registro:lss-106 · registro:lss-trans-1995-decimonoveno",
@@ -4063,7 +4063,7 @@
    ]
   },
   "NOM-023": {
-   "titulo_es": "Cuota patronal de enfermedad y maternidad sobre el excedente de 3 UMA",
+   "titulo_es": "Cuotas IMSS: cuota patronal de enfermedad y maternidad sobre el excedente de 3 UMA",
    "titulo_en": "Employer health and maternity contribution on SBC above 3 UMA",
    "fundamento": "LSS, art. 106, fr. II; LSS, transitorio décimo noveno",
    "fuente": "registro:lss-106 · registro:lss-trans-1995-decimonoveno",
@@ -4090,7 +4090,7 @@
    ]
   },
   "NOM-024": {
-   "titulo_es": "Cuotas patronales del IMSS por ramo y prima de riesgo de trabajo",
+   "titulo_es": "Cuotas IMSS patronales por ramo y prima de riesgo de trabajo",
    "titulo_en": "Employer IMSS contributions by branch and work-risk premium",
    "fundamento": "LSS, arts. 25, 73, 74, 107, 147, 168 y 211",
    "fuente": "registro:lss-25 · registro:lss-73 · registro:lss-74 · registro:lss-107 · registro:lss-147 · registro:lss-168 · registro:lss-211",
@@ -4182,7 +4182,7 @@
    ]
   },
   "NOM-025": {
-   "titulo_es": "Cuota patronal de cesantía y vejez: transición 2023 a 2030",
+   "titulo_es": "Cuotas IMSS: cuota patronal de cesantía y vejez, transición 2023 a 2030",
    "titulo_en": "Employer old-age and advanced-age unemployment contribution: 2023–2030 phase-in",
    "fundamento": "LSS, art. 168, fr. II, inciso a); Decreto de reforma a la LSS, DOF 16-12-2020, art. segundo transitorio",
    "fuente": "registro:lss-168 · registro:dof-pensiones-2020-ceav-transitorio",
@@ -4286,7 +4286,7 @@
    ]
   },
   "NOM-027": {
-   "titulo_es": "Factor de integración mínimo del SBC",
+   "titulo_es": "SBC: factor de integración mínimo",
    "titulo_en": "Minimum SBC integration factor",
    "fundamento": "LSS, art. 27; LFT, arts. 76, 80 y 87",
    "fuente": "registro:lss-27 · registro:lft-76 · registro:lft-80 · registro:lft-87 · registro:dof-2022-vacaciones-dignas",
@@ -4364,7 +4364,7 @@
    ]
   },
   "NOM-029": {
-   "titulo_es": "Aportación patronal al INFONAVIT del 5%",
+   "titulo_es": "Aportaciones INFONAVIT: aportación patronal del 5 %",
    "titulo_en": "5% employer INFONAVIT contribution",
    "fundamento": "LINFONAVIT, art. 29",
    "fuente": "registro:linfonavit-29",
@@ -4396,7 +4396,7 @@
    ]
   },
   "NOM-030": {
-   "titulo_es": "Sueldo del periodo: salario diario por días trabajados",
+   "titulo_es": "Recibo de nómina: sueldo del periodo por días trabajados",
    "titulo_en": "Period salary: daily wage times days worked",
    "fundamento": null,
    "fuente": "",
@@ -4619,7 +4619,7 @@
    ]
   },
   "NOM-040": {
-   "titulo_es": "Entidad federativa a partir del código postal",
+   "titulo_es": "ISN: entidad federativa a partir del código postal",
    "titulo_en": "State determined from the postal code",
    "fundamento": null,
    "fuente": "",
@@ -4765,7 +4765,7 @@
    ]
   },
   "NOM-046": {
-   "titulo_es": "Indemnización de tres meses por despido",
+   "titulo_es": "Liquidación por despido: indemnización de tres meses",
    "titulo_en": "Three-month severance for dismissal",
    "fundamento": "LFT, art. 48",
    "fuente": "registro:lft-48",
@@ -4791,7 +4791,7 @@
    ]
   },
   "NOM-047": {
-   "titulo_es": "Indemnización de 20 días por año de servicio",
+   "titulo_es": "Liquidación por despido: indemnización de 20 días por año de servicio",
    "titulo_en": "Severance of 20 days per year of service",
    "fundamento": "LFT, art. 50",
    "fuente": "registro:lft-50",
@@ -4817,7 +4817,7 @@
    ]
   },
   "NOM-048": {
-   "titulo_es": "Prima de antigüedad: 12 días por año, tope de dos salarios mínimos",
+   "titulo_es": "Finiquito: prima de antigüedad, 12 días por año con tope de dos salarios mínimos",
    "titulo_en": "Seniority premium: 12 days per year, capped at twice the minimum wage",
    "fundamento": "LFT, arts. 162 y 486",
    "fuente": "registro:lft-162 · registro:lft-486",
@@ -4844,7 +4844,7 @@
    ]
   },
   "NOM-049": {
-   "titulo_es": "Exención de ISR por separación: 90 UMA por año de servicio",
+   "titulo_es": "Finiquito: exención de ISR por separación, 90 UMA por año de servicio",
    "titulo_en": "ISR exemption on separation payments: 90 UMA per year of service",
    "fundamento": "LISR, art. 93, fr. XIII",
    "fuente": "registro:lisr-93",
@@ -4871,7 +4871,7 @@
    ]
   },
   "NOM-050": {
-   "titulo_es": "Reparto de la exención por separación entre conceptos",
+   "titulo_es": "Finiquito: reparto de la exención por separación entre conceptos",
    "titulo_en": "Allocating the separation exemption across items",
    "fundamento": null,
    "fuente": "",
@@ -4912,7 +4912,7 @@
    ]
   },
   "NOM-052": {
-   "titulo_es": "ISR de los pagos por separación con la tasa del último sueldo",
+   "titulo_es": "Finiquito: ISR de los pagos por separación con la tasa del último sueldo",
    "titulo_en": "ISR on separation payments at the last monthly salary's rate",
    "fundamento": "RLISR, art. 174",
    "fuente": "",
@@ -4942,7 +4942,7 @@
    "donde_nota": "El aviso superior del diálogo dice que el subsidio al empleo no aplica."
   },
   "NOM-054": {
-   "titulo_es": "Tasa efectiva de IVA del 8% en la región fronteriza",
+   "titulo_es": "IVA en la frontera: tasa efectiva del 8 %",
    "titulo_en": "Effective 8% IVA rate in the border region",
    "fundamento": null,
    "fuente": "",
@@ -5004,7 +5004,7 @@
    ]
   },
   "NOM-056": {
-   "titulo_es": "Tasa anual de ISR de personas morales",
+   "titulo_es": "Declaración anual: tasa de ISR de personas morales",
    "titulo_en": "Annual ISR rate for legal entities",
    "fundamento": "LISR, art. 9",
    "fuente": "",
@@ -5036,7 +5036,7 @@
    ]
   },
   "NOM-057": {
-   "titulo_es": "UMA aplicable según la fecha de la operación",
+   "titulo_es": "UMA 2026 y otros años: la aplicable según la fecha de la operación",
    "titulo_en": "Applicable UMA by transaction date",
    "fundamento": "Ley para Determinar el Valor de la UMA, art. 5",
    "fuente": "registro:leyuma-5",
@@ -5153,7 +5153,7 @@
    ]
   },
   "DEC-004": {
-   "titulo_es": "Asiento contable de ingresos cobrados",
+   "titulo_es": "Pólizas contables: asiento de ingresos cobrados",
    "titulo_en": "Journal entry for collected income",
    "fundamento": null,
    "fuente": "",
@@ -5173,7 +5173,7 @@
    "donde_nota": "El asiento no se muestra renglón por renglón en pantalla: se ve en los cargos y abonos de esas cuentas dentro de la balanza del mes."
   },
   "DEC-005": {
-   "titulo_es": "Asiento contable de gastos pagados",
+   "titulo_es": "Pólizas contables: asiento de gastos pagados",
    "titulo_en": "Journal entry for paid expenses",
    "fundamento": null,
    "fuente": "",
@@ -5193,7 +5193,7 @@
    "donde_nota": "El asiento se ve en los cargos y abonos de esas cuentas dentro de la balanza del mes."
   },
   "DEC-006": {
-   "titulo_es": "Clasificación del gasto en las cuentas del catálogo del cliente",
+   "titulo_es": "Contabilidad electrónica: el gasto en el catálogo de cuentas del cliente",
    "titulo_en": "Expense classification into the client's chart of accounts",
    "fundamento": null,
    "fuente": "",
@@ -5208,7 +5208,7 @@
    "donde_nota": "Ahí se asigna a qué cuenta del catálogo va cada concepto; el que no tenga cuenta propia se acumula en la cuenta de gasto general."
   },
   "DEC-007": {
-   "titulo_es": "Asiento del pago provisional de ISR del mes",
+   "titulo_es": "Asiento contable del pago provisional de ISR del mes",
    "titulo_en": "Journal entry for the monthly provisional ISR payment",
    "fundamento": "LISR, art. 14",
    "fuente": "",
@@ -5228,7 +5228,7 @@
    "donde_nota": "El asiento se ve en el cargo y el abono de esas dos cuentas dentro de la balanza del mes."
   },
   "DEC-008": {
-   "titulo_es": "Asiento contable de la nómina en la balanza",
+   "titulo_es": "Pólizas contables: asiento de la nómina en la balanza",
    "titulo_en": "Payroll journal entry in the trial balance",
    "fundamento": "LISR, art. 99",
    "fuente": "",
@@ -5248,7 +5248,7 @@
    "donde_nota": "El asiento se ve en los cargos y abonos de esas cuentas dentro de la balanza del mes."
   },
   "DEC-009": {
-   "titulo_es": "Cuadre de la balanza de comprobación antes de emitirla",
+   "titulo_es": "Contabilidad electrónica: cuadre de la balanza de comprobación antes de emitirla",
    "titulo_en": "Trial balance check before it is issued",
    "fundamento": "RMF, Anexo 24 (balanza de comprobación)",
    "fuente": "",
@@ -5275,7 +5275,7 @@
    ]
   },
   "DEC-010": {
-   "titulo_es": "Gasto con notas de crédito: clasificación sin cargos negativos",
+   "titulo_es": "Nota de crédito en el gasto: clasificación sin cargos negativos",
    "titulo_en": "Expenses with credit notes: classification without negative debits",
    "fundamento": null,
    "fuente": "",
@@ -5290,7 +5290,7 @@
    "donde_nota": "Cuando las notas de crédito superan lo clasificado, todo el gasto del mes va a la cuenta de gasto general en vez de repartirse por concepto; se ve en la balanza del mes."
   },
   "DEC-011": {
-   "titulo_es": "Catálogo de cuentas emitido con las cuentas del cliente",
+   "titulo_es": "Contabilidad electrónica: catálogo de cuentas emitido con las cuentas del cliente",
    "titulo_en": "Chart of accounts issued with the client's own accounts",
    "fundamento": "RMF, Anexo 24 (catálogo de cuentas)",
    "fuente": "",
@@ -5309,7 +5309,7 @@
    ]
   },
   "DEC-012": {
-   "titulo_es": "Descripción, nivel y naturaleza de cada cuenta del catálogo",
+   "titulo_es": "Contabilidad electrónica: descripción, nivel y naturaleza de cada cuenta del catálogo",
    "titulo_en": "Description, level and nature of each account in the chart",
    "fundamento": "RMF, Anexo 24 (código agrupador)",
    "fuente": "",
@@ -5328,7 +5328,7 @@
    ]
   },
   "DEC-013": {
-   "titulo_es": "Validación del código agrupador del catálogo de cuentas",
+   "titulo_es": "Contabilidad electrónica: validación del código agrupador del catálogo de cuentas",
    "titulo_en": "Validation of the SAT grouping code in the chart of accounts",
    "fundamento": "RCFF, art. 33; CFF, art. 81, fr. V",
    "fuente": "",
@@ -5347,7 +5347,7 @@
    ]
   },
   "DEC-014": {
-   "titulo_es": "Total anual de pagos a residentes en el extranjero",
+   "titulo_es": "Retención a residentes en el extranjero: total anual de pagos",
    "titulo_en": "Annual total of payments to foreign residents",
    "fundamento": "LISR, arts. 153 a 175 (Título V)",
    "fuente": "",
@@ -5362,7 +5362,7 @@
    "donde_nota": "El botón «⬇ Importar gastos del extranjero» trae los pagos capturados en los doce meses del ejercicio."
   },
   "DEC-015": {
-   "titulo_es": "Total anual de retenciones a residentes en el extranjero",
+   "titulo_es": "Retención a residentes en el extranjero: total anual retenido",
    "titulo_en": "Annual total of withholdings on payments to foreign residents",
    "fundamento": "LISR, arts. 153 a 175 (Título V)",
    "fuente": "codigo:scripts/dim_anexo4.py:11",
@@ -5376,7 +5376,7 @@
    ]
   },
   "DEC-016": {
-   "titulo_es": "Tasa de retención a extranjeros: tratado o tasa nacional",
+   "titulo_es": "Retención a residentes en el extranjero: tasa de tratado o tasa nacional",
    "titulo_en": "Withholding rate for foreign residents: treaty or domestic rate",
    "fundamento": null,
    "fuente": "",
@@ -5413,7 +5413,7 @@
    ]
   },
   "DEC-017": {
-   "titulo_es": "Retención sugerida en pesos por pago al extranjero",
+   "titulo_es": "Retención a residentes en el extranjero: importe sugerido en pesos por pago",
    "titulo_en": "Suggested withholding in pesos on foreign payments",
    "fundamento": "LISR, arts. 156, 158, 164, 166 y 167",
    "fuente": "",
@@ -5604,7 +5604,7 @@
    "donde_nota": "Los montos estimados son un piso: el contador los puede corregir antes de evaluar."
   },
   "DEC-026": {
-   "titulo_es": "Totales anuales de IVA e ISR en el expediente fiscal",
+   "titulo_es": "Cierre de ejercicio: totales anuales de IVA e ISR en el expediente fiscal",
    "titulo_en": "Annual IVA and ISR totals in the annual tax file",
    "fundamento": null,
    "fuente": "",
@@ -5618,7 +5618,7 @@
    ]
   },
   "DEC-027": {
-   "titulo_es": "IVA neto propio (causado menos acreditable) en el expediente anual",
+   "titulo_es": "IVA a pagar en el expediente anual: IVA neto propio (causado menos acreditable)",
    "titulo_en": "Own net IVA (output minus creditable) in the annual tax file",
    "fundamento": "LIVA, art. 5-D; LIVA, art. 1-A",
    "fuente": "",
@@ -5645,7 +5645,7 @@
    ]
   },
   "DEC-028": {
-   "titulo_es": "Totales anuales por columna en el expediente fiscal",
+   "titulo_es": "Cierre de ejercicio: totales anuales por columna en el expediente fiscal",
    "titulo_en": "Annual column totals in the annual tax file",
    "fundamento": null,
    "fuente": "",
@@ -5664,7 +5664,7 @@
    ]
   },
   "DEC-029": {
-   "titulo_es": "Ganancia cambiaria y PTU no capturadas en el expediente anual",
+   "titulo_es": "Cierre de ejercicio: ganancia cambiaria y PTU no capturadas en el expediente",
    "titulo_en": "Foreign exchange gain and PTU not captured in the annual tax file",
    "fundamento": "LISR, art. 18, fr. IX; LISR, art. 14, fr. II",
    "fuente": "",
@@ -5678,7 +5678,7 @@
    ]
   },
   "DEC-030": {
-   "titulo_es": "Prioridad de las diferencias según su importe",
+   "titulo_es": "Declaración complementaria: prioridad de las diferencias según su importe",
    "titulo_en": "Priority of differences by amount",
    "fundamento": null,
    "fuente": "",
@@ -5704,7 +5704,7 @@
    ]
   },
   "DEC-031": {
-   "titulo_es": "Diferencia de IVA por CFDI cancelado después del cierre",
+   "titulo_es": "Declaración complementaria: IVA de un CFDI cancelado después del cierre",
    "titulo_en": "IVA difference from a CFDI cancelled after closing",
    "fundamento": null,
    "fuente": "",
@@ -5723,7 +5723,7 @@
    ]
   },
   "DEC-032": {
-   "titulo_es": "Diferencia por registrar el REP en su fecha de pago",
+   "titulo_es": "Complemento de pago: diferencia por registrarlo en su fecha de pago",
    "titulo_en": "Difference from recording the REP on its payment date",
    "fundamento": "LIVA, art. 1-B",
    "fuente": "",
@@ -5755,7 +5755,7 @@
    ]
   },
   "DEC-033": {
-   "titulo_es": "Diferencia de IVA por facturas timbradas tarde en un mes cerrado",
+   "titulo_es": "Declaración complementaria: diferencia de IVA por facturas timbradas tarde",
    "titulo_en": "IVA difference from invoices stamped late for a closed month",
    "fundamento": "LIVA, art. 5-D",
    "fuente": "registro:liva-5-d",
@@ -5781,7 +5781,7 @@
    ]
   },
   "DEC-034": {
-   "titulo_es": "Diferencia de IVA al recalcular un mes ya declarado",
+   "titulo_es": "Declaración complementaria: diferencia de IVA al recalcular un mes declarado",
    "titulo_en": "IVA difference when recalculating an already filed month",
    "fundamento": null,
    "fuente": "",
@@ -5807,7 +5807,7 @@
    ]
   },
   "DEC-035": {
-   "titulo_es": "Diferencia de IVA acreditable por pedimentos registrados tarde",
+   "titulo_es": "Declaración complementaria: IVA acreditable de pedimentos registrados tarde",
    "titulo_en": "Creditable IVA difference from late-recorded customs entries",
    "fundamento": "LIVA, art. 5",
    "fuente": "",
@@ -5827,7 +5827,7 @@
    "donde_nota": "El panorama de comercio exterior dice, mes por mes, si el cierre ya refleja los pedimentos."
   },
   "DEC-036": {
-   "titulo_es": "Diferencia entre lo declarado al SAT y lo calculado",
+   "titulo_es": "Declaración complementaria: diferencia entre lo declarado al SAT y lo calculado",
    "titulo_en": "Difference between amounts filed with the SAT and calculated",
    "fundamento": null,
    "fuente": "",
@@ -5894,7 +5894,7 @@
    "donde_nota": "Es un aviso sin importe."
   },
   "DEC-039": {
-   "titulo_es": "Fecha límite para emitir el REP",
+   "titulo_es": "Complemento de pago (REP): fecha límite para emitirlo",
    "titulo_en": "Deadline to issue the REP",
    "fundamento": "RMF 2026, regla 2.7.1.32; CFF, art. 29",
    "fuente": "",
@@ -5926,7 +5926,7 @@
    ]
   },
   "DEC-040": {
-   "titulo_es": "Estado del plazo del REP: vencido, urgente o en tiempo",
+   "titulo_es": "Complemento de pago (REP): plazo vencido, urgente o en tiempo",
    "titulo_en": "REP deadline status: overdue, urgent or on time",
    "fundamento": "RMF 2026, regla 2.7.1.32",
    "fuente": "",
@@ -5952,7 +5952,7 @@
    ]
   },
   "DEC-041": {
-   "titulo_es": "Rango de multa potencial por pagos sin REP",
+   "titulo_es": "Complemento de pago (REP): rango de multa potencial por pagos sin él",
    "titulo_en": "Potential penalty range for payments without a REP",
    "fundamento": "CFF, art. 84, fr. IV, inciso d)",
    "fuente": "",
@@ -5971,7 +5971,7 @@
    ]
   },
   "DEC-042": {
-   "titulo_es": "Saldo pendiente de complementar de un CFDI",
+   "titulo_es": "Complemento de pago: saldo pendiente de complementar de un CFDI",
    "titulo_en": "Remaining CFDI balance to be covered by payment complements",
    "fundamento": null,
    "fuente": "",
@@ -5990,7 +5990,7 @@
    ]
   },
   "DEC-043": {
-   "titulo_es": "Relación entre abonos bancarios y CFDI pendientes de pago",
+   "titulo_es": "Conciliación bancaria: abonos y CFDI pendientes de pago",
    "titulo_en": "Matching bank deposits to unpaid CFDI",
    "fundamento": null,
    "fuente": "",
@@ -6022,14 +6022,14 @@
    ]
   },
   "DEC-044": {
-   "titulo_es": "Forma de pago SAT deducida del movimiento bancario",
+   "titulo_es": "Conciliación bancaria: forma de pago SAT deducida del movimiento",
    "titulo_en": "SAT payment method inferred from the bank transaction",
    "fundamento": "RMF, Anexo 20 (catálogo c_FormaPago del CFDI 4.0)",
    "fuente": "",
    "estado": "conservado"
   },
   "DEC-045": {
-   "titulo_es": "Totales del mes para la póliza de nómina",
+   "titulo_es": "Pólizas contables: totales del mes para la póliza de nómina",
    "titulo_en": "Monthly totals for the payroll journal entry",
    "fundamento": "LISR, art. 99",
    "fuente": "",
@@ -6048,7 +6048,7 @@
    ]
   },
   "DEC-046": {
-   "titulo_es": "Cargos de la póliza de nómina",
+   "titulo_es": "Pólizas contables: cargos de la póliza de nómina",
    "titulo_en": "Debits of the payroll journal entry",
    "fundamento": null,
    "fuente": "",
@@ -6062,7 +6062,7 @@
    ]
   },
   "DEC-047": {
-   "titulo_es": "Abonos de la póliza de nómina",
+   "titulo_es": "Pólizas contables: abonos de la póliza de nómina",
    "titulo_en": "Credits of the payroll journal entry",
    "fundamento": null,
    "fuente": "",
@@ -6076,7 +6076,7 @@
    ]
   },
   "DEC-048": {
-   "titulo_es": "Cuadre de la póliza de nómina sin subsidio entregado",
+   "titulo_es": "Pólizas contables: cuadre de la póliza de nómina sin subsidio entregado",
    "titulo_en": "Payroll entry balance without a paid-out employment subsidy",
    "fundamento": "Decreto que otorga el subsidio para el empleo (DOF 01-05-2024), art. Segundo",
    "fuente": "registro:decreto-subsidio-2024",
@@ -6103,7 +6103,7 @@
    ]
   },
   "DEC-049": {
-   "titulo_es": "Importe cobrado en la póliza de facturas emitidas",
+   "titulo_es": "Pólizas contables: importe cobrado en la póliza de facturas emitidas",
    "titulo_en": "Amount collected in the issued-invoice journal entry",
    "fundamento": null,
    "fuente": "",
@@ -6118,7 +6118,7 @@
    "donde_nota": "Lo cobrado es la pierna de cuadre: subtotal más IVA menos retenciones."
   },
   "DEC-050": {
-   "titulo_es": "Importe por pagar en la póliza de facturas recibidas",
+   "titulo_es": "Pólizas contables: importe por pagar en la póliza de facturas recibidas",
    "titulo_en": "Amount payable in the received-invoice journal entry",
    "fundamento": null,
    "fuente": "",
@@ -6132,7 +6132,7 @@
    ]
   },
   "DEC-051": {
-   "titulo_es": "Verificación de cargos y abonos de cada póliza",
+   "titulo_es": "Pólizas contables: verificación de cargos y abonos de cada póliza",
    "titulo_en": "Debit and credit check for each journal entry",
    "fundamento": null,
    "fuente": "",
@@ -6207,7 +6207,7 @@
    "donde_nota": "La forma de pago del IVA no se muestra como columna: su efecto se ve en la contribución (acreditable, informativo con 0.00, o pendiente) y en el aviso rojo cuando la certificación capturada contradice al pedimento."
   },
   "OPE-004": {
-   "titulo_es": "Costo de importación que se suma al inventario",
+   "titulo_es": "Pedimento: costo de importación que se suma al inventario",
    "titulo_en": "Import costs capitalized into inventory",
    "fundamento": "LISR, art. 25, fr. II; LISR, art. 39",
    "fuente": "",
@@ -6245,7 +6245,7 @@
    ]
   },
   "OPE-006": {
-   "titulo_es": "IEPS pagado en la importación: acreditamiento condicionado",
+   "titulo_es": "Pedimento: IEPS pagado en la importación, acreditamiento condicionado",
    "titulo_en": "IEPS paid on imports: conditional credit",
    "fundamento": "LIEPS, art. 4",
    "fuente": "",
@@ -6317,7 +6317,7 @@
    "donde_nota": "La base de importación no tiene columna en la tabla de la DIOT: se ve al editar el renglón. El identificador fiscal y el país se capturan en Comercio Ext. › «Pedimentos…» con los botones «Tax ID…» y «País…»; si faltan, la DIOT lo dice en «Avisos (…) — resolver antes de subir el .txt»."
   },
   "OPE-009": {
-   "titulo_es": "Deducción del costo de importación en la declaración anual",
+   "titulo_es": "Pedimento: deducción del costo de importación en la declaración anual",
    "titulo_en": "Deduction of import costs in the annual return",
    "fundamento": "LISR, art. 25, fr. II; LISR, art. 39",
    "fuente": "",
@@ -6337,7 +6337,7 @@
    "donde_nota": "Que el pago provisional no deduce nada se ve por efecto: la Memoria de cálculo del mes no trae ningún renglón de costo de importación salvo el de «POR CONFIRMAR»."
   },
   "OPE-010": {
-   "titulo_es": "Deducción anual de compras de importación",
+   "titulo_es": "Pedimento: deducción anual de compras de importación",
    "titulo_en": "Annual deduction of imported purchases",
    "fundamento": "LISR, art. 39",
    "fuente": "",
@@ -6384,7 +6384,7 @@
    ]
   },
   "OPE-012": {
-   "titulo_es": "Aviso de diferencia en gasto extranjero frente al último cierre",
+   "titulo_es": "Pedimento: aviso de diferencia en gasto extranjero frente al último cierre",
    "titulo_en": "Alert on foreign expense differences against the last close",
    "fundamento": null,
    "fuente": "",
@@ -6411,7 +6411,7 @@
    ]
   },
   "OPE-028": {
-   "titulo_es": "Cuándo un concepto de factura es inventariable",
+   "titulo_es": "Inventario contable: cuándo un concepto de factura es inventariable",
    "titulo_en": "When an invoice line item is treated as inventory",
    "fundamento": "RMF 2026, Anexo 20, catálogo c_ClaveProdServ",
    "fuente": "registro:sat-catalogo-cfdi40-claveprodserv",
@@ -6460,7 +6460,7 @@
    ]
   },
   "OPE-030": {
-   "titulo_es": "Cruces bancarios por confirmar",
+   "titulo_es": "Conciliación bancaria: cruces por confirmar",
    "titulo_en": "Bank matches pending confirmation",
    "fundamento": null,
    "fuente": "",
@@ -6480,7 +6480,7 @@
    "donde_nota": "Cuando un cruce exacto queda por confirmar porque el banco nombra a otra contraparte, porque es el equivalente en pesos de una factura en divisa o porque nada en el movimiento nombra a la contraparte, la razón se lee en «Evidencia» de la Mesa de conciliación. Nada se concilia hasta que el contador confirma."
   },
   "OPE-031": {
-   "titulo_es": "Tolerancia de importe en movimientos de nómina y consumo",
+   "titulo_es": "Conciliación bancaria: tolerancia de importe en movimientos de nómina y consumo",
    "titulo_en": "Amount tolerance for payroll and card-purchase transactions",
    "fundamento": null,
    "fuente": "",
@@ -6522,7 +6522,7 @@
    ]
   },
   "OPE-032": {
-   "titulo_es": "Cargos de comercios conocidos solo con su propio CFDI",
+   "titulo_es": "Conciliación bancaria: cargos de comercios conocidos solo con su propio CFDI",
    "titulo_en": "Charges from known merchants match only that merchant's CFDI",
    "fundamento": null,
    "fuente": "",
@@ -6537,7 +6537,7 @@
    "donde_nota": "Actúa por dentro: ningún rótulo nombra la regla. Se ve en que el cargo no aparece casado en «CFDI / Contraparte» con la factura de otro emisor aunque el importe coincida."
   },
   "OPE-033": {
-   "titulo_es": "Selección del CFDI más cercano y manejo de empates",
+   "titulo_es": "Conciliación bancaria: selección del CFDI más cercano y manejo de empates",
    "titulo_en": "Choosing the closest CFDI and handling ties",
    "fundamento": null,
    "fuente": "",
@@ -6579,7 +6579,7 @@
    ]
   },
   "OPE-034": {
-   "titulo_es": "Depósito que paga varias facturas",
+   "titulo_es": "Conciliación bancaria: depósito que paga varias facturas",
    "titulo_en": "Deposit that pays several invoices",
    "fundamento": null,
    "fuente": "",
@@ -6621,7 +6621,7 @@
    ]
   },
   "OPE-035": {
-   "titulo_es": "Cobros y pagos sin duplicar el ingreso o el gasto",
+   "titulo_es": "Conciliación bancaria: cobros y pagos sin duplicar el ingreso o el gasto",
    "titulo_en": "Collections and payments without double-counting income or expenses",
    "fundamento": null,
    "fuente": "",
@@ -6641,7 +6641,7 @@
    "donde_nota": "Solo se ve por su efecto: la cuenta con la que se registra el movimiento conciliado es la de clientes o proveedores (cuenta por cobrar o por pagar); el ingreso o el gasto ya se reconoció con la factura."
   },
   "OPE-036": {
-   "titulo_es": "Movimientos bancarios sin CFDI",
+   "titulo_es": "Conciliación bancaria: movimientos sin CFDI",
    "titulo_en": "Bank transactions without a CFDI",
    "fundamento": "CFF, art. 59, fr. III; LISR, art. 27, fr. III",
    "fuente": "codigo:conciliador_banco.py:15-17",
@@ -6661,7 +6661,7 @@
    "donde_nota": "Los cargos clasificados por palabra clave aparecen en «Estado» como «Traspaso» o «Gasto banco». El motivo («sin CFDI que case» o «ingreso a documentar (Art. 59-III CFF)») se lee al pasar el ratón por «Estado» en la Mesa de conciliación."
   },
   "OPE-037": {
-   "titulo_es": "Cuadre de saldos del estado de cuenta",
+   "titulo_es": "Conciliación bancaria: cuadre de saldos del estado de cuenta",
    "titulo_en": "Bank statement balance check",
    "fundamento": null,
    "fuente": "",
@@ -6692,7 +6692,7 @@
    ]
   },
   "OPE-038": {
-   "titulo_es": "Totales del estado de cuenta calculados con sus movimientos",
+   "titulo_es": "Conciliación bancaria: totales del estado de cuenta según sus movimientos",
    "titulo_en": "Statement totals derived from the transactions",
    "fundamento": null,
    "fuente": "",
@@ -6706,7 +6706,7 @@
    ]
   },
   "OPE-039": {
-   "titulo_es": "Cotejo de movimientos contra los totales del estado de cuenta",
+   "titulo_es": "Conciliación bancaria: movimientos contra los totales del estado de cuenta",
    "titulo_en": "Checking transactions against statement totals",
    "fundamento": null,
    "fuente": "",
@@ -6726,7 +6726,7 @@
    "donde_nota": "La ventana de reconocimiento aparece al subir el archivo, antes de importarlo; «⚠ Reconocido, NO cuadra — revisar (¿faltan movs? ¿OCR?)» en su columna «Estado» indica que la suma de movimientos no coincide con el estado de cuenta."
   },
   "OPE-040": {
-   "titulo_es": "Cargos sin factura: los que requieren CFDI y los que no",
+   "titulo_es": "Gastos no deducibles: cargos sin factura que requieren CFDI y los que no",
    "titulo_en": "Charges without an invoice: those that need a CFDI and those that don't",
    "fundamento": "LISR, art. 27, fr. III; LIVA, art. 5, fr. II",
    "fuente": "registro:lisr-27; registro:liva-5",
@@ -6761,7 +6761,7 @@
    "donde_nota": "En esa ventana estos cargos solo se cuentan en una línea informativa y no entran a la tabla de cargos que requieren CFDI."
   },
   "OPE-042": {
-   "titulo_es": "Nivel de confianza de la sugerencia de no deducible",
+   "titulo_es": "Gastos no deducibles: nivel de confianza de la sugerencia",
    "titulo_en": "Confidence level of the non-deductible suggestion",
    "fundamento": "LISR, art. 27, fr. III",
    "fuente": "registro:lisr-27",
@@ -6838,7 +6838,7 @@
    ]
   },
   "OPE-046": {
-   "titulo_es": "Registro de un cargo como no deducible",
+   "titulo_es": "Gastos no deducibles: registro de un cargo como no deducible",
    "titulo_en": "Recording a charge as non-deductible",
    "fundamento": "LISR, art. 27, fr. III; LIVA, art. 5, fr. II",
    "fuente": "registro:lisr-27; registro:liva-5",
@@ -6925,7 +6925,7 @@
    ]
   },
   "OPE-050": {
-   "titulo_es": "REP timbrados después del día 17 del mes siguiente al pago",
+   "titulo_es": "Complemento de pago (REP) timbrado después del día 17 del mes siguiente al pago",
    "titulo_en": "REPs stamped after the 17th of the month following payment",
    "fundamento": null,
    "fuente": "",
@@ -6957,7 +6957,7 @@
    ]
   },
   "OPE-051": {
-   "titulo_es": "Factura PUE cobrada en parcialidades",
+   "titulo_es": "Factura PUE cobrada en parcialidades: complemento de pago",
    "titulo_en": "PUE invoice collected in installments",
    "fundamento": "CFF, art. 29-A, fr. VII, inc. b); RMF 2026, regla 2.7.1.39",
    "fuente": "registro:cff-29-a; registro:rmf-2026-2-7-1-39",
@@ -6998,7 +6998,7 @@
    ]
   },
   "OPE-052": {
-   "titulo_es": "Cartera en riesgo por facturas a plazos no cobradas",
+   "titulo_es": "Cuentas por cobrar en riesgo: facturas a plazos no cobradas",
    "titulo_en": "Receivables at risk from uncollected credit invoices",
    "fundamento": null,
    "fuente": "",
@@ -7017,7 +7017,7 @@
    ]
   },
   "OPE-053": {
-   "titulo_es": "Movimientos bancarios sin conciliar",
+   "titulo_es": "Conciliación bancaria: movimientos sin conciliar",
    "titulo_en": "Unreconciled bank transactions",
    "fundamento": null,
    "fuente": "",
@@ -7234,7 +7234,7 @@
    ]
   },
   "OPE-063": {
-   "titulo_es": "Tasa de cobranza real de facturas a plazos",
+   "titulo_es": "Cuentas por cobrar: tasa de cobranza real de facturas a plazos",
    "titulo_en": "Actual collection rate on credit invoices",
    "fundamento": null,
    "fuente": "",
@@ -7286,7 +7286,7 @@
    ]
   },
   "OPE-064": {
-   "titulo_es": "Cobranza real por factura",
+   "titulo_es": "Cuentas por cobrar: cobranza real por factura",
    "titulo_en": "Actual cash collected per invoice",
    "fundamento": null,
    "fuente": "",
@@ -7365,7 +7365,7 @@
    ]
   },
   "OPE-068": {
-   "titulo_es": "Facturas en moneda extranjera: tipo de cambio del CFDI",
+   "titulo_es": "Facturas en dólares u otra moneda extranjera: tipo de cambio del CFDI",
    "titulo_en": "Foreign-currency invoices: exchange rate from the CFDI",
    "fundamento": null,
    "fuente": "",
@@ -7509,7 +7509,7 @@
    "donde_nota": "El método no se muestra como cifra propia: se ve su efecto en los días que cita el «Por qué», que siempre son un plazo realmente observado en los pagos (nunca un promedio intermedio)."
   },
   "FLU-002": {
-   "titulo_es": "Días esperados de cobro y de pago",
+   "titulo_es": "Flujo de efectivo: días esperados de cobro y de pago",
    "titulo_en": "Expected days to collect and to pay",
    "fundamento": null,
    "fuente": "",
@@ -7551,7 +7551,7 @@
    ]
   },
   "FLU-003": {
-   "titulo_es": "Días de cobro y de pago ponderados por importe",
+   "titulo_es": "Flujo de efectivo: días de cobro y de pago ponderados por importe",
    "titulo_en": "Amount-weighted days to collect and to pay",
    "fundamento": null,
    "fuente": "",
@@ -7565,7 +7565,7 @@
    ]
   },
   "FLU-004": {
-   "titulo_es": "Ciclo de caja",
+   "titulo_es": "Flujo de efectivo: ciclo de caja",
    "titulo_en": "Cash cycle",
    "fundamento": null,
    "fuente": "",
@@ -7579,7 +7579,7 @@
    ]
   },
   "FLU-005": {
-   "titulo_es": "Tasa de realización de la cobranza",
+   "titulo_es": "Flujo de efectivo: tasa de realización de la cobranza",
    "titulo_en": "Collection realization rate",
    "fundamento": null,
    "fuente": "",
@@ -7610,7 +7610,7 @@
    ]
   },
   "FLU-006": {
-   "titulo_es": "Cobranza real respaldada por el banco",
+   "titulo_es": "Flujo de efectivo: cobranza real respaldada por el banco",
    "titulo_en": "Actual collections backed by the bank",
    "fundamento": null,
    "fuente": "",
@@ -7630,7 +7630,7 @@
    "donde_nota": "En pantalla el cobrado real solo aparece en la ayuda emergente de cada cliente; como columna está en el Excel exportado."
   },
   "FLU-007": {
-   "titulo_es": "Monto en riesgo de la cartera",
+   "titulo_es": "Flujo de efectivo: monto en riesgo de la cartera",
    "titulo_en": "Receivables amount at risk",
    "fundamento": null,
    "fuente": "",
@@ -7650,7 +7650,7 @@
    "donde_nota": "En Salud del cliente el monto afectado es la suma de los montos en riesgo de todos los clientes."
   },
   "FLU-008": {
-   "titulo_es": "Factor de realización de la cobranza en el flujo de caja",
+   "titulo_es": "Flujo de efectivo: factor de realización de la cobranza",
    "titulo_en": "Collection realization factor in the cash flow",
    "fundamento": null,
    "fuente": "",
@@ -7669,7 +7669,7 @@
    ]
   },
   "FLU-009": {
-   "titulo_es": "Entrada proyectada de cuentas por cobrar",
+   "titulo_es": "Flujo de efectivo: entrada proyectada de cuentas por cobrar",
    "titulo_en": "Projected receivables inflow",
    "fundamento": null,
    "fuente": "",
@@ -7689,7 +7689,7 @@
    "donde_nota": "Cuando hay calibración, el factor se anuncia en los avisos de la derecha («cobros calibrados …»), no en el «Por qué» de cada factura."
   },
   "FLU-010": {
-   "titulo_es": "Fecha esperada de cobro o pago de una factura",
+   "titulo_es": "Flujo de efectivo: fecha esperada de cobro o pago de una factura",
    "titulo_en": "Expected collection or payment date of an invoice",
    "fundamento": null,
    "fuente": "",
@@ -7709,7 +7709,7 @@
    "donde_nota": "La fecha esperada decide en qué semana cae la factura; la columna «Fecha» del desglose es esa fecha esperada, no la de emisión."
   },
   "FLU-011": {
-   "titulo_es": "Cuentas por pagar con más de 90 días de atraso",
+   "titulo_es": "Flujo de efectivo: cuentas por pagar con más de 90 días de atraso",
    "titulo_en": "Payables more than 90 days overdue",
    "fundamento": null,
    "fuente": "",
@@ -7741,7 +7741,7 @@
    ]
   },
   "FLU-012": {
-   "titulo_es": "Periodicidad y monto de la nómina proyectada",
+   "titulo_es": "Flujo de efectivo: periodicidad y monto de la nómina proyectada",
    "titulo_en": "Projected payroll frequency and amount",
    "fundamento": null,
    "fuente": "",
@@ -7761,7 +7761,7 @@
    "donde_nota": "Si no se reconoce la cadencia, no hay renglón y los avisos de la derecha dicen «⚠ nómina: hay N CFDI pero el patrón de pago no es identificable»."
   },
   "FLU-013": {
-   "titulo_es": "Impuestos del mes agendados al día 17",
+   "titulo_es": "Declaración mensual SAT: impuestos del mes agendados al día 17",
    "titulo_en": "Monthly taxes scheduled for the 17th",
    "fundamento": "LISR, art. 14; LIVA, art. 5-D",
    "fuente": "registro:lisr-14; registro:liva-5-d",
@@ -7792,7 +7792,7 @@
    ]
   },
   "FLU-014": {
-   "titulo_es": "Calibración de la proyección de cobros",
+   "titulo_es": "Flujo de efectivo: calibración de la proyección de cobros",
    "titulo_en": "Calibration of projected collections",
    "fundamento": null,
    "fuente": "",
@@ -7834,7 +7834,7 @@
    ]
   },
   "FLU-015": {
-   "titulo_es": "Saldo semanal acumulado",
+   "titulo_es": "Flujo de efectivo: saldo semanal acumulado",
    "titulo_en": "Rolling weekly balance",
    "fundamento": null,
    "fuente": "",
@@ -7853,7 +7853,7 @@
    ]
   },
   "FLU-016": {
-   "titulo_es": "Saldo inicial de bancos",
+   "titulo_es": "Flujo de efectivo: saldo inicial de bancos",
    "titulo_en": "Opening bank balance",
    "fundamento": null,
    "fuente": "",
@@ -7872,7 +7872,7 @@
    ]
   },
   "FLU-017": {
-   "titulo_es": "Variación semanal real contra proyectada",
+   "titulo_es": "Flujo de efectivo: variación semanal real contra proyectada",
    "titulo_en": "Weekly actual vs. projected variance",
    "fundamento": null,
    "fuente": "",
@@ -7892,7 +7892,7 @@
    "donde_nota": "El porcentaje de desviación solo se ve en el desglose de la semana; la tabla muestra el neto real."
   },
   "FLU-018": {
-   "titulo_es": "Fecha de cobro capturada para una factura",
+   "titulo_es": "Flujo de efectivo: fecha de cobro capturada para una factura",
    "titulo_en": "Collection date entered for an invoice",
    "fundamento": null,
    "fuente": "",

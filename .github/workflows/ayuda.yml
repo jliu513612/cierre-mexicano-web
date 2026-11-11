@@ -18,5 +18,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: la salida del generador coincide con su sello
+      - name: la salida del generador coincide con su sello, y cada titulo con su registro de busqueda
         run: node --test .ayuda/pruebas/*.test.js
