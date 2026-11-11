@@ -20,6 +20,14 @@ test('embudo: la tabla de destinos es cerrada y solo lleva a sitios propios', as
     assert.equal(eventoClic({ ts: 't', contexto: 'production', destino: malo, tabla: embudo }), null, `destino no permitido: ${malo}`);
 });
 
+test('embudo: cada destino /#ancla de la tabla existe como id en la portada', async () => {
+  const { default: embudo } = await imp('netlify/embudo.mjs');
+  const portada = fs.readFileSync(path.join(RAIZ, 'index.html'), 'utf8');
+  const anclas = Object.entries(embudo).filter(([, u]) => u.startsWith('/#'));
+  assert.ok(anclas.length >= 2, 'la tabla ya no trae anclas: esta prueba no mide nada');
+  for (const [d, u] of anclas) assert.ok(portada.includes(`id="${u.slice(2)}"`), `${d}: ${u} no tiene id en index.html`);
+});
+
 test('embudo: la ruta /descargar/ir/<destino> redirige solo a la tabla y 404 a lo demas', async () => {
   const { default: embudo } = await imp('netlify/embudo.mjs');
   const { clicDe } = await imp('netlify/lib/descargas.mjs');
