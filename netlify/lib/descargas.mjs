@@ -16,7 +16,8 @@ const DESTINOS = Object.keys(embudo);
 export const UNICOS_ACTIVOS = false;
 
 // Clientes que no son una persona descargando: buscadores, previsualizadores de enlaces y descargas por programa.
-const RE_BOT = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|slack|discord|embedly|preview|curl|wget|python|httpclient|http-client|java\/|go-http|okhttp|axios|node-fetch|libwww|headless|lighthouse|monitor|uptime|pingdom|scan/i;
+// `verificar-publicacion` es tools/verificar_publicacion.py del programa: baja el paquete para cotejarlo, no es una persona.
+const RE_BOT = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|slack|discord|embedly|preview|curl|wget|python|httpclient|http-client|java\/|go-http|okhttp|axios|node-fetch|libwww|headless|lighthouse|monitor|uptime|pingdom|scan|verificar-publicacion/i;
 
 export function esBot(ua, metodo) {
   if (metodo && metodo.toUpperCase() === 'HEAD') return true;   // un HEAD no baja el archivo
@@ -139,6 +140,24 @@ export function clicDe({ ruta, tabla, referer, host, ts, contexto, pais, metodo,
   return { evento: ev, location };
 }
 
+/** ACTUALIZACION EN UN CLIC (/descargar/actualizacion/<version>): la pide el programa con el url_zip de su version.json
+    firmado. Devuelve {evento, destino} o null (entonces 404). La version sale SOLO de la lista cerrada
+    `tabla.actualizaciones` (nada de redireccion abierta), y el destino es el zip de ESA version. El evento es el de una
+    descarga con `canal: 'actualizacion'`, y NUNCA lleva nada de la IP: no se le pasa, aunque se enciendan los unicos. El
+    user-agent solo se mira para la marca de bot y no se guarda. El sha256 del zip lo verifica el programa, no esto. */
+export const PREFIJO_ACTUALIZACION = '/descargar/actualizacion/';
+export const CANAL_ACTUALIZACION = 'actualizacion';
+export function actualizacionDe({ ruta, tabla, ts, contexto, pais, metodo, ua, interno }) {
+  if (typeof ruta !== 'string' || !ruta.startsWith(PREFIJO_ACTUALIZACION)) return null;
+  const version = ruta.slice(PREFIJO_ACTUALIZACION.length);
+  const lista = tabla && tabla.actualizaciones;
+  // la lista cerrada es la UNICA guarda: lo que no es una clave suya (otro texto, '__proto__', '..') no pasa
+  if (!lista || !Object.prototype.hasOwnProperty.call(lista, version)) return null;
+  const ev = evento({ ts, contexto, version, archivo: CANAL_ACTUALIZACION, pais, metodo, ua, interno, unicos: false });
+  ev.canal = CANAL_ACTUALIZACION;
+  return { evento: ev, destino: { archivo: CANAL_ACTUALIZACION, version, url: lista[version], privado: null } };
+}
+
 /** El texto prellenado de WhatsApp para una pagina de origen de la lista cerrada; '' si no se sabe de donde viene. */
 export function textoWhatsapp(origen) {
   const lugar = origen === 'portada' ? 'la página de inicio'
@@ -156,7 +175,9 @@ export function textoWhatsapp(origen) {
  */
 export function resumir(eventos, { desde, hasta, contexto = 'production', internas = [], unicos = UNICOS_ACTIVOS } = {}) {
   const todos = eventos.filter(e => e.contexto === contexto && e.ts.slice(0, 10) >= desde && e.ts.slice(0, 10) <= hasta);
-  const dentro = todos.filter(e => !e.tipo);                // las descargas no llevan tipo (ni las viejas ni las nuevas)
+  // las descargas no llevan tipo (ni las viejas ni las nuevas); las de la actualizacion en un clic van aparte (canal)
+  const dentro = todos.filter(e => !e.tipo && e.canal !== CANAL_ACTUALIZACION);
+  const actualizaciones = todos.filter(e => !e.tipo && e.canal === CANAL_ACTUALIZACION);
   const usos = todos.filter(e => e.tipo === 'uso');
   const nuestras = new Set(internas);
   for (const e of dentro) if (e.interno && e.huella) nuestras.add(e.huella);
@@ -202,6 +223,13 @@ export function resumir(eventos, { desde, hasta, contexto = 'production', intern
   r.clics = { total: clics.length, bots: clics.filter(e => e.bot).length, internos: clics.filter(e => !e.bot && e.interno).length,
               reales: clicsReales.length, reales_por_destino: porDestino, reales_por_origen: porOrigen };
   r.descargas_reales_por_origen = descargasPorOrigen;
+  // Actualizaciones en un clic (Q-4980000000): reales = ni bot ni interno, por version.
+  const actReales = actualizaciones.filter(e => !e.bot && !e.interno);
+  const actPorVersion = {};
+  for (const e of actReales) actPorVersion[e.version] = (actPorVersion[e.version] || 0) + 1;
+  r.actualizaciones = { total: actualizaciones.length, bots: actualizaciones.filter(e => e.bot).length,
+                        internas: actualizaciones.filter(e => !e.bot && e.interno).length, reales: actReales.length,
+                        por_version: actPorVersion };
   if (unicos) Object.assign(r, { unicos_total: cuenta(dentro), unicos_reales: cuenta(reales), sin_huella: dentro.filter(e => !e.huella).length });
   return r;
 }
