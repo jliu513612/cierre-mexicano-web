@@ -27,7 +27,9 @@ def texto_de(p):
 
 def main():
     mal = 0
-    archivos = [p for p in sorted((RAIZ / "herramientas").rglob("*")) if p.suffix in (".html", ".js")]
+    # el aviso de privacidad sale de la misma plantilla que las herramientas y pasa por el mismo control de estilo
+    archivos = [p for carpeta in ("herramientas", "privacidad") for p in sorted((RAIZ / carpeta).rglob("*"))
+                if p.suffix in (".html", ".js")]
     for p in archivos:
         t = texto_de(p)
         bajo, f = t.lower(), []
