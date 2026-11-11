@@ -2,7 +2,8 @@
 // Aviso de privacidad (/privacidad/ y /privacidad/en/). El TEXTO es provisional (se sustituira entero por el de un despacho),
 // asi que esta prueba NO depende de la redaccion. Coteja tres cosas contra un INVENTARIO maquina,
 // .herramientas/privacidad/datos_recogidos.json:
-//   1. codigo <-> inventario: se construye cada evento REAL (netlify/lib/descargas.mjs, herramientas/opinion.js) y sus campos
+//   1. codigo <-> inventario: se construye cada evento REAL (netlify/lib/descargas.mjs, herramientas/opinion.js,
+//      herramientas/visita.js) y sus campos
 //      tienen que ser exactamente las entradas `se_guarda: true` de ese evento; lo `no_guardado` (IP, user-agent, lo
 //      tecleado) se busca en los eventos y no puede estar. Una entrada con un cotejo desconocido, o 'declarado' sin razon, es
 //      roja (falla cerrado).
@@ -35,7 +36,17 @@ async function eventosReales() {
   const D = await L();
   const ts = '2026-10-28T12:00:00.000Z';
   const descarga = D.evento({ ts, contexto: 'production', version: '1.0.47', archivo: 'x.zip', origen: 'portada', pais: 'MX',
-    metodo: 'GET', ua: UA, ip: IP, sal: 'sal-de-prueba', interno: false });
+    metodo: 'GET', ua: UA, ip: IP, interno: false });
+  // la visita entra por la RUTA entera (visitaDe con una peticion que trae la IP y el user-agent en sus cabeceras), no por la
+  // funcion comoda: que no se guarden se prueba por donde entran
+  const V = require(path.join(RAIZ, 'herramientas', 'visita.js'));
+  const hoy = V.decidir(null, '2026-10-28', () => '0123456789abcdef0123456789abcdef');
+  const v = await D.visitaDe(new Request('https://taxcerteza.mx' + D.RUTA_VISITA, { method: 'POST',
+    headers: { 'content-type': 'application/json', 'user-agent': UA, 'x-nf-client-connection-ip': IP, 'x-forwarded-for': IP, 'x-country': 'MX' },
+    body: JSON.stringify(hoy.enviar) }), { ts, contexto: 'production' });
+  assert.ok(hoy.guardar && v.evento, 'calibracion: la visita de prueba es valida');
+  const visita = v.evento;
+  const almacen_visita = hoy.guardar;   // lo que visita.js deja en el almacenamiento del navegador (tc_visitante)
   const H = await import(url(path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs')));
   const conAccion = Object.keys(H.ACCIONES).find((h) => (H.ACCIONES[h] || []).length);
   const uso = D.eventoUso({ ts, contexto: 'production', cuerpo: { herramienta: conAccion, n: 3, accion: H.ACCIONES[conAccion][0], rfc: TECLEADO },
@@ -49,7 +60,7 @@ async function eventosReales() {
   const opinion = Object.assign({}, op.campos);
   delete opinion['form-name'];   // el nombre del formulario de Netlify, no es un dato de la persona
   assert.ok(uso && clic, 'calibracion: el uso y el clic de prueba son validos');
-  return { descarga, uso, clic, opinion };
+  return { descarga, uso, clic, visita, almacen_visita, opinion };
 }
 
 test('privacidad: el inventario esta bien formado (falla cerrado)', () => {
@@ -82,7 +93,7 @@ test('privacidad: cada evento que construye el codigo guarda exactamente lo que 
   }
   assert.ok(!JSON.stringify(r.opinion).includes(TECLEADO), 'opinion: el RFC escrito en el motivo llega al envio');
   const D = await L();
-  assert.ok(!('huella' in D) || D.UNICOS_ACTIVOS === false, 'la huella de IP esta encendida: el inventario dice que la IP no se guarda');
+  assert.ok(!('huella' in D) && !('UNICOS_ACTIVOS' in D), 'vuelve a existir la huella de IP: el inventario dice que la IP no se guarda');
 });
 
 for (const [idioma, archivo] of Object.entries(TEXTOS)) {

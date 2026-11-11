@@ -43,7 +43,7 @@
 <nav class="migas" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li aria-current="page">Aviso de privacidad</li></ol></nav>
 <header class="cab">
   <h1>Aviso de privacidad</h1>
-  <p class="lead">Versión 1, vigente desde el [POR COMPLETAR: fecha de publicación].</p>
+  <p class="lead">Versión 2, vigente desde el [POR COMPLETAR: fecha de publicación].</p>
 </header>
 
 <section class="txt">
@@ -54,7 +54,7 @@
 <p>Este aviso cubre el sitio web taxcerteza.mx: sus páginas, sus herramientas gratuitas, el blog y la ayuda. No cubre el programa de escritorio Tax Certeza.</p>
 
 <h2>2. Qué datos recoge hoy el sitio</h2>
-<p data-datos="conexion.ip conexion.user_agent">El sitio cuenta descargas, usos de herramientas y clics para saber qué sirve. Esos registros no llevan tu nombre, ni tu dirección IP, ni una huella calculada a partir de ella, ni el identificador de tu navegador. Esto es lo que se guarda en cada caso, y nada más:</p>
+<p data-datos="conexion.ip conexion.user_agent">El sitio cuenta descargas, usos de herramientas, clics y visitas para saber qué sirve. Esos registros no llevan tu nombre, ni tu dirección IP, ni una huella calculada a partir de ella, ni el identificador de tu navegador. Esto es lo que se guarda en cada caso, y nada más:</p>
 <h3>Cuando descargas el programa</h3>
 <ul>
   <li data-datos="descarga.ts">la fecha y la hora;</li>
@@ -79,6 +79,12 @@
   <li data-datos="clic.origen">la página del propio sitio desde la que lo pulsaste;</li>
   <li data-datos="clic.ts clic.contexto clic.pais clic.bot clic.interno">la fecha y la hora, si fue en el sitio publicado o en una vista de prueba, el país, si parece un programa automático y si es nuestro propio equipo.</li>
 </ul>
+<h3>Cuando abres una página del sitio</h3>
+<ul>
+  <li data-datos="visita.visitante visita.desde">el código aleatorio que tu navegador guarda para este sitio y el mes de tu primera visita (apartado 4);</li>
+  <li data-datos="visita.tipo visita.ts visita.contexto visita.bot visita.interno">la fecha y la hora, si fue en el sitio publicado o en una vista de prueba, si parece un programa automático y si es nuestro propio equipo. En las visitas no se guarda el país.</li>
+</ul>
+<p>Se envía como mucho una vez al día y no dice qué páginas viste.</p>
 <h3>Cuando respondes «¿Te sirvió este resultado?»</h3>
 <ul>
   <li data-datos="opinion.herramienta opinion.clase opinion.voto">la herramienta, el tipo de resultado que viste y tu voto;</li>
@@ -91,11 +97,11 @@
 <p>El sitio no pide datos personales sensibles.</p>
 
 <h2>3. Qué se guarda en tu navegador</h2>
-<p><span data-datos="navegador.cookie_interno">El sitio no usa cookies de publicidad ni de analítica de terceros. Solo hay una cookie, que existe únicamente en los navegadores de nuestro propio equipo para que sus descargas no se cuenten.</span> <span data-datos="navegador.tema_ayuda">La ayuda puede guardar en tu navegador tu preferencia de tema claro u oscuro; ese dato no sale de tu equipo.</span></p>
+<p><span data-datos="navegador.cookie_interno">El sitio no usa cookies de publicidad ni de analítica de terceros. Solo hay una cookie, que existe únicamente en los navegadores de nuestro propio equipo para que sus descargas no se cuenten.</span> <span data-datos="navegador.tema_ayuda">La ayuda puede guardar en tu navegador tu preferencia de tema claro u oscuro; ese dato no sale de tu equipo.</span> <span data-datos="almacen_visita.id almacen_visita.desde almacen_visita.dia">Y para contar las visitas que vuelven, el sitio guarda en el almacenamiento de tu navegador (no es una cookie) un código aleatorio, el mes de tu primera visita y el último día que se contó; al sitio solo se envían el código y el mes (apartado 4).</span></p>
 
-<h2>4. Cambio previsto: visitas recurrentes (todavía no activo)</h2>
-<p>Queremos saber, en conjunto, cuántas personas vuelven al sitio. Para eso, más adelante el sitio podrá guardar en el almacenamiento de tu navegador un identificador aleatorio que no contiene ningún dato tuyo. Sin dirección IP, sin el identificador del navegador y sin servicios de terceros. Solo se usará para contar, por mes, visitantes nuevos, visitantes que vuelven y visitas por visitante. Si tu navegador tiene activada la señal «No rastrear» (Do Not Track) o Global Privacy Control, el identificador no se creará. Podrás borrarlo en cualquier momento borrando los datos de este sitio en tu navegador.</p>
-<p>Hoy esto no está activo. Antes de activarlo publicaremos una versión nueva de este aviso.</p>
+<h2>4. Visitas recurrentes</h2>
+<p>Queremos saber, en conjunto, cuántas personas vuelven al sitio. Para eso el sitio guarda en el almacenamiento de tu navegador un código aleatorio que no contiene ningún dato tuyo. Sin dirección IP, sin el identificador del navegador y sin servicios de terceros. Solo se usa para contar, por mes, visitantes nuevos, visitantes que vuelven y visitas por visitante; una visita es un día en que abriste al menos una página.</p>
+<p>Si tu navegador tiene activada la señal «No rastrear» (Do Not Track) o Global Privacy Control, el código no se crea y no se envía nada. Puedes borrarlo en cualquier momento borrando los datos de este sitio en tu navegador; la siguiente visita empieza con un código nuevo, sin relación con el anterior.</p>
 
 <h2>5. Para qué usamos los datos</h2>
 <ul>
@@ -118,7 +124,7 @@
 <ul>
   <li>Los registros del sitio no te identifican, así que no necesitas configurar nada para usarlo.</li>
   <li>Puedes no escribir el motivo en «¿Te sirvió este resultado?», o no responder.</li>
-  <li>Cuando se active el conteo de visitas recurrentes, podrás evitarlo con «No rastrear» o Global Privacy Control, o borrando los datos de este sitio en tu navegador.</li>
+  <li>Puedes evitar el conteo de visitas recurrentes con «No rastrear» o Global Privacy Control, o borrando los datos de este sitio en tu navegador.</li>
   <li>Puedes darte de baja de los mensajes sobre productos y actualizaciones por el mismo canal por el que te llegan o en el correo del apartado 8.</li>
   <li>Puedes pedirnos que dejemos de usar tus datos de contacto (apartado 8).</li>
 </ul>
@@ -131,13 +137,13 @@
   <li>la descripción clara de los datos y del derecho que quieres ejercer.</li>
 </ul>
 <p>Te respondemos en un plazo máximo de 20 días desde que recibimos tu solicitud. Si procede, la hacemos efectiva dentro de los 15 días siguientes. Ambos plazos pueden ampliarse una sola vez por un periodo igual cuando el caso lo justifique. Ejercer estos derechos es gratuito; solo se cobrarían, en su caso, los costos de reproducción o envío.</p>
-<p>Los conteos de descargas, usos y clics no guardan nada que te identifique, así que no podemos encontrar en ellos los registros de una persona concreta.</p>
+<p>Los conteos de descargas, usos, clics y visitas no guardan nada que te identifique, así que no podemos encontrar en ellos los registros de una persona concreta: el código aleatorio de las visitas no nos dice a quién corresponde.</p>
 <p>Si consideras que tu derecho a la protección de datos personales fue vulnerado, puedes acudir a la Secretaría Anticorrupción y Buen Gobierno.</p>
 
 <h2>9. Cambios a este aviso</h2>
 <p>Cada cambio se publica en esta misma dirección como una versión nueva, con su número y su fecha. Las versiones anteriores se conservan y se pueden consultar en la lista de versiones del final. Si el cambio es importante, lo avisaremos también en la portada del sitio.</p>
 <p>Este aviso se emite conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
-<p>Versiones de este aviso: <a href="/privacidad/v1/">versión 1</a> (vigente).</p>
+<p>Versiones de este aviso: <a href="/privacidad/v1/">versión 1</a>, <a href="/privacidad/v2/">versión 2</a> (vigente).</p>
 <p><a href="/privacidad/en/" hreflang="en" lang="en">Privacy notice in English</a></p>
 </section>
 </div>
@@ -158,6 +164,7 @@
     </div>
   </div>
 </footer>
+<script src="/herramientas/visita.js" defer></script>
 
 </body>
 </html>

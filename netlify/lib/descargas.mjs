@@ -1,20 +1,18 @@
 // Logica del contador de descargas de taxcerteza.mx, separada de Netlify para poder probarla con node --test.
 // La usa netlify/functions/descargar.mjs. Lo que se guarda por descarga, y nada mas:
 //   ts, contexto (production / deploy-preview / ...), version, archivo, origen (pagina del propio sitio, ver origenDe),
-//   pais, metodo, bot, interno. Los usos de las herramientas y los clics del embudo van al mismo almacen con su `tipo`.
+//   pais, metodo, bot, interno. Los usos de las herramientas, los clics del embudo y las visitas van al mismo almacen con su `tipo`.
 // La IP NO se guarda, ni nada calculado con ella (decision de la duena del sitio, 2026-10-20). Lo unico que sale de la
 // conexion es `pais`: Netlify lo deduce de la IP (context.geo) y aqui solo se guarda su codigo de dos letras; el aviso de
 // privacidad (/privacidad/) lo dice asi. El user-agent solo se mira al momento para la marca de bot y no se guarda.
-// LOS UNICOS ESTAN APAGADOS (UNICOS_ACTIVOS = false). El codigo se conserva: la huella seria sha256(sal | mes | IP | UA)
-// recortada, con la sal en una variable de Netlify; se enciende cuando exista el aviso de privacidad.
+// Las VISITAS RECURRENTES no salen de la conexion: las cuenta un identificador ALEATORIO que crea el navegador
+// (herramientas/visita.js; no se crea con «No rastrear» o Global Privacy Control) y que no lleva nada de la persona.
+// Sustituye a la huella de IP + user-agent que hubo aqui, apagada y nunca encendida: ese codigo ya no existe.
 import { createHash, timingSafeEqual } from 'node:crypto';
 import { HERRAMIENTAS, NOMBRES, ACCIONES } from './herramientas.mjs';
 import embudo from '../embudo.mjs';
 
 const DESTINOS = Object.keys(embudo);
-
-/** Unicos (huella de IP + user-agent): APAGADO hasta que exista el aviso de privacidad. */
-export const UNICOS_ACTIVOS = false;
 
 // Clientes que no son una persona descargando: buscadores, previsualizadores de enlaces y descargas por programa.
 const RE_BOT = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|slack|discord|embedly|preview|curl|wget|python|httpclient|http-client|java\/|go-http|okhttp|axios|node-fetch|libwww|headless|lighthouse|monitor|uptime|pingdom|scan/i;
@@ -26,12 +24,6 @@ export function esBot(ua, metodo) {
 }
 
 export function mesDe(ts) { return String(ts).slice(0, 7); }
-
-/** Huella del mes, o null si no hay sal (entonces no se puede contar unicos y el resumen lo dice). */
-export function huella(sal, ts, ip, ua) {
-  if (!sal) return null;
-  return createHash('sha256').update([sal, mesDe(ts), String(ip || ''), String(ua || '')].join('|')).digest('hex').slice(0, 20);
-}
 
 /** Compara una clave sin filtrar su longitud ni su contenido por el tiempo de respuesta. */
 export function claveValida(dada, esperada) {
@@ -77,12 +69,10 @@ export async function enlaceTemporal(d, { traer = fetch, token = '' } = {}) {
   }
 }
 
-/** El evento que se guarda. `unicos` (por omision UNICOS_ACTIVOS) decide si lleva huella; apagado, ni la IP ni nada
-    calculado con ella entra en el evento (el codigo de pais, que deduce Netlify, si). */
-export function evento({ ts, contexto, version, archivo, pais, metodo, ua, ip, sal, interno, origen, unicos = UNICOS_ACTIVOS }) {
-  const e = { ts, contexto, version, archivo, origen: origen || 'sin_origen', pais: pais || null, metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };
-  if (unicos) e.huella = huella(sal, ts, ip, ua);
-  return e;
+/** El evento que se guarda por descarga. Ni la IP ni nada calculado con ella entra en el (el codigo de pais, que deduce
+    Netlify, si). */
+export function evento({ ts, contexto, version, archivo, pais, metodo, ua, interno, origen }) {
+  return { ts, contexto, version, archivo, origen: origen || 'sin_origen', pais: pais || null, metodo: metodo || 'GET', bot: esBot(ua, metodo), interno: !!interno };
 }
 
 /** USO de una herramienta (el usuario ejecuto el calculo, el cotejo o la verificacion). Mismo almacen que las descargas
@@ -151,18 +141,50 @@ export function textoWhatsapp(origen) {
   return lugar ? `Hola, vengo de ${lugar} de taxcerteza.mx y quiero probar el programa.` : '';
 }
 
+/** VISITA de un navegador con el identificador aleatorio de herramientas/visita.js. De `cuerpo` (lo que llega del
+    navegador) solo se leen `visitante` (32 hex al azar: no lleva nada de la persona) y `desde` (AAAA-MM de su primera
+    visita: dice si ese mes es nuevo o vuelve). Ni la IP, ni el user-agent (solo se mira al momento para la marca de bot),
+    ni el pais. Devuelve null si no es valido. */
+export const RE_VISITANTE = /^[0-9a-f]{32}$/;
+export function eventoVisita({ ts, contexto, cuerpo, metodo, ua, interno }) {
+  const c = cuerpo && typeof cuerpo === 'object' ? cuerpo : {};
+  if (typeof c.visitante !== 'string' || !RE_VISITANTE.test(c.visitante)) return null;
+  if (typeof c.desde !== 'string' || !/^\d{4}-(0[1-9]|1[0-2])$/.test(c.desde)) return null;
+  // un reloj del navegador adelantado no deja a nadie «nuevo» en un mes futuro: la primera visita no pasa del mes de hoy
+  const desde = c.desde > mesDe(ts) ? mesDe(ts) : c.desde;
+  return { tipo: 'visita', ts, contexto, visitante: c.visitante, desde, bot: esBot(ua, metodo), interno: !!interno };
+}
+
+/** ¿Pide el navegador que no se le cuente? «No rastrear» (DNT: 1) o Global Privacy Control (Sec-GPC: 1). visita.js ya no
+    manda nada en ese caso; esto es la segunda llave, por si el envio llega igual. */
+export function noRastrear(cabeceras) {
+  const g = k => String((cabeceras && cabeceras.get && cabeceras.get(k)) || '').trim();
+  return g('dnt') === '1' || g('sec-gpc') === '1';
+}
+
+/** La ruta /descargar/visita entera, sin el almacen: de la PETICION (un Request) saca {estado, evento}; evento null = no se
+    guarda nada. No recibe el contexto de Netlify (donde van la IP y el pais), asi que no puede guardarlos. La usa la
+    funcion, y la prueba de que la IP no se guarda pasa por aqui. */
+export const RUTA_VISITA = '/descargar/visita';
+export async function visitaDe(req, { ts, contexto }) {
+  if (req.method !== 'POST') return { estado: 404, evento: null };
+  if (noRastrear(req.headers)) return { estado: 204, evento: null };
+  let cuerpo = null;
+  try { const txt = await req.text(); if (txt.length <= 256) cuerpo = JSON.parse(txt); } catch (e) { cuerpo = null; }
+  const ev = eventoVisita({ ts, contexto, cuerpo, metodo: req.method, ua: req.headers.get('user-agent'),
+    interno: /(?:^|;\s*)tc_interno=1(?:;|$)/.test(req.headers.get('cookie') || '') });
+  return ev ? { estado: 204, evento: ev } : { estado: 400, evento: null };
+}
+
 /**
- * Resumen de un periodo [desde, hasta] (fechas AAAA-MM-DD, inclusivas) de los eventos de UN contexto.
- * internas: huellas que se sabe que son nuestras (las de las descargas hechas con la cookie de interno).
+ * Resumen de un periodo [desde, hasta] (fechas AAAA-MM-DD, inclusivas) de los eventos de UN contexto. Lo interno es lo
+ * que trae la cookie de interno.
  */
-export function resumir(eventos, { desde, hasta, contexto = 'production', internas = [], unicos = UNICOS_ACTIVOS } = {}) {
+export function resumir(eventos, { desde, hasta, contexto = 'production' } = {}) {
   const todos = eventos.filter(e => e.contexto === contexto && e.ts.slice(0, 10) >= desde && e.ts.slice(0, 10) <= hasta);
   const dentro = todos.filter(e => !e.tipo);                // las descargas no llevan tipo (ni las viejas ni las nuevas)
   const usos = todos.filter(e => e.tipo === 'uso');
-  const nuestras = new Set(internas);
-  for (const e of dentro) if (e.interno && e.huella) nuestras.add(e.huella);
-  const esInterno = e => e.interno || (e.huella && nuestras.has(e.huella));
-  const cuenta = l => new Set(l.filter(e => e.huella).map(e => e.huella)).size;
+  const esInterno = e => !!e.interno;
   const reales = dentro.filter(e => !e.bot && !esInterno(e));
   const porVersion = {}, porPais = {};
   for (const e of reales) {
@@ -203,7 +225,28 @@ export function resumir(eventos, { desde, hasta, contexto = 'production', intern
   r.clics = { total: clics.length, bots: clics.filter(e => e.bot).length, internos: clics.filter(e => !e.bot && e.interno).length,
               reales: clicsReales.length, reales_por_destino: porDestino, reales_por_origen: porOrigen };
   r.descargas_reales_por_origen = descargasPorOrigen;
-  if (unicos) Object.assign(r, { unicos_total: cuenta(dentro), unicos_reales: cuenta(reales), sin_huella: dentro.filter(e => !e.huella).length });
+  // Visitas recurrentes (identificador aleatorio de visita.js), POR MES. Una visita es un dia con al menos una pagina vista:
+  // visita.js manda como mucho una al dia. Nuevo = su primera visita es de ese mes; recurrente = de un mes anterior. Cada
+  // mes dice que dias del periodo cubre: el lunes, el mes en curso va a medias.
+  const visitas = todos.filter(e => e.tipo === 'visita');
+  const visitasReales = visitas.filter(e => !e.bot && !esInterno(e));
+  const porMes = {};
+  for (const e of visitasReales) {
+    const m = mesDe(e.ts);
+    const x = porMes[m] || (porMes[m] = { nuevos: new Set(), recurrentes: new Set(), visitas_recurrentes: 0 });
+    if (e.desde < m) { x.recurrentes.add(e.visitante); x.visitas_recurrentes += 1; } else x.nuevos.add(e.visitante);
+  }
+  const visitasPorMes = {};
+  for (const m of Object.keys(porMes).sort()) {
+    const x = porMes[m], fin = new Date(Date.UTC(+m.slice(0, 4), +m.slice(5, 7), 0)).toISOString().slice(0, 10);
+    visitasPorMes[m] = {
+      cubre: { desde: desde > m + '-01' ? desde : m + '-01', hasta: hasta < fin ? hasta : fin },
+      nuevos: x.nuevos.size, recurrentes: x.recurrentes.size, visitas_recurrentes: x.visitas_recurrentes,
+      visitas_por_recurrente: x.recurrentes.size ? Math.round(x.visitas_recurrentes / x.recurrentes.size * 100) / 100 : null,
+    };
+  }
+  r.visitas = { total: visitas.length, bots: visitas.filter(e => e.bot).length, internas: visitas.filter(e => !e.bot && esInterno(e)).length,
+                reales: visitasReales.length, por_mes: visitasPorMes };
   return r;
 }
 
