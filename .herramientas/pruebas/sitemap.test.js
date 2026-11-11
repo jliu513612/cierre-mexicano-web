@@ -46,6 +46,22 @@ test('sitemap: lastmod es una fecha valida y no futura', () => {
   }
 });
 
+test('sitemap: el sitemap raiz no repite paginas de /herramientas/ (van en herramientas/sitemap.xml, una sola fuente)', () => {
+  // La cadena del blog escribe sitemap.xml; el 2026-10-21 volvio a meter 4 de las 11 con otra fecha (despues de #58).
+  const repetidas = entradas('sitemap.xml').map(e => e.loc).filter(u => u.startsWith(SITIO + '/herramientas/'));
+  assert.deepEqual(repetidas, [], 'sitemap.xml raiz');
+});
+
+test('llms.txt: nombra cada pagina de /herramientas/ en disco, y ninguna que no exista', () => {
+  // Tambien lo escribe la cadena del blog; su lista sale de herramientas/sitemap.xml. Se le quedo en 3 de 10.
+  const disco = enDisco();
+  const llms = fs.readFileSync(path.join(RAIZ, 'llms.txt'), 'utf8');
+  const nombradas = new Set([...llms.matchAll(/\]\((https:\/\/taxcerteza\.mx\/herramientas\/[^)]*)\)/g)].map(m => m[1]));
+  assert.ok(nombradas.size >= 2, 'calibracion: llms.txt enlaza herramientas');
+  assert.deepEqual([...disco].filter(u => !nombradas.has(u)), [], 'paginas que FALTAN en llms.txt');
+  assert.deepEqual([...nombradas].filter(u => !disco.has(u)), [], 'llms.txt nombra paginas que NO existen');
+});
+
 test('sitemap: robots.txt declara el sitemap de /herramientas/', () => {
   const r = fs.readFileSync(path.join(RAIZ, 'robots.txt'), 'utf8');
   assert.match(r, /^Sitemap: https:\/\/taxcerteza\.mx\/herramientas\/sitemap\.xml\s*$/m);
