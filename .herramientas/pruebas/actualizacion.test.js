@@ -92,9 +92,14 @@ function montaje({ almacenRoto = false, githubFirma = true } = {}) {
   };
   return { guardados, pedidos, errores, store, traer, registrarError: (...a) => errores.push(a.join(' ')) };
 }
+// la peticion trae la IP por las cabeceras que pone Netlify y por x-forwarded-for: el evento no debe recoger NINGUNA
+const IP_CABECERAS = { 'x-nf-client-connection-ip': '198.51.100.23', 'x-forwarded-for': '192.0.2.44, 10.0.0.1' };
 function peticion(ruta, { ua = UA_PROGRAMA, cookie = '' } = {}) {
-  return new Request('https://taxcerteza.mx' + ruta, { headers: Object.assign({ 'user-agent': ua }, cookie ? { cookie } : {}) });
+  return new Request('https://taxcerteza.mx' + ruta,
+    { headers: Object.assign({ 'user-agent': ua }, IP_CABECERAS, cookie ? { cookie } : {}) });
 }
+// LISTA CERRADA de lo que se guarda (#14: se enumera lo permitido, no lo malo): cualquier clave nueva es roja
+const CLAVES_EVENTO = ['bot', 'canal', 'contexto', 'interno', 'metodo', 'origen', 'pais', 'ts', 'version', 'archivo'].sort();
 const CONTEXTO = { deploy: { context: 'production' }, geo: { country: { code: 'MX' } }, ip: '203.0.113.7' };
 
 test('actualizacion (manejador): 302 al zip firmado de ESA version; la URL de la peticion no decide nada', async () => {
@@ -124,7 +129,10 @@ test('actualizacion (manejador): guarda UN evento sin la IP; si el almacen falla
     traer: m.traer, registrarError: m.registrarError });
   assert.equal(m.guardados.length, 1);
   const e = m.guardados[0].v;
-  assert.ok(!JSON.stringify(m.guardados).includes('203.0.113'), 'la IP del contexto no se guarda');
+  assert.deepEqual(Object.keys(e).sort(), CLAVES_EVENTO, 'el evento guarda solo la lista cerrada');
+  const todo = JSON.stringify(m.guardados);
+  for (const prohibido of ['203.0.113', '198.51.100', '192.0.2.', UA_PROGRAMA])
+    assert.ok(!todo.includes(prohibido), `se guardo ${prohibido} (IP o user-agent)`);
   assert.deepEqual([e.canal, e.version, e.pais, e.contexto, e.bot, e.interno], ['actualizacion', v, 'MX', 'production', false, false]);
   assert.match(m.guardados[0].k, /^ev\/\d{4}-\d{2}-\d{2}\/.+-a-[a-z0-9]+$/);
   const mi = montaje();
