@@ -8,9 +8,9 @@
   "sidebars.js"
  ],
  "producto": {
-  "commit": "4a9ab2533fea11ddefa4061a02b0153aa3d14116",
-  "rama": "docs/vademecum/Q-7840200-sitio-ayuda",
-  "sin_commitear": true,
+  "commit": "c1a54ba98f047248b0999460a7c712d029bf9936",
+  "rama": "docs/aforo/kb-generador-al-repo",
+  "sin_commitear": false,
   "generadores": {
    "tools/generar_kb.py": "ba596f93e10bba7c914ba2849366f2482db9853fc82fac6ea2232b45766da1eb",
    "tools/kb_leyes.py": "7adc89d421f439fb72f4cba4d8f2a2fda402f7f2d83c232279db75ba7ff823e1"
@@ -177,7 +177,7 @@
   "docs/calculos/isr-066.md": "2718740efca775557ed6137af4232cf7101aceac55dfbcb36a5c79cd1e7ce316",
   "docs/calculos/isr-067.md": "e7003151f885bce302b22b778d6bef8a840a368b9efc62990cb1122f63dac1dc",
   "docs/calculos/isr-068.md": "682c8b41a23e832be58f3e066dded66f6a5545a283d700c5b59f6ae30655f2f3",
-  "docs/calculos/isr-069.md": "ec932e881632a02b1fd6206ad7c8e61b5256d747cb8ae39894fcf7c7404dd0f5",
+  "docs/calculos/isr-069.md": "da736de0ad650296137c0fd59d087117ed72036b5aa75aa1f2b5ca1c7137b313",
   "docs/calculos/isr-070.md": "e0f9aba6836fdcf73de1c44edd53676b4c8b74cd7adb647350c6b9432a20b1e3",
   "docs/calculos/isr-071.md": "a92fcfbca114ba4577c77202064c4b72e77c18980e307c94cdf0699126abe3c7",
   "docs/calculos/isr-072.md": "a9ccfbe9c8124f70b08b647876aea67cd66fb4f351e6ab094ac67107036a60dd",
@@ -211,7 +211,7 @@
   "docs/calculos/iva-013.md": "f9036b7eb352dc745d79f3305c2adee7042d07b82fd05cce71d19cd5da2e834d",
   "docs/calculos/iva-014.md": "931e30a93650f9fb9ddf584805bf0d5da3ec3599330175fbd5bf2e39eb2471aa",
   "docs/calculos/iva-015.md": "fcbe91136a4fc8b46c32aa48a3cfc8f371e08798fd5c7cc31807d2ec24809873",
-  "docs/calculos/iva-016.md": "18559bbc355c560285eb738a37eea67dd01bac4d0672347f0595b9f1c6449067",
+  "docs/calculos/iva-016.md": "36a12834a83bb7e189063e66ca3841a7e01ed8b1ce8f56e8d4dd04c1dcb71aa3",
   "docs/calculos/iva-017.md": "a29f1b72255e578805de4c66babd31bebddcc64f1ebf7788c40c3650f495cbbd",
   "docs/calculos/iva-018.md": "d2a5015ccadc9aa99dfc511774a6ff40d12547e8b72a8965d80bb8ee845100b5",
   "docs/calculos/iva-019.md": "9cd68bcfe97dd2b28fb465956291599c2aa6eed05ed0dc2d74f1df48de73cfe5",
