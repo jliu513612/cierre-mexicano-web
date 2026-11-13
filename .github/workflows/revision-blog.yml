@@ -25,5 +25,7 @@ jobs:
           python-version: '3.12'
       - name: lista de cambios
         run: git -C pr diff --name-only "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" > cambios.txt && cat cambios.txt
+      - name: prueba del instrumento (la de main)
+        run: python -X utf8 base/.revision/pruebas/test_ci.py
       - name: revision
         run: python -X utf8 base/.revision/ci.py base pr cambios.txt
