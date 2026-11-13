@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /descargar
+Disallow: /consulta/
 
 Sitemap: https://taxcerteza.mx/sitemap.xml
 Sitemap: https://taxcerteza.mx/ayuda/sitemap.xml
