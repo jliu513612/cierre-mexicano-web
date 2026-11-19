@@ -1,0 +1,89 @@
+# Paginas de consulta al CPA (consulta/<token>/index.html): EXCEPCION a la aprobacion manual de PRs, aprobada por la
+# duena del sitio el 2026-11-13 («publicar cada pagina de consulta sin un PR que June apruebe a mano»): auto-merge
+# cuando los checks esten en verde, pero SOLO si TODOS los ficheros del PR son paginas de consulta NUEVAS. La lista
+# falla cerrado (.github/consulta/permitido.mjs): un PR que toque cualquier otro fichero, o que modifique, borre o
+# renombre una pagina ya publicada, vuelve a la aprobacion de June, y si ya tenia el auto-merge armado se DESARMA.
+#
+# Las paginas las genera tools/consulta_cpa_publicar.py del repo cierre-mexicano (formato del piloto del
+# 2026-11-13, calibrado byte a byte). El correo al CPA lo manda otro flujo de ese repo, y solo cuando la pagina
+# ya responde: este flujo no envia nada.
+#
+#   pull_request        -> pruebas del script (lo que cambia el PR en .github/consulta/).
+#   pull_request_target -> NO hace checkout del PR ni ejecuta nada de el: lee del API la lista de ficheros (datos) y
+#                          la juzga con el script de MAIN. Si entra en la excepcion arma el auto-merge (squash); si no,
+#                          lo desarma si estaba armado. Un PR desde un fork nunca entra.
+# Limites (dichos aqui para que no se den por supuestos): el auto-merge solo actua si el repo lo tiene permitido en
+# su configuracion y main exige checks; un PR abierto con el GITHUB_TOKEN no dispara los checks requeridos (el mismo
+# limite que lista-69b.yml).
+name: consulta
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/consulta/**', '.github/workflows/consulta.yml']
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+concurrency:
+  group: consulta-${{ github.event_name }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  pruebas:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: pruebas de la lista de la excepcion
+        run: node --test .github/consulta/permitido.test.mjs
+
+  auto-merge:
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: main (de aqui sale el script; el PR no lo puede cambiar para aprobarse a si mismo)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: juzgar los ficheros del PR y armar o desarmar el auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          CABEZA: ${{ github.event.pull_request.head.repo.full_name }}
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/$REPO/pulls/$PR/files?per_page=100" --jq '.[] | [.status, .filename] | @tsv' > ficheros.tsv
+          echo "ficheros del PR:"; cat ficheros.tsv
+          set +e
+          veredicto=$(node .github/consulta/permitido.mjs < ficheros.tsv)
+          rc=$?
+          set -e
+          echo "$veredicto"
+          if [ "$CABEZA" != "$REPO" ]; then
+            echo "NO-PERMITIDO: el PR viene de otro repositorio ($CABEZA)"; rc=1
+          fi
+          if [ "$rc" = "0" ]; then
+            gh pr merge "$PR" --repo "$REPO" --auto --squash
+            echo "- consulta: auto-merge ARMADO en el PR #$PR ($veredicto)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            armado=$(gh pr view "$PR" --repo "$REPO" --json autoMergeRequest --jq '.autoMergeRequest != null')
+            if [ "$armado" = "true" ]; then
+              gh pr merge "$PR" --repo "$REPO" --disable-auto
+              echo "- consulta: auto-merge DESARMADO en el PR #$PR; vuelve a la aprobacion de June ($veredicto)" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "- consulta: el PR #$PR no entra en la excepcion; sigue la aprobacion de June ($veredicto)" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          fi
