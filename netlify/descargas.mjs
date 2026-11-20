@@ -14,5 +14,6 @@ export default {
   // un manifiesto firmado de la version N siempre lleva a la N.
   actualizaciones: {
     '1.0.49': 'https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.49/TaxCerteza_1.0.49.zip',
+    '1.0.50': 'https://github.com/jliu513612/taxcerteza-releases/releases/download/v1.0.50/TaxCerteza_1.0.50.zip',
   },
 };
