@@ -1,0 +1,37 @@
+{
+ "slug": "actualizacion-y-recargos-complementaria",
+ "huella": "3aaf6e482cf82764c1a0213063c9293e870e7079a1675e19c08add9f849b4850",
+ "fecha": "2026-10-20",
+ "puntajes": [
+  58,
+  70
+ ],
+ "puntaje": 64.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   88,
+   88,
+   90,
+   90,
+   80,
+   85
+  ],
+  "maquina": [
+   15,
+   18,
+   10,
+   12
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 2,
+ "calificacion": "aprobado, por mejorar (60-70)",
+ "leves_pendientes": [
+  "El 1.38 % de la LIF 2026 art. 11 es la tasa de prorroga; el texto lo presenta como tasa mensual general (la derivacion a 2.07 % por mora si esta cubierta). En respuesta, cuerpo y primera FAQ.",
+  "Frase de presentacion del programa que agrega construir.py (fuera del articulo) no acota los regimenes del calculo."
+ ],
+ "nota": "La description atribuia el 2.07 % a «CFF 17-A y 21»; corregida a «CFF 21 y LIF 2026» despues de la revision. La description no entra en la huella (verificado: misma huella que la pagina revisada).",
+ "estilo": "Los dos revisores: ritmo parejo, titulo de efecto «La trampa de los meses», remates con «conviene» y el rotulo «cifras inventadas, incluidos los indices»."
+}

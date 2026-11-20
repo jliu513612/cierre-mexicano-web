@@ -4,12 +4,13 @@
 
 ## Recursos fiscales
 
+- [Actualización y recargos de una diferencia pagada tarde: cómo se calculan en 2026](https://taxcerteza.mx/blog/actualizacion-y-recargos-complementaria/): La diferencia se actualiza con el INPC (CFF 17-A) y los recargos van sobre el monto actualizado, a 2.07 % por mes o fracción en 2026 (CFF 21 y LIF 2026).
+- [Factura PUE que no se cobró completa en el mes: qué dice la regla 2.7.1.39](https://taxcerteza.mx/blog/factura-pue-no-cobrada-completa-en-el-mes/): Cobrar el total dentro del mes es una condición de la opción PUE de la regla 2.7.1.39. Qué revisar y qué hacer si solo se recibió una parte.
 - [¿Cuándo vence la declaración mensual y cuándo se recorre el día 17?](https://taxcerteza.mx/blog/cuando-vence-la-declaracion-mensual-dia-17/): Plazo general del ISR provisional de personas morales del régimen general y del IVA mensual: día 17 del mes siguiente. Cuándo se recorre por día inhábil.
+- [Cierre fiscal del mes sin dejar tu sistema contable: qué hace Tax Certeza y qué sigue donde está](https://taxcerteza.mx/blog/cierre-fiscal-mensual-sin-dejar-tu-sistema-contable/): Si llevas la contabilidad en CONTPAQi: qué parte del cierre fiscal del mes hace Tax Certeza (IVA, ISR provisional, DIOT) y qué sigue en tu sistema contable.
 - [RESICO: cuándo cuenta como ingreso una factura que todavía no se cobra](https://taxcerteza.mx/blog/resico-ingresos-cobrados-o-facturados/): Cobros del mes en operaciones nacionales: ISR en RESICO, facturas PPD y PUE, anticipos y cheques. Alcance de los artículos 207 y 113-E de la Ley del ISR.
 - [Lista 69-B del SAT (EFOS): etapas, plazos y cómo revisar a tus proveedores](https://taxcerteza.mx/blog/lista-negra-sat-efos-69b/): Lista 69-B del CFF: presunto, definitivo y plazo de 30 días para quien dio efectos fiscales a los comprobantes. Cómo revisar a tus proveedores.
 - [DIOT: cómo se arma, qué se informa y cuándo se presenta](https://taxcerteza.mx/blog/diot-como-se-calcula-y-se-presenta/): Cómo se arma la DIOT a partir de los CFDI recibidos, por proveedor y por tasa, y qué dicen la Ley del IVA y la regla 4.5.1 sobre cuándo se presenta.
-- [Factura PUE que no se cobró completa en el mes: qué dice la regla 2.7.1.39](https://taxcerteza.mx/blog/factura-pue-no-cobrada-completa-en-el-mes/): Cobrar el total dentro del mes es una condición de la opción PUE de la regla 2.7.1.39. Qué revisar y qué hacer si solo se recibió una parte.
-- [Cierre fiscal del mes sin dejar tu sistema contable: qué hace Tax Certeza y qué sigue donde está](https://taxcerteza.mx/blog/cierre-fiscal-mensual-sin-dejar-tu-sistema-contable/): Si llevas la contabilidad en CONTPAQi: qué parte del cierre fiscal del mes hace Tax Certeza (IVA, ISR provisional, DIOT) y qué sigue en tu sistema contable.
 - [Complemento de pago (REP): cuándo es obligatorio y qué plazo tienes](https://taxcerteza.mx/blog/complemento-de-pago-cuando-es-obligatorio/): El REP documenta pagos de facturas PPD: uno por pago o uno por los del mes al mismo receptor. Plazo, fundamento y control de complementos pendientes.
 
 ## Herramientas gratuitas
