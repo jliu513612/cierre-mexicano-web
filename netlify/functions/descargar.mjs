@@ -8,6 +8,9 @@
 //   /descargar/ir/<destino>    CLIC en un paso del embudo (whatsapp, demo, descargar, video): lo cuenta con la pagina de
 //                              origen (cabecera Referer del propio sitio) y redirige (302) al destino de netlify/embudo.mjs.
 //                              Un destino que no esta en esa tabla da 404: no hay redireccion abierta.
+//   /descargar/actualizacion/<version>  la ACTUALIZACION EN UN CLIC del programa (url_zip del version.json firmado): la
+//                              cuenta aparte (canal 'actualizacion'; ni IP ni huella, si el pais) y redirige (302) al zip de ESA version, que
+//                              sale de la lista cerrada `actualizaciones` de netlify/descargas.mjs (otra version = 404).
 // La descarga (/descargar) tambien guarda su pagina de origen, igual.
 // UNA sola variable de Netlify (la crea la duena del sitio; no va en el repo):
 //   DESCARGAS_CLAVE_INTERNA     clave de /descargar/interno y de /descargar/resumen (la tienen las mismas personas).
@@ -19,7 +22,7 @@
 import { getStore } from '@netlify/blobs';
 import tabla from '../descargas.mjs';
 import embudo from '../embudo.mjs';
-import { evento, eventoUso, clicDe, PREFIJO_IR, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
+import { evento, eventoUso, clicDe, PREFIJO_IR, responderActualizacion, PREFIJO_ACTUALIZACION, origenDe, destino, enlaceTemporal, claveValida, resumir, semanaAnterior, diasEntre, UNICOS_ACTIVOS } from '../lib/descargas.mjs';
 
 const env = k => (globalThis.Netlify && Netlify.env.get(k)) || process.env[k] || '';
 const RE_FECHA = /^\d{4}-\d{2}-\d{2}$/;
@@ -96,6 +99,12 @@ export default async (req, context) => {
     return respuesta(null, 302, { Location: c.location });
   }
 
+  if (ruta.startsWith(PREFIJO_ACTUALIZACION)) {
+    // todo lo demas (version de la lista cerrada, evento sin IP ni huella, 302) vive y se prueba en lib: aqui solo el cableado
+    const r = await responderActualizacion({ req, context, tabla, store, token: env('GITHUB_DIST_TOKEN') });
+    return respuesta(r.cuerpo, r.estado, r.cabeceras);
+  }
+
   if (ruta !== '/descargar') return respuesta('No encontrado', 404);
   const d = destino(tabla, url.searchParams.get('archivo'));
   if (!d) return respuesta('No hay archivo de descarga configurado', 500);
@@ -118,4 +127,5 @@ export default async (req, context) => {
   return respuesta(null, 302, { Location: enlace.url });
 };
 
-export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso', '/descargar/ir/*'] };
+export const config = { path: ['/descargar', '/descargar/interno', '/descargar/resumen', '/descargar/uso', '/descargar/ir/*',
+  '/descargar/actualizacion/*'] };

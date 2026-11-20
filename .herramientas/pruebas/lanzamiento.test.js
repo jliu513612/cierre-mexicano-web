@@ -32,3 +32,31 @@ test('lanzamiento: portada, /descargar y version.json dicen la misma version y e
   assert.ok(d.url.endsWith('/v' + d.version + '/' + zip), `el archivo de la portada (${zip}) es el que entrega /descargar (${d.url})`);
   assert.match((/<code>([^<]*)<\/code>/.exec(h.slice(h.indexOf('inst-verif'))) || [])[1] || '', /^[0-9a-f]{64}$/, 'la huella de la portada es un SHA-256');
 });
+
+// Q-4980000000: desde 1.0.50 el url_zip del version.json firmado va por el embudo (/descargar/actualizacion/<version>).
+// Si la version no esta dada de alta en `actualizaciones`, el programa recibe 404 y cae a la descarga manual: este test
+// pone ROJO el lanzamiento que publica el manifiesto sin darla de alta, o con otra version en la ruta.
+const L = () => import(path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs').replace(/\\/g, '/').replace(/^([A-Za-z]):/, 'file:///$1:'));
+function problemasEmbudo(man, tabla, prefijo) {
+  const u = String((man && man.url_zip) || '');
+  if (!u.startsWith(prefijo)) return [];                 // url_zip directo (hasta 1.0.49): esta regla no aplica
+  const v = u.slice(prefijo.length);
+  const p = [];
+  if (v !== man.version) p.push(`url_zip nombra ${v} y el manifiesto es ${man.version}`);
+  if (!Object.prototype.hasOwnProperty.call((tabla && tabla.actualizaciones) || {}, v))
+    p.push(`la version ${v} no esta en actualizaciones de netlify/descargas.mjs: el programa recibiria 404`);
+  return p;
+}
+
+test('lanzamiento: un url_zip por el embudo nombra la version del manifiesto y esa version esta dada de alta', async () => {
+  const tabla = (await T()).default;
+  const pref = 'https://taxcerteza.mx' + (await L()).PREFIJO_ACTUALIZACION;
+  const manifiesto = JSON.parse(fs.readFileSync(path.join(RAIZ, 'version.json'), 'utf8'));
+  assert.deepEqual(problemasEmbudo(manifiesto, tabla, pref), [], 'version.json publicado');
+  // calibracion: la regla ve los dos fallos y deja pasar los dos casos buenos
+  const v = Object.keys(tabla.actualizaciones)[0];
+  assert.deepEqual(problemasEmbudo({ version: v, url_zip: pref + v }, tabla, pref), []);
+  assert.deepEqual(problemasEmbudo({ version: v, url_zip: 'https://github.com/x/y.zip' }, tabla, pref), []);
+  assert.equal(problemasEmbudo({ version: '9.9.9', url_zip: pref + '9.9.9' }, tabla, pref).length, 1, 'version sin dar de alta');
+  assert.equal(problemasEmbudo({ version: '9.9.9', url_zip: pref + v }, tabla, pref).length, 1, 'otra version en la ruta');
+});
