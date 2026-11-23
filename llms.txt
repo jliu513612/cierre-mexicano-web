@@ -32,3 +32,4 @@
 - [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
 - [Herramientas](https://taxcerteza.mx/herramientas/): Calculadora SAT y herramientas gratis y sin registro, y lo que escribes no sale de tu equipo: validador de RFC, valor de la UMA, fecha límite del complemento de pago, verificación de facturas, consulta de la lista 69-B, factura con retenciones, calendario del día 17, IVA del mes, tipo de cambio fiscal y diagnóstico del mes.
 - [Centro de ayuda](https://taxcerteza.mx/ayuda/): Guías del programa para contadores y despachos: qué pantalla usar para cada tarea
+- [Novedades y versiones](https://taxcerteza.mx/novedades/): historial de versiones de Tax Certeza con su número, fecha y novedades; versión actual 1.0.50 (20 de noviembre de 2026)
