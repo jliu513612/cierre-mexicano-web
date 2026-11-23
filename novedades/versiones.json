@@ -1,0 +1,78 @@
+{
+  "_doc": "Fuente unica de la pagina /novedades/. Cada version publicada en version.json tiene aqui su entrada. Reglas de redaccion en novedades/LEEME.md; generar.py las comprueba.",
+  "versiones": [
+    {
+      "version": "1.0.50",
+      "fecha": "2026-11-20",
+      "titulo": "IVA de inversiones, notas de crédito y proveedores 69-B",
+      "puntos": [
+        "El IVA de inversiones y automóviles se acredita en la proporción que permite la ley, y un CFDI que combina un activo con un servicio se reparte por concepto.",
+        "Las notas de crédito, emitidas o recibidas, ajustan el IVA de su mes junto con su comprobación.",
+        "Las facturas de proveedores publicados en la lista 69-B quedan fuera del IVA y del ISR por defecto; si el mes ya se declaró, aparecen en el Centro de complementarias para evaluarlas.",
+        "La moneda de cada cuenta bancaria se confirma una vez y se recuerda."
+      ]
+    },
+    {
+      "version": "1.0.49",
+      "fecha": "2026-11-10",
+      "titulo": "Cobros mejor identificados y prueba de 30 días",
+      "puntos": [
+        "Los depósitos se asignan al cliente con su nombre completo; un alias se confirma una vez y después se reconoce solo.",
+        "Antes de un cierre formal, el programa ofrece actualizar el estado ante el SAT de los CFDI consultados hace más de 7 días.",
+        "IEPS acreditable con su base confirmada y, en personas morales, el IEPS que va al costo mes por mes.",
+        "Ahora puedes probar el programa 30 días sin licencia."
+      ]
+    },
+    {
+      "version": "1.0.47",
+      "fecha": "2026-10-13",
+      "titulo": "Cada aviso lleva a donde se resuelve",
+      "puntos": [
+        "Cada aviso que detiene un cierre trae un botón que lleva directo al lugar donde se resuelve.",
+        "El IVA acreditable se llena solo cuando en el periodo no hay ingresos exentos ni no objeto; si los hay, queda listo para tu revisión.",
+        "En pedimentos, el programa propone el proveedor y su identificador fiscal para que los confirmes."
+      ]
+    },
+    {
+      "version": "1.0.31",
+      "fecha": "2026-07-18",
+      "titulo": "Estados de cuenta escaneados y manual integrado",
+      "puntos": [
+        "Los estados de cuenta escaneados se leen sin instalar nada: el reconocimiento de texto en español viene incluido.",
+        "Manual de usuario dentro del programa (menú Más → Manual).",
+        "Actualización y recargos calculados al declarar fuera de plazo.",
+        "Tarifas del ISR de 2022 a 2025 para recalcular ejercicios anteriores con la tabla de su año."
+      ]
+    },
+    {
+      "version": "1.0.30",
+      "fecha": "2026-07-17",
+      "titulo": "Tu autorización antes de cada acción sensible",
+      "puntos": [
+        "El programa pide tu autorización antes de usar la e.firma, antes de consumir el cupo de descarga histórica del SAT y antes de respaldar a la nube.",
+        "Nómina: factor de integración del SBC por año, conforme a la reforma de vacaciones.",
+        "Complemento de pago: fecha límite de emisión conforme a la regla vigente."
+      ]
+    },
+    {
+      "version": "1.0.29",
+      "fecha": "2026-07-17",
+      "titulo": "Fórmulas del cálculo con fundamento legal",
+      "puntos": [
+        "Anexo con las fórmulas de cálculo y su fundamento legal.",
+        "Instalación más sencilla."
+      ]
+    },
+    {
+      "version": "1.0.18",
+      "fecha": "2026-07-10",
+      "titulo": "Cada cifra, hasta sus facturas",
+      "puntos": [
+        "Doble clic en cualquier cifra del cierre o de la DIOT muestra las facturas exactas que la componen, cuadradas al centavo.",
+        "El Excel del cierre incluye las hojas «Fundamentos del cálculo» y «Soporte del cálculo».",
+        "DIOT en el formato oficial de 54 campos.",
+        "Tarjeta de salud de cada cliente."
+      ]
+    }
+  ]
+}
