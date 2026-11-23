@@ -45,12 +45,49 @@ details.faq p{margin:12px 0 2px;color:#475569;font-size:16px}
 .navr{display:flex;align-items:center;gap:18px}@media(max-width:720px){.navr>a:not(:last-of-type){display:none}}
 .redes{display:flex;gap:14px;align-items:center;margin-top:12px}.redes a{display:inline-flex;line-height:0;color:#2563EB;border-radius:4px}.redes a:hover,.redes a:focus-visible{color:#1E40AF}.redes svg{width:22px;height:22px;fill:currentColor}
 .menu-movil{display:none;position:relative;border:0;border-radius:0;margin:0;padding:0;background:none}.menu-movil>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;color:#0F172A;padding:0;margin:0;font-size:16px}.menu-movil>summary::-webkit-details-marker{display:none}.menu-movil>summary:hover{background:#F1F5F9}.menu-movil>summary:focus-visible{outline:3px solid #1E40AF;outline-offset:2px}.menu-movil svg{flex:none;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}.menu-movil .cerrar,.menu-movil[open] .abrir{display:none}.menu-movil[open] .cerrar{display:block}.menu-movil-panel{position:absolute;right:0;top:calc(100% + 10px);min-width:200px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;box-shadow:0 10px 30px rgba(15,23,42,.14);padding:6px;display:flex;flex-direction:column}.menu-movil-panel a{display:block;padding:12px 14px;border-radius:8px;color:#0F172A;font-weight:600;font-size:16px}.menu-movil-panel a:hover,.menu-movil-panel a[aria-current]{background:#EFF6FF;color:#1E40AF}@media(max-width:720px){.menu-movil{display:block}.nav-links{gap:8px}.nav-links .menu-movil-panel a{display:block}}
+</style>
+<style>
+#videos{margin:0 0 32px;scroll-margin-top:78px}
+#videos h2{font-size:24px;line-height:1.3;margin:0 0 6px}
+.videos-intro{color:#475569;margin:0 0 16px}
+.videos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.video-card{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid #DBEAFE;border-radius:12px;background:#F8FAFC}
+.video-card h3{font-size:17px;line-height:1.35}
+.video-card p{color:#475569;font-size:14px;line-height:1.5;flex:1}
+.video-card a{color:#1E40AF;font-size:14px;line-height:1.4;padding:6px 0}
+.video-card a:focus-visible{outline:2px solid #1E40AF;outline-offset:3px}
+.video-watch{font-weight:700}
+@media(max-width:640px){.videos-grid{grid-template-columns:1fr}}
 </style></head>
 <body>
 <nav><div class="w"><a class="logo" href="/"><img src="/assets/logo-tax-certeza.svg" alt="Tax Certeza" width="172" height="32"></a><span class="navr"><a class="back" href="/herramientas/">Herramientas</a><a class="back" href="/ayuda/">Ayuda</a><a class="back" href="/">← Inicio</a><details class="menu-movil"><summary aria-label="Menú" title="Menú"><svg class="abrir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="cerrar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></summary><div class="menu-movil-panel"><a href="/herramientas/">Herramientas</a><a href="/blog/" aria-current="page">Blog</a><a href="/ayuda/">Ayuda</a></div></details></span></div></nav>
 <div class="list">
   <h1>Recursos fiscales</h1>
   <p class="sub">Guías sobre SAT, CFDI, IVA, ISR y DIOT para contadores en México, con fundamento legal.</p>
+  <section id="videos" aria-labelledby="videos-titulo">
+    <h2 id="videos-titulo">Videos y tutoriales</h2>
+    <p class="videos-intro">Ve cómo se usa Tax Certeza con datos de demostración.</p>
+    <div class="videos-grid">
+      <div class="video-card">
+        <h3>Del CFDI a la declaración</h3>
+        <p>Un recorrido por el cierre mensual: CFDI, banco, impuestos y papeles de trabajo.</p>
+        <a class="video-watch" href="https://www.youtube.com/watch?v=qWvfuWlqha4">Ver recorrido en YouTube · 2:49</a>
+        <a href="/#ejemplo">Probar con un ejemplo</a>
+      </div>
+      <div class="video-card">
+        <h3>Conciliación bancaria</h3>
+        <p>Mira cómo se vincula un depósito con su complemento y qué cruces quedan por confirmar.</p>
+        <a class="video-watch" href="https://www.youtube.com/watch?v=rHEUVHrVJOI">Ver conciliación en YouTube · 0:37</a>
+        <a href="/ayuda/banco-y-conciliacion/">Consultar la guía de conciliación</a>
+      </div>
+      <div class="video-card">
+        <h3>Factura PPD sin REP</h3>
+        <p>Si no ves un abono vinculado ni un REP, primero verifica si recibiste el pago.</p>
+        <a class="video-watch" href="https://www.youtube.com/watch?v=YE-dfIv7_2g">Ver revisión PPD en YouTube · 0:19</a>
+        <a href="/blog/complemento-de-pago-cuando-es-obligatorio/">Leer la guía del complemento de pago</a>
+      </div>
+    </div>
+  </section>
 <a class="card" href="/blog/actualizacion-y-recargos-complementaria/"><h2>Actualización y recargos de una diferencia pagada tarde: cómo se calculan en 2026</h2><p>La diferencia se actualiza con el INPC (CFF 17-A) y los recargos van sobre el monto actualizado, a 2.07 % por mes o fracción en 2026 (CFF 21 y LIF 2026).</p><span>Impuestos · Actualizado el 11 de noviembre de 2026</span></a>
 <a class="card" href="/blog/factura-pue-no-cobrada-completa-en-el-mes/"><h2>Factura PUE que no se cobró completa en el mes: qué dice la regla 2.7.1.39</h2><p>Cobrar el total dentro del mes es una condición de la opción PUE de la regla 2.7.1.39. Qué revisar y qué hacer si solo se recibió una parte.</p><span>Contabilidad · Actualizado el 6 de noviembre de 2026</span></a>
 <a class="card" href="/blog/cuando-vence-la-declaracion-mensual-dia-17/"><h2>¿Cuándo vence la declaración mensual y cuándo se recorre el día 17?</h2><p>Plazo general del ISR provisional de personas morales del régimen general y del IVA mensual: día 17 del mes siguiente. Cuándo se recorre por día inhábil.</p><span>Impuestos · Actualizado el 6 de noviembre de 2026</span></a>
