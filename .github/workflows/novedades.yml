@@ -1,0 +1,29 @@
+# Comprobacion de /novedades/ en cada PR. Aprobado por la duena del sitio el 2026-11-23.
+#
+# Corre `python novedades/generar.py --check`, que falla si:
+#   1. la version de version.json (la que se descarga hoy) no tiene entrada en novedades/versiones.json,
+#   2. novedades/index.html no coincide con lo que genera versiones.json,
+#   3. un texto usa vocabulario que resta confianza (errores pasados, defectos, trabajo incompleto),
+#   4. hay versiones repetidas, fechas mal escritas, fuera de orden, o mas de 5 puntos / 200 caracteres.
+# Asi, un PR que publica una version nueva sin su entrada no pasa. Reglas de redaccion: novedades/LEEME.md.
+# No lleva filtro `paths:` a proposito: es rapido, y un check que no corre puede dejar un PR bloqueado.
+# Usa `pull_request` (no `pull_request_target`): ejecuta codigo del PR, asi que va SIN secretos y solo con lectura.
+name: novedades
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  novedades:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: novedades/generar.py --check
+        run: python -X utf8 novedades/generar.py --check
