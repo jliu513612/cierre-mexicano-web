@@ -4,6 +4,7 @@
 
 ## Recursos fiscales
 
+- [Días inhábiles de fin de año en el SAT: 25 de diciembre, 1o. de enero y el 17 de enero](https://taxcerteza.mx/blog/plazos-fiscales-fin-de-ano-dias-inhabiles/): Cómo aplican los días inhábiles del artículo 12 del CFF en diciembre y enero: 25 de diciembre, 1o. de enero, vacaciones del SAT y el día 17 en domingo.
 - [Retención ISR y retención IVA al facturar a una persona moral: honorarios, rentas, RESICO y fletes](https://taxcerteza.mx/blog/cuanto-me-retienen-si-facturo-a-persona-moral/): Honorarios y rentas: 10 % de ISR y dos terceras partes del IVA. RESICO: 1.25 % de ISR. Fletes: 4 % del valor de la contraprestación. Cuándo se retiene.
 - [Complemento de pago de noviembre: el 5 de diciembre de 2026 cae en sábado](https://taxcerteza.mx/blog/rep-5-de-diciembre-cae-en-sabado/): La regla 2.7.1.32 da hasta el quinto día natural del mes siguiente y no remite al artículo 12 del CFF. Si el plazo se recorre no está resuelto en esos textos.
 - [Actualización y recargos de una diferencia pagada tarde: cómo se calculan en 2026](https://taxcerteza.mx/blog/actualizacion-y-recargos-complementaria/): La diferencia se actualiza con el INPC (CFF 17-A) y los recargos van sobre el monto actualizado, a 2.07 % por mes o fracción en 2026 (CFF 21 y LIF 2026).

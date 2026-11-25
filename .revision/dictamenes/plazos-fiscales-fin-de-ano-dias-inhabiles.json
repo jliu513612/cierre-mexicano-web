@@ -1,0 +1,31 @@
+{
+ "slug": "plazos-fiscales-fin-de-ano-dias-inhabiles",
+ "huella": "55f36d4daa2a51e883fa5b3033ac624f720c0e923dbc5b18778ed15fe6d3f374",
+ "fecha": "2026-11-25",
+ "puntajes": [
+  74,
+  64
+ ],
+ "puntaje": 69.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   95,
+   96,
+   95,
+   94,
+   96,
+   95
+  ],
+  "maquina": [
+   22,
+   18,
+   12,
+   26
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 0,
+ "leves_pendientes": []
+}
