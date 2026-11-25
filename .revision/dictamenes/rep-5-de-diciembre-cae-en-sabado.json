@@ -1,0 +1,49 @@
+{
+ "slug": "rep-5-de-diciembre-cae-en-sabado",
+ "huella": "b648b812e06b8a39a16a908df31708f12fb3b3fa772c191ef942c0d485240af9",
+ "fecha": "2026-10-20",
+ "puntajes": [
+  68,
+  66
+ ],
+ "puntaje": 67.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   92,
+   88,
+   90,
+   85,
+   91,
+   87
+  ],
+  "maquina": [
+   20,
+   22,
+   8,
+   10
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 2,
+ "calificacion": "aprobado, por mejorar (60-70)",
+ "ronda": 2,
+ "rondas_previas": [
+  {
+   "ronda": 1,
+   "puntajes": [
+    60,
+    58
+   ],
+   "graves": 0,
+   "medios": 0,
+   "resultado": "59 < 60"
+  }
+ ],
+ "leves_pendientes": [
+  "Ejemplo: «un solo REP por los $25,500» choca con el «total en cero» de la regla; deberia decir que el REP ampara los dos pagos por $25,500. Corregir en la proxima correccion del articulo (cambia la huella: pide revision).",
+  "La herramienta «fecha limite del complemento de pago» no esta en funciones.json (comprobado en su pagina: no recorre el dia 5 y avisa, igual que el articulo)."
+ ],
+ "estilo": "Los dos revisores: cautela «confirmarlo con su contador» (la exige cff-12), rotulo «Ejemplo (cifras inventadas)», la duda dicha dos veces."
+}
