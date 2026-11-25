@@ -1,0 +1,46 @@
+name: redes-rss
+# Lunes, miercoles y viernes a las 08:00 CDMX: desbloquea el post del dia en feed-facebook.xml y feed-x.xml
+# para que Zapier Free (RSS by Zapier) autopublique sin webhooks de pago ni PC encendido.
+on:
+  schedule:
+    - cron: '0 14 * * 1,3,5'    # 08:00 CDMX
+    - cron: '30 14 * * 1,3,5'   # 08:30 CDMX respaldo por si GitHub retrasa cron
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: 'Fecha de corte AAAA-MM-DD (vacio = hoy CDMX)'
+        required: false
+        default: ''
+permissions:
+  contents: write
+concurrency:
+  group: redes-rss
+  cancel-in-progress: false
+jobs:
+  actualizar-feeds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: actualizar feeds RSS de redes
+        env:
+          FECHA: ${{ inputs.fecha }}
+        run: python -X utf8 .github/scripts/generar_rss_redes.py ${FECHA:+--fecha "$FECHA"}
+      - name: guardar cambio si se desbloqueo un nuevo post
+        run: |
+          if git diff --quiet assets/redes/feed-facebook.xml assets/redes/feed-x.xml; then
+            echo "Sin nuevos posts para hoy."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/redes/feed-facebook.xml assets/redes/feed-x.xml
+          git commit -m "redes: desbloquea feed RSS del dia ($(TZ=America/Mexico_City date +%F))"
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
