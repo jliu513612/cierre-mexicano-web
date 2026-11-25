@@ -1,0 +1,50 @@
+{
+ "slug": "cuanto-me-retienen-si-facturo-a-persona-moral",
+ "huella": "57e5aab98050047b9121fbe6ba0c9c68be7a10735474ee42d67018b26db6237a",
+ "fecha": "2026-11-25",
+ "puntajes": [
+  68,
+  62
+ ],
+ "puntaje": 65.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   93,
+   95,
+   94,
+   95,
+   93,
+   92
+  ],
+  "maquina": [
+   12,
+   20,
+   12,
+   22
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 3,
+ "calificacion": "aprobado, por mejorar (60-70)",
+ "ronda": 2,
+ "rondas_previas": [
+  {
+   "ronda": 1,
+   "puntajes": [
+    91,
+    60
+   ],
+   "graves": 0,
+   "medios": 1,
+   "leves": 4
+  }
+ ],
+ "leves_pendientes": [
+  "Entero del IVA retenido: precisar «en su defecto» antes de «a más tardar el día 17 del mes siguiente» (liva-1-a).",
+  "Enlace Relacionado DIOT: acotar «retenciones y traslados de IVA» (liva-32-viii).",
+  "CTA pie de plantilla: recordar que cierre-mensual aplica a los regímenes 601, 626, 612 y 606."
+ ],
+ "estilo": "Dos revisores ciegos con anclas validas (>=80 humanos, <=40 maquinas): 68 y 62 (promedio 65.0 >= 60). Desbloquedo tras mediciones SerpApi de 2026-11-25."
+}
