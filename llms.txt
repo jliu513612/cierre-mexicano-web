@@ -4,6 +4,7 @@
 
 ## Recursos fiscales
 
+- [Complemento de pago de noviembre: el 5 de diciembre de 2026 cae en sábado](https://taxcerteza.mx/blog/rep-5-de-diciembre-cae-en-sabado/): La regla 2.7.1.32 da hasta el quinto día natural del mes siguiente y no remite al artículo 12 del CFF. Si el plazo se recorre no está resuelto en esos textos.
 - [Actualización y recargos de una diferencia pagada tarde: cómo se calculan en 2026](https://taxcerteza.mx/blog/actualizacion-y-recargos-complementaria/): La diferencia se actualiza con el INPC (CFF 17-A) y los recargos van sobre el monto actualizado, a 2.07 % por mes o fracción en 2026 (CFF 21 y LIF 2026).
 - [Factura PUE que no se cobró completa en el mes: qué dice la regla 2.7.1.39](https://taxcerteza.mx/blog/factura-pue-no-cobrada-completa-en-el-mes/): Cobrar el total dentro del mes es una condición de la opción PUE de la regla 2.7.1.39. Qué revisar y qué hacer si solo se recibió una parte.
 - [¿Cuándo vence la declaración mensual y cuándo se recorre el día 17?](https://taxcerteza.mx/blog/cuando-vence-la-declaracion-mensual-dia-17/): Plazo general del ISR provisional de personas morales del régimen general y del IVA mensual: día 17 del mes siguiente. Cuándo se recorre por día inhábil.
@@ -32,4 +33,3 @@
 - [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
 - [Herramientas](https://taxcerteza.mx/herramientas/): Calculadora SAT y herramientas gratis y sin registro, y lo que escribes no sale de tu equipo: validador de RFC, valor de la UMA, fecha límite del complemento de pago, verificación de facturas, consulta de la lista 69-B, factura con retenciones, calendario del día 17, IVA del mes, tipo de cambio fiscal y diagnóstico del mes.
 - [Centro de ayuda](https://taxcerteza.mx/ayuda/): Guías del programa para contadores y despachos: qué pantalla usar para cada tarea
-- [Novedades y versiones](https://taxcerteza.mx/novedades/): historial de versiones de Tax Certeza con su número, fecha y novedades; versión actual 1.0.50 (20 de noviembre de 2026)
