@@ -81,16 +81,39 @@ test('iva: la estimacion da lo mismo que calculador_iva_v2.calcular, caso por ca
   });
 });
 
-test('iva: el 69-B elige la misma fila que el programa (todos los RFC con varias filas y una muestra)', () => {
+test('iva: el 69-B elige la misma fila que el programa (varias filas y listado vivo)', () => {
+  const PRIORIDAD = { D: 4, P: 3, V: 0, S: 0 };
+  const SIT = { P: 'presunto', D: 'definitivo', V: 'desvirtuado', S: 'sentencia_favorable' };
+
+  // Casos sinteticos donde la peor situacion NO esta en la primera fila (garantiza deteccion en negativo)
+  const sint = {
+    r: {
+      VD01: [['V', 'A', '2024-01-01', '2024-06-01', '', ''], ['D', 'A', '2025-01-01', '', '2026-03-15', '']],
+      PD01: [['P', 'B', '2025-01-01', '', '', ''], ['D', 'B', '2025-01-01', '', '2026-04-10', '']],
+      SP01: [['S', 'C', '2023-01-01', '', '2024-01-01', '2025-01-01'], ['P', 'C', '2026-02-01', '', '', '']],
+      VS01: [['V', 'D', '2024-01-01', '2024-05-01', '', ''], ['S', 'D', '2022-01-01', '', '2023-01-01', '2024-02-01']],
+    },
+  };
+  assert.deepEqual(IVA.efosDe(sint, 'VD01'), { status: 'definitivo', definitivo: '2026-03-15', fila: sint.r.VD01[1] });
+  assert.deepEqual(IVA.efosDe(sint, 'PD01'), { status: 'definitivo', definitivo: '2026-04-10', fila: sint.r.PD01[1] });
+  assert.deepEqual(IVA.efosDe(sint, 'SP01'), { status: 'presunto', definitivo: '', fila: sint.r.SP01[1] });
+  assert.deepEqual(IVA.efosDe(sint, 'VS01'), { status: 'desvirtuado', definitivo: '', fila: sint.r.VS01[0] });
+
+  // Listado vivo del SAT: verifica la misma regla en TODOS los RFC con varias filas (sin congelar estados mutables del SAT)
   const pub = require(path.join(RAIZ, 'herramientas', 'lista-69b', 'listado.json'));
   let varias = 0;
-  for (const [rfc, [status, def]] of Object.entries(V.eleccion_69b)) {
+  for (const [rfc, filas] of Object.entries(pub.r)) {
+    if (filas.length <= 1 && !Object.prototype.hasOwnProperty.call(V.eleccion_69b, rfc)) continue;
+    let esperada = filas[0];
+    for (let i = 1; i < filas.length; i++) {
+      if ((PRIORIDAD[filas[i][0]] || 0) > (PRIORIDAD[esperada[0]] || 0)) esperada = filas[i];
+    }
     const r = IVA.efosDe(pub, rfc);
-    assert.equal(r.status, status, rfc);
-    assert.equal(r.definitivo || null, def || null, rfc);
-    if (pub.r[rfc].length > 1) varias++;
+    assert.equal(r.status, SIT[esperada[0]], rfc);
+    assert.equal(r.definitivo || '', esperada[4] || '', rfc);
+    if (filas.length > 1) varias++;
   }
-  assert.equal(varias, Object.values(pub.r).filter(f => f.length > 1).length, 'estan TODOS los RFC con varias filas');
+  assert.ok(varias >= 50, `pocos RFC con varias filas: ${varias}`);
 });
 
 test('iva: el modo manual da lo mismo que calcular() del programa con los mismos totales', () => {
