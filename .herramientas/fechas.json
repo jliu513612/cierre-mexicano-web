@@ -1,7 +1,7 @@
 {
  "/herramientas/": {
-  "fecha": "2026-11-11",
-  "huella": "049d4abd28c91651ed65a0b376be80c7b0ddb8718a61b4594662e42d087145f2"
+  "fecha": "2026-11-26",
+  "huella": "3a4704f25c055e618e013252674c74aeb5ec735fba83b82cbc980c5845024024"
  },
  "/herramientas/calendario-dia-17/": {
   "fecha": "2026-11-11",
@@ -42,5 +42,9 @@
  "/herramientas/verificar-factura/": {
   "fecha": "2026-11-11",
   "huella": "5a35348e8afb69ed21025e8047c1a1dea8173e8eed9ed005ead75f090948f359"
+ },
+ "/herramientas/xml-a-excel/": {
+  "fecha": "2026-11-26",
+  "huella": "9983360677e8ab8d3c2ddd5b4c4c7f3b166a3e9ce1aa8df06bef8a10d3ac3331"
  }
 }

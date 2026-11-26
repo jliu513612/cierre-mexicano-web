@@ -1,0 +1,102 @@
+@@TITULO
+Convertir XML a Excel (CFDI del SAT): varios archivos en tu navegador | Tax Certeza
+@@TITULO_CORTO
+Convertir XML a Excel (CFDI)
+@@NOMBRE_LISTA
+conversor de XML a Excel
+@@MIGA
+Convertir XML a Excel
+@@DESCRIPCION
+Para convertir XML a Excel sin subir tus facturas, arrastra uno o varios CFDI del SAT: la página lee UUID, RFC, fecha, subtotal, IVA, retenciones y total en tu navegador y descarga un archivo CSV listo para abrir en Excel.
+@@SCRIPTS
+<script src="/herramientas/selector-archivos.js" defer></script>
+<script src="/herramientas/verificar-factura/cfdi.js" defer></script>
+<script src="/herramientas/xml-a-excel/xml_excel.js" defer></script>
+<script src="/herramientas/opinion.js" defer></script>
+<script src="/herramientas/uso.js" defer></script>
+<script src="/herramientas/cta.js" defer></script>
+<script src="/herramientas/xml-a-excel/pagina.js" defer></script>
+@@FAQ
+P: ¿Se suben mis XML a algún servidor?
+R: No. Todos los archivos se leen en tu navegador y el archivo para Excel se arma en tu propia computadora. Esta página no guarda ni envía el contenido de tus facturas.
+P: ¿El archivo descargado abre bien en Excel con acentos y ñ?
+R: Sí. Se descarga en formato CSV con marca UTF-8 (BOM) para que Excel en Windows y Mac muestre correctamente los nombres con acentos, la ñ y el carácter &.
+P: ¿Cuántos XML puedo convertir a la vez?
+R: Hasta 500 archivos de hasta 2 MB cada uno en una sola carga, de CFDI versión 3.3 o 4.0 (ingreso, egreso, pago, nómina y traslado).
+P: ¿Qué columnas incluye el archivo de Excel?
+R: Archivo, estado, versión, tipo de comprobante, fecha, fecha de timbrado, UUID, serie, folio, RFC y nombre del emisor, régimen fiscal del emisor, RFC y nombre del receptor, uso del CFDI, método y forma de pago, moneda, tipo de cambio, subtotal, descuento, IVA trasladado, total de impuestos trasladados, total de impuestos retenidos y total.
+P: ¿Esta herramienta valida si las facturas están vigentes en el SAT?
+R: No. Solo extrae los datos tal como vienen en cada XML. Para armar los enlaces de verificación en el SAT usa la herramienta de verificar factura.
+@@CUERPO
+[[MIGAS]]
+<header class="cab">
+  <h1>Convertir XML a Excel (CFDI del SAT)</h1>
+  <p class="lead">Para convertir XML a Excel sin subir archivos a ningún servidor, arrastra uno o varios CFDI del SAT. La página lee los datos principales de cada factura en tu navegador, muestra una vista previa en tabla y descarga un archivo CSV con marca UTF-8 listo para abrir en Excel.</p>
+</header>
+
+<section class="tool" aria-labelledby="t-xml-excel">
+  <h2 id="t-xml-excel">Leer los XML y generar el archivo para Excel</h2>
+  <form id="f-xml-excel" novalidate>
+    <div class="campo">
+      <label for="xml-excel" id="l-xml-excel">Archivos XML (CFDI 3.3 o 4.0)</label>
+      <div class="soltar" id="soltar-excel">
+        <p>Arrastra aquí los XML o</p>
+        <div class="selector">
+          <input type="file" id="xml-excel" name="xml-excel" class="oculto-accesible" accept=".xml,text/xml,application/xml" multiple aria-describedby="xml-excel-estado xml-excel-ayuda">
+          <label for="xml-excel" class="btn btn-ghost sel-boton">Seleccionar archivos</label>
+          <span class="sel-estado" id="xml-excel-estado" aria-live="polite">Ningún archivo seleccionado</span>
+        </div>
+      </div>
+      <p class="ayuda" id="xml-excel-ayuda">Hasta 500 archivos de hasta 2 MB cada uno. CFDI versión 3.3 o 4.0.</p>
+    </div>
+  </form>
+  <div class="res" id="res-xml-excel" role="status" aria-live="polite"></div>
+  <noscript><p class="aviso">Esta herramienta necesita JavaScript para leer los XML y armar el archivo en tu navegador.</p></noscript>
+  <p class="privado"><b>Tus XML no salen de tu equipo.</b> La lectura y el archivo para Excel se hacen por completo en tu navegador; esta página no los sube a ningún servidor ni consulta al SAT. Si opinas sobre el resultado, se envía solo tu voto, el tipo de resultado y el comentario que escribas.</p>
+</section>
+
+<section class="txt">
+  <h2>Qué hace y qué no</h2>
+  <div class="dos">
+    <div>
+      <h3>Sí hace</h3>
+      <ul>
+        <li>Lee hasta 500 XML de CFDI 3.3 o 4.0 en tu navegador y extrae una fila por comprobante.</li>
+        <li>Incluye UUID, fechas, emisor, receptor, método y forma de pago, moneda, tipo de cambio, subtotal, descuento, IVA trasladado, impuestos retenidos y total.</li>
+        <li>Descarga un CSV en UTF-8 con BOM que Excel abre con columnas separadas y acentos correctos.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>No hace</h3>
+      <ul>
+        <li>No valida en el SAT si el comprobante está vigente o cancelado.</li>
+        <li>No desglosa cada concepto individual ni complementos de nómina o carta porte.</li>
+        <li>No calcula impuestos ni decide si un gasto es deducible o acreditable.</li>
+        <li>No lee CFDI de retenciones e información de pagos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cómo se usa</h2>
+  <ol>
+    <li>Arrastra los XML de tu carpeta al recuadro o pulsa «Seleccionar archivos».</li>
+    <li>Revisa el resumen de comprobantes leídos y la vista previa de la tabla.</li>
+    <li>Pulsa «Descargar archivo para Excel (.csv)» y ábrelo directamente en Excel.</li>
+  </ol>
+
+  <h2>Límites</h2>
+  <p>La página toma los atributos tal como están escritos en cada XML y no verifica la autenticidad del sello digital ni el estatus ante el SAT. Los importes se muestran sin recalcular ni convertir a pesos cuando la factura viene en otra moneda. Esta página no sustituye el criterio profesional del contador.</p>
+
+  <h2>Preguntas frecuentes</h2>
+  [[FAQ]]
+
+  <h2>Relacionado</h2>
+  <p>Si además necesitas revisar IVA estimado, proveedores en lista 69-B y facturas PPD sin complemento de pago en un solo paso, usa el <a href="/herramientas/diagnostico-del-mes/">diagnóstico del mes</a>. Para abrir los enlaces oficiales del SAT de cada XML, usa <a href="/herramientas/verificar-factura/">verificar factura</a>.</p>
+
+  <div class="programa">
+    <h2>En el programa</h2>
+    <p>Tax Certeza descarga del SAT los CFDI de cada cliente, calcula IVA, ISR provisional y DIOT, y exporta la memoria de cálculo completa a Excel con detalle por folio fiscal, todo en tu computadora Windows.</p>
+    <p><a class="btn btn-primary" href="/descargar/ir/descargar" rel="nofollow">Descargar y probar</a> <a class="cta-video" href="/descargar/ir/video" rel="nofollow">Ver el video de 3 minutos</a></p>
+    <p class="nota-legal">Pruébalo 30 días gratis, sin registro. Tus datos se quedan en tu equipo.</p>
+  </div>
+</section>

@@ -358,6 +358,35 @@ async function main() {
     await cdp('Target.closeTarget', { targetId });
   }
 
+  console.log('S. xml a excel: XML en el navegador, CSV con BOM y nada sale');
+  recibidos.length = 0;
+  {
+    const { targetId } = await cdp('Target.createTarget', { url: 'about:blank' });
+    const { sessionId: s } = await cdp('Target.attachToTarget', { targetId, flatten: true });
+    await cdp('Page.enable', {}, s); await cdp('Runtime.enable', {}, s); await cdp('DOM.enable', {}, s); await cdp('Network.enable', {}, s);
+    await cdp('Page.addScriptToEvaluateOnNewDocument', { source: "window.__csp=[];document.addEventListener('securitypolicyviolation',e=>window.__csp.push(e.violatedDirective));window.__blobs=[];const _o=URL.createObjectURL;URL.createObjectURL=b=>{window.__blobs.push(b);return _o.call(URL,b);};" }, s);
+    const desde = eventos.length;
+    await cdp('Page.navigate', { url: `http://127.0.0.1:${PUERTO}/herramientas/xml-a-excel/` }, s);
+    for (let i = 0; i < 100 && !eventos.slice(desde).some(e => e.method === 'Page.loadEventFired' && e.sessionId === s); i++) await espera(50);
+    await espera(300);
+    const js = async e => (await cdp('Runtime.evaluate', { expression: e, returnByValue: true }, s)).result.value;
+    const FIX = path.join(RAIZ, '.herramientas', 'fixtures', 'cfdi');
+    const { root } = await cdp('DOM.getDocument', {}, s);
+    const { nodeId } = await cdp('DOM.querySelector', { nodeId: root.nodeId, selector: '#xml-excel' }, s);
+    await cdp('DOM.setFileInputFiles', { nodeId, files: ['01_cfdi40_ingreso.xml', '15_xml_roto.xml'].map(f => path.join(FIX, f)) }, s);
+    await espera(800);
+    const v = await js(`({filas:document.querySelectorAll('#res-xml-excel tbody tr').length, titulo:(document.querySelector('#res-xml-excel h3')||{}).textContent, csp:window.__csp.join('|')})`);
+    exige(v.filas === 2 && /1 CFDI listo/.test(v.titulo || ''), `xml-a-excel lee 2 archivos (1 CFDI listo, filas=${v.filas})`);
+    await js("document.querySelector('#res-xml-excel button.op-enviar').click()");
+    await espera(300);
+    const bytes = await (await cdp('Runtime.evaluate', { expression: "window.__blobs.length ? window.__blobs[window.__blobs.length-1].arrayBuffer().then(b=>[...new Uint8Array(b).slice(0,3)].join()) : ''", awaitPromise: true, returnByValue: true }, s)).result.value;
+    exige(bytes === '239,187,191', `xml-a-excel: el CSV empieza con BOM UTF-8 (${bytes})`);
+    const salidas = eventos.slice(desde).filter(e => e.sessionId === s && e.method === 'Network.requestWillBeSent' && !e.params.request.url.startsWith(`http://127.0.0.1:${PUERTO}/`) && !e.params.request.url.startsWith('data:'));
+    exige(salidas.length === 0 && recibidos.length === 0, `xml-a-excel no envia los XML (${salidas.length} fuera, ${recibidos.length} POST)`);
+    exige(v.csp === '', `xml-a-excel: cero violaciones de la politica (${v.csp})`);
+    await cdp('Target.closeTarget', { targetId });
+  }
+
   console.log('L. IVA del mes: XML en el navegador, el 69-B del propio sitio y nada mas');
   recibidos.length = 0;
   {
@@ -709,7 +738,7 @@ async function main() {
   recibidos.length = 0;
   const articulo = '/blog/' + fs.readdirSync(path.join(RAIZ, 'blog')).filter(d => fs.existsSync(path.join(RAIZ, 'blog', d, 'index.html')))[0] + '/';
   for (const [ruta, pasos] of [
-    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null], ['/herramientas/calendario-dia-17/', null], ['/herramientas/iva-del-mes/', null],
+    ['/', null], ['/blog/', null], [articulo, null], ['/herramientas/', null], ['/herramientas/verificar-factura/', null], ['/herramientas/xml-a-excel/', null], ['/herramientas/lista-69b/', null], ['/herramientas/factura-con-retenciones/', null], ['/herramientas/calendario-dia-17/', null], ['/herramientas/iva-del-mes/', null],
     ['/herramientas/validar-rfc/', async q => { await q.teclea('#rfc', 'EKU9003173C9'); await q.pulsa('#f-rfc button[type=submit]'); await q.pulsa('#res-rfc .op-botones button:nth-child(1)'); }],
     ['/herramientas/valor-uma/', async q => { await q.teclea('#cantidad', '25'); await q.pulsa('#f-uma button[type=submit]'); await q.pulsa('#res-uma .op-botones button:nth-child(1)'); }],
     ['/herramientas/complemento-de-pago/', async q => { await q.pon('#fecha-pago', '2026-03-17'); await q.pulsa('#f-plazo button[type=submit]'); await q.pulsa('#res-plazo .op-botones button:nth-child(1)'); }],

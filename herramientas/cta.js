@@ -34,6 +34,8 @@
       'El programa coteja en el cierre el tipo de cambio de las facturas en dólares de cada cliente contra el FIX del DOF.'],   // [tc-facturas-dolares] solo dolares
     'diagnostico-del-mes': ['Aquí revisaste un mes con tus XML.',
       'El programa hace estas revisiones cada mes para cada cliente, con los CFDI que descarga del SAT.'],   // [descarga-sat, cierre-mensual, efos, pagado-rep]
+    'xml-a-excel': ['Aquí pasaste tus XML a una tabla de Excel.',
+      'El programa descarga del SAT los CFDI de cada cliente y exporta la memoria de cálculo mensual a Excel con detalle por folio fiscal.'],   // [descarga-sat, cierre-mensual]
   };
 
   // Condiciones de la prueba integrada de 1.0.48, MEDIDAS en el programa (license_gate.PRUEBA_DIAS = 30; entra sola al

@@ -29,6 +29,7 @@ PAGINAS = {  # plantilla -> ruta publicada
     "iva-del-mes": "/herramientas/iva-del-mes/",
     "tipo-de-cambio": "/herramientas/tipo-de-cambio/",
     "diagnostico-del-mes": "/herramientas/diagnostico-del-mes/",
+    "xml-a-excel": "/herramientas/xml-a-excel/",
 }
 
 
