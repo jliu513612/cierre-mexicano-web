@@ -88,7 +88,8 @@ test('usos: el resumen cuenta aparte las acciones de la lista cerrada', async ()
   assert.equal(eventoUso(Object.assign({ cuerpo: { herramienta: 'diagnostico-del-mes', accion: 'descarga_rango' } }, b)), null, 'una accion de otra herramienta no vale');
   const r = resumir(ev, { desde: '2026-10-12', hasta: '2026-10-18' });
   assert.deepEqual(r.usos.reales_por_accion, { 'tipo-de-cambio:descarga_rango': 1,
-    'diagnostico-del-mes:diagnostico_ejecutado': 1, 'diagnostico-del-mes:ejemplo_ejecutado': 0 });
+    'diagnostico-del-mes:diagnostico_ejecutado': 1, 'diagnostico-del-mes:ejemplo_ejecutado': 0,
+    'xml-a-excel:descarga_csv': 0 });
   assert.equal(r.usos.reales_por_herramienta['tipo-de-cambio'], 2, 'la descarga tambien es un uso de la herramienta');
 });
 

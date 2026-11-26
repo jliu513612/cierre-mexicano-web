@@ -79,7 +79,7 @@ const SABOTAJES = [
   ['usos: el servidor guarda lo que llega aparte de herramienta y n', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  const e = { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno };", "  const e = Object.assign({}, c, { tipo: 'uso', ts, contexto, herramienta: c.herramienta, n, pais: pais || null, bot: esBot(ua, metodo), interno: !!interno });"],
   ['usos: una herramienta sin su evento', H('factura-con-retenciones/pagina.js'), "    if (window.TCUso) window.TCUso.registrar('factura-con-retenciones');\n", '', 'nav'],
   ['usos: doble conteo (sin dedupe)', H('uso.js'), '    if (antes !== undefined && ahora - antes < VENTANA_MS) return false;\n', '', 'nav'],
-  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'tipo-de-cambio', 'diagnostico-del-mes'];", "'tipo-de-cambio'];"],
+  ['usos: el servidor no conoce una herramienta publicada', path.join(RAIZ, 'netlify', 'lib', 'herramientas.mjs'), "'diagnostico-del-mes', 'xml-a-excel'];", "'diagnostico-del-mes'];"],
   // --- Tipo de cambio
   ['tc: la publicacion que aplica es la del mismo dia (C en vez de C-1)', H('tipo-de-cambio/tc.js'), 'var pub = habilOAnterior(c - 1); exigir(pub, c - 1); return pub;', 'var pub = habilOAnterior(c); exigir(pub, c); return pub;'],
   ['tc: lo determinado es la publicacion misma (un dia habil de menos)', H('tipo-de-cambio/tc.js'), 'var pub = publicacionQueAplica(c), det = habilAnterior(pub);', 'var pub = publicacionQueAplica(c), det = pub;'],
@@ -235,6 +235,9 @@ const SABOTAJES = [
   ['opinion: el voto positivo arrastra el motivo', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', fecha: d.fecha };", "motivo: limpiarMotivo(d.motivo), fecha: d.fecha };"],
   ['opinion: vuelve el correo', H('opinion.js'), "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', fecha: d.fecha };", "motivo: d.voto === 'NO' ? limpiarMotivo(d.motivo) : '', correo: String(d.correo || ''), fecha: d.fecha };"],
   ['opinion: el formulario estatico pierde un campo', path.join(RAIZ, '.herramientas', 'construir.py'), '<input type="hidden" name="motivo">', ''],
+  // --- XML a Excel
+  ['xml-a-excel: un XML que no es CFDI pasa como OK', H('xml-a-excel/xml_excel.js'), "if (el.local !== 'Comprobante') {", "if (false) {"],
+  ['xml-a-excel: el CSV deja de escapar comas y comillas', H('xml-a-excel/xml_excel.js'), 'if (/[",\\r\\n]/.test(s)) return \'"\' + s.replace(/"/g, \'""\') + \'"\';', ''],
 ];
 
 function pruebas(nav) {
