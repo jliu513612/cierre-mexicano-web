@@ -1,0 +1,42 @@
+{
+ "slug": "coeficiente-de-utilidad-pagos-provisionales-2027",
+ "huella": "0f0091b342666c8c9fb0c7a491aab4635c9a741ffba3d25cb1717d193c2ffc54",
+ "fecha": "2026-11-26",
+ "puntajes": [
+  74,
+  68
+ ],
+ "puntaje": 71.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   88,
+   90,
+   85,
+   86,
+   89,
+   92,
+   88,
+   85,
+   86,
+   89,
+   84
+  ],
+  "maquina": [
+   15,
+   15,
+   28,
+   14,
+   16,
+   32
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 3,
+ "leves_pendientes": [
+  "Seccion 1: matizar caso ordinario vs segundo ejercicio en primer pago provisional",
+  "Respuesta/FAQ2: supuesto de ejercicios regulares de doce meses",
+  "Subtitulo Tax Certeza: pronombre implicito 'lo' en 'Como lo lleva Tax Certeza'"
+ ]
+}
