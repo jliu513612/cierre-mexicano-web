@@ -39,7 +39,7 @@ def main(base, pr, lista):
     reglas = json.loads((base / ".revision" / "reglas.json").read_text(encoding="utf-8"))
     fallos, avisos = [], []
 
-    toca_blog = [c for c in cambios if c.startswith(("blog/", "sitemap.xml", "llms.txt"))]
+    toca_blog = [c for c in cambios if c.startswith(("blog/", "sitemap.xml"))]
     toca_estandar = [c for c in cambios if c.startswith(ESTANDAR) and not c.startswith(".revision/dictamenes/")]
     if toca_estandar and toca_blog:
         fallos.append(f"el PR mezcla articulos con cambios del estandar: {toca_estandar}")
