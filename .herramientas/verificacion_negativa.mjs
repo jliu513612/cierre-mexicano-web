@@ -109,7 +109,7 @@ const SABOTAJES = [
   ['embudo: los clics y los usos cuentan como descargas', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  const dentro = todos.filter(e => !e.tipo && e.canal !== CANAL_ACTUALIZACION);', "  const dentro = todos.filter(e => e.tipo !== 'uso' && e.canal !== CANAL_ACTUALIZACION);"],
   ['embudo: los bots entran en los clics reales', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), '  const clicsReales = clics.filter(e => !e.bot && !e.interno);', '  const clicsReales = clics.filter(e => !e.interno);'],
   ['embudo: la descarga deja de guardar su pagina de origen', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "origen: origen || 'sin_origen', pais: pais || null, metodo:", 'pais: pais || null, metodo:'],
-  ['embudo: una herramienta vuelve a enlazar Descargar sin contar', H('valor-uma/index.html'), 'href="/descargar/ir/descargar"', 'href="/#descargar"'],
+  ['embudo: una herramienta vuelve a enlazar Descargar sin contar', H('valor-uma/index.html'), 'class="btn btn-primary nav-cta" href="/descargar/ir/descargar"', 'class="btn btn-primary nav-cta" href="/#descargar"'],
   ['embudo: la plantilla vuelve a enlazar WhatsApp directo', path.join(RAIZ, '.herramientas', 'plantillas', 'base.html'), '<a href="/descargar/ir/whatsapp" rel="nofollow">', '<a href="https://wa.me/528125834137">', 'nav'],
   // --- Actualizacion en un clic del programa (/descargar/actualizacion/<version>, Q-4980000000)
   ['actualizacion: una version fuera de la lista pasa (redireccion abierta)', path.join(RAIZ, 'netlify', 'lib', 'descargas.mjs'), "  if (!lista || !Object.prototype.hasOwnProperty.call(lista, version)) return null;", "  if (!lista) return null;"],
