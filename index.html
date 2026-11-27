@@ -67,6 +67,11 @@
   .hero .tags{color:var(--brand-d);font-weight:700;font-size:15px;margin-bottom:28px}
   .hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .hero small{display:block;color:var(--muted);margin-top:16px;font-size:13.5px}
+  .hero-preview{max-width:820px;margin:28px auto 0;text-align:center}
+  .hero-preview img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 12px 36px rgba(15,23,42,.12)}
+  .hero-preview figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+  .cta-band .movil-tip{font-size:14.5px;margin:16px auto 0;max-width:560px;opacity:.95}
+  .cta-band .movil-tip a{color:#fff;text-decoration:underline;font-weight:700}
   @media(max-width:720px){.hero h1{font-size:34px}.hero p.sub{font-size:17px}}
 
   /* Sections */
@@ -218,7 +223,13 @@
       <a class="btn btn-primary" href="#descargar">Prueba gratis</a>
       <a class="btn btn-ghost" href="/herramientas/diagnostico-del-mes/">Ver un ejemplo con tus XML</a>
     </div>
-    <small>El ejemplo se calcula en tu navegador: tus archivos no salen de tu computadora. La prueba de 30 días en Windows es gratis y sin registro.</small>
+    <small>Prueba 30 días gratis en Windows, sin registro: puedes empezar cargando XML que ya tengas en tu equipo, sin configurar tu e.firma. El ejemplo en el navegador no sube tus archivos.</small>
+    <figure class="hero-preview">
+      <a href="/blog/cierre-fiscal-mensual-sin-dejar-tu-sistema-contable/">
+        <img src="/blog/cierre-fiscal-mensual-sin-dejar-tu-sistema-contable/memoria-demo.png" width="1280" height="960" alt="Pantalla de Memoria de cálculo en Tax Certeza con datos de demostración: IVA causado, IVA acreditable, ISR provisional y botón Exportar Excel">
+      </a>
+      <figcaption>Memoria de cálculo real con datos de demostración: doble clic en cualquier cifra para ver los CFDI que la respaldan y exportar a Excel.</figcaption>
+    </figure>
   </div>
 </header>
 
@@ -308,7 +319,7 @@
 <section id="prueba" aria-labelledby="prueba-titulo">
   <div class="wrap prueba">
     <h2 class="sec-title" id="prueba-titulo">Pruébalo 30 días gratis</h2>
-    <p>Sin registro: lo descargas, lo abres y ya puedes usarlo. Tus datos se quedan en tu equipo. Para seguir usándolo después, se activa con una licencia por equipo.</p>
+    <p>Sin registro: lo descargas, lo abres y puedes empezar cargando XML que ya tengas en tu computadora, sin configurar tu e.firma. Tus datos se quedan en tu equipo. Para seguir usándolo después, se activa con una licencia por equipo.</p>
     <a class="btn btn-primary" href="#descargar">Ir a la descarga</a>
   </div>
 </section>
@@ -360,6 +371,7 @@
       <a class="btn btn-primary" href="/descargar">Descargar para Windows</a>
       <a class="btn" style="background:transparent;color:#fff;border:1.6px solid rgba(255,255,255,.65)" href="https://wa.me/528125834137?text=Hola,%20quiero%20activar%20Tax%20Certeza.%20Mi%20c%C3%B3digo%20de%20m%C3%A1quina%20es:%20" target="_blank" rel="noopener">Pedir licencia por WhatsApp</a>
     </div>
+    <p class="movil-tip">¿Estás en el celular? <a href="/descargar/ir/whatsapp" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te enviamos el enlace para abrirlo en tu PC con Windows.</p>
     <p class="dl-meta">TaxCerteza_1.0.50.zip · versión 1.0.50 · 181,260,952 bytes · publicada el 20 de noviembre de 2026 · <a href="/novedades/">ver novedades</a></p>
   </div>
 
@@ -387,7 +399,7 @@
           <figcaption>Ilustración</figcaption>
         </figure>
         <div class="ins-h"><div class="n">1</div><h3>Descomprime el .zip</h3></div>
-        <p>Clic derecho sobre <b>TaxCerteza_1.0.50.zip</b> y elige <b>«Extraer todo…»</b>. Hazlo en una carpeta que no vayas a borrar y no abras el programa desde dentro del .zip.</p>
+        <p>Antes de descomprimir, haz clic derecho sobre <b>TaxCerteza_1.0.50.zip</b> → <b>Propiedades</b> → marca <b>«Desbloquear»</b> (si aparece) para evitar avisos de Windows. Luego elige <b>«Extraer todo…»</b> en una carpeta que no vayas a borrar y no lo abras desde dentro del .zip.</p>
       </div>
 
       <div class="step ins">
