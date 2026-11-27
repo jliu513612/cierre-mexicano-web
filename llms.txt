@@ -4,6 +4,7 @@
 
 ## Recursos fiscales
 
+- [¿Qué requisitos pide el pedimento de importación para acreditar el IVA y cómo va en la DIOT?](https://taxcerteza.mx/blog/iva-de-importacion-pedimento/): Para acreditar el IVA de una importación, el pedimento debe estar a tu nombre y en él debe constar el pago del IVA (Ley del IVA, artículo 5o.). Qué pide la DIOT.
 - [Coeficiente de utilidad en los pagos provisionales: qué ejercicio se toma](https://taxcerteza.mx/blog/coeficiente-de-utilidad-pagos-provisionales-2027/): Qué coeficiente de utilidad aplica en los pagos provisionales de ISR de personas morales del régimen general según el artículo 14 de la Ley del ISR.
 - [Días inhábiles de fin de año en el SAT: 25 de diciembre, 1o. de enero y el 17 de enero](https://taxcerteza.mx/blog/plazos-fiscales-fin-de-ano-dias-inhabiles/): Cómo aplican los días inhábiles del artículo 12 del CFF en diciembre y enero: 25 de diciembre, 1o. de enero, vacaciones del SAT y el día 17 en domingo.
 - [Retención ISR y retención IVA al facturar a una persona moral: honorarios, rentas, RESICO y fletes](https://taxcerteza.mx/blog/cuanto-me-retienen-si-facturo-a-persona-moral/): Honorarios y rentas: 10 % de ISR y dos terceras partes del IVA. RESICO: 1.25 % de ISR. Fletes: 4 % del valor de la contraprestación. Cuándo se retiene.
@@ -35,5 +36,5 @@
 
 - [Inicio](https://taxcerteza.mx/): qué hace el programa y cómo descargarlo
 - [Recursos fiscales](https://taxcerteza.mx/blog/): índice de guías
-- [Herramientas](https://taxcerteza.mx/herramientas/): Calculadora SAT y herramientas gratis y sin registro, y lo que escribes no sale de tu equipo: validador de RFC, valor de la UMA, fecha límite del complemento de pago, verificación de facturas, consulta de la lista 69-B, factura con retenciones, calendario del día 17, IVA del mes, tipo de cambio fiscal y diagnóstico del mes.
+- [Herramientas](https://taxcerteza.mx/herramientas/): Calculadora SAT y herramientas gratis y sin registro, y lo que escribes no sale de tu equipo: validador de RFC, valor de la UMA, fecha límite del complemento de pago, verificación de facturas, consulta de la lista 69-B, factura con retenciones, calendario del día 17, IVA del mes, tipo de cambio fiscal, diagnóstico del mes y conversor de XML a Excel.
 - [Centro de ayuda](https://taxcerteza.mx/ayuda/): Guías del programa para contadores y despachos: qué pantalla usar para cada tarea
