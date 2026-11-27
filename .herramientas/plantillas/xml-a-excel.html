@@ -7,7 +7,7 @@ conversor de XML a Excel
 @@MIGA
 Convertir XML a Excel
 @@DESCRIPCION
-Para convertir XML a Excel sin subir tus facturas, arrastra uno o varios CFDI del SAT: la página lee UUID, RFC, fecha, subtotal, IVA, retenciones y total en tu navegador y descarga un archivo CSV listo para abrir en Excel.
+Para convertir XML a Excel sin subir tus facturas, arrastra hasta 500 CFDI del SAT en tu navegador y descarga un CSV listo con UUID, RFC e IVA.
 @@SCRIPTS
 <script src="/herramientas/selector-archivos.js" defer></script>
 <script src="/herramientas/verificar-factura/cfdi.js" defer></script>
@@ -83,6 +83,14 @@ R: No. Solo extrae los datos tal como vienen en cada XML. Para armar los enlaces
     <li>Revisa el resumen de comprobantes leídos y la vista previa de la tabla.</li>
     <li>Pulsa «Descargar archivo para Excel (.csv)» y ábrelo directamente en Excel.</li>
   </ol>
+
+  <h2>Qué revisar en Excel antes del cierre del mes</h2>
+  <p>Pasar los XML del periodo a una tabla suele ser el primer paso del papel de trabajo. Con el archivo ya abierto en Excel, conviene revisar tres puntos antes de calcular el mes:</p>
+  <ul>
+    <li><strong>Método PUE frente a PPD y complementos de pago:</strong> filtra la columna de método de pago para separar lo que se facturó como PPD y comprobar si ya existe el <a href="/blog/complemento-de-pago-cuando-es-obligatorio/">complemento de pago (REP)</a> del mes.</li>
+    <li><strong>Proveedores en la lista 69-B:</strong> cruza la columna de RFC emisor contra el listado público del SAT antes de tomar el IVA acreditable o la deducción; puedes hacerlo directo en <a href="/herramientas/lista-69b/">consulta de la lista 69-B</a> o leer la <a href="/blog/lista-negra-sat-efos-69b/">guía sobre EFOS</a>.</li>
+    <li><strong>Vigencia y conciliación de pagos:</strong> el archivo XML en tu carpeta no cambia si el emisor canceló el comprobante después, y la tabla sola no sustituye el cruce contra tus estados de cuenta.</li>
+  </ul>
 
   <h2>Límites</h2>
   <p>La página toma los atributos tal como están escritos en cada XML y no verifica la autenticidad del sello digital ni el estatus ante el SAT. Los importes se muestran sin recalcular ni convertir a pesos cuando la factura viene en otra moneda. Esta página no sustituye el criterio profesional del contador.</p>
