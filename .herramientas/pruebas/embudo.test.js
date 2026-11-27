@@ -132,7 +132,7 @@ test('embudo: las herramientas enlazan sus pasos del embudo por la ruta que cuen
 test('embudo: la portada lleva el WhatsApp por la ruta que cuenta y ya no ofrece demo guiada', () => {
   const h = fs.readFileSync(path.join(RAIZ, 'index.html'), 'utf8');
   assert.equal((h.match(/href="\/descargar\/ir\/demo"/g) || []).length, 0, 'la portada ya no ofrece demostracion guiada');
-  assert.equal((h.match(/href="\/descargar\/ir\/whatsapp"/g) || []).length, 2, 'el WhatsApp de la nota de instalacion y del pie');
+  assert.equal((h.match(/href="\/descargar\/ir\/whatsapp"/g) || []).length, 3, 'el WhatsApp de la banda de descarga movil, la nota de instalacion y el pie');
   assert.ok(!/href="https:\/\/wa\.me\/528125834137"/.test(h), 'ningun WhatsApp directo sin contar');
   assert.ok(!/href="https:\/\/wa\.me\/[^"]*demo/.test(h), 'ninguna demo directa sin contar');
   // se quedan directos, a proposito: el soporte de activacion (no es paso del embudo) y los anclajes internos de la
