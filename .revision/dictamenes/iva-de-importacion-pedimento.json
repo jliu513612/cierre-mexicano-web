@@ -1,0 +1,37 @@
+{
+ "slug": "iva-de-importacion-pedimento",
+ "huella": "d4f19c2358f9cdb4a09ed9fa9c38170048897e648c34b68d89e01f42cdf52eca",
+ "fecha": "2026-11-27",
+ "puntajes": [
+  70,
+  66
+ ],
+ "puntaje": 68.0,
+ "a_ciegas_con_anclas": true,
+ "anclas": {
+  "humanos": [
+   94,
+   92,
+   91,
+   90,
+   93,
+   92
+  ],
+  "maquina": [
+   8,
+   15,
+   12,
+   20
+  ]
+ },
+ "graves": 0,
+ "medios": 0,
+ "leves": 5,
+ "leves_pendientes": [
+  "«El derecho a acreditar es personal: no se transmite a otra persona, salvo en una fusión» omite el matiz «por acto entre vivos» de liva-4",
+  "«El IVA de importación pasa a la DIOT» sin la salvedad del no_hace de diot (no informa IVA de importación al 8%); también en la FAQ 4",
+  "Herramienta gratuita IVA del mes no consta en funciones.json (enlace de herramienta del tema)",
+  "El título pregunta «cómo va en la DIOT» y el artículo solo cita la obligación general del 32-VIII",
+  "Vigencia de liva-4 en el fundamento arrastra una nota interna; espacios sobrantes en vigencias de 24, 26 y 27 (datos de hechos.json, no del artículo)"
+ ]
+}
